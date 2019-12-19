@@ -11,8 +11,11 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>ebase-boot-core</artifactId>
-    <packaging>jar</packaging>
+    <packaging>pom</packaging>
     <name>${project.artifactId}</name>
+    <modules>
+        <module>ebase-boot-core-tool</module>
+    </modules>
 
     <dependencies>
 <!--        <dependency>-->

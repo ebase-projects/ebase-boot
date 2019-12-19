@@ -49,9 +49,12 @@
         <easypoi.version>4.1.0</easypoi.version>
 
         <!--swagger2-->
-        <swagger.version>2.9.2</swagger.version>
         <springfox-swagger2.version>2.9.2</springfox-swagger2.version>
         <swagger.ui.version>1.8.7</swagger.ui.version>
+        <swagger.mg.ui.version>1.0.6</swagger.mg.ui.version>
+        <swagger.butler.version>1.2.0</swagger.butler.version>
+        <swagger-annotations.version>2.0.8</swagger-annotations.version>
+
 
         <!--others-->
         <fastdfs.version>1.26.5</fastdfs.version>
@@ -96,11 +99,11 @@
         <dependencies>
 
             <!-- Ebase Boot -->
-            <!--            <dependency>-->
-            <!--                <groupId>me.dwliu.ebase</groupId>-->
-            <!--                <artifactId>ebase-boot-common</artifactId>-->
-            <!--                <version>${revision}</version>-->
-            <!--            </dependency>-->
+            <dependency>
+                <groupId>me.dwliu.ebase</groupId>
+                <artifactId>ebase-boot-core-tool</artifactId>
+                <version>${revision}</version>
+            </dependency>
 
             <!--            <dependency>-->
             <!--                <groupId>me.dwliu.ebase</groupId>-->
@@ -167,6 +170,40 @@
                 <artifactId>druid-spring-boot-starter</artifactId>
                 <version>${druid.version}</version>
             </dependency>
+
+
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>fastjson</artifactId>
+                <version>${fastjson.version}</version>
+            </dependency>
+
+
+            <!-- 二维码 -->
+            <dependency>
+                <groupId>com.google.zxing</groupId>
+                <artifactId>core</artifactId>
+                <version>3.3.3</version>
+            </dependency>
+            <dependency>
+                <groupId>net.glxn</groupId>
+                <artifactId>qrgen</artifactId>
+                <version>1.4</version>
+            </dependency>
+            <!-- 压缩 -->
+            <dependency>
+                <groupId>net.lingala.zip4j</groupId>
+                <artifactId>zip4j</artifactId>
+                <version>${zip4j.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.google.guava</groupId>
+                <artifactId>guava</artifactId>
+                <version>${guava.version}</version>
+            </dependency>
+
+
             <!-- mybatis-plus start ↓ -->
             <dependency>
                 <groupId>com.baomidou</groupId>
@@ -197,6 +234,69 @@
                 <version>${easypoi.version}</version>
             </dependency>
             <!-- easypoi start ↑ -->
+
+            <dependency>
+                <groupId>cn.hutool</groupId>
+                <artifactId>hutool-all</artifactId>
+                <version>${hutool.version}</version>
+            </dependency>
+            <!-- swagger2 start-->
+            <dependency>
+                <groupId>io.springfox</groupId>
+                <artifactId>springfox-swagger2</artifactId>
+                <version>${springfox-swagger2.version}</version>
+                <exclusions>
+                    <exclusion>
+                        <groupId>io.swagger</groupId>
+                        <artifactId>swagger-annotations</artifactId>
+                    </exclusion>
+                    <exclusion>
+                        <groupId>io.swagger</groupId>
+                        <artifactId>swagger-models</artifactId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+            <dependency>
+                <groupId>io.springfox</groupId>
+                <artifactId>springfox-bean-validators</artifactId>
+                <version>${springfox-swagger2.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.springfox</groupId>
+                <artifactId>springfox-swagger-ui</artifactId>
+                <version>${springfox-swagger2.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.swagger.core.v3</groupId>
+                <artifactId>swagger-annotations</artifactId>
+                <version>${swagger-annotations.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.swagger</groupId>
+                <artifactId>swagger-annotations</artifactId>
+                <version>1.5.22</version>
+            </dependency>
+            <dependency>
+                <groupId>io.swagger</groupId>
+                <artifactId>swagger-models</artifactId>
+                <version>1.5.22</version>
+            </dependency>
+            <dependency>
+                <groupId>com.github.xiaoymin</groupId>
+                <artifactId>swagger-bootstrap-ui</artifactId>
+                <version>${swagger.ui.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.zyplayer</groupId>
+                <artifactId>swagger-mg-ui</artifactId>
+                <version>${swagger.mg.ui.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.didispace</groupId>
+                <artifactId>swagger-butler-core</artifactId>
+                <version>${swagger.butler.version}</version>
+            </dependency>
+            <!-- swagger2 end-->
 
 
         </dependencies>
