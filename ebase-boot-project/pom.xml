@@ -19,6 +19,7 @@
         <module>ebase-boot-common</module>
         <module>ebase-boot-starters</module>
         <module>ebase-boot-plugins</module>
+        <module>ebase-boot-core</module>
     </modules>
 
 
