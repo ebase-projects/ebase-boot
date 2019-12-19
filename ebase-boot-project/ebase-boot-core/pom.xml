@@ -6,16 +6,23 @@
         <artifactId>ebase-boot-parent</artifactId>
         <groupId>me.dwliu.ebase</groupId>
         <version>${revision}</version>
-        <relativePath>../ebase-boot-parent/pom.xml</relativePath>
+        <relativePath>../ebase-boot-parent</relativePath>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>ebase-boot-core</artifactId>
     <packaging>pom</packaging>
     <name>${project.artifactId}</name>
+
+
+    <properties>
+        <main.basedir>${basedir}/../..</main.basedir>
+    </properties>
+    
     <modules>
         <module>ebase-boot-core-tool</module>
         <module>ebase-boot-core-base</module>
+        <module>ebase-boot-core-security</module>
     </modules>
 
 

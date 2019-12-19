@@ -111,6 +111,12 @@
                 <version>${revision}</version>
             </dependency>
 
+            <dependency>
+                <groupId>me.dwliu.ebase</groupId>
+                <artifactId>ebase-boot-core-security</artifactId>
+                <version>${revision}</version>
+            </dependency>
+
             <!--            <dependency>-->
             <!--                <groupId>me.dwliu.ebase</groupId>-->
             <!--                <artifactId>ebase-boot-core</artifactId>-->
@@ -304,6 +310,12 @@
                 <version>${swagger.butler.version}</version>
             </dependency>
             <!-- swagger2 end-->
+
+            <dependency>
+                <groupId>org.springframework.security.oauth.boot</groupId>
+                <artifactId>spring-security-oauth2-autoconfigure</artifactId>
+                <version>${spring.security.oauth2.autoconfigure.version}</version>
+            </dependency>
 
 
         </dependencies>

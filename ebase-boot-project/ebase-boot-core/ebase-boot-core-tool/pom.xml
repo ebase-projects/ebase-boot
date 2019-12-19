@@ -17,6 +17,9 @@
         ebase-boot 工具集
     </description>
 
+    <properties>
+        <main.basedir>${basedir}/../../..</main.basedir>
+    </properties>
 
     <dependencies>
         <dependency>
