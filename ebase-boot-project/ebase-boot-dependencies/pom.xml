@@ -108,6 +108,12 @@
     <dependencyManagement>
         <dependencies>
 
+            <dependency>
+                <groupId>me.dwliu.ebase</groupId>
+                <artifactId>ebase-boot-common</artifactId>
+                <version>${revision}</version>
+            </dependency>
+
             <!-- Ebase Boot Core-->
             <dependency>
                 <groupId>me.dwliu.ebase</groupId>

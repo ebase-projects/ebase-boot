@@ -1,0 +1,3 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+  me.dwliu.lab.common.util.SpringContextUtil,\
+  me.dwliu.lab.common.handler.GlobalExceptionHandler
