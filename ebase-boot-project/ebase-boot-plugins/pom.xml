@@ -13,6 +13,10 @@
     <artifactId>ebase-boot-plugins</artifactId>
     <packaging>pom</packaging>
     <name>${project.artifactId}</name>
+    <modules>
+        <module>ebase-boot-plugin</module>
+        <module>ebase-boot-plugin-oss</module>
+    </modules>
 
 
 </project>

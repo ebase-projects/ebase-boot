@@ -37,6 +37,11 @@
         <aliyun-java-sdk-dm.version>3.3.1</aliyun-java-sdk-dm.version>
         <fastjson.version>1.2.60</fastjson.version>
 
+        <!--apache-->
+
+        <commons.fileupload.version>1.3.1</commons.fileupload.version>
+        <commons.io.version>2.5</commons.io.version>
+
         <!--DB-->
         <mybatis-plus-boot-starter.version>3.2.0</mybatis-plus-boot-starter.version>
         <druid.version>1.1.21</druid.version>
@@ -55,6 +60,10 @@
         <swagger.butler.version>1.2.0</swagger.butler.version>
         <swagger-annotations.version>2.0.8</swagger-annotations.version>
 
+        <!--oss-->
+        <fastjson.version>1.2.60</fastjson.version>
+        <minio.version>6.0.11</minio.version>
+        <qiniu-sdk.version>7.2.23</qiniu-sdk.version>
 
         <!--others-->
         <fastdfs.version>1.26.5</fastdfs.version>
@@ -63,6 +72,7 @@
         <jpush-client.version>3.3.11</jpush-client.version>
         <zip4j.version>1.3.2</zip4j.version>
         <jackson-databind.version>2.10.1</jackson-databind.version>
+
 
         <!--Plugin Versions-->
         <!-- Plugin versions -->
@@ -98,7 +108,7 @@
     <dependencyManagement>
         <dependencies>
 
-            <!-- Ebase Boot -->
+            <!-- Ebase Boot Core-->
             <dependency>
                 <groupId>me.dwliu.ebase</groupId>
                 <artifactId>ebase-boot-core-tool</artifactId>
@@ -113,21 +123,59 @@
 
             <dependency>
                 <groupId>me.dwliu.ebase</groupId>
+                <artifactId>ebase-boot-core-log</artifactId>
+                <version>${revision}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>me.dwliu.ebase</groupId>
+                <artifactId>ebase-boot-core-oss</artifactId>
+                <version>${revision}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>me.dwliu.ebase</groupId>
+                <artifactId>ebase-boot-core-redis</artifactId>
+                <version>${revision}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>me.dwliu.ebase</groupId>
                 <artifactId>ebase-boot-core-security</artifactId>
                 <version>${revision}</version>
             </dependency>
 
-            <!--            <dependency>-->
-            <!--                <groupId>me.dwliu.ebase</groupId>-->
-            <!--                <artifactId>ebase-boot-core</artifactId>-->
-            <!--                <version>${revision}</version>-->
-            <!--            </dependency>-->
+            <dependency>
+                <groupId>me.dwliu.ebase</groupId>
+                <artifactId>ebase-boot-core-swagger</artifactId>
+                <version>${revision}</version>
+            </dependency>
 
-            <!--            <dependency>-->
-            <!--                <groupId>me.dwliu.ebase</groupId>-->
-            <!--                <artifactId>ebase-boot-core</artifactId>-->
-            <!--                <version>${revision}</version>-->
-            <!--            </dependency>-->
+            <!-- Ebase Boot Plugin-->
+            <dependency>
+                <groupId>me.dwliu.ebase</groupId>
+                <artifactId>ebase-boot-plugin</artifactId>
+                <version>${revision}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>me.dwliu.ebase</groupId>
+                <artifactId>ebase-boot-plugin-oss</artifactId>
+                <version>${revision}</version>
+            </dependency>
+
+            <!-- Ebase Boot Starter-->
+            <dependency>
+                <groupId>me.dwliu.ebase</groupId>
+                <artifactId>ebase-boot-starter</artifactId>
+                <version>${revision}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>me.dwliu.ebase</groupId>
+                <artifactId>ebase-boot-starter-oss</artifactId>
+                <version>${revision}</version>
+            </dependency>
 
             <!-- Third Party -->
 
@@ -157,6 +205,18 @@
                 <version>${spring.cloud.alibaba.version}</version>
                 <type>pom</type>
                 <scope>import</scope>
+            </dependency>
+
+
+            <dependency>
+                <groupId>commons-fileupload</groupId>
+                <artifactId>commons-fileupload</artifactId>
+                <version>${commons.fileupload.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>commons-io</groupId>
+                <artifactId>commons-io</artifactId>
+                <version>${commons.io.version}</version>
             </dependency>
 
             <!-- mysql驱动 -->
@@ -315,6 +375,28 @@
                 <groupId>org.springframework.security.oauth.boot</groupId>
                 <artifactId>spring-security-oauth2-autoconfigure</artifactId>
                 <version>${spring.security.oauth2.autoconfigure.version}</version>
+            </dependency>
+
+
+            <!--fastDFS 依赖-->
+            <dependency>
+                <groupId>com.github.tobato</groupId>
+                <artifactId>fastdfs-client</artifactId>
+                <version>${fastdfs.version}</version>
+            </dependency>
+
+            <!--七牛云依赖-->
+            <dependency>
+                <groupId>com.qiniu</groupId>
+                <artifactId>qiniu-java-sdk</artifactId>
+                <version>${qiniu-sdk.version}</version>
+            </dependency>
+
+
+            <dependency>
+                <groupId>io.minio</groupId>
+                <artifactId>minio</artifactId>
+                <version>${minio.version}</version>
             </dependency>
 
 

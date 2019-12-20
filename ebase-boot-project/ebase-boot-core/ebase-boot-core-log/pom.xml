@@ -9,61 +9,67 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>ebase-boot-core-base</artifactId>
+    <artifactId>ebase-boot-core-log</artifactId>
     <name>${project.artifactId}</name>
+    <packaging>jar</packaging>
     <description>
-        ebase-boot 公共实体 以及 Mybatis Plus 封装
+        ebase-boot 日志
     </description>
-
 
     <properties>
         <main.basedir>${basedir}/../../..</main.basedir>
     </properties>
 
-    <dependencies>
 
+    <dependencies>
         <dependency>
             <groupId>me.dwliu.ebase</groupId>
             <artifactId>ebase-boot-core-tool</artifactId>
         </dependency>
         <dependency>
+            <groupId>me.dwliu.ebase</groupId>
+            <artifactId>ebase-boot-core-security</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>me.dwliu.ebase</groupId>
+            <artifactId>ebase-boot-core-base</artifactId>
+        </dependency>
+        <dependency>
             <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter</artifactId>
-            <scope>provided</scope>
+            <artifactId>spring-boot-starter-aop</artifactId>
         </dependency>
 
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
-            <optional>true</optional>
         </dependency>
 
+
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-openfeign</artifactId>
+        </dependency>
+
+        <!--Mybatis-->
         <dependency>
             <groupId>com.baomidou</groupId>
             <artifactId>mybatis-plus-boot-starter</artifactId>
-            <!--<scope>provided</scope>-->
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-annotations</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>fastjson</artifactId>
         </dependency>
 
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
-            <scope>provided</scope>
-        </dependency>
-        <dependency>
-            <groupId>io.swagger.core.v3</groupId>
-            <artifactId>swagger-annotations</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>javax.validation</groupId>
-            <artifactId>validation-api</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>com.fasterxml.jackson.core</groupId>
-            <artifactId>jackson-databind</artifactId>
         </dependency>
 
     </dependencies>
-
 
 </project>

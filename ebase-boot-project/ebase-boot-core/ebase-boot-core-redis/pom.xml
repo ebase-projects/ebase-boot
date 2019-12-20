@@ -3,20 +3,20 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
-        <artifactId>ebase-boot-parent</artifactId>
+        <artifactId>ebase-boot-core</artifactId>
         <groupId>me.dwliu.ebase</groupId>
         <version>${revision}</version>
-        <relativePath>../ebase-boot-parent</relativePath>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>ebase-boot-starters</artifactId>
-    <packaging>pom</packaging>
+    <artifactId>ebase-boot-core-redis</artifactId>
     <name>${project.artifactId}</name>
-    <modules>
-        <module>ebase-boot-starter</module>
-        <module>ebase-boot-starter-oss</module>
-    </modules>
+    <description>
+        ebase-boot redis
+    </description>
+    <properties>
+        <main.basedir>${basedir}/../../..</main.basedir>
+    </properties>
 
 
 </project>

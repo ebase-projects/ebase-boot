@@ -18,11 +18,15 @@
     <properties>
         <main.basedir>${basedir}/../..</main.basedir>
     </properties>
-    
+
     <modules>
         <module>ebase-boot-core-tool</module>
         <module>ebase-boot-core-base</module>
         <module>ebase-boot-core-security</module>
+        <module>ebase-boot-core-oss</module>
+        <module>ebase-boot-core-log</module>
+        <module>ebase-boot-core-swagger</module>
+        <module>ebase-boot-core-redis</module>
     </modules>
 
 
