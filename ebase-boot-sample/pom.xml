@@ -12,4 +12,12 @@
     <artifactId>ebase-boot-sample</artifactId>
     <packaging>pom</packaging>
 
+    <properties>
+        <spring.boot.version>2.1.11.RELEASE</spring.boot.version>
+    </properties>
+
+    <modules>
+        <module>ebase-boot-sample-oss</module>
+    </modules>
+
 </project>

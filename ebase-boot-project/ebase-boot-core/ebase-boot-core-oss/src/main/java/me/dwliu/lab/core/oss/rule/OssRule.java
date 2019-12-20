@@ -1,6 +1,6 @@
 package me.dwliu.lab.core.oss.rule;
 
-import me.dwliu.lab.core.oss.OssFileNameFormatEnum;
+import me.dwliu.lab.core.oss.enums.OssFileNameFormatEnum;
 
 /**
  * Oss通用规则
@@ -10,22 +10,22 @@ import me.dwliu.lab.core.oss.OssFileNameFormatEnum;
  **/
 public interface OssRule {
 
-    /**
-     * 获取存储桶规则
-     *
-     * @param bucketName 存储桶名称
-     * @return
-     */
-    String bucketName(String bucketName);
+	/**
+	 * 获取存储桶规则
+	 *
+	 * @param bucketName 存储桶名称
+	 * @return
+	 */
+	String bucketName(String bucketName);
 
-    /**
-     * 获取文件名规则
-     *
-     * @param originalName 原始文件名称
-     * @param format       文件前缀格式
-     * @return
-     */
-    String fileName(String originalName, OssFileNameFormatEnum format);
+	/**
+	 * 获取文件名规则
+	 *
+	 * @param originalName 原始文件名称
+	 * @param format       文件前缀格式
+	 * @return
+	 */
+	String fileName(String originalName, String prefix, OssFileNameFormatEnum format);
 
 
 }

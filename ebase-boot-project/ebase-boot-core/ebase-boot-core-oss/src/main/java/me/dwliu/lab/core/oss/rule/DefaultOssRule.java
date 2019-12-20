@@ -1,8 +1,7 @@
 package me.dwliu.lab.core.oss.rule;
 
 import lombok.AllArgsConstructor;
-import me.dwliu.lab.core.oss.OssConfigProperties;
-import me.dwliu.lab.core.oss.OssFileNameFormatEnum;
+import me.dwliu.lab.core.oss.enums.OssFileNameFormatEnum;
 import org.apache.commons.lang3.StringUtils;
 
 import java.util.UUID;
@@ -16,30 +15,30 @@ import java.util.UUID;
 @AllArgsConstructor
 public class DefaultOssRule implements OssRule {
 
-    private OssConfigProperties properties;
+	private String prefix;
 
 
-    @Override
-    public String bucketName(String bucketName) {
-        return bucketName;
-    }
+	@Override
+	public String bucketName(String bucketName) {
+		return bucketName;
+	}
 
-    @Override
-    public String fileName(String originalFileName, OssFileNameFormatEnum format) {
+	@Override
+	public String fileName(String originalFileName, String prefix, OssFileNameFormatEnum format) {
 
-        StringBuilder builder = new StringBuilder();
-        builder.append(StringUtils.isBlank(properties.getPrefix()) ? "" : properties.getPrefix());
-        if (format == OssFileNameFormatEnum.NONE) {
-            builder.append(originalFileName);
-        } else if (format == OssFileNameFormatEnum.UUID) {
-            builder.append(UUID.randomUUID().toString().replace("-", ""));
-            builder.append("-");
-            builder.append(originalFileName);
-        } else {
-            builder.append(originalFileName);
-        }
+		StringBuilder builder = new StringBuilder();
+		builder.append(StringUtils.isBlank(prefix) ? "" : prefix);
+		if (format == OssFileNameFormatEnum.NONE) {
+			builder.append(originalFileName);
+		} else if (format == OssFileNameFormatEnum.UUID) {
+			builder.append(UUID.randomUUID().toString().replace("-", ""));
+			builder.append("-");
+			builder.append(originalFileName);
+		} else {
+			builder.append(originalFileName);
+		}
 
-        return builder.toString();
+		return builder.toString();
 
-    }
+	}
 }
