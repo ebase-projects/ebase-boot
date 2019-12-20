@@ -23,6 +23,11 @@
 
     <dependencies>
         <dependency>
+            <groupId>me.dwliu.ebase</groupId>
+            <artifactId>ebase-boot-common</artifactId>
+        </dependency>
+
+        <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter</artifactId>
             <scope>provided</scope>

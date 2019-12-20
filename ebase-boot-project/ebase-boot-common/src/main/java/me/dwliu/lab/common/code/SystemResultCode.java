@@ -1,4 +1,4 @@
-package me.dwliu.lab.common.result;
+package me.dwliu.lab.common.code;
 
 import io.swagger.annotations.ApiModel;
 import lombok.AllArgsConstructor;

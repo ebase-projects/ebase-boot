@@ -1,7 +1,7 @@
 package me.dwliu.lab.common.validator;
 
 import me.dwliu.lab.common.exception.BusinessException;
-import me.dwliu.lab.common.result.Result;
+import me.dwliu.lab.common.model.Result;
 
 /**
  * 自定义的参数校验不通过异常

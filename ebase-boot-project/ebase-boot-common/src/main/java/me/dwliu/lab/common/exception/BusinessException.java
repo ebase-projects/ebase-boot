@@ -1,8 +1,8 @@
 package me.dwliu.lab.common.exception;
 
 import lombok.Getter;
-import me.dwliu.lab.common.result.IResultCode;
-import me.dwliu.lab.common.result.Result;
+import me.dwliu.lab.common.code.IResultCode;
+import me.dwliu.lab.common.model.Result;
 
 /**
  * 自定义业务异常

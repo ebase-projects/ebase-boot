@@ -3,8 +3,8 @@ package me.dwliu.lab.common.validator;
 
 import lombok.extern.slf4j.Slf4j;
 import me.dwliu.lab.common.exception.BusinessException;
-import me.dwliu.lab.common.result.Result;
-import me.dwliu.lab.common.result.SystemResultCode;
+import me.dwliu.lab.common.model.Result;
+import me.dwliu.lab.common.code.SystemResultCode;
 
 import javax.validation.ConstraintViolation;
 import javax.validation.Validation;

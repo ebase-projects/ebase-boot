@@ -1,7 +1,7 @@
 package me.dwliu.lab.common.validator.annotation;
 
 import me.dwliu.lab.common.exception.BusinessException;
-import me.dwliu.lab.common.result.SystemResultCode;
+import me.dwliu.lab.common.code.SystemResultCode;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;

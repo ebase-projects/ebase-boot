@@ -1,4 +1,4 @@
-package me.dwliu.lab.common.result;
+package me.dwliu.lab.common.model;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -8,6 +8,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
+import me.dwliu.lab.common.code.IResultCode;
+import me.dwliu.lab.common.code.SystemResultCode;
 import org.springframework.lang.Nullable;
 
 import java.io.Serializable;

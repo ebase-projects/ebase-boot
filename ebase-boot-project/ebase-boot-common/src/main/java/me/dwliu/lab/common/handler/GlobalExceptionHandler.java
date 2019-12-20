@@ -2,8 +2,8 @@ package me.dwliu.lab.common.handler;
 
 import lombok.extern.slf4j.Slf4j;
 import me.dwliu.lab.common.exception.BusinessException;
-import me.dwliu.lab.common.result.Result;
-import me.dwliu.lab.common.result.SystemResultCode;
+import me.dwliu.lab.common.model.Result;
+import me.dwliu.lab.common.code.SystemResultCode;
 import me.dwliu.lab.common.validator.CustomMethodArgumentNotValidException;
 import me.dwliu.lab.common.validator.ParameterInvalidItem;
 import org.springframework.http.HttpStatus;
