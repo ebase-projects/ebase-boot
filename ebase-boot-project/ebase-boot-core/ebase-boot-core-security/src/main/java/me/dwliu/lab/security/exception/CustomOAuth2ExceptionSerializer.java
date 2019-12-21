@@ -3,7 +3,7 @@ package me.dwliu.lab.security.exception;
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.databind.SerializerProvider;
 import com.fasterxml.jackson.databind.ser.std.StdSerializer;
-import me.dwliu.lab.core.tool.result.SystemResultCode;
+import me.dwliu.lab.common.code.SystemResultCode;
 
 import java.io.IOException;
 import java.util.Date;

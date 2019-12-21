@@ -2,9 +2,9 @@ package me.dwliu.lab.core.log.event;
 
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import me.dwliu.lab.core.log.api.feign.RemoteSysLogOperationService;
+import me.dwliu.lab.common.model.Result;
 import me.dwliu.lab.core.log.api.dto.SysLogOperationDTO;
-import me.dwliu.lab.core.tool.result.Result;
+import me.dwliu.lab.core.log.api.feign.RemoteSysLogOperationService;
 import me.dwliu.lab.security.constant.SecurityCoreConstant;
 import org.springframework.context.event.EventListener;
 import org.springframework.scheduling.annotation.Async;

@@ -2,8 +2,8 @@ package me.dwliu.lab.core.base.dto;
 
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
-import me.dwliu.lab.core.tool.validator.group.CreateGroup;
-import me.dwliu.lab.core.tool.validator.group.UpdateGroup;
+import me.dwliu.lab.common.validator.group.CreateGroup;
+import me.dwliu.lab.common.validator.group.UpdateGroup;
 
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Null;

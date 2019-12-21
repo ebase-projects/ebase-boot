@@ -18,6 +18,7 @@
 
     <modules>
         <module>ebase-boot-sample-oss</module>
+        <module>ebase-boot-sample-base</module>
     </modules>
 
 </project>

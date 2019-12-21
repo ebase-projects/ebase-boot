@@ -1,8 +1,8 @@
 package me.dwliu.lab.core.log.api.feign;
 
+import me.dwliu.lab.common.model.Result;
 import me.dwliu.lab.core.log.api.constant.LogConstant;
 import me.dwliu.lab.core.log.api.dto.SysLogOperationDTO;
-import me.dwliu.lab.core.tool.result.Result;
 import me.dwliu.lab.security.constant.SecurityCoreConstant;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -21,6 +21,6 @@ public interface RemoteSysLogOperationService {
 
 
     @PostMapping(LogConstant.API_PREFIX)
-    Result<Boolean> save(@RequestBody SysLogOperationDTO entity,
-                         @RequestHeader(SecurityCoreConstant.FROM) String from);
+	Result<Boolean> save(@RequestBody SysLogOperationDTO entity,
+						 @RequestHeader(SecurityCoreConstant.FROM) String from);
 }

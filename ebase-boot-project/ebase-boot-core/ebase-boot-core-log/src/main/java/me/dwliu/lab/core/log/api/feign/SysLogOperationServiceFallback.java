@@ -1,8 +1,8 @@
 package me.dwliu.lab.core.log.api.feign;
 
 import lombok.extern.slf4j.Slf4j;
+import me.dwliu.lab.common.model.Result;
 import me.dwliu.lab.core.log.api.dto.SysLogOperationDTO;
-import me.dwliu.lab.core.tool.result.Result;
 import org.springframework.stereotype.Component;
 
 /**
