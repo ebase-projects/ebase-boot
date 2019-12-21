@@ -1,4 +1,4 @@
-package me.dwliu.lab.core.oss.qiniu;
+package me.dwliu.lab.core.oss.plugin.qiniu;
 
 import com.qiniu.common.Zone;
 import com.qiniu.http.Response;

@@ -1,4 +1,4 @@
-package me.dwliu.lab.core.oss.aliyun;
+package me.dwliu.lab.core.oss.plugin.aliyun;
 
 import com.aliyun.oss.OSS;
 import com.aliyun.oss.model.ObjectMetadata;

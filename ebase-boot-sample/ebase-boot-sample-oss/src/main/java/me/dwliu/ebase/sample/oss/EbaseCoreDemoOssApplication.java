@@ -1,7 +1,5 @@
-package me.dwliu.ebase.demo.oss;
+package me.dwliu.ebase.sample.oss;
 
-import me.dwliu.lab.core.oss.minio.MinioOssTemplate;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 

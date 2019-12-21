@@ -1,9 +1,9 @@
-package me.dwliu.ebase.demo.oss;
+package me.dwliu.ebase.sample.oss;
 
 import lombok.extern.slf4j.Slf4j;
-import me.dwliu.lab.core.oss.aliyun.AliyunOssTemplate;
 import me.dwliu.lab.core.oss.enums.OssFileNameFormatEnum;
 import me.dwliu.lab.core.oss.model.FileInfo;
+import me.dwliu.lab.core.oss.plugin.minio.MinioOssTemplate;
 import me.dwliu.lab.core.oss.rule.OssRule;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -18,16 +18,16 @@ import java.io.FileNotFoundException;
 @RunWith(SpringRunner.class)
 @SpringBootTest
 @Slf4j
-public class AliyunOssTemplateTest {
+public class MinioOssTemplateTest {
 
     @Autowired
-    private AliyunOssTemplate aliyunOssTemplate;
+    private MinioOssTemplate minioOssTemplate;
 
     @Autowired
     private OssRule ossRule;
 
     //    private String bucketName = UUID.randomUUID().toString().replace("-", "");
-    private String bucketName = "101099";
+    private String bucketName = "1010971";
 
     private String fileName = "Lighthouse.jpg";
     //String fileName = "烟台一职数字化智慧校园一卡通项目招标文件定稿.doc";
@@ -35,17 +35,17 @@ public class AliyunOssTemplateTest {
 
     @Test
     public void makeBucket() {
-        aliyunOssTemplate.makeBucket(bucketName);
+        minioOssTemplate.makeBucket(bucketName);
     }
 
     @Test
     public void removeBucket() {
-        aliyunOssTemplate.removeBucket(bucketName);
+        minioOssTemplate.removeBucket(bucketName);
     }
 
     @Test
     public void bucketExists() {
-        boolean b = aliyunOssTemplate.bucketExists("544e492e39d247d48ed41a1085bd278d");
+        boolean b = minioOssTemplate.bucketExists("544e492e39d247d48ed41a1085bd278d");
         log.info("bucketExists:「{}」", b);
     }
 
@@ -59,8 +59,6 @@ public class AliyunOssTemplateTest {
 
     @Test
     public void statFile() {
-        FileInfo fileInfo = aliyunOssTemplate.statFile("blog", "image/20191107144801-GpeJ9K.png");
-        log.info("fileInfo:" + fileInfo);
     }
 
     @Test
@@ -69,7 +67,7 @@ public class AliyunOssTemplateTest {
 
     @Test
     public void filePath() {
-        String s = aliyunOssTemplate.filePath(fileName);
+        String s = minioOssTemplate.filePath(fileName);
         log.info(s);
     }
 
@@ -79,7 +77,7 @@ public class AliyunOssTemplateTest {
 
     @Test
     public void fileUrl() {
-        String s = aliyunOssTemplate.fileUrl(fileName);
+        String s = minioOssTemplate.fileUrl(fileName);
         log.info(s);
     }
 
@@ -99,7 +97,7 @@ public class AliyunOssTemplateTest {
         File file = new File(filePath);
         FileInputStream fileInputStream = new FileInputStream(file);
 
-        FileInfo fileInfo = aliyunOssTemplate.putFile(fileName, fileInputStream);
+        FileInfo fileInfo = minioOssTemplate.putFile(fileName, fileInputStream);
         log.info(fileInfo.toString());
 
     }
@@ -109,7 +107,7 @@ public class AliyunOssTemplateTest {
         File file = new File(filePath);
         FileInputStream fileInputStream = new FileInputStream(file);
 
-        FileInfo fileInfo = aliyunOssTemplate.putFile(bucketName, "2019/11/" + fileName, fileInputStream);
+        FileInfo fileInfo = minioOssTemplate.putFile(bucketName, fileName, fileInputStream);
         log.info(fileInfo.toString());
     }
 
@@ -120,7 +118,7 @@ public class AliyunOssTemplateTest {
         FileInputStream fileInputStream = new FileInputStream(file);
         String fileName = ossRule.fileName(this.fileName, OssFileNameFormatEnum.UUID);
 
-        FileInfo fileInfo = aliyunOssTemplate.putFile("2019/11/" + fileName, fileInputStream);
+        FileInfo fileInfo = minioOssTemplate.putFile("2019/11/"+fileName, fileInputStream);
         log.info(fileInfo.toString());
     }
 
@@ -134,7 +132,7 @@ public class AliyunOssTemplateTest {
 
     @Test
     public void removeFile() {
-        aliyunOssTemplate.removeFile(fileName);
+        minioOssTemplate.removeFile(fileName);
     }
 
     @Test

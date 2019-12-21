@@ -1,4 +1,4 @@
-package me.dwliu.lab.core.oss.properties;
+package me.dwliu.lab.core.oss.starter.properties;
 
 import lombok.Getter;
 import lombok.Setter;

@@ -1,8 +1,8 @@
-package me.dwliu.lab.core.oss.autoconfigure;
+package me.dwliu.lab.core.oss.starter.autoconfigure;
 
-import me.dwliu.lab.core.oss.properties.OssConfigProperties;
 import me.dwliu.lab.core.oss.rule.DefaultOssRule;
 import me.dwliu.lab.core.oss.rule.OssRule;
+import me.dwliu.lab.core.oss.starter.properties.OssConfigProperties;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;

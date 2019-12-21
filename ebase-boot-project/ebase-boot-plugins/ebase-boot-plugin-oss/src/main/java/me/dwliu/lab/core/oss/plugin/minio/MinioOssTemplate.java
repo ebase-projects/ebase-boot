@@ -1,4 +1,4 @@
-package me.dwliu.lab.core.oss.minio;
+package me.dwliu.lab.core.oss.plugin.minio;
 
 import io.minio.MinioClient;
 import io.minio.ObjectStat;

@@ -1,4 +1,4 @@
-package me.dwliu.lab.core.oss;
+package me.dwliu.lab.core.oss.plugin;
 /**
  * 存储上传服务
  *

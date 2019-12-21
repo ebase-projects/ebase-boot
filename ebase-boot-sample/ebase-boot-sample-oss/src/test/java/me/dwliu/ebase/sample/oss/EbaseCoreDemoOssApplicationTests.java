@@ -1,4 +1,4 @@
-package me.dwliu.ebase.demo.oss;
+package me.dwliu.ebase.sample.oss;
 
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;

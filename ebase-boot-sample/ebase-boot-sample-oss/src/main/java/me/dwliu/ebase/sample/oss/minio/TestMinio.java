@@ -1,10 +1,7 @@
-package me.dwliu.ebase.demo.oss.minio;
+package me.dwliu.ebase.sample.oss.minio;
 
 import io.minio.MinioClient;
-import io.minio.Result;
 import io.minio.messages.Bucket;
-import io.minio.messages.Filter;
-import io.minio.messages.Item;
 
 import java.io.File;
 import java.io.FileInputStream;

@@ -1,13 +1,13 @@
-package me.dwliu.lab.core.oss.autoconfigure;
+package me.dwliu.lab.core.oss.starter.autoconfigure;
 
 import com.qiniu.common.Zone;
 import com.qiniu.storage.BucketManager;
 import com.qiniu.storage.UploadManager;
 import com.qiniu.util.Auth;
 import lombok.AllArgsConstructor;
-import me.dwliu.lab.core.oss.properties.OssConfigProperties;
-import me.dwliu.lab.core.oss.qiniu.QiniuOssTemplate;
+import me.dwliu.lab.core.oss.plugin.qiniu.QiniuOssTemplate;
 import me.dwliu.lab.core.oss.rule.OssRule;
+import me.dwliu.lab.core.oss.starter.properties.OssConfigProperties;
 import org.springframework.boot.autoconfigure.AutoConfigureAfter;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnBean;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;

@@ -1,13 +1,13 @@
-package me.dwliu.lab.core.oss.autoconfigure;
+package me.dwliu.lab.core.oss.starter.autoconfigure;
 
 import com.aliyun.oss.ClientBuilderConfiguration;
 import com.aliyun.oss.OSS;
 import com.aliyun.oss.OSSClientBuilder;
 import com.aliyun.oss.common.auth.CredentialsProvider;
 import com.aliyun.oss.common.auth.DefaultCredentialProvider;
-import me.dwliu.lab.core.oss.aliyun.AliyunOssTemplate;
-import me.dwliu.lab.core.oss.properties.OssConfigProperties;
+import me.dwliu.lab.core.oss.plugin.aliyun.AliyunOssTemplate;
 import me.dwliu.lab.core.oss.rule.OssRule;
+import me.dwliu.lab.core.oss.starter.properties.OssConfigProperties;
 import org.springframework.boot.autoconfigure.AutoConfigureAfter;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnBean;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
