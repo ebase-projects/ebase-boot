@@ -59,6 +59,13 @@
             <scope>test</scope>
         </dependency>
 
+        <!--https://gitee.com/xiaoym/knife4j/releases-->
+        <dependency>
+            <groupId>com.github.xiaoymin</groupId>
+            <artifactId>knife4j-spring-ui</artifactId>
+            <version>2.0.0</version>
+        </dependency>
+
 
 
 

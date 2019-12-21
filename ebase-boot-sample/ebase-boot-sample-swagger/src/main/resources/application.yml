@@ -55,6 +55,8 @@ mybatis-plus:
 
 ebase:
   swagger2:
+    authorization:
+      key-name: token1
     docket:
       aaa:
         title: 测试一下 aaa
