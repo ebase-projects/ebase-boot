@@ -25,7 +25,7 @@ public interface OssRule {
 	 * @param format       文件前缀格式
 	 * @return
 	 */
-	String fileName(String originalName, String prefix, OssFileNameFormatEnum format);
+	String fileName(String originalName, OssFileNameFormatEnum format);
 
 
 }

@@ -1,0 +1,16 @@
+oss:
+  minio:
+    enabled: true
+    endpoint: http://39.106.141.187:9000
+    accessKey: admin
+    secretKey: admin123
+#  aliyun:
+#    enabled: true
+#  qiniu:
+#    enabled: true
+#    endpoint: XXX
+#    accessKey: XXX
+#    secretKey: XXX
+#    zone: z0
+
+

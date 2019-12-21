@@ -11,6 +11,7 @@ import me.dwliu.lab.core.oss.rule.OssRule;
 import org.springframework.boot.autoconfigure.AutoConfigureAfter;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnBean;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
@@ -23,7 +24,11 @@ import org.springframework.context.annotation.Import;
  **/
 @Configuration
 @AutoConfigureAfter(OssAutoConfiguration.class)
+//@ConditionalOnProperty(prefix = OssConfigProperties.OSS_CONFIG_PREFIX, value = "aliyun", matchIfMissing = false)
 @Import(OssAutoConfiguration.class)
+@ConditionalOnProperty(prefix = OssConfigProperties.OSS_CONFIG_PREFIX
+	+ OssConfigProperties.OSS_CONFIG_TYPE_ALIYUN,
+	value = "enabled", havingValue = "true")
 public class AliyunOssAutoConfiguration {
 
 	@Bean

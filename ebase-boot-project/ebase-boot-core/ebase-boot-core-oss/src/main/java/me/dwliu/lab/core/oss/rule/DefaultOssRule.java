@@ -24,7 +24,7 @@ public class DefaultOssRule implements OssRule {
 	}
 
 	@Override
-	public String fileName(String originalFileName, String prefix, OssFileNameFormatEnum format) {
+	public String fileName(String originalFileName, OssFileNameFormatEnum format) {
 
 		StringBuilder builder = new StringBuilder();
 		builder.append(StringUtils.isBlank(prefix) ? "" : prefix);

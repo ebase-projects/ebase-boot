@@ -23,10 +23,8 @@ import org.springframework.context.annotation.Import;
 //@AllArgsConstructor
 @AutoConfigureAfter(OssAutoConfiguration.class)
 @Import(OssAutoConfiguration.class)
-@ConditionalOnProperty(prefix = OssConfigProperties.OSS_CONFIG_PREFIX, value = "minio", matchIfMissing = true)
-//@ConditionalOnProperty(prefix = OssConfigProperties.OSS_CONFIG_PREFIX
-//        + OssConfigProperties.OSS_CONFIG_TYPE_MINIO,
-//        value = "enabled", havingValue = "true")
+@ConditionalOnProperty(prefix = OssConfigProperties.OSS_CONFIG_PREFIX + OssConfigProperties.OSS_CONFIG_TYPE_MINIO,
+	value = "enabled", havingValue = "true")
 public class MinioOssAutoConfiguration {
 
 //    private OssConfigProperties properties;
