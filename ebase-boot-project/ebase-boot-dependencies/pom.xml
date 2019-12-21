@@ -151,11 +151,6 @@
                 <version>${revision}</version>
             </dependency>
 
-            <dependency>
-                <groupId>me.dwliu.ebase</groupId>
-                <artifactId>ebase-boot-core-swagger</artifactId>
-                <version>${revision}</version>
-            </dependency>
 
             <!-- Ebase Boot Plugin-->
             <dependency>
@@ -186,6 +181,12 @@
             <dependency>
                 <groupId>me.dwliu.ebase</groupId>
                 <artifactId>ebase-boot-starter-oss</artifactId>
+                <version>${revision}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>me.dwliu.ebase</groupId>
+                <artifactId>ebase-boot-starter-swagger</artifactId>
                 <version>${revision}</version>
             </dependency>
 

@@ -17,6 +17,7 @@
         <module>ebase-boot-starter</module>
         <module>ebase-boot-starter-oss</module>
         <module>ebase-boot-starter-base</module>
+        <module>ebase-boot-starter-swagger</module>
     </modules>
 
 

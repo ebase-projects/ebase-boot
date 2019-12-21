@@ -1,4 +1,0 @@
-# Auto Configure
-org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
-  me.dwliu.lab.core.base.config.CustomMybatisPlusConfig,\
-  me.dwliu.lab.core.base.config.CustomWebMvcConfig

@@ -19,6 +19,7 @@
     <modules>
         <module>ebase-boot-sample-oss</module>
         <module>ebase-boot-sample-base</module>
+        <module>ebase-boot-sample-swagger</module>
     </modules>
 
 </project>
