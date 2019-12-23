@@ -5,7 +5,7 @@ import me.dwliu.ebase.sample.dao.UserDAO;
 import me.dwliu.ebase.sample.dto.UserDTO;
 import me.dwliu.ebase.sample.entity.UserDO;
 import me.dwliu.ebase.sample.service.UserService;
-import me.dwliu.lab.core.base.service.impl.BaseServiceImpl;
+import me.dwliu.framework.core.base.service.impl.BaseServiceImpl;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Service;
 

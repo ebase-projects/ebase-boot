@@ -4,8 +4,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
-import me.dwliu.lab.common.validator.group.CreateGroup;
-import me.dwliu.lab.common.validator.group.UpdateGroup;
+import me.dwliu.framework.common.validator.group.CreateGroup;
+import me.dwliu.framework.common.validator.group.UpdateGroup;
 import org.hibernate.validator.constraints.Range;
 
 import javax.validation.constraints.Email;

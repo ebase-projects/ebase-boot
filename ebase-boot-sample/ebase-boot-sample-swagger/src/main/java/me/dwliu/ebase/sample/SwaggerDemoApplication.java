@@ -1,6 +1,6 @@
 package me.dwliu.ebase.sample;
 
-import me.dwliu.lab.starter.swagger2.EnableSwagger2Doc;
+import me.dwliu.framework.starter.swagger2.EnableSwagger2Doc;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 

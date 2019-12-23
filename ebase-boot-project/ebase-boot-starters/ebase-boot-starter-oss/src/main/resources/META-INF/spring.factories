@@ -1,6 +1,6 @@
 # Auto Configure
 org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
-  me.dwliu.lab.starter.oss.autoconfigure.OssAutoConfiguration,\
-  me.dwliu.lab.starter.oss.autoconfigure.MinioOssAutoConfiguration,\
-  me.dwliu.lab.starter.oss.autoconfigure.QiniuOssAutoConfiguration,\
-  me.dwliu.lab.starter.oss.autoconfigure.AliyunOssAutoConfiguration
+  me.dwliu.framework.starter.oss.autoconfigure.OssAutoConfiguration,\
+  me.dwliu.framework.starter.oss.autoconfigure.MinioOssAutoConfiguration,\
+  me.dwliu.framework.starter.oss.autoconfigure.QiniuOssAutoConfiguration,\
+  me.dwliu.framework.starter.oss.autoconfigure.AliyunOssAutoConfiguration

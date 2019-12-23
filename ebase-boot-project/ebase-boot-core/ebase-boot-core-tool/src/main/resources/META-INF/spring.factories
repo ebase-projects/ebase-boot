@@ -1,2 +1,2 @@
 org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
-  me.dwliu.lab.core.tool.util.SpringContextUtil
+  me.dwliu.framework.core.tool.util.SpringContextUtil

@@ -1,10 +1,10 @@
 package me.dwliu.ebase.sample.oss;
 
 import lombok.extern.slf4j.Slf4j;
-import me.dwliu.lab.core.oss.enums.OssFileNameFormatEnum;
-import me.dwliu.lab.core.oss.model.FileInfo;
-import me.dwliu.lab.core.oss.plugin.qiniu.QiniuOssTemplate;
-import me.dwliu.lab.core.oss.rule.OssRule;
+import me.dwliu.framework.core.oss.enums.OssFileNameFormatEnum;
+import me.dwliu.framework.core.oss.model.FileInfo;
+import me.dwliu.framework.plugin.oss.qiniu.QiniuOssTemplate;
+import me.dwliu.framework.core.oss.rule.OssRule;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;

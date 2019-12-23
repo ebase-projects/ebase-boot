@@ -1,7 +1,7 @@
 package me.dwliu.me.log;
 
 import lombok.extern.slf4j.Slf4j;
-import me.dwliu.lab.core.log.annotation.LogAction;
+import me.dwliu.framework.core.log.annotation.LogAction;
 
 @Slf4j
 public class LogActionTest {

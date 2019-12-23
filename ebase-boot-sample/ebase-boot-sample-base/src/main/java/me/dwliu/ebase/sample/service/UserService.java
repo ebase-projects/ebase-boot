@@ -2,7 +2,7 @@ package me.dwliu.ebase.sample.service;
 
 import me.dwliu.ebase.sample.dto.UserDTO;
 import me.dwliu.ebase.sample.entity.UserDO;
-import me.dwliu.lab.core.base.service.BaseService;
+import me.dwliu.framework.core.base.service.BaseService;
 
 public interface UserService extends BaseService<UserDO, UserDTO> {
 //    void insert(UserDO userDO);
