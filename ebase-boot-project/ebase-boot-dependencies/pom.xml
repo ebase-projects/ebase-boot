@@ -55,10 +55,8 @@
 
         <!--swagger2-->
         <springfox-swagger2.version>2.9.2</springfox-swagger2.version>
-        <swagger.ui.version>1.8.7</swagger.ui.version>
-        <swagger.mg.ui.version>1.0.6</swagger.mg.ui.version>
-        <swagger.butler.version>1.2.0</swagger.butler.version>
-        <swagger-annotations.version>2.0.8</swagger-annotations.version>
+        <io.swagger>1.5.24</io.swagger>
+        <knife4j-spring-ui>2.0.1</knife4j-spring-ui>
 
         <!--oss-->
         <fastjson.version>1.2.60</fastjson.version>
@@ -357,46 +355,35 @@
                     </exclusion>
                 </exclusions>
             </dependency>
+
+            <dependency>
+                <groupId>io.swagger</groupId>
+                <artifactId>swagger-annotations</artifactId>
+                <version>${io.swagger}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.swagger</groupId>
+                <artifactId>swagger-models</artifactId>
+                <version>${io.swagger}</version>
+            </dependency>
             <dependency>
                 <groupId>io.springfox</groupId>
                 <artifactId>springfox-bean-validators</artifactId>
                 <version>${springfox-swagger2.version}</version>
             </dependency>
+
             <dependency>
                 <groupId>io.springfox</groupId>
                 <artifactId>springfox-swagger-ui</artifactId>
                 <version>${springfox-swagger2.version}</version>
             </dependency>
-            <dependency>
-                <groupId>io.swagger.core.v3</groupId>
-                <artifactId>swagger-annotations</artifactId>
-                <version>${swagger-annotations.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>io.swagger</groupId>
-                <artifactId>swagger-annotations</artifactId>
-                <version>1.5.22</version>
-            </dependency>
-            <dependency>
-                <groupId>io.swagger</groupId>
-                <artifactId>swagger-models</artifactId>
-                <version>1.5.22</version>
-            </dependency>
+
             <dependency>
                 <groupId>com.github.xiaoymin</groupId>
-                <artifactId>swagger-bootstrap-ui</artifactId>
-                <version>${swagger.ui.version}</version>
+                <artifactId>knife4j-spring-ui</artifactId>
+                <version>${knife4j-spring-ui}</version>
             </dependency>
-            <dependency>
-                <groupId>com.zyplayer</groupId>
-                <artifactId>swagger-mg-ui</artifactId>
-                <version>${swagger.mg.ui.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.didispace</groupId>
-                <artifactId>swagger-butler-core</artifactId>
-                <version>${swagger.butler.version}</version>
-            </dependency>
+
             <!-- swagger2 end-->
 
             <dependency>
@@ -419,7 +406,6 @@
                 <artifactId>qiniu-java-sdk</artifactId>
                 <version>${qiniu-sdk.version}</version>
             </dependency>
-
 
             <dependency>
                 <groupId>io.minio</groupId>

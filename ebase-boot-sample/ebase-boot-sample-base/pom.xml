@@ -16,6 +16,11 @@
         ebase-boot 持久化相关 sample
     </description>
 
+    <properties>
+        <!-- 打包跳过单元测试 -->
+        <skipTests>true</skipTests>
+    </properties>
+
 
     <dependencies>
         <dependency>
@@ -23,10 +28,10 @@
             <artifactId>ebase-boot-starter-base</artifactId>
         </dependency>
 
-<!--        <dependency>-->
-<!--            <groupId>me.dwliu.ebase</groupId>-->
-<!--            <artifactId>ebase-core-swagger</artifactId>-->
-<!--        </dependency>-->
+        <!--        <dependency>-->
+        <!--            <groupId>me.dwliu.ebase</groupId>-->
+        <!--            <artifactId>ebase-core-swagger</artifactId>-->
+        <!--        </dependency>-->
 
         <dependency>
             <groupId>com.baomidou</groupId>
@@ -58,8 +63,6 @@
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
-
-
 
 
     </dependencies>

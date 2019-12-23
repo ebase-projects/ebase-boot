@@ -17,6 +17,11 @@
         ebase-boot oss sample
     </description>
 
+    <properties>
+        <!-- 打包跳过单元测试 -->
+        <skipTests>true</skipTests>
+    </properties>
+
     <dependencies>
 
         <dependency>
