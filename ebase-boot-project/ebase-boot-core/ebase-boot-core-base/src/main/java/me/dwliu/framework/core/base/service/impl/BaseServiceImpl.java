@@ -9,6 +9,7 @@ import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import me.dwliu.framework.core.base.dao.BaseDAO;
 import me.dwliu.framework.core.base.page.PageData;
 import me.dwliu.framework.core.base.constant.Constant;
+import me.dwliu.framework.core.base.page.QueryPageUtil;
 import me.dwliu.framework.core.base.service.BaseService;
 import me.dwliu.framework.core.tool.util.ConvertUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,131 +27,133 @@ import java.util.Map;
  */
 @SuppressWarnings("unchecked")
 public abstract class BaseServiceImpl<M extends BaseDAO<T>, T, D> extends ServiceImpl<M, T>
-        implements BaseService<T, D> {
+	implements BaseService<T, D> {
 
-    @Autowired
-    protected M baseDAO;
+	@Autowired
+	protected M baseDAO;
 
-    /**
-     * 查询条件封装
-     *
-     * @param params
-     * @return
-     */
-    public abstract QueryWrapper<T> getWrapper(Map<String, Object> params);
+	/**
+	 * 查询条件封装
+	 *
+	 * @param params
+	 * @return
+	 */
+	public abstract QueryWrapper<T> getWrapper(Map<String, Object> params);
 
-    @Override
-    public PageData<D> listEntityByPage(Map<String, Object> params) {
+	@Override
+	public PageData<D> listEntityByPage(Map<String, Object> params) {
 
 //        IPage<T> page = baseDAO.selectPage(getPage(params, null, false), getWrapper(params));
 //        return getPageData(page, currentDTOClass());
 
-        return listEntityByPage(params, null, false);
-    }
+		return listEntityByPage(params, null, false);
+	}
 
-    @Override
-    public PageData<D> listEntityByPage(Map<String, Object> params, String defaultOrderField, boolean isAsc) {
-        IPage<T> page = baseDAO.selectPage(getPage(params, defaultOrderField, isAsc), getWrapper(params));
+	@Override
+	public PageData<D> listEntityByPage(Map<String, Object> params, String defaultOrderField, boolean isAsc) {
+		IPage<T> page = baseDAO.selectPage(getPage(params, defaultOrderField, isAsc), getWrapper(params));
 
-        return getPageData(page, currentDTOClass());
-    }
+		return getPageData(page, currentDTOClass());
+	}
 
-    @Override
-    public List<D> listEntity(Map<String, Object> params) {
-        List<T> entityList = baseDAO.selectList(getWrapper(params));
+	@Override
+	public List<D> listEntity(Map<String, Object> params) {
+		List<T> entityList = baseDAO.selectList(getWrapper(params));
 
-        return ConvertUtils.sourceToTarget(entityList, currentDTOClass());
-    }
-
-
-    /**
-     * 获取分页对象
-     *
-     * @param params            分页查询参数
-     * @param defaultOrderField 默认排序字段
-     * @param isAsc             排序方式
-     */
-    protected IPage<T> getPage(Map<String, Object> params, String defaultOrderField, boolean isAsc) {
-        //分页参数
-        long curPage = 1;
-        long limit = 10;
-
-        if (params.get(Constant.PAGE) != null) {
-            curPage = Long.parseLong((String) params.get(Constant.PAGE));
-        }
-        if (params.get(Constant.LIMIT) != null) {
-            limit = Long.parseLong((String) params.get(Constant.LIMIT));
-        }
-
-        //分页对象
-        Page<T> page = new Page<>(curPage, limit);
-
-        //分页参数
-        params.put(Constant.PAGE, page);
-
-        //排序字段
-        String orderField = (String) params.get(Constant.ORDER_FIELD);
-        String order = (String) params.get(Constant.ORDER);
-
-        //前端字段排序
-        if (StringUtils.isNotEmpty(orderField)) {
-            if (StringUtils.isNotEmpty(order) && Constant.ASC.equalsIgnoreCase(order)) {
-                page.addOrder(OrderItem.asc(orderField));
-            } else if (StringUtils.isNotEmpty(order) && Constant.DESC.equalsIgnoreCase(order)) {
-                page.addOrder(OrderItem.desc(orderField));
-            } else {
-                //默认升序
-                page.addOrder(OrderItem.asc(orderField));
-            }
-        } else {
-            //没有排序字段，则不排序
-            if (StringUtils.isEmpty(defaultOrderField)) {
-                return page;
-            }
-            //默认排序
-            if (isAsc) {
-                //page.setAsc(defaultOrderField);
-                page.addOrder(OrderItem.asc(defaultOrderField));
-            } else {
-                //page.setDesc(defaultOrderField);
-                page.addOrder(OrderItem.desc(defaultOrderField));
-            }
-
-        }
+		return ConvertUtils.sourceToTarget(entityList, currentDTOClass());
+	}
 
 
-        return page;
-    }
+	/**
+	 * 获取分页对象
+	 *
+	 * @param params            分页查询参数
+	 * @param defaultOrderField 默认排序字段
+	 * @param isAsc             排序方式
+	 */
+	protected IPage<T> getPage(Map<String, Object> params, String defaultOrderField, boolean isAsc) {
 
-    protected <T> PageData<T> getPageData(List<?> list, long total, Class<T> target) {
-        List<T> targetList = ConvertUtils.sourceToTarget(list, target);
+		return new QueryPageUtil<T>().getPage(params, defaultOrderField, isAsc);
+//        //分页参数
+//        long curPage = 1;
+//        long limit = 10;
+//
+//        if (params.get(Constant.PAGE) != null) {
+//            curPage = Long.parseLong((String) params.get(Constant.PAGE));
+//        }
+//        if (params.get(Constant.LIMIT) != null) {
+//            limit = Long.parseLong((String) params.get(Constant.LIMIT));
+//        }
+//
+//        //分页对象
+//        Page<T> page = new Page<>(curPage, limit);
+//
+//        //分页参数
+//        params.put(Constant.PAGE, page);
+//
+//        //排序字段
+//        String orderField = (String) params.get(Constant.ORDER_FIELD);
+//        String order = (String) params.get(Constant.ORDER);
+//
+//        //前端字段排序
+//        if (StringUtils.isNotEmpty(orderField)) {
+//            if (StringUtils.isNotEmpty(order) && Constant.ASC.equalsIgnoreCase(order)) {
+//                page.addOrder(OrderItem.asc(orderField));
+//            } else if (StringUtils.isNotEmpty(order) && Constant.DESC.equalsIgnoreCase(order)) {
+//                page.addOrder(OrderItem.desc(orderField));
+//            } else {
+//                //默认升序
+//                page.addOrder(OrderItem.asc(orderField));
+//            }
+//        } else {
+//            //没有排序字段，则不排序
+//            if (StringUtils.isEmpty(defaultOrderField)) {
+//                return page;
+//            }
+//            //默认排序
+//            if (isAsc) {
+//                //page.setAsc(defaultOrderField);
+//                page.addOrder(OrderItem.asc(defaultOrderField));
+//            } else {
+//                //page.setDesc(defaultOrderField);
+//                page.addOrder(OrderItem.desc(defaultOrderField));
+//            }
+//
+//        }
+//
+//
+//        return page;
+	}
+
+	protected <T> PageData<T> getPageData(List<?> list, long total, Class<T> target) {
+		List<T> targetList = ConvertUtils.sourceToTarget(list, target);
 
 
-        return new PageData<>(targetList, total);
-    }
+		return new PageData<>(targetList, total);
+	}
 
-    protected <T> PageData<T> getPageData(IPage page, Class<T> target) {
-        return getPageData(page.getRecords(), page.getTotal(), target);
-    }
+	protected <T> PageData<T> getPageData(IPage page, Class<T> target) {
+		return getPageData(page.getRecords(), page.getTotal(), target);
+	}
 
-    /**
-     * 参数模糊查询
-     *
-     * @param params 参数列表
-     * @param likes  需要模糊查询的字段
-     * @return Map<String, Object>
-     */
-    protected Map<String, Object> paramsToLike(Map<String, Object> params, String... likes) {
-        for (String like : likes) {
-            String val = (String) params.get(like);
-            if (StringUtils.isNotEmpty(val)) {
-                params.put(like, "%" + val + "%");
-            } else {
-                params.put(like, null);
-            }
-        }
-        return params;
-    }
+	/**
+	 * 参数模糊查询
+	 *
+	 * @param params 参数列表
+	 * @param likes  需要模糊查询的字段
+	 * @return Map<String, Object>
+	 */
+	protected Map<String, Object> paramsToLike(Map<String, Object> params, String... likes) {
+		for (String like : likes) {
+			String val = (String) params.get(like);
+			if (StringUtils.isNotEmpty(val)) {
+				params.put(like, "%" + val + "%");
+			} else {
+				params.put(like, null);
+			}
+		}
+		return params;
+	}
 
 
 //    /**
