@@ -12,6 +12,7 @@ import org.springframework.validation.FieldError;
 import org.springframework.web.HttpMediaTypeNotSupportedException;
 import org.springframework.web.HttpRequestMethodNotSupportedException;
 import org.springframework.web.bind.MethodArgumentNotValidException;
+import org.springframework.web.bind.MissingServletRequestParameterException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
@@ -42,6 +43,15 @@ public class GlobalExceptionHandler {
         log.error("参数解析失败", e);
         return Result.fail("参数解析失败");
     }
+
+	/**
+	 * <p>所需的字符串参数不存在异常</p>
+	 */
+	@ExceptionHandler(MissingServletRequestParameterException.class)
+	public Result handleMissingServletRequestParameterException(MissingServletRequestParameterException e) {
+		log.error("所需的字符串参数不存在", e);
+		return Result.fail("所需的字符串参数不存在:" + e.getMessage());
+	}
 
     /**
      * 400 - Bad Request
