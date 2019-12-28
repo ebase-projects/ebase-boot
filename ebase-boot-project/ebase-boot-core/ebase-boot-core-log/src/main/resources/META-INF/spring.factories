@@ -1,3 +1,0 @@
-org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
-  me.dwliu.framework.core.log.config.LogActionConfig,\
-  me.dwliu.framework.core.log.config.ExecutorConfig

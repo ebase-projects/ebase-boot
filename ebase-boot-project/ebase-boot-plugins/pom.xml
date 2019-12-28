@@ -16,6 +16,8 @@
     <modules>
         <module>ebase-boot-plugin</module>
         <module>ebase-boot-plugin-oss</module>
+        <module>ebase-boot-plugin-log</module>
+        <module>ebase-boot-plugin-security</module>
     </modules>
 
 

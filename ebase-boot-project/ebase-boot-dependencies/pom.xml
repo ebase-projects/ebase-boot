@@ -159,7 +159,18 @@
 
             <dependency>
                 <groupId>me.dwliu.ebase</groupId>
+                <artifactId>ebase-boot-plugin-log</artifactId>
+                <version>${revision}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>me.dwliu.ebase</groupId>
                 <artifactId>ebase-boot-plugin-oss</artifactId>
+                <version>${revision}</version>
+            </dependency>
+            <dependency>
+                <groupId>me.dwliu.ebase</groupId>
+                <artifactId>ebase-boot-plugin-security</artifactId>
                 <version>${revision}</version>
             </dependency>
 
@@ -178,7 +189,19 @@
 
             <dependency>
                 <groupId>me.dwliu.ebase</groupId>
+                <artifactId>ebase-boot-starter-log</artifactId>
+                <version>${revision}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>me.dwliu.ebase</groupId>
                 <artifactId>ebase-boot-starter-oss</artifactId>
+                <version>${revision}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>me.dwliu.ebase</groupId>
+                <artifactId>ebase-boot-starter-security</artifactId>
                 <version>${revision}</version>
             </dependency>
 
