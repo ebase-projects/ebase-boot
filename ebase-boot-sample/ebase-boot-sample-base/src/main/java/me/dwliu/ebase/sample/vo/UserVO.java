@@ -1,21 +1,10 @@
-package me.dwliu.ebase.sample.entity;
+package me.dwliu.ebase.sample.vo;
 
 import com.baomidou.mybatisplus.annotation.TableField;
-import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
-import lombok.EqualsAndHashCode;
-import me.dwliu.framework.core.base.entity.BaseTenantDO;
 
-/**
- * 系统用户表
- *
- * @author liudw ldw4033@163.com
- * @since 1.0.0 2019-08-17
- */
 @Data
-@EqualsAndHashCode(callSuper = true)
-@TableName("sys_user")
-public class UserDO extends BaseTenantDO {
+public class UserVO {
 
 	/**
 	 * 用户名
@@ -64,8 +53,4 @@ public class UserDO extends BaseTenantDO {
 	 */
 	@TableField(exist = false)
 	private String deptName;
-
-
-//	private Integer isDeleted;
 }
-

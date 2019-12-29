@@ -30,6 +30,9 @@
             and u.account like #{account}
         </if>
     </select>
+    <select id="listPage4Vo" resultType="me.dwliu.ebase.sample.vo.UserVO">
+        select * from sys_user ;
+    </select>
 
 
 </mapper>
