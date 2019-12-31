@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
+import me.dwliu.ebase.sample.entity.RoleDO;
 import me.dwliu.framework.common.validator.group.CreateGroup;
 import me.dwliu.framework.common.validator.group.UpdateGroup;
 import org.hibernate.validator.constraints.Range;
@@ -13,6 +14,7 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Null;
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -99,5 +101,5 @@ public class UserDTO implements Serializable {
 	@ApiModelProperty(value = "部门名称")
 	private String deptName;
 
-
+	private List<RoleDTO> roleList = new ArrayList<>();
 }

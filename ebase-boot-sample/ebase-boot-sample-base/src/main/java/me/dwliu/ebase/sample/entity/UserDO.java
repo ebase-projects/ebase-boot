@@ -6,6 +6,9 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 import me.dwliu.framework.core.base.entity.BaseTenantDO;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * 系统用户表
  *
@@ -67,5 +70,8 @@ public class UserDO extends BaseTenantDO {
 
 
 //	private Integer isDeleted;
+
+	@TableField(exist = false)
+	private List<RoleDO> roleList = new ArrayList<>();
 }
 

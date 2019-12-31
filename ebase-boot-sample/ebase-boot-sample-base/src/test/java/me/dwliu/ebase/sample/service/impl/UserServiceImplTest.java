@@ -1,6 +1,7 @@
 package me.dwliu.ebase.sample.service.impl;
 
 import lombok.extern.slf4j.Slf4j;
+import me.dwliu.ebase.sample.dto.RoleDTO;
 import me.dwliu.ebase.sample.dto.UserDTO;
 import me.dwliu.ebase.sample.service.UserService;
 import me.dwliu.framework.core.base.constant.Constant;
@@ -27,8 +28,25 @@ public class UserServiceImplTest {
 	@Test
 	public void insert() {
 		UserDTO userDTO = new UserDTO();
-		userDTO.setUsername("liudw11Q");
+		userDTO.setUsername("asdf1");
 		userDTO.setEmail("ldw4033@163.com");
+
+		List<RoleDTO> roleDTOs = new ArrayList<>();
+
+		RoleDTO roleDTO = new RoleDTO();
+		roleDTO.setId(111L);
+		roleDTO.setRolename("test");
+
+		RoleDTO roleDTO2 = new RoleDTO();
+		roleDTO2.setId(222L);
+		roleDTO2.setRolename("test2");
+
+		roleDTOs.add(roleDTO);
+		roleDTOs.add(roleDTO2);
+
+		userDTO.setRoleList(roleDTOs);
+
+
 		boolean b = userService.insertEntity(userDTO);
 	}
 
@@ -39,13 +57,23 @@ public class UserServiceImplTest {
 
 		for (int i = 0; i < 5; i++) {
 			UserDTO userDTO = new UserDTO();
-			userDTO.setUsername("test11" + i);
+			userDTO.setUsername("atest11" + i);
 			userDTO.setEmail("ldw4033@163.com");
 			userDTOList.add(userDTO);
+			List<RoleDTO> roleDTOs = new ArrayList<>();
+
+			RoleDTO roleDTO = new RoleDTO();
+			roleDTO.setId(111L + i);
+			roleDTO.setRolename("test" + i);
+
+			roleDTOs.add(roleDTO);
+
+			userDTO.setRoleList(roleDTOs);
+
 
 		}
 
-		userService.insertBachEntity(userDTOList, 2);
+		List<UserDTO> userDTOS = userService.insertBachEntityReturnId(userDTOList, 4);
 	}
 
 //    @Test
