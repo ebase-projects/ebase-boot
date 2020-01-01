@@ -27,26 +27,31 @@ public class FieldMetaObjectHandler implements MetaObjectHandler {
 		//UserDetail user = SecurityUser.getUser();
 
 		//创建者
-		//setInsertFieldValByName(CREATOR, user.getId(), metaObject);
+		//strictInsertFill(metaObject, CREATE_USER, Long.class, user.getId());
 		//创建者所属部门
-		//setInsertFieldValByName(DEPT_ID, user.getDeptId(), metaObject);
+		//strictInsertFill(metaObject, DEPT_ID, Long.class, user.getDeptId());
 		//更新者
-		//setInsertFieldValByName(UPDATER, user.getId(), metaObject);
+		//strictInsertFill(metaObject, UPDATE_USER, Long.class, user.getId());
 
 		Date date = new Date();
 		//创建时间
-		setInsertFieldValByName(CREATE_DATE, date, metaObject);
+		strictInsertFill(metaObject, CREATE_DATE, Date.class, date);
+//		setInsertFieldValByName(CREATE_DATE, date, metaObject);
 		//更新时间
-		setInsertFieldValByName(UPDATE_DATE, date, metaObject);
+		strictInsertFill(metaObject, UPDATE_DATE, Date.class, date);
+//		setInsertFieldValByName(UPDATE_DATE, date, metaObject);
 		//是否删除 默认为0 不删除
-		setInsertFieldValByName(IS_DELETED, YesOrNoEnum.NO.getValue(), metaObject);
+		strictInsertFill(metaObject, IS_DELETED, Integer.class, YesOrNoEnum.NO.getValue());
+//		setInsertFieldValByName(IS_DELETED, YesOrNoEnum.NO.getValue(), metaObject);
 	}
 
 	@Override
 	public void updateFill(MetaObject metaObject) {
 		//更新者
 		//setUpdateFieldValByName(UPDATER, SecurityUser.getUserId(), metaObject);
+		//strictInsertFill(metaObject, UPDATE_USER, Long.class, SecurityUser.getUserId());
 		//更新时间
-		setUpdateFieldValByName(UPDATE_DATE, new Date(), metaObject);
+//		setUpdateFieldValByName(UPDATE_DATE, new Date(), metaObject);
+		strictUpdateFill(metaObject, UPDATE_DATE, Date.class, new Date());
 	}
 }
