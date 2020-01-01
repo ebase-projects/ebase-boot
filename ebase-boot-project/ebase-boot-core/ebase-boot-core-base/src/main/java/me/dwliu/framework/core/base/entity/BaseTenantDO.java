@@ -13,9 +13,9 @@ import lombok.EqualsAndHashCode;
 @EqualsAndHashCode(callSuper = true)
 public abstract class BaseTenantDO extends BaseDO {
 
-    /**
-     * 租户编号
-     */
-    private String tenantCode;
+	/**
+	 * 租户编号
+	 */
+	private String tenantId;
 
 }

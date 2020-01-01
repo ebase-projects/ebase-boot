@@ -2,7 +2,6 @@ package me.dwliu.framework.core.base.entity;
 
 import com.baomidou.mybatisplus.annotation.*;
 import com.fasterxml.jackson.annotation.JsonFormat;
-import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 import org.springframework.format.annotation.DateTimeFormat;
 
@@ -18,71 +17,67 @@ import java.util.Date;
 @Data
 public abstract class BaseDO implements Serializable {
 
-    /**
-     * 主键id
-     */
+	/**
+	 * 主键id
+	 */
 //	@TableId(value = "id", type = IdType.ID_WORKER)
-    @TableId
-    private Long id;
+	@TableId
+	private Long id;
 
 //    /**
 //     * 租户编号
 //     */
 //    @ApiModelProperty(value = "租户编号")
-//    private String tenantCode;
-
-    //    /**
-//     * 状态[1:正常]
-//     */
-//    @ApiModelProperty(value = "业务状态")
-//    private Integer status;
+//    private String tenantId;
 
 //    /**
 //     * 创建部门
 //     */
-    //@JsonSerialize(using = ToStringSerializer.class)
+	//@JsonSerialize(using = ToStringSerializer.class)
 //    @ApiModelProperty(value = "创建部门")
 //    private Long createDept;
-    /**
-     * 创建人
-     */
-    @TableField(fill = FieldFill.INSERT)
-    private Long createUser;
+	/**
+	 * 创建人
+	 */
+	@TableField(fill = FieldFill.INSERT)
+	private Long createUser;
 
-    /**
-     * 创建时间
-     */
-    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
-    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
-    @TableField(fill = FieldFill.INSERT)
-    private Date createDate;
+	/**
+	 * 创建时间
+	 */
+	@DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+	@JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+	@TableField(fill = FieldFill.INSERT)
+	private Date createDate;
 
-    /**
-     * 更新人
-     */
-    private Long updateUser;
+	/**
+	 * 更新人
+	 */
+	@TableField(fill = FieldFill.INSERT_UPDATE)
+	private Long updateUser;
 
-    /**
-     * 更新时间
-     */
-    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
-    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
-    private Date updateDate;
+	/**
+	 * 更新时间
+	 */
+	@DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+	@JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+	@TableField(fill = FieldFill.INSERT_UPDATE)
+	private Date updateDate;
 
-    /**
-     * 状态[0:未删除,1:删除]
-     */
-    @TableLogic
-    @TableField(fill = FieldFill.INSERT)
-    private Integer isDeleted;
+	/**
+	 * 状态[0:未删除,1:删除]
+	 */
+	@TableLogic
+	@TableField(fill = FieldFill.INSERT)
+	private Integer isDeleted;
 
-    /**
-     * 乐观锁
-     * <p>
-     * 仅支持 updateById(id) 与 update(entity, wrapper) 方法
-     */
-    @Version
-    private Integer revision;
+	/**
+	 * 乐观锁
+	 * <p>
+	 * 仅支持 updateById(id) 与 update(entity, wrapper) 方法
+	 */
+	@Version
+	private Integer revision;
 
 
 }
