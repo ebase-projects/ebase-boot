@@ -25,12 +25,12 @@ import lombok.Getter;
  * @date 2019-12-20 20:03
  **/
 @Getter
-public enum YesOrNo {
+public enum YesOrNoEnum {
 	YES(1),
 	NO(0);
 	private Integer value;
 
-	YesOrNo(Integer value) {
+	YesOrNoEnum(Integer value) {
 		this.value = value;
 	}
 }
