@@ -19,7 +19,7 @@ public class FieldMetaObjectHandler implements MetaObjectHandler {
 
 	private final static String CREATE_USER = "createUser";
 	private final static String UPDATE_USER = "updateUser";
-	private final static String DEPT_ID = "deptId";
+	private final static String CREATE_DEPT = "createDept";
 	private final static String IS_DELETED = "isDeleted";
 
 	@Override

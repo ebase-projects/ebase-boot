@@ -1,4 +1,4 @@
-package me.dwliu.framework.starter.base.config;
+package me.dwliu.framework.starter.base.autoconfigure;
 
 import com.baomidou.mybatisplus.core.handlers.MetaObjectHandler;
 import com.baomidou.mybatisplus.extension.plugins.OptimisticLockerInterceptor;

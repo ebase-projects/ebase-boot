@@ -1,4 +1,4 @@
-package me.dwliu.framework.starter.base.config;
+package me.dwliu.framework.starter.base.autoconfigure;
 
 import com.alibaba.fastjson.serializer.SerializeConfig;
 import com.alibaba.fastjson.serializer.SerializerFeature;
