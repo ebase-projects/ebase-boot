@@ -20,6 +20,7 @@
         <module>ebase-boot-starter-swagger</module>
         <module>ebase-boot-starter-log</module>
         <module>ebase-boot-starter-security</module>
+        <module>ebase-boot-starter-datascope</module>
     </modules>
 
 

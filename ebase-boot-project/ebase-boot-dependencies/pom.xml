@@ -100,12 +100,10 @@
         <xml-maven-plugin.version>1.0.2</xml-maven-plugin.version>
         <flatten-maven-plugin.version>1.1.0</flatten-maven-plugin.version>
 
-
     </properties>
 
     <dependencyManagement>
         <dependencies>
-
             <dependency>
                 <groupId>me.dwliu.ebase</groupId>
                 <artifactId>ebase-boot-common</artifactId>
@@ -122,6 +120,12 @@
             <dependency>
                 <groupId>me.dwliu.ebase</groupId>
                 <artifactId>ebase-boot-core-base</artifactId>
+                <version>${revision}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>me.dwliu.ebase</groupId>
+                <artifactId>ebase-boot-core-datascope</artifactId>
                 <version>${revision}</version>
             </dependency>
 
@@ -159,6 +163,12 @@
 
             <dependency>
                 <groupId>me.dwliu.ebase</groupId>
+                <artifactId>ebase-boot-plugin-datascope</artifactId>
+                <version>${revision}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>me.dwliu.ebase</groupId>
                 <artifactId>ebase-boot-plugin-log</artifactId>
                 <version>${revision}</version>
             </dependency>
@@ -184,6 +194,12 @@
             <dependency>
                 <groupId>me.dwliu.ebase</groupId>
                 <artifactId>ebase-boot-starter-base</artifactId>
+                <version>${revision}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>me.dwliu.ebase</groupId>
+                <artifactId>ebase-boot-starter-datascope</artifactId>
                 <version>${revision}</version>
             </dependency>
 

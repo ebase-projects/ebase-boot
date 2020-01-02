@@ -9,7 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>ebase-boot-plugin</artifactId>
+    <artifactId>ebase-boot-plugin-datascope</artifactId>
     <name>${project.artifactId}</name>
     <description>
 
@@ -18,12 +18,26 @@
         <main.basedir>${basedir}/../../..</main.basedir>
     </properties>
 
-
     <dependencies>
         <dependency>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok</artifactId>
+            <groupId>me.dwliu.ebase</groupId>
+            <artifactId>ebase-boot-plugin</artifactId>
         </dependency>
+
+        <dependency>
+            <groupId>me.dwliu.ebase</groupId>
+            <artifactId>ebase-boot-core-datascope</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.baomidou</groupId>
+            <artifactId>mybatis-plus-boot-starter</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>me.dwliu.ebase</groupId>
+            <artifactId>ebase-boot-core-base</artifactId>
+        </dependency>
+
     </dependencies>
 
 
