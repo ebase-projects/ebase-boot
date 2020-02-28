@@ -4,6 +4,7 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -15,15 +16,15 @@ import java.util.List;
  */
 @Data
 @ApiModel(value = "树形节点")
-public class TreeNode {
-    @ApiModelProperty(value = "当前节点id")
-    protected Long id;
-    @ApiModelProperty(value = "父节点id")
-    protected Long pid;
-    @ApiModelProperty(value = "子节点列表")
-    protected List<TreeNode> children = new ArrayList<TreeNode>();
+public class TreeNode<T> implements Serializable {
+	@ApiModelProperty(value = "当前节点id")
+	protected Long id;
+	@ApiModelProperty(value = "父节点id")
+	protected Long pid;
+	@ApiModelProperty(value = "子节点列表")
+	protected List<TreeNode<T>> children = new ArrayList<>();
 
-    public void add(TreeNode node) {
-        children.add(node);
-    }
+	public void add(TreeNode<T> node) {
+		children.add(node);
+	}
 }
