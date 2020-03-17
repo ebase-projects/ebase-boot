@@ -1,7 +1,7 @@
-package me.dwliu.framework.core.security.annotation;
+package me.dwliu.framework.plugin.security.annotation;
 
-import me.dwliu.framework.core.security.component.ResourceServerConfigurerAdapterBeanDefinitionRegistrar;
-import me.dwliu.framework.core.security.component.ResourceServerAutoConfiguration;
+import me.dwliu.framework.plugin.security.component.ResourceServerAutoConfiguration;
+import me.dwliu.framework.plugin.security.component.ResourceServerConfigurerAdapterBeanDefinitionRegistrar;
 import org.springframework.context.annotation.Import;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.oauth2.config.annotation.web.configuration.EnableResourceServer;

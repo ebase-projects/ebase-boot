@@ -1,4 +1,4 @@
-package me.dwliu.framework.core.security.component;
+package me.dwliu.framework.plugin.security.component;
 
 import lombok.AllArgsConstructor;
 import me.dwliu.framework.core.security.properties.OAuth2Client4IgnoreUrlProperties;

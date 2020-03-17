@@ -1,7 +1,7 @@
-package me.dwliu.framework.core.security.component;
+package me.dwliu.framework.plugin.security.component;
 
-import me.dwliu.framework.core.security.entity.UserInfoDetails;
 import me.dwliu.framework.core.security.constant.SecurityCoreConstant;
+import me.dwliu.framework.core.security.entity.UserInfoDetails;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.GrantedAuthority;
@@ -9,7 +9,10 @@ import org.springframework.security.core.authority.AuthorityUtils;
 import org.springframework.security.oauth2.provider.token.UserAuthenticationConverter;
 import org.springframework.util.StringUtils;
 
-import java.util.*;
+import java.util.Collection;
+import java.util.HashSet;
+import java.util.LinkedHashMap;
+import java.util.Map;
 
 /**
  * @author lengleng

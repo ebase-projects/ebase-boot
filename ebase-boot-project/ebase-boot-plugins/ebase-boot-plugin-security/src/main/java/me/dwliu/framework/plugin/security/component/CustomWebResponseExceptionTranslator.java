@@ -1,7 +1,7 @@
-package me.dwliu.framework.core.security.component;
+package me.dwliu.framework.plugin.security.component;
 
 import lombok.extern.slf4j.Slf4j;
-import me.dwliu.framework.core.security.exception.CustomOAuth2Exception;
+import me.dwliu.framework.plugin.security.exception.CustomOAuth2Exception;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.oauth2.common.exceptions.OAuth2Exception;
 import org.springframework.security.oauth2.provider.error.DefaultWebResponseExceptionTranslator;

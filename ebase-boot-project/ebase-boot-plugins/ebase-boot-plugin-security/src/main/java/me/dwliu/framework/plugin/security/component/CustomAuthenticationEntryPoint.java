@@ -1,4 +1,4 @@
-package me.dwliu.framework.core.security.component;
+package me.dwliu.framework.plugin.security.component;
 
 import cn.hutool.http.HttpStatus;
 import com.fasterxml.jackson.databind.ObjectMapper;

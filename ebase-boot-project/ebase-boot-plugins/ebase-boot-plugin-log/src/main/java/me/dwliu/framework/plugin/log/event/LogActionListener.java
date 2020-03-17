@@ -33,7 +33,8 @@ public class LogActionListener {
 
 		Map<String, Object> logAction = (Map<String, Object>) event.getSource();
 
-		logAction.get("logAction");
+		//logAction.get("logAction");
+
 
 		LogOperationDTO sysLogOperationDTO = (LogOperationDTO) logAction.get("logAction");
 

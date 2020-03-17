@@ -27,6 +27,11 @@
 
         <dependency>
             <groupId>me.dwliu.ebase</groupId>
+            <artifactId>ebase-boot-common</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>me.dwliu.ebase</groupId>
             <artifactId>ebase-boot-core-security</artifactId>
         </dependency>
     </dependencies>

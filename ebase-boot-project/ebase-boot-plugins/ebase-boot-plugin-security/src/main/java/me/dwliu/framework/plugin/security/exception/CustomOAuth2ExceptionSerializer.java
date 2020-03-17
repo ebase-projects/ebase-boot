@@ -1,4 +1,4 @@
-package me.dwliu.framework.core.security.exception;
+package me.dwliu.framework.plugin.security.exception;
 
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.databind.SerializerProvider;

@@ -1,4 +1,4 @@
-package me.dwliu.framework.core.security.exception;
+package me.dwliu.framework.plugin.security.exception;
 
 import lombok.extern.slf4j.Slf4j;
 import me.dwliu.framework.common.model.Result;

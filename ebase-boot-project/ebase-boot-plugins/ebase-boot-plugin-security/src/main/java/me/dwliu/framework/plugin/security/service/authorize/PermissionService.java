@@ -1,4 +1,4 @@
-package me.dwliu.framework.core.security.service.authorize;
+package me.dwliu.framework.plugin.security.service.authorize;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.core.Authentication;
@@ -29,6 +29,7 @@ public class PermissionService {
         if (org.apache.commons.lang3.StringUtils.isBlank(permission)) {
             return false;
         }
+
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         if (authentication == null) {
             return false;

@@ -1,8 +1,8 @@
-package me.dwliu.framework.core.security.component;
+package me.dwliu.framework.plugin.security.component;
 
 import lombok.extern.slf4j.Slf4j;
+import me.dwliu.framework.plugin.security.annotation.EnableBaseResourceServer ;
 import me.dwliu.framework.core.security.constant.SecurityCoreConstant;
-import me.dwliu.framework.core.security.annotation.EnableBaseResourceServer;
 import org.springframework.beans.factory.support.BeanDefinitionRegistry;
 import org.springframework.beans.factory.support.GenericBeanDefinition;
 import org.springframework.context.annotation.ImportBeanDefinitionRegistrar;

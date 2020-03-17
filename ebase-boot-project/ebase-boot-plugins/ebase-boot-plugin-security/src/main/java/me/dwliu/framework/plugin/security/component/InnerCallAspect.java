@@ -1,4 +1,4 @@
-package me.dwliu.framework.core.security.component;
+package me.dwliu.framework.plugin.security.component;
 
 import lombok.extern.slf4j.Slf4j;
 import me.dwliu.framework.core.security.annotation.InnerCall;
