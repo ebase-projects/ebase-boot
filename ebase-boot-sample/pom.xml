@@ -20,6 +20,7 @@
         <module>ebase-boot-sample-oss</module>
         <module>ebase-boot-sample-base</module>
         <module>ebase-boot-sample-swagger</module>
+        <module>ebase-boot-sample-feign</module>
     </modules>
 
 </project>

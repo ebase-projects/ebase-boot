@@ -102,6 +102,17 @@
             </snapshots>
         </repository>
     </repositories>
-
+    <distributionManagement>
+        <repository>
+            <id>weds-release</id>
+            <name>weds-release</name>
+            <url>http://10.0.0.82:8081/repository/weds-release/</url>
+        </repository>
+        <snapshotRepository>
+            <id>weds-snapshots</id>
+            <name>weds-snapshots</name>
+            <url>http://10.0.0.82:8081/repository/weds-snapshots/</url>
+        </snapshotRepository>
+    </distributionManagement>
 
 </project>
