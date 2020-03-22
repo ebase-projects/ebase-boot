@@ -1,3 +1,13 @@
 spring:
-    profiles:
-        active: dev
+  profiles:
+    active: dev
+server:
+  port: 18080
+logging:
+  level:
+    me.dwliu.ebase.sample.feign.feign.K12UserFeign: debug
+feign:
+  httpclient:
+    enabled: false
+  okhttp:
+    enabled: true

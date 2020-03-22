@@ -1,6 +1,7 @@
 package me.dwliu.ebase.sample.feign.config;
 
 import feign.Feign;
+import feign.Logger;
 import okhttp3.ConnectionPool;
 import org.springframework.boot.autoconfigure.AutoConfigureBefore;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;
@@ -13,7 +14,7 @@ import java.util.concurrent.TimeUnit;
 @Configuration
 @ConditionalOnClass(Feign.class)
 @AutoConfigureBefore(FeignAutoConfiguration.class)
-public class FeignOkHttpConfig {
+public class FeignConfig {
 
 	@Bean
 	public okhttp3.OkHttpClient okHttpClient() {
@@ -23,5 +24,11 @@ public class FeignOkHttpConfig {
 			.writeTimeout(120, TimeUnit.SECONDS)
 			.connectionPool(new ConnectionPool())
 			.build();
+	}
+
+
+	@Bean
+	public Logger.Level feignLoggerLevel() {
+		return Logger.Level.FULL;
 	}
 }
