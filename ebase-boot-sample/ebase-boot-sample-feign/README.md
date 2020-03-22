@@ -88,3 +88,26 @@ public Logger.Level feignLoggerLevel() {
 
    
 
+### Spring Cloud OpenFeign支持POJO提作为GET参数映射
+
+当我们在SpringCloud项目中引入spring-cloud-starter-openfeign时，如果我们用Feign发送Get请求时，采用POJO对象传递参数，那么会可能会出现异常。那么如果你又不想用@RequestParam一个个参数写在调用方法内，有什么好的解决方案吗？
+
+这个方案是Spring Cloud OpenFeign官方提供的，我是在看[官方文档](https://cloud.spring.io/spring-cloud-static/spring-cloud-openfeign/2.1.3.RELEASE/single/spring-cloud-openfeign.html)看到的，于是在github上找查看了一下。
+
+在github上有这样一个[Issue](https://github.com/spring-cloud/spring-cloud-openfeign/pull/79/files)——`Add support for feign's QueryMap annotation for Object mapping #79`,这个Issue已经是closed，看日期是解决是在2018-12-07号。方法也很简单。保持原来的不用改，不需要添加额外的依赖，加一个注解`@SpringQueryMap`就搞定。
+
+> 注意，要用该注解，需要升级你的Spring Cloud OpenFeign到新的版本（`2.1.0.RC1`以及之后的版本）。
+
+```java
+import org.springframework.cloud.openfeign.FeignClient;
+import org.springframework.cloud.openfeign.SpringQueryMap;
+import org.springframework.web.bind.annotation.GetMapping;
+
+@FeignClient(name = "hello", url = "http://localhost:8080")
+public interface HelloFeignService {
+
+	@GetMapping("/test")
+	Hello hello(@SpringQueryMap Hello hello);
+}
+```
+

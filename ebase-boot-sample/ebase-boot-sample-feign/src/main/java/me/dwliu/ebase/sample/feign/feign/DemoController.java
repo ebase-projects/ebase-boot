@@ -15,6 +15,8 @@ public class DemoController {
 	private FeignClientProxy feignClientProxy;
 	@Autowired
 	private K12UserFeign k12UserFeign;
+	@Autowired
+	private HelloFeignService helloFeignService;
 
 //	@GetMapping("/test")
 //	public Result<BeVisitorInfoDTO> test() {
@@ -39,6 +41,17 @@ public class DemoController {
 		Result<Map<String, Object>> login = k12UserFeign.login(loginDTO);
 
 		return login;
+
+	}
+
+	@GetMapping("/test3")
+	public Result<Hello> test3() {
+		Hello p=new Hello();
+		p.setH1("13166778899");
+		p.setH2("C+Q8E8uHuQ3jy5Gw+BKdYA==");
+		Hello hello = helloFeignService.hello(p);
+
+		return Result.success(hello);
 
 	}
 }
