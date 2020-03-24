@@ -30,7 +30,7 @@
         <spring.security.oauth2.autoconfigure.version>2.1.13.RELEASE</spring.security.oauth2.autoconfigure.version>
         <spring.tx.version>5.2.2.RELEASE</spring.tx.version>
 
-        <!--alibaba-->
+        <!--alibaba https://github.com/alibaba/spring-cloud-alibaba/releases -->
         <spring.cloud.alibaba.version>2.1.1.RELEASE</spring.cloud.alibaba.version>
         <alibaba.oss.version>2.8.3</alibaba.oss.version>
         <aliyun.sdk.core.version>4.2.0</aliyun.sdk.core.version>
