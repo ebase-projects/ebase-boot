@@ -1,7 +1,6 @@
 package me.dwliu.framework.common.validator;
 
 
-import lombok.extern.slf4j.Slf4j;
 import me.dwliu.framework.common.code.SystemResultCode;
 import me.dwliu.framework.common.exception.BusinessException;
 import me.dwliu.framework.common.model.Result;
@@ -23,7 +22,7 @@ import java.util.Set;
  * @email ldw4033 at 163.com
  * @date 2017-03-15 10:50
  */
-@Slf4j
+//@Slf4j
 public class ValidatorUtils {
     private static Validator validator;
 

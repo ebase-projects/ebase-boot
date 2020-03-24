@@ -10,7 +10,6 @@ import lombok.Setter;
 import lombok.ToString;
 import me.dwliu.framework.common.code.IResultCode;
 import me.dwliu.framework.common.code.SystemResultCode;
-import org.springframework.lang.Nullable;
 
 import java.io.Serializable;
 import java.util.Date;
@@ -81,8 +80,7 @@ public class Result<T> implements Serializable {
 	 * @param <T>    泛型标记
 	 * @return 泛型对象
 	 */
-	@Nullable
-	public static <T> T getData(@Nullable Result<T> result) {
+	public static <T> T getData( Result<T> result) {
 		return Optional.ofNullable(result)
 			//.filter(r -> r.success)
 			.map(x -> x.getData())
@@ -106,7 +104,7 @@ public class Result<T> implements Serializable {
 	 * @param <T>  泛型标记
 	 * @return Result
 	 */
-	public static <T> Result<T> success(@Nullable T data) {
+	public static <T> Result<T> success( T data) {
 		return new Result<>(SystemResultCode.SUCCESS, data);
 	}
 
