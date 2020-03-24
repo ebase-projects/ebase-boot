@@ -1,4 +1,4 @@
-package me.dwliu.framework.common.bean;
+package me.dwliu.framework.core.tool.bean;
 
 import lombok.NonNull;
 import lombok.experimental.UtilityClass;
