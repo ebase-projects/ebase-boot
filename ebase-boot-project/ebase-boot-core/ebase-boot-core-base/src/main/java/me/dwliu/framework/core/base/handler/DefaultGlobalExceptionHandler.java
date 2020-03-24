@@ -24,15 +24,16 @@ import java.util.List;
 
 /**
  * 通用的异常处理器
+ * <p>
+ * 需要全局捕获异常，请继承 DefaultGlobalExceptionHandler 类，并添加 注解 @RestControllerAdvice
  *
  * @author liudw
  * @date 2019-05-30 11:43
  **/
 //@RestControllerAdvice
-//@Order(Ordered.LOWEST_PRECEDENCE)
 @Slf4j
 @ResponseBody
-public class GlobalExceptionHandler {
+public class DefaultGlobalExceptionHandler {
 
 	/**
 	 * 400 - Bad Request

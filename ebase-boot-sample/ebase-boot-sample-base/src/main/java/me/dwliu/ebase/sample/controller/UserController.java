@@ -8,13 +8,16 @@ import me.dwliu.ebase.sample.dto.UserDTO;
 import me.dwliu.ebase.sample.excel.UserExcel;
 import me.dwliu.ebase.sample.service.UserService;
 import me.dwliu.ebase.sample.vo.UserVO;
+import me.dwliu.framework.common.code.SystemResultCode;
 import me.dwliu.framework.common.excel.ExcelUtil;
+import me.dwliu.framework.common.exception.BusinessException;
 import me.dwliu.framework.common.model.Result;
 import me.dwliu.framework.common.validator.ValidatorUtils;
 import me.dwliu.framework.common.validator.group.CreateGroup;
 import me.dwliu.framework.common.validator.group.UpdateGroup;
 import me.dwliu.framework.core.base.constant.Constant;
 import me.dwliu.framework.core.base.page.PageData;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import springfox.documentation.annotations.ApiIgnore;
@@ -110,12 +113,24 @@ public class UserController {
 		return Result.success();
 	}
 
-	@GetMapping("export")
-	@ApiOperation("导出")
-	public void export(@ApiIgnore @RequestParam Map<String, Object> params, HttpServletResponse response) throws Exception {
-		List<UserDTO> userDTOS = userService.listEntity(params);
+//	@GetMapping("export")
+//	@ApiOperation("导出")
+//	public void export(@ApiIgnore @RequestParam Map<String, Object> params, HttpServletResponse response) throws Exception {
+//		List<UserDTO> userDTOS = userService.listEntity(params);
+//
+//		ExcelUtil.exportExcelToTarget(response, null, userDTOS, UserExcel.class);
+//	}
 
-		ExcelUtil.exportExcelToTarget(response, null, userDTOS, UserExcel.class);
+	@GetMapping("test")
+	@ApiOperation("test")
+	public Result test(String str) {
+		//效验数据
+		//AssertUtils.isArrayEmpty(ids, "id");
+		if (StringUtils.equalsIgnoreCase(str, "1")) {
+			throw new BusinessException(SystemResultCode.DATA_NOT_FOUND, "ssss");
+		}
+		return Result.success();
 	}
+
 
 }
