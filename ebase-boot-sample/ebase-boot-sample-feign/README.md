@@ -111,3 +111,16 @@ public interface HelloFeignService {
 }
 ```
 
+### Spring Cloud Feign 异常处理
+
+- com.netflix.hystrix.exception.HystrixRuntimeException: SecurityUserFeign#currentUser(String) failed and no fallback available.
+
+  对于`failed and no fallback available.`这种异常信息，是因为项目开启了熔断：
+
+  ```
+  feign.hystrix.enabled: true
+  ```
+
+   
+
+  当调用服务时抛出了异常，却没有定义`fallback`方法，就会抛出上述异常。由此引出了第一个解决方式。
