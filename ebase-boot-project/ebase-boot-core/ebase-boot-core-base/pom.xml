@@ -21,7 +21,6 @@
     </properties>
 
     <dependencies>
-
         <dependency>
             <groupId>me.dwliu.ebase</groupId>
             <artifactId>ebase-boot-core-tool</artifactId>
