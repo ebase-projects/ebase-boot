@@ -1,0 +1,20 @@
+# Tomcat
+server:
+  port: 8080
+  servlet:
+    context-path: /
+
+spring:
+  # 环境 dev|test|prod
+  profiles:
+    active: dev
+  servlet:
+    multipart:
+      max-file-size: 100MB
+      max-request-size: 100MB
+      enabled: true
+  application:
+    name: @project.artifactId@
+
+
+

@@ -1,0 +1,10 @@
+spring:
+  data:
+    mongodb:
+      #uri: mongodb://name:pass@localhost:27017/tes
+      host: ip
+      port: 27017
+      database: zhihu-api
+      username: admin
+      password: admin
+#     grid-fs-database: test_file
