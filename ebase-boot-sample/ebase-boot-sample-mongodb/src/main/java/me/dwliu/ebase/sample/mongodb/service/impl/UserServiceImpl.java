@@ -6,6 +6,7 @@ import me.dwliu.ebase.sample.mongodb.dao.UserDAO;
 import me.dwliu.ebase.sample.mongodb.dto.UserDTO;
 import me.dwliu.ebase.sample.mongodb.entity.UserDO;
 import me.dwliu.ebase.sample.mongodb.service.UserService;
+import me.dwliu.framework.core.tool.convert.ConvertUtil;
 import me.dwliu.framework.core.tool.util.ConvertUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -29,6 +30,7 @@ public class UserServiceImpl implements UserService {
 
 	@Override
 	public void updateEntity(UserDTO dto) {
+		UserDO userDO = ConvertUtil.convert(dto, UserDO.class);
 
 	}
 

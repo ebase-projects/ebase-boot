@@ -3,9 +3,7 @@ package me.dwliu.ebase.sample.entity;
 import io.swagger.annotations.ApiModel;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
-import me.dwliu.framework.core.base.entity.BaseDO;
-
-import java.io.Serializable;
+import me.dwliu.framework.core.mongodb.entity.BaseDO;
 
 /**
  * 角色管理

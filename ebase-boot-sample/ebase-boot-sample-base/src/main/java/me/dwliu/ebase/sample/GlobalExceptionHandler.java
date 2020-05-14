@@ -1,6 +1,6 @@
 package me.dwliu.ebase.sample;
 
-import me.dwliu.framework.core.base.handler.DefaultGlobalExceptionHandler;
+import me.dwliu.framework.core.mongodb.handler.DefaultGlobalExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
 @RestControllerAdvice

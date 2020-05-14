@@ -2,9 +2,9 @@ spring:
   data:
     mongodb:
       #uri: mongodb://name:pass@localhost:27017/tes
-      host: ip
+      host: 39.106.141.187
       port: 27017
       database: zhihu-api
-      username: admin
-      password: admin
+      username: liudw
+      password: liudw
 #     grid-fs-database: test_file

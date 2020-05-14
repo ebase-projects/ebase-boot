@@ -1,7 +1,7 @@
 package me.dwliu.ebase.sample.dao;
 
 import me.dwliu.ebase.sample.vo.UserVO;
-import me.dwliu.framework.core.base.dao.BaseDAO;
+import me.dwliu.framework.core.mongodb.dao.BaseDAO;
 import me.dwliu.ebase.sample.entity.UserDO;
 import org.apache.ibatis.annotations.Mapper;
 

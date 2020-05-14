@@ -27,6 +27,8 @@
         <module>ebase-boot-core-log</module>
         <module>ebase-boot-core-redis</module>
         <module>ebase-boot-core-datascope</module>
+        <module>ebase-boot-core-mongodb</module>
+        <module>ebase-boot-core-mybatis</module>
     </modules>
 
 

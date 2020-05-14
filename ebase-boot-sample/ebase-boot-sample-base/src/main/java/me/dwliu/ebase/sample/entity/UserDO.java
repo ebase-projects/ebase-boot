@@ -4,7 +4,7 @@ import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
-import me.dwliu.framework.core.base.entity.BaseTenantDO;
+import me.dwliu.framework.core.mongodb.entity.BaseTenantDO;
 
 import java.util.ArrayList;
 import java.util.List;

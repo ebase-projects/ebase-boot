@@ -3,7 +3,7 @@ package me.dwliu.framework.starter.base.autoconfigure;
 import com.baomidou.mybatisplus.core.handlers.MetaObjectHandler;
 import com.baomidou.mybatisplus.extension.plugins.OptimisticLockerInterceptor;
 import com.baomidou.mybatisplus.extension.plugins.PaginationInterceptor;
-import me.dwliu.framework.core.base.handler.FieldMetaObjectHandler;
+import me.dwliu.framework.core.mongodb.handler.FieldMetaObjectHandler;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
