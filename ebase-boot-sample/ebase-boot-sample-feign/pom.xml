@@ -9,7 +9,6 @@
     </parent>
     <groupId>me.dwliu.ebase.sample</groupId>
     <artifactId>ebase-boot-sample-feign</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
     <name>ebase-boot-sample-feign</name>
     <description>Demo project for Spring Boot</description>
 

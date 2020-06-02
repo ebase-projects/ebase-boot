@@ -2,7 +2,7 @@ package me.dwliu.framework.plugin.datascope.interceptor;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import me.dwliu.framework.core.mongodb.intercept.QueryInterceptor;
+import me.dwliu.framework.core.mybatis.intercept.QueryInterceptor;
 import org.apache.ibatis.plugin.Invocation;
 
 

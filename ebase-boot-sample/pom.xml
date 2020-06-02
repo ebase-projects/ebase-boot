@@ -18,9 +18,10 @@
 
     <modules>
         <module>ebase-boot-sample-oss</module>
-        <module>ebase-boot-sample-base</module>
+        <module>ebase-boot-sample-mybatis</module>
         <module>ebase-boot-sample-swagger</module>
         <module>ebase-boot-sample-feign</module>
+        <module>ebase-boot-sample-mongodb</module>
     </modules>
 
 </project>

@@ -17,11 +17,9 @@
         <module>ebase-boot-dependencies</module>
         <module>ebase-boot-parent</module>
         <module>ebase-boot-common</module>
-        <module>ebase-boot-starters</module>
+        <module>ebase-boot-core</module>
         <module>ebase-boot-plugins</module>
-        <module>ebase-boot-core</module>
-        <module>ebase-boot-core</module>
-        <module>ebase-boot-core</module>
+        <module>ebase-boot-starters</module>
     </modules>
 
 

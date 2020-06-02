@@ -9,11 +9,11 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>ebase-boot-sample-swagger</artifactId>
+    <artifactId>ebase-boot-sample-mybatis</artifactId>
     <name>${project.artifactId}</name>
 
     <description>
-        ebase-boot swagger sample
+        ebase-boot 持久化相关 sample
     </description>
 
     <properties>
@@ -28,10 +28,10 @@
             <artifactId>ebase-boot-starter-mybatis</artifactId>
         </dependency>
 
-        <dependency>
-            <groupId>me.dwliu.ebase</groupId>
-            <artifactId>ebase-boot-starter-swagger</artifactId>
-        </dependency>
+        <!--        <dependency>-->
+        <!--            <groupId>me.dwliu.ebase</groupId>-->
+        <!--            <artifactId>ebase-core-swagger</artifactId>-->
+        <!--        </dependency>-->
 
         <dependency>
             <groupId>com.baomidou</groupId>
@@ -59,16 +59,39 @@
         </dependency>
 
         <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-test</artifactId>
-            <scope>test</scope>
+            <groupId>cn.hutool</groupId>
+            <artifactId>hutool-all</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>me.dwliu.ebase</groupId>
+            <artifactId>ebase-boot-starter-swagger</artifactId>
         </dependency>
 
         <!--https://gitee.com/xiaoym/knife4j/releases-->
         <dependency>
             <groupId>com.github.xiaoymin</groupId>
             <artifactId>knife4j-spring-ui</artifactId>
-            <version>2.0.0</version>
+        </dependency>
+
+
+        <dependency>
+            <groupId>cn.afterturn</groupId>
+            <artifactId>easypoi-base</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>cn.afterturn</groupId>
+            <artifactId>easypoi-web</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>cn.afterturn</groupId>
+            <artifactId>easypoi-annotation</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
         </dependency>
 
 

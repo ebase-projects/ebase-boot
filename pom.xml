@@ -47,15 +47,15 @@
 
     <build>
         <plugins>
-<!--            <plugin>-->
-<!--                <groupId>org.apache.maven.plugins</groupId>-->
-<!--                <artifactId>maven-compiler-plugin</artifactId>-->
-<!--                <version>${maven-compiler-plugin.version}</version>-->
-<!--                <configuration>-->
-<!--                    <source>${java.version}</source>-->
-<!--                    <target>${java.version}</target>-->
-<!--                </configuration>-->
-<!--            </plugin>-->
+            <!--            <plugin>-->
+            <!--                <groupId>org.apache.maven.plugins</groupId>-->
+            <!--                <artifactId>maven-compiler-plugin</artifactId>-->
+            <!--                <version>${maven-compiler-plugin.version}</version>-->
+            <!--                <configuration>-->
+            <!--                    <source>${java.version}</source>-->
+            <!--                    <target>${java.version}</target>-->
+            <!--                </configuration>-->
+            <!--            </plugin>-->
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>flatten-maven-plugin</artifactId>
@@ -84,24 +84,24 @@
         </plugins>
     </build>
 
-    <repositories>
-        <repository>
-            <id>public</id>
-            <name>aliyun nexus</name>
-            <url>http://maven.aliyun.com/nexus/content/groups/public/</url>
-            <releases>
-                <enabled>true</enabled>
-            </releases>
-        </repository>
+    <!--    <repositories>-->
+    <!--        <repository>-->
+    <!--            <id>public</id>-->
+    <!--            <name>aliyun nexus</name>-->
+    <!--            <url>http://maven.aliyun.com/nexus/content/groups/public/</url>-->
+    <!--            <releases>-->
+    <!--                <enabled>true</enabled>-->
+    <!--            </releases>-->
+    <!--        </repository>-->
 
-        <repository>
-            <id>snapshots</id>
-            <url>https://oss.sonatype.org/content/repositories/snapshots</url>
-            <snapshots>
-                <enabled>true</enabled>
-            </snapshots>
-        </repository>
-    </repositories>
+    <!--        <repository>-->
+    <!--            <id>snapshots</id>-->
+    <!--            <url>https://oss.sonatype.org/content/repositories/snapshots</url>-->
+    <!--            <snapshots>-->
+    <!--                <enabled>true</enabled>-->
+    <!--            </snapshots>-->
+    <!--        </repository>-->
+    <!--    </repositories>-->
     <distributionManagement>
         <repository>
             <id>weds-release</id>

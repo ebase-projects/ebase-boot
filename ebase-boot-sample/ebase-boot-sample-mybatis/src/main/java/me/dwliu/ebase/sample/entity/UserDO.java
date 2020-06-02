@@ -6,6 +6,9 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 import me.dwliu.framework.core.mybatis.entity.BaseTenantDO;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * 系统用户表
  *
@@ -13,7 +16,7 @@ import me.dwliu.framework.core.mybatis.entity.BaseTenantDO;
  * @since 1.0.0 2019-08-17
  */
 @Data
-@EqualsAndHashCode(callSuper = false)
+@EqualsAndHashCode(callSuper = true)
 @TableName("sys_user")
 public class UserDO extends BaseTenantDO {
 
@@ -64,4 +67,11 @@ public class UserDO extends BaseTenantDO {
 	 */
 	@TableField(exist = false)
 	private String deptName;
+
+
+//	private Integer isDeleted;
+
+	@TableField(exist = false)
+	private List<RoleDO> roleList = new ArrayList<>();
 }
+
