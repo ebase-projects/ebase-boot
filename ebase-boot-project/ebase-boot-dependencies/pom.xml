@@ -22,7 +22,7 @@
         <main.basedir>${basedir}/../..</main.basedir>
 
         <!--spring-->
-        <spring.boot.version>2.1.13.RELEASE</spring.boot.version>
+        <spring.boot.version>2.1.15.RELEASE</spring.boot.version>
         <spring.cloud.version>Greenwich.SR4</spring.cloud.version>
         <security.oauth2.version>2.4.0.RELEASE</security.oauth2.version>
         <spring.security.jwt.version>1.1.0.RELEASE</spring.security.jwt.version>

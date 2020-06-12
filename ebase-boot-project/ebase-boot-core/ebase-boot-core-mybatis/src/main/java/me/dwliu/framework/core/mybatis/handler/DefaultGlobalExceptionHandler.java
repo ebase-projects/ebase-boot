@@ -28,6 +28,8 @@ import java.util.List;
  * 通用的异常处理器
  * <p>
  * 需要自定义全局捕获异常，添加 注解 @RestControllerAdvice，并指定@Order
+ * <p>
+ * 本类默认为最低优先级
  *
  * @author liudw
  * @date 2019-05-30 11:43
