@@ -113,14 +113,6 @@ public class DefaultGlobalExceptionHandler {
 		return Result.fail(String.format("必填参数不能为空: %s", e.getMessage()));
 	}
 
-//    @ResponseStatus(HttpStatus.FORBIDDEN)
-//    @ExceptionHandler(AccessDeniedException.class)
-//    public Result accessDeniedException(Exception e) {
-//        log.error("没有权限不允许访问", e);
-//
-//        return Result.fail("没有权限不允许访问");
-//    }
-
 	/**
 	 * 自定义 400 - Bad Request
 	 * <p>处理使用@Validated注解时，参数验证错误异常</p>
