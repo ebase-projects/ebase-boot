@@ -6,6 +6,7 @@ import me.dwliu.framework.common.exception.BusinessException;
 import me.dwliu.framework.common.model.Result;
 import me.dwliu.framework.common.validator.CustomMethodArgumentNotValidException;
 import me.dwliu.framework.common.validator.ParameterInvalidItem;
+import org.springframework.core.annotation.Order;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.converter.HttpMessageNotReadableException;
 import org.springframework.validation.FieldError;
@@ -16,6 +17,7 @@ import org.springframework.web.bind.MissingServletRequestParameterException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
+import org.springframework.web.bind.annotation.RestControllerAdvice;
 import org.springframework.web.multipart.support.MissingServletRequestPartException;
 
 import javax.servlet.http.HttpServletRequest;
@@ -25,12 +27,13 @@ import java.util.List;
 /**
  * 通用的异常处理器
  * <p>
- * 需要全局捕获异常，请继承 DefaultGlobalExceptionHandler 类，并添加 注解 @RestControllerAdvice
+ * 需要自定义全局捕获异常，添加 注解 @RestControllerAdvice，并指定@Order
  *
  * @author liudw
  * @date 2019-05-30 11:43
  **/
-//@RestControllerAdvice
+@RestControllerAdvice
+@Order
 @Slf4j
 @ResponseBody
 public class DefaultGlobalExceptionHandler {
@@ -147,7 +150,7 @@ public class DefaultGlobalExceptionHandler {
 	public Result handleException(Exception e) {
 		log.error(e.getMessage(), e);
 		Result Result = new Result();
-		Result.setMsg("系统未捕获异常，请联系管理员");
+		Result.setMsg("系统未捕获异常，请联系管理员!");
 		Result.setCode(SystemResultCode.FAILURE_CODE);
 
 		return Result;
