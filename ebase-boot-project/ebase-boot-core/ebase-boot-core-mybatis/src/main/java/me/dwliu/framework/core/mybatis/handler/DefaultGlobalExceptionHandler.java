@@ -146,8 +146,8 @@ public class DefaultGlobalExceptionHandler {
 		return Result.fail(e.getMessage());
 	}
 
-	@ExceptionHandler(RuntimeException.class)
-	public Result handleRuntimeException(RuntimeException e) {
+	@ExceptionHandler(NullPointerException.class)
+	public Result handleNullPointerException(NullPointerException e) {
 		log.error(e.getMessage(), e);
 		Result Result = new Result();
 		Result.setMsg("空指针异常，请联系管理员!");
