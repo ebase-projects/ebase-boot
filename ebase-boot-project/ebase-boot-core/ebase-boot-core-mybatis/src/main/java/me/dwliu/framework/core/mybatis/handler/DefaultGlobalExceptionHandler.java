@@ -131,7 +131,7 @@ public class DefaultGlobalExceptionHandler {
 	 * 处理自定义异常
 	 */
 	@ExceptionHandler(BusinessException.class)
-	public Result handleRRException(BusinessException e) {
+	public Result handleBusinessException(BusinessException e) {
 		if (e.getResult() != null) {
 			return e.getResult();
 		}
