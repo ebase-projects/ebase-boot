@@ -144,7 +144,15 @@ public class DefaultGlobalExceptionHandler {
 			return e.getResult();
 		}
 		return Result.fail(e.getMessage());
+	}
 
+	@ExceptionHandler(RuntimeException.class)
+	public Result handleRuntimeException(RuntimeException e) {
+		log.error(e.getMessage(), e);
+		Result Result = new Result();
+		Result.setMsg("空指针异常，请联系管理员!");
+		Result.setCode(SystemResultCode.FAILURE_CODE);
+		return Result;
 	}
 
 
@@ -154,7 +162,6 @@ public class DefaultGlobalExceptionHandler {
 		Result Result = new Result();
 		Result.setMsg("系统未捕获异常，请联系管理员!");
 		Result.setCode(SystemResultCode.FAILURE_CODE);
-
 		return Result;
 	}
 }
