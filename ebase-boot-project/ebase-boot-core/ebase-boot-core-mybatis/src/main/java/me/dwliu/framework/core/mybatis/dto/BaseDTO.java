@@ -39,19 +39,19 @@ public abstract class BaseDTO implements Serializable {
 //    private Long createDept;
 
     @ApiModelProperty(value = "创建人")
-    private Long createUser;
+	private String createBy;
 
-    @ApiModelProperty(value = "创建时间")
-    private Date createDate;
+	@ApiModelProperty(value = "创建时间")
+	private Date createTime;
 
-    @ApiModelProperty(value = "更新人")
-    private Long updateUser;
+	@ApiModelProperty(value = "更新人")
+	private String updateBy;
 
-    @ApiModelProperty(value = "更新时间")
-    private Date updateDate;
+	@ApiModelProperty(value = "更新时间")
+	private Date updateTime;
 
-    @ApiModelProperty(value = "是否已删除")
-    private Integer isDeleted;
+	@ApiModelProperty(value = "是否已删除")
+	private Integer delFlag;
 
     @ApiModelProperty(value = "乐观锁")
     private Integer revision;

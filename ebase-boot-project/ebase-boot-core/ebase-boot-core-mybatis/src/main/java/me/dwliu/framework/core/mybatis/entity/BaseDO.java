@@ -1,6 +1,9 @@
 package me.dwliu.framework.core.mybatis.entity;
 
-import com.baomidou.mybatisplus.annotation.*;
+import com.baomidou.mybatisplus.annotation.FieldFill;
+import com.baomidou.mybatisplus.annotation.TableField;
+import com.baomidou.mybatisplus.annotation.TableLogic;
+import com.baomidou.mybatisplus.annotation.Version;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Data;
 import org.springframework.format.annotation.DateTimeFormat;
@@ -17,12 +20,12 @@ import java.util.Date;
 @Data
 public abstract class BaseDO implements Serializable {
 
-	/**
-	 * 主键id
-	 */
+//	/**
+//	 * 主键id 主键交由子类实现
+//	 */
 //	@TableId(value = "id", type = IdType.ID_WORKER)
-	@TableId
-	private Long id;
+//	@TableId
+//	private Long id;
 
 //    /**
 //     * 租户编号
@@ -40,7 +43,7 @@ public abstract class BaseDO implements Serializable {
 	 * 创建人
 	 */
 	@TableField(fill = FieldFill.INSERT)
-	private Long createUser;
+	private String createBy;
 
 	/**
 	 * 创建时间
@@ -48,13 +51,13 @@ public abstract class BaseDO implements Serializable {
 	@DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
 	@JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
 	@TableField(fill = FieldFill.INSERT)
-	private Date createDate;
+	private Date createTime;
 
 	/**
 	 * 更新人
 	 */
 	@TableField(fill = FieldFill.INSERT_UPDATE)
-	private Long updateUser;
+	private String updateBy;
 
 	/**
 	 * 更新时间
@@ -62,14 +65,14 @@ public abstract class BaseDO implements Serializable {
 	@DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
 	@JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
 	@TableField(fill = FieldFill.INSERT_UPDATE)
-	private Date updateDate;
+	private Date updateTime;
 
 	/**
-	 * 状态[0:未删除,1:删除]
+	 * 逻辑删除状态[0:未删除,1:删除]
 	 */
 	@TableLogic
 	@TableField(fill = FieldFill.INSERT)
-	private Integer isDeleted;
+	private Integer delFlag;
 
 	/**
 	 * 乐观锁

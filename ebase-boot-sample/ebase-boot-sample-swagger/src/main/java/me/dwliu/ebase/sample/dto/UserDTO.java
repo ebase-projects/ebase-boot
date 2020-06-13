@@ -69,18 +69,18 @@ public class UserDTO implements Serializable {
 	private Integer status;
 
 	@ApiModelProperty(value = "创建人")
-	private Long createUser;
+	private String createBy;
 
 	@ApiModelProperty(value = "创建时间")
 	@JsonProperty(access = JsonProperty.Access.READ_ONLY)
-	private Date createDate;
+	private Date createTime;
 
 	@ApiModelProperty(value = "修改人")
-	private Long updateUser;
+	private String updateBy;
 
 	@ApiModelProperty(value = "更新时间")
 	//@JsonProperty(access = JsonProperty.Access.READ_ONLY)
-	private Date updateDate;
+	private Date updateTime;
 
 	@ApiModelProperty(value = "超级管理员   0：否   1：是")
 	@Range(min = 0, max = 1, message = "超级管理员必须在合理的范围内:{min}-{max}")
@@ -88,7 +88,7 @@ public class UserDTO implements Serializable {
 	private Integer superAdmin;
 
 	@ApiModelProperty(value = "是否删除 0正常 1删除")
-	private Integer isDeleted;
+	private Integer delFlag;
 
 	@ApiModelProperty(value = "乐观锁")
 	private Integer revision;

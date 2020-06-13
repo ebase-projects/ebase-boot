@@ -1,6 +1,7 @@
 package me.dwliu.ebase.sample.entity;
 
 import com.baomidou.mybatisplus.annotation.TableField;
+import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -19,6 +20,9 @@ import java.util.List;
 @EqualsAndHashCode(callSuper = true)
 @TableName("sys_user")
 public class UserDO extends BaseTenantDO {
+
+	@TableId
+	private Long userId;
 
 	/**
 	 * 用户名
@@ -69,7 +73,7 @@ public class UserDO extends BaseTenantDO {
 	private String deptName;
 
 
-//	private Integer isDeleted;
+//	private Integer delFlag;
 
 	@TableField(exist = false)
 	private List<RoleDO> roleList = new ArrayList<>();

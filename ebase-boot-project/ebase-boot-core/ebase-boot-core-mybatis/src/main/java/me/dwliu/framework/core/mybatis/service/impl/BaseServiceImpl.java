@@ -4,8 +4,8 @@ import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.core.toolkit.StringUtils;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import me.dwliu.framework.core.mybatis.dao.BaseDAO;
 import me.dwliu.framework.common.model.PageData;
+import me.dwliu.framework.core.mybatis.dao.BaseDAO;
 import me.dwliu.framework.core.mybatis.page.QueryPageUtil;
 import me.dwliu.framework.core.mybatis.service.BaseService;
 import me.dwliu.framework.core.tool.util.ConvertUtils;
@@ -140,7 +140,7 @@ public abstract class BaseServiceImpl<M extends BaseDAO<T>, T, D> extends Servic
 ////        T entity = BeanUtils.instantiateClass(modelClass);
 //////        entity.setUpdateUser(user.getUserId());
 ////        //entity.setUpdateTime(LocalDateTime.now());
-////        entity.setCreateDate(new Date());
+////        entity.setcreateBy(new Date());
 ////
 ////        //boolean update = super.update(entity, Wrappers.<T>update().lambda().in(T::getId, ids));
 ////        boolean update = super.update(entity, new QueryWrapper<T>().in("id", ids));

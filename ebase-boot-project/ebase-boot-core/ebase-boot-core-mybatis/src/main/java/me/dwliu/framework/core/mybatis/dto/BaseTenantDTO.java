@@ -16,6 +16,6 @@ public abstract class BaseTenantDTO extends BaseDTO {
 	 * 租户编号
 	 */
 	@ApiModelProperty(value = "租户编号")
-	private String tenantCode;
+	private String tenantId;
 
 }

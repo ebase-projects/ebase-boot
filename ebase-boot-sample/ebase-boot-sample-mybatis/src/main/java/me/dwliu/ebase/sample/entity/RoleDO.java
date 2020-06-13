@@ -1,5 +1,6 @@
 package me.dwliu.ebase.sample.entity;
 
+import com.baomidou.mybatisplus.annotation.TableId;
 import io.swagger.annotations.ApiModel;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -16,6 +17,8 @@ import me.dwliu.framework.core.mybatis.entity.BaseDO;
 @ApiModel(value = "角色管理")
 public class RoleDO extends BaseDO {
 
+	@TableId
+	private Long roleId;
 	private String rolename;
 
 }
