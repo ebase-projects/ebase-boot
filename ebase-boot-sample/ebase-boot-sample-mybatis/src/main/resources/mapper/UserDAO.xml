@@ -4,7 +4,7 @@
 
     <!-- 通用查询映射结果 -->
     <resultMap id="userResultMap" type="me.dwliu.ebase.sample.entity.UserDO">
-        <result property="userId" column="user_id"/>
+        <result property="id" column="id"/>
         <result property="tenantId" column="tenant_id"/>
         <result property="username" column="username"/>
         <result property="password" column="password"/>

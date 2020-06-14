@@ -21,7 +21,7 @@ public class FieldMetaObjectHandler implements MetaObjectHandler {
 	private final static String CREATE_BY = "createBy";
 	private final static String UPDATE_BY = "updateBy";
 	private final static String CREATE_DEPT = "createDept";
-	private final static String DEL_FLAG = "del_flag";
+	private final static String DEL_FLAG = "delFlag";
 
 	@Override
 	public void insertFill(MetaObject metaObject) {
