@@ -1,6 +1,7 @@
 package me.dwliu.ebase.sample.entity;
 
 import com.baomidou.mybatisplus.annotation.TableField;
+import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -16,6 +17,9 @@ import me.dwliu.framework.core.mybatis.entity.BaseTenantDO;
 @EqualsAndHashCode(callSuper = false)
 @TableName("sys_user")
 public class UserDO extends BaseTenantDO {
+
+	@TableId
+	private Long id;
 
 	/**
 	 * 用户名

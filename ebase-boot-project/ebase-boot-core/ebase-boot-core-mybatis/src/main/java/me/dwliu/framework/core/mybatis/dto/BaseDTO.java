@@ -2,11 +2,7 @@ package me.dwliu.framework.core.mybatis.dto;
 
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
-import me.dwliu.framework.common.validator.group.CreateGroup;
-import me.dwliu.framework.common.validator.group.UpdateGroup;
 
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Null;
 import java.io.Serializable;
 import java.util.Date;
 
@@ -17,15 +13,15 @@ import java.util.Date;
 @Data
 public abstract class BaseDTO implements Serializable {
 
-    /**
-     * 主键id
-     */
-    @ApiModelProperty(value = "主键id")
-    @NotNull(message = "主键不能为空", groups = UpdateGroup.class)
-    @Null(message = "主键必须为空", groups = CreateGroup.class)
-    private Long id;
+//    /**
+//     * 主键id
+//     */
+//    @ApiModelProperty(value = "主键id")
+//    @NotNull(message = "主键不能为空", groups = UpdateGroup.class)
+//    @Null(message = "主键必须为空", groups = CreateGroup.class)
+//    private Long id;
 
-    //    /**
+	//    /**
 //     * 状态[1:正常]
 //     */
 //    @ApiModelProperty(value = "业务状态")

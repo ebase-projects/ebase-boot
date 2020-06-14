@@ -34,11 +34,11 @@ public class UserServiceImplTest {
 		List<RoleDTO> roleDTOs = new ArrayList<>();
 
 		RoleDTO roleDTO = new RoleDTO();
-		roleDTO.setRoleId(111L);
+		roleDTO.setId(111L);
 		roleDTO.setRolename("test");
 
 		RoleDTO roleDTO2 = new RoleDTO();
-		roleDTO2.setRoleId(222L);
+		roleDTO2.setId(222L);
 		roleDTO2.setRolename("test2");
 
 		roleDTOs.add(roleDTO);
@@ -63,7 +63,7 @@ public class UserServiceImplTest {
 			List<RoleDTO> roleDTOs = new ArrayList<>();
 
 			RoleDTO roleDTO = new RoleDTO();
-			roleDTO.setRoleId(111L + i);
+			roleDTO.setId(111L + i);
 			roleDTO.setRolename("test" + i);
 
 			roleDTOs.add(roleDTO);
@@ -94,7 +94,7 @@ public class UserServiceImplTest {
 	@Test
 	public void updateById() {
 		UserDTO userDTO = new UserDTO();
-		userDTO.setUserId(1164760405986263041L);
+		userDTO.setId(1164760405986263041L);
 		userDTO.setUsername("updateName");
 		userDTO.setRealName("updatewwwwwName");
 		userDTO.setEmail("ldw4033@qq.com");
@@ -105,12 +105,12 @@ public class UserServiceImplTest {
 	@Test
 	public void delete() {
 		UserDTO userDTO = new UserDTO();
-		userDTO.setUserId(1164760405986263041L);
+		userDTO.setId(1164760405986263041L);
 		userDTO.setUsername("updateName");
 		userDTO.setRealName("updatewwwwwName");
 		userDTO.setEmail("ldw4033@qq.com");
 
-		userService.deleteEntity(userDTO.getUserId());
+		userService.deleteEntity(userDTO.getId());
 	}
 
 	@Test

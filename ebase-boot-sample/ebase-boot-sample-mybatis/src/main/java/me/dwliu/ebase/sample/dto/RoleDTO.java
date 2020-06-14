@@ -15,7 +15,7 @@ import java.io.Serializable;
 @ApiModel(value = "角色管理")
 public class RoleDTO implements Serializable {
 
-	private Long roleId;
+	private Long id;
 	private String rolename;
 
 }

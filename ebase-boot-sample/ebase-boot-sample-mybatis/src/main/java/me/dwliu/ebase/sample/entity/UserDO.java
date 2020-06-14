@@ -20,9 +20,8 @@ import java.util.List;
 @EqualsAndHashCode(callSuper = true)
 @TableName("sys_user")
 public class UserDO extends BaseTenantDO {
-
 	@TableId
-	private Long userId;
+	private Long id;
 
 	/**
 	 * 用户名

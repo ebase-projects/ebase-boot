@@ -23,7 +23,7 @@ public abstract class BaseDO implements Serializable {
 //	/**
 //	 * 主键id 主键交由子类实现
 //	 */
-//	@TableId(value = "id", type = IdType.ID_WORKER)
+////	@TableId(value = "id", type = IdType.ID_WORKER)
 //	@TableId
 //	private Long id;
 

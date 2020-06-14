@@ -30,7 +30,7 @@ public class UserDTO implements Serializable {
 	@ApiModelProperty(value = "id")
 	@Null(message = "主键必须为空", groups = CreateGroup.class)
 	@NotNull(message = "主键不能为空", groups = UpdateGroup.class)
-	private Long userId;
+	private Long id;
 
 	@ApiModelProperty(value = "用户名", required = true)
 	@NotBlank(message = "用户名不能为空")

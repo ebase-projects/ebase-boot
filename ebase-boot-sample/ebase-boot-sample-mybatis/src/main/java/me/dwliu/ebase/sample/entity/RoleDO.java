@@ -16,9 +16,9 @@ import me.dwliu.framework.core.mybatis.entity.BaseDO;
 @Data
 @ApiModel(value = "角色管理")
 public class RoleDO extends BaseDO {
-
 	@TableId
-	private Long roleId;
+	private Long id;
+
 	private String rolename;
 
 }
