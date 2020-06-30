@@ -39,7 +39,6 @@ import java.util.List;
 @Slf4j
 @ResponseBody
 public class DefaultGlobalExceptionHandler {
-
 	/**
 	 * 400 - Bad Request
 	 * <p>处理验证参数封装错误时异常</p>
