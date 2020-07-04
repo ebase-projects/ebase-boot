@@ -27,7 +27,6 @@ import org.springframework.security.web.authentication.AuthenticationFailureHand
 @Configuration
 @EnableConfigurationProperties(value = SecurityProperties.class)
 @AllArgsConstructor
-@ComponentScan(value = "me.dwliu.framework.plugin.security.validatecode")
 public class ValidateCodeBeanConfig {
 
 	private final SecurityProperties securityProperties;

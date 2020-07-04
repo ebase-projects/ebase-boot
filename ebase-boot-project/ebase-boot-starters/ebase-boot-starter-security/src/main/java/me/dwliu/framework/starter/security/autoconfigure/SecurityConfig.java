@@ -5,6 +5,7 @@ import me.dwliu.framework.plugin.security.service.CustomUserDetailsService;
 import me.dwliu.framework.plugin.security.service.DefaultUserDetailsServiceImpl;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 
 /**
@@ -15,6 +16,7 @@ import org.springframework.context.annotation.Configuration;
  **/
 @Configuration
 @Slf4j
+@ComponentScan(value = "me.dwliu.framework.plugin.security")
 public class SecurityConfig {
 
 
