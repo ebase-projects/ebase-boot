@@ -1,7 +1,7 @@
 package me.dwliu.framework.plugin.security.validatecode.sms;
 
 import lombok.extern.slf4j.Slf4j;
-import me.dwliu.framework.core.security.constant.SecurityConstants;
+import me.dwliu.framework.core.security.constant.ValidateCodeConstants;
 import me.dwliu.framework.plugin.security.validatecode.AbstractValidateCodeProcessor;
 import me.dwliu.framework.plugin.security.validatecode.ValidateCodeException;
 import org.apache.commons.lang3.StringUtils;
@@ -34,7 +34,7 @@ public class SmsCodeProcessor extends AbstractValidateCodeProcessor<SmsCode> {
 		String mobileParameter = "";
 		try {
 			mobileParameter = ServletRequestUtils.getStringParameter(request.getRequest(),
-				SecurityConstants.DEFAULT_PARAMETER_NAME_MOBILE);
+				ValidateCodeConstants.DEFAULT_PARAMETER_NAME_MOBILE);
 
 			if (StringUtils.isBlank(mobileParameter)) {
 				throw new ValidateCodeException("手机号为空");
@@ -42,7 +42,7 @@ public class SmsCodeProcessor extends AbstractValidateCodeProcessor<SmsCode> {
 		} catch (Exception e) {
 			log.error(e.getMessage(), e.fillInStackTrace());
 			if (e instanceof ServletRequestBindingException) {
-				throw new ValidateCodeException(String.format("%s 参数缺失", SecurityConstants.DEFAULT_PARAMETER_NAME_MOBILE));
+				throw new ValidateCodeException(String.format("%s 参数缺失", ValidateCodeConstants.DEFAULT_PARAMETER_NAME_MOBILE));
 			} else if (e instanceof ValidateCodeException) {
 				throw new ValidateCodeException(e.getMessage());
 			}

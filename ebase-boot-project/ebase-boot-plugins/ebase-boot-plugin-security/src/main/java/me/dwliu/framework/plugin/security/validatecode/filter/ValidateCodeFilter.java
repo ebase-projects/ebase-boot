@@ -2,7 +2,7 @@ package me.dwliu.framework.plugin.security.validatecode.filter;
 
 import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
-import me.dwliu.framework.core.security.constant.SecurityConstants;
+import me.dwliu.framework.core.security.constant.ValidateCodeConstants;
 import me.dwliu.framework.plugin.security.validatecode.ValidateCodeException;
 import me.dwliu.framework.plugin.security.validatecode.ValidateCodeProcessor;
 import me.dwliu.framework.plugin.security.validatecode.ValidateCodeProcessorHolder;
@@ -62,7 +62,7 @@ public class ValidateCodeFilter extends OncePerRequestFilter {
 		super.afterPropertiesSet();
 
 		//TODO 加入用户名密码登陆和短信登陆链接
-		urlMap.put(SecurityConstants.DEFAULT_SIGN_IN_PROCESSING_URL_MOBILE, ValidateCodeTypeEnum.SMS);
+		urlMap.put(ValidateCodeConstants.DEFAULT_SIGN_IN_PROCESSING_URL_MOBILE, ValidateCodeTypeEnum.SMS);
 		urlMap.put("/oauth/token", ValidateCodeTypeEnum.IMAGE);
 
 		// 将图片验证码配置文件 url 属性加入到map

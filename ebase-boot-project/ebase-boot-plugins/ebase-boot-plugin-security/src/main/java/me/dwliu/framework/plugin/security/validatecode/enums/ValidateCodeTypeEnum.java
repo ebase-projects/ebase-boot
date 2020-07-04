@@ -1,7 +1,7 @@
 package me.dwliu.framework.plugin.security.validatecode.enums;
 
 
-import me.dwliu.framework.core.security.constant.SecurityConstants;
+import me.dwliu.framework.core.security.constant.ValidateCodeConstants;
 
 /**
  * 验证码类型枚举
@@ -17,7 +17,7 @@ public enum ValidateCodeTypeEnum {
 	SMS {
 		@Override
 		public String getParamNameOnValidate() {
-			return SecurityConstants.DEFAULT_PARAMETER_NAME_CODE_SMS;
+			return ValidateCodeConstants.DEFAULT_PARAMETER_NAME_CODE_SMS;
 		}
 	},
 	/**
@@ -26,7 +26,7 @@ public enum ValidateCodeTypeEnum {
 	IMAGE {
 		@Override
 		public String getParamNameOnValidate() {
-			return SecurityConstants.DEFAULT_PARAMETER_NAME_CODE_IMAGE;
+			return ValidateCodeConstants.DEFAULT_PARAMETER_NAME_CODE_IMAGE;
 		}
 	};
 

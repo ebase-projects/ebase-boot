@@ -6,7 +6,7 @@ package me.dwliu.framework.core.security.constant;
  * @author liudw
  * @date 2019-04-23 15:06
  **/
-public interface SecurityConstants {
+public interface ValidateCodeConstants {
 	/**
 	 * 发送短信验证码 或 验证短信验证码时，传递手机号的参数的名称
 	 */
