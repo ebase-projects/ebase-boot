@@ -1,4 +1,4 @@
-package me.dwliu.framework.core.security.properties;
+package me.dwliu.framework.starter.security.properties;
 
 import cn.hutool.core.util.ReUtil;
 import lombok.Getter;
