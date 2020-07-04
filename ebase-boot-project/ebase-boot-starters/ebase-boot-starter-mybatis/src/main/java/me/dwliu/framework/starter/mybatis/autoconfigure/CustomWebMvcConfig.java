@@ -1,4 +1,4 @@
-package me.dwliu.framework.starter.mybatis.autoconfigure.autoconfigure;
+package me.dwliu.framework.starter.mybatis.autoconfigure;
 
 import com.alibaba.fastjson.serializer.SerializeConfig;
 import com.alibaba.fastjson.serializer.SerializerFeature;
