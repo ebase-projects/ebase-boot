@@ -3,7 +3,7 @@ spring:
     druid:
       #MySQL
       driver-class-name: com.mysql.jdbc.Driver
-      url: jdbc:mysql://39.106.141.187:3307/demo?allowMultiQueries=true&useUnicode=true&characterEncoding=UTF-8&useSSL=false
+      url: jdbc:mysql://localhost:3307/demo?allowMultiQueries=true&useUnicode=true&characterEncoding=UTF-8&useSSL=false
       username: root
       password: root
       initial-size: 10
