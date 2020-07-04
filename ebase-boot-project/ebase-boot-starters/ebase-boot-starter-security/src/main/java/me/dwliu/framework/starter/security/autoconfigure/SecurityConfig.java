@@ -7,6 +7,8 @@ import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.security.crypto.factory.PasswordEncoderFactories;
+import org.springframework.security.crypto.password.PasswordEncoder;
 
 /**
  * 安全配置类
@@ -18,6 +20,18 @@ import org.springframework.context.annotation.Configuration;
 @Slf4j
 @ComponentScan(value = "me.dwliu.framework.plugin.security")
 public class SecurityConfig {
+
+	/**
+	 * 声明密码加密器
+	 *
+	 * @return
+	 */
+	@Bean
+	@ConditionalOnMissingBean(value = PasswordEncoder.class)
+	public PasswordEncoder passwordEncoder() {
+		log.debug("初始化passwordEncoder: PasswordEncoderFactories.createDelegatingPasswordEncoder()");
+		return PasswordEncoderFactories.createDelegatingPasswordEncoder();
+	}
 
 
 	/**
