@@ -1,4 +1,4 @@
-package me.dwliu.framework.plugin.security.service.authorize;
+package me.dwliu.framework.plugin.security.service;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.core.Authentication;
