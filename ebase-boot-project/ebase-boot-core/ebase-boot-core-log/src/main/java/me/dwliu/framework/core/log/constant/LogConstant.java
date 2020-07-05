@@ -8,4 +8,9 @@ package me.dwliu.framework.core.log.constant;
  **/
 public interface LogConstant {
 	String API_PREFIX = "/system/log";
+
+	/**
+	 * redis log key
+	 */
+	String LOG_KEY = "sys:log";
 }

@@ -8,14 +8,14 @@ import org.springframework.format.annotation.DateTimeFormat;
 import java.util.Date;
 
 /**
- * 操作日志模块
+ * 登陆日志模块
  *
  * @author liudw
  * @date 2019-11-18 15:04
  **/
 @EqualsAndHashCode(callSuper = true)
 @Data
-public class LogOperationDTO extends AbstractLogOperationDTO {
+public class LogLoginDTO extends AbstractLogOperationDTO {
 
 	/**
 	 * 主键id
@@ -85,8 +85,4 @@ public class LogOperationDTO extends AbstractLogOperationDTO {
 	 * 用户名
 	 */
 	private String creatorName;
-	/**
-	 * 状态
-	 */
-	private Integer status;
 }
