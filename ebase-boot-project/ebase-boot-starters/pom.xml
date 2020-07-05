@@ -16,6 +16,7 @@
     <modules>
         <module>ebase-boot-starter</module>
         <module>ebase-boot-starter-oss</module>
+        <module>ebase-boot-starter-redis</module>
         <module>ebase-boot-starter-mybatis</module>
         <module>ebase-boot-starter-swagger</module>
         <module>ebase-boot-starter-log</module>

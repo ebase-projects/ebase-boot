@@ -177,6 +177,13 @@
                 <artifactId>ebase-boot-plugin-oss</artifactId>
                 <version>${revision}</version>
             </dependency>
+
+            <dependency>
+                <groupId>me.dwliu.ebase</groupId>
+                <artifactId>ebase-boot-plugin-redis</artifactId>
+                <version>${revision}</version>
+            </dependency>
+
             <dependency>
                 <groupId>me.dwliu.ebase</groupId>
                 <artifactId>ebase-boot-plugin-security</artifactId>
@@ -193,7 +200,7 @@
             <dependency>
                 <groupId>me.dwliu.ebase</groupId>
                 <artifactId>ebase-boot-starter-mybatis</artifactId>
-                <version>1.0.0-SNAPSHOT</version>
+                <version>${revision}</version>
             </dependency>
 
             <!--            <dependency>-->
@@ -217,6 +224,12 @@
             <dependency>
                 <groupId>me.dwliu.ebase</groupId>
                 <artifactId>ebase-boot-starter-oss</artifactId>
+                <version>${revision}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>me.dwliu.ebase</groupId>
+                <artifactId>ebase-boot-starter-redis</artifactId>
                 <version>${revision}</version>
             </dependency>
 

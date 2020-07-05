@@ -4,6 +4,7 @@ import lombok.extern.slf4j.Slf4j;
 import me.dwliu.framework.core.log.constant.LogConstant;
 import me.dwliu.framework.core.log.dto.AbstractLogOperationDTO;
 import me.dwliu.framework.core.log.producer.LogProducer;
+import me.dwliu.framework.plugin.redis.RedisService;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.scheduling.annotation.EnableAsync;
@@ -21,14 +22,19 @@ import org.springframework.scheduling.annotation.EnableAsync;
 public class LogRedisProducer implements LogProducer {
 
 
-	private final RedisTemplate redisTemplate;
+	// private final RedisTemplate redisTemplate;
+	private final RedisService redisService;
 
 	// ThreadFactory namedThreadFactory = new ThreadFactoryBuilder().setNameFormat("log-producer-pool-%d").build();
 	// ExecutorService pool = new ThreadPoolExecutor(5, 200, 0L, TimeUnit.MILLISECONDS,
 	// 	new LinkedBlockingQueue<>(1024), namedThreadFactory, new ThreadPoolExecutor.AbortPolicy());
 
-	public LogRedisProducer(RedisTemplate redisTemplate) {
-		this.redisTemplate = redisTemplate;
+	// public LogRedisProducer(RedisTemplate redisTemplate) {
+	// 	this.redisTemplate = redisTemplate;
+	// }
+
+	public LogRedisProducer(RedisService redisService) {
+		this.redisService = redisService;
 	}
 
 	/**
@@ -49,7 +55,7 @@ public class LogRedisProducer implements LogProducer {
 		// 	redisTemplate.opsForList().leftPush(LOG_KEY, dto);
 		// });
 
-		redisTemplate.opsForList().leftPush(LogConstant.LOG_KEY, dto);
+		redisService.leftPush(LogConstant.LOG_KEY, dto, RedisService.NOT_EXPIRE);
 
 
 	}
