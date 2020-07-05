@@ -22,55 +22,53 @@
         <main.basedir>${basedir}/../..</main.basedir>
 
         <!--spring-->
-        <spring.boot.version>2.1.15.RELEASE</spring.boot.version>
-        <spring.cloud.version>Greenwich.SR4</spring.cloud.version>
-        <security.oauth2.version>2.4.0.RELEASE</security.oauth2.version>
-        <spring.security.jwt.version>1.1.0.RELEASE</spring.security.jwt.version>
+        <spring.boot.version>2.2.8.RELEASE</spring.boot.version>
+        <spring.cloud.version>Hoxton.SR5</spring.cloud.version>
+        <security.oauth2.version>2.5.0.RELEASE</security.oauth2.version>
+        <spring.security.jwt.version>1.1.1.RELEASE</spring.security.jwt.version>
         <!--spring.security.oauth2.autoconfigure 同 spring boot-->
-        <spring.security.oauth2.autoconfigure.version>2.1.13.RELEASE</spring.security.oauth2.autoconfigure.version>
-        <spring.tx.version>5.2.2.RELEASE</spring.tx.version>
+        <spring.security.oauth2.autoconfigure.version>2.2.8.RELEASE</spring.security.oauth2.autoconfigure.version>
 
         <!--alibaba https://github.com/alibaba/spring-cloud-alibaba/releases -->
-        <spring.cloud.alibaba.version>2.1.1.RELEASE</spring.cloud.alibaba.version>
-        <alibaba.oss.version>2.8.3</alibaba.oss.version>
-        <aliyun.sdk.core.version>4.2.0</aliyun.sdk.core.version>
+        <spring.cloud.alibaba.version>2.2.1.RELEASE</spring.cloud.alibaba.version>
+        <alibaba.oss.version>3.10.2</alibaba.oss.version>
+        <aliyun.sdk.core.version>4.5.3</aliyun.sdk.core.version>
         <aliyun.sdk.dysmsapi.version>1.1.0</aliyun.sdk.dysmsapi.version>
         <aliyun-java-sdk-dm.version>3.3.1</aliyun-java-sdk-dm.version>
-        <fastjson.version>1.2.60</fastjson.version>
+        <fastjson.version>1.2.72</fastjson.version>
+
 
         <!--apache-->
 
-        <commons.fileupload.version>1.3.1</commons.fileupload.version>
-        <commons.io.version>2.5</commons.io.version>
+        <commons.fileupload.version>1.4</commons.fileupload.version>
+        <commons.io.version>2.7</commons.io.version>
 
         <!--DB-->
-        <mybatis-plus-boot-starter.version>3.3.0</mybatis-plus-boot-starter.version>
-        <druid.version>1.1.21</druid.version>
-        <mysql.version>5.1.38</mysql.version>
+        <mybatis.plus.boot.starter.version>3.3.2</mybatis.plus.boot.starter.version>
+        <druid.version>1.1.23</druid.version>
+        <mysql.version>5.1.49</mysql.version>
         <oracle.version>11.2.0.3</oracle.version>
 
         <!--tool-->
-        <hutool.version>5.1.0</hutool.version>
+        <hutool.version>5.3.8</hutool.version>
         <guava.version>20.0</guava.version>
-        <easypoi.version>4.1.0</easypoi.version>
+        <easypoi.version>4.2.0</easypoi.version>
 
         <!--swagger2-->
-        <springfox-swagger2.version>2.9.2</springfox-swagger2.version>
+        <springfox-swagger2.version>2.10.5</springfox-swagger2.version>
         <io.swagger>1.5.24</io.swagger>
-        <knife4j-spring-ui>2.0.1</knife4j-spring-ui>
+        <knife4j-spring-ui>2.0.4</knife4j-spring-ui>
 
         <!--oss-->
-        <fastjson.version>1.2.60</fastjson.version>
-        <minio.version>6.0.11</minio.version>
-        <qiniu-sdk.version>7.2.23</qiniu-sdk.version>
+        <minio.version>7.1.0</minio.version>
+        <qiniu-sdk.version>7.2.29</qiniu-sdk.version>
 
         <!--others-->
-        <fastdfs.version>1.26.5</fastdfs.version>
+        <fastdfs.version>1.27.2</fastdfs.version>
         <reflections.version>0.9.11</reflections.version>
-        <quartz.version>2.3.1</quartz.version>
+        <quartz.version>2.3.2</quartz.version>
         <jpush-client.version>3.3.11</jpush-client.version>
-        <zip4j.version>1.3.2</zip4j.version>
-        <!--        <jackson.version>2.10.1</jackson.version>-->
+        <zip4j.version>2.6.1</zip4j.version>
 
 
         <!--Plugin Versions-->
@@ -353,12 +351,12 @@
             <dependency>
                 <groupId>com.baomidou</groupId>
                 <artifactId>mybatis-plus-boot-starter</artifactId>
-                <version>${mybatis-plus-boot-starter.version}</version>
+                <version>${mybatis.plus.boot.starter.version}</version>
             </dependency>
             <dependency>
                 <groupId>com.baomidou</groupId>
                 <artifactId>mybatis-plus-extension</artifactId>
-                <version>${mybatis-plus-boot-starter.version}</version>
+                <version>${mybatis.plus.boot.starter.version}</version>
             </dependency>
             <!-- mybatis-plus start ↑ -->
 
@@ -457,6 +455,13 @@
                 <groupId>io.minio</groupId>
                 <artifactId>minio</artifactId>
                 <version>${minio.version}</version>
+            </dependency>
+
+            <!-- https://mvnrepository.com/artifact/com.aliyun.oss/aliyun-sdk-oss -->
+            <dependency>
+                <groupId>com.aliyun.oss</groupId>
+                <artifactId>aliyun-sdk-oss</artifactId>
+                <version>${alibaba.oss.version}</version>
             </dependency>
 
 
