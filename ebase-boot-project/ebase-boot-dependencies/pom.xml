@@ -55,7 +55,7 @@
         <easypoi.version>4.2.0</easypoi.version>
 
         <!--swagger2-->
-        <springfox-swagger2.version>2.10.5</springfox-swagger2.version>
+        <springfox-swagger2.version>2.9.2</springfox-swagger2.version>
         <io.swagger>1.5.24</io.swagger>
         <knife4j-spring-ui>2.0.4</knife4j-spring-ui>
 

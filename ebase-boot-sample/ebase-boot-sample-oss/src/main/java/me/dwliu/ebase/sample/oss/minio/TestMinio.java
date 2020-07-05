@@ -43,7 +43,8 @@ public class TestMinio {
 //        minioClient.putObject(bucketName, "hello1.doc", filePath, 0L, null, null, "application/octet-stream");
 
 
-        minioClient.putObject(bucketName, "2019/11/02/" + fileName, fileInputStream, Long.valueOf(fileInputStream.available()), null, null, "application/octet-stream");
+        // minioClient.putObject(bucketName, "2019/11/02/" + fileName, fileInputStream, Long.valueOf(fileInputStream.available()), null, null, "application/octet-stream");
+
 
 
 //        Iterable<Result<Item>> results = minioClient.listObjects(bucketName);
