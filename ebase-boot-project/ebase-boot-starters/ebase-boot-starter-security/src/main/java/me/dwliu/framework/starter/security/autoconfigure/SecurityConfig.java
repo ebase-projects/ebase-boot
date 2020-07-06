@@ -1,6 +1,7 @@
 package me.dwliu.framework.starter.security.autoconfigure;
 
 import lombok.extern.slf4j.Slf4j;
+import me.dwliu.framework.core.security.crypto.CustomPasswordEncoderFactories;
 import me.dwliu.framework.plugin.security.service.CustomUserDetailsService;
 import me.dwliu.framework.plugin.security.service.DefaultUserDetailsServiceImpl;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
@@ -30,7 +31,7 @@ public class SecurityConfig {
 	@ConditionalOnMissingBean(value = PasswordEncoder.class)
 	public PasswordEncoder passwordEncoder() {
 		log.debug("初始化passwordEncoder: PasswordEncoderFactories.createDelegatingPasswordEncoder()");
-		return PasswordEncoderFactories.createDelegatingPasswordEncoder();
+		return CustomPasswordEncoderFactories.createDelegatingPasswordEncoder();
 	}
 
 
