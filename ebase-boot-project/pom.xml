@@ -14,7 +14,9 @@
     <packaging>pom</packaging>
 
     <modules>
+        <!--imported or configured as parent by users-->
         <module>ebase-boot-dependencies</module>
+        <!--imported or configured as parent by ebase boot module self-->
         <module>ebase-boot-parent</module>
         <module>ebase-boot-common</module>
         <module>ebase-boot-core</module>
