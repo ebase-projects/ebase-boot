@@ -47,7 +47,7 @@
 
 ## License
 
-ApiBoot采用Apache2开源许可进行编写。
+采用Apache2开源许可进行编写。
 
 ## 开源支持
 
