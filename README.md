@@ -1,39 +1,55 @@
-# ebase-boot
-
-#### 介绍
-{**以下是码云平台说明，您可以替换此简介**
-码云是 OSCHINA 推出的基于 Git 的代码托管平台（同时支持 SVN）。专为开发者提供稳定、高效、安全的云端软件开发协作平台
-无论是个人、团队、或是企业，都能够用码云实现代码托管、项目管理、协作开发。企业项目请看 [https://gitee.com/enterprises](https://gitee.com/enterprises)}
-
-#### 软件架构
-软件架构说明
+# ebase-boot 一系列开箱即用的组件
 
 
-#### 安装教程
+[![](https://img.shields.io/badge/License-Apache%202.0-green.svg)](https://github.com/weibocom/motan/blob/master/LICENSE)
+![](https://img.shields.io/badge/JDK-1.8+-green.svg)
 
-1.  xxxx
-2.  xxxx
-3.  xxxx
+## 什么是 ebase-boot？
 
-#### 使用说明
+`ebase-boot` 是一款基于`SpringBoot` 的服务集成基础框架，内部提供了第三方框架的封装集成，让接口开发者可以选择性完成开箱即用。
 
-1.  xxxx
-2.  xxxx
-3.  xxxx
+对`SpringBoot`简单了解的开发者就可以编写安全稳定的接口服务，可为移动端、网页端等多个端点提供丰富的安全接口。
 
-#### 参与贡献
+`ebase-boot` 依赖于SpringBoot，可以使用`ebase-boot` 构建独立的Java应用程序。
 
-1.  Fork 本仓库
-2.  新建 Feat_xxx 分支
-3.  提交代码
-4.  新建 Pull Request
+## 安装
 
+如果你是使用Maven来构建项目，你需要添加`ebase-boot`的版本依赖到你的pom.xml文件内，如下所示：
 
-#### 码云特技
+```xml
+<dependencyManagement>
+  <dependencies>
+    <dependency>
+      <groupId>me.dwliu.ebase</groupId>
+      <artifactId>ebase-boot-dependencies</artifactId>
+      <version>${lastVersion}</version>
+      <scope>import</scope>
+      <type>pom</type>
+    </dependency>
+  </dependencies>
+</dependencyManagement>
+```
 
-1.  使用 Readme\_XXX.md 来支持不同的语言，例如 Readme\_en.md, Readme\_zh.md
-2.  码云官方博客 [blog.gitee.com](https://blog.gitee.com)
-3.  你可以 [https://gitee.com/explore](https://gitee.com/explore) 这个地址来了解码云上的优秀开源项目
-4.  [GVP](https://gitee.com/gvp) 全称是码云最有价值开源项目，是码云综合评定出的优秀开源项目
-5.  码云官方提供的使用手册 [https://gitee.com/help](https://gitee.com/help)
-6.  码云封面人物是一档用来展示码云会员风采的栏目 [https://gitee.com/gitee-stars/](https://gitee.com/gitee-stars/)
+> 注意：**lastVersion**需要替换为最新的`ebase-boot`版本
+
+版本依赖添加完成后，我们接下来就可以进行添加项目内所需要的`ebase-boot`组件，下面是使用`Mybatis`组件`ebase-boot-starter-mybatis`示例：
+
+```xml
+<dependencies>
+  <dependency>
+    <groupId>me.dwliu.ebase</groupId>
+    <artifactId>ebase-boot-starter-mybatis</artifactId>
+  </dependency>
+</dependencies>
+```
+
+添加完组件我们就可以根据官方参考文档找到对应组件的文档进行配置使用了。
+
+## License
+
+ApiBoot采用Apache2开源许可进行编写。
+
+## 开源支持
+
+<a href="https://www.jetbrains.com/?from=ebase-projects"><img src="http://blogimage.dwliu.me/image/20200709103201-2ZxFX7.jpg" width="100" heith="100"/></a>
+
