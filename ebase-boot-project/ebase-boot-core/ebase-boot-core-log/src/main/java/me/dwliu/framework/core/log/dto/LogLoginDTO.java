@@ -76,7 +76,7 @@ public class LogLoginDTO extends AbstractLogOperationDTO {
 	/**
 	 * 操作IP
 	 */
-	private String remoteIp;
+	private String ip;
 	/**
 	 * 服务ID
 	 */
