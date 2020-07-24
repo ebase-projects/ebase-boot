@@ -101,7 +101,7 @@ public class LogActionAspect {
 
 		//请求相关信息
 		HttpServletRequest request = HttpContextUtils.getHttpServletRequest();
-		log.setRemoteIp(IPUtil.getIpAddr(request));
+		log.setIp(IPUtil.getIpAddr(request));
 		log.setUserAgent(request.getHeader(HttpHeaders.USER_AGENT));
 		log.setRequestUri(request.getRequestURI());
 		log.setRequestMethod(request.getMethod());
