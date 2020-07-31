@@ -44,7 +44,7 @@ public class EbaseAuthenticationFailureHandler extends SimpleUrlAuthenticationFa
 		log.info("登陆失败");
 
 		response.setStatus(HttpStatus.INTERNAL_SERVER_ERROR.value());
-		response.setContentType("application/json");
+		response.setContentType("application/json;charset=utf-8");
 		response.getWriter().write(
 			objectMapper.writeValueAsString(new SimpleResponse(exception.getMessage())));
 
