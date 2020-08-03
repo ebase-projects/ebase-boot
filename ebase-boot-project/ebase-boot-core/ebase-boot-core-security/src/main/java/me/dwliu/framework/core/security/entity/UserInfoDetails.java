@@ -53,6 +53,11 @@ public class UserInfoDetails extends User {
 	 */
 	private String avatar;
 
+	/**
+	 * 超级管理员   0：否   1：是
+	 */
+	private Integer superAdmin;
+
 
 	public UserInfoDetails(String username) {
 		super(username, "", null);
@@ -61,7 +66,7 @@ public class UserInfoDetails extends User {
 
 	public UserInfoDetails(String userId, String tenantCode, String realName, String deptId,
 	                       String deptName, String roleId, String roleName, String avatar,
-	                       String username, String password, boolean enabled, boolean accountNonExpired,
+	                       String username, String password, int superAdmin, boolean enabled, boolean accountNonExpired,
 	                       boolean credentialsNonExpired, boolean accountNonLocked,
 	                       Collection<? extends GrantedAuthority> authorities) {
 		super(username, password, enabled, accountNonExpired, credentialsNonExpired, accountNonLocked, authorities);
@@ -74,6 +79,7 @@ public class UserInfoDetails extends User {
 		this.roleId = roleId;
 		this.roleName = roleName;
 		this.avatar = avatar;
+		this.superAdmin = superAdmin;
 
 	}
 }
