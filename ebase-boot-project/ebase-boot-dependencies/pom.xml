@@ -6,7 +6,7 @@
         <artifactId>ebase-boot</artifactId>
         <groupId>me.dwliu.ebase</groupId>
         <version>${revision}</version>
-        <relativePath>../..</relativePath>
+        <relativePath>../../pom.xml</relativePath>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
