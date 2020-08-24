@@ -12,7 +12,7 @@ public interface BaseEnum {
 	 *
 	 * @return
 	 */
-	int getValue();
+	Integer getValue();
 
 	/**
 	 * 获取描述
