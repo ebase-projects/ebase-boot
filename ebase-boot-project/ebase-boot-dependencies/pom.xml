@@ -69,6 +69,7 @@
         <quartz.version>2.3.2</quartz.version>
         <jpush-client.version>3.3.11</jpush-client.version>
         <zip4j.version>2.6.1</zip4j.version>
+        <oshi.version>5.2.4</oshi.version>
 
 
         <!--Plugin Versions-->
@@ -475,6 +476,14 @@
                 <groupId>com.aliyun.oss</groupId>
                 <artifactId>aliyun-sdk-oss</artifactId>
                 <version>${alibaba.oss.version}</version>
+            </dependency>
+
+            <!-- https://mvnrepository.com/artifact/com.github.oshi/oshi-core -->
+            <!--查看系统硬件运行情况-->
+            <dependency>
+                <groupId>com.github.oshi</groupId>
+                <artifactId>oshi-core</artifactId>
+                <version>${oshi.version}</version>
             </dependency>
 
 
