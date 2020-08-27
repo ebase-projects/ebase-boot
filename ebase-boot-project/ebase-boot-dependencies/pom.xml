@@ -70,6 +70,7 @@
         <jpush-client.version>3.3.11</jpush-client.version>
         <zip4j.version>2.6.1</zip4j.version>
         <oshi.version>5.2.4</oshi.version>
+        <zxing.version>3.4.0</zxing.version>
 
 
         <!--Plugin Versions-->
@@ -338,8 +339,14 @@
             <dependency>
                 <groupId>com.google.zxing</groupId>
                 <artifactId>core</artifactId>
-                <version>3.4.0</version>
+                <version>${zxing.version}</version>
             </dependency>
+            <dependency>
+                <groupId>com.google.zxing</groupId>
+                <artifactId>javase</artifactId>
+                <version>${zxing.version}</version>
+            </dependency>
+
             <!-- 压缩 -->
             <dependency>
                 <groupId>net.lingala.zip4j</groupId>

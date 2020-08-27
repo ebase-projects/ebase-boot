@@ -230,8 +230,7 @@ public class QrCodeUtil {
 		if (image == null) {
 			return null;
 		}
-		BufferedImageLuminanceSource source = new BufferedImageLuminanceSource(
-			image);
+		BufferedImageLuminanceSource source = new BufferedImageLuminanceSource(image);
 		BinaryBitmap bitmap = new BinaryBitmap(new HybridBinarizer(source));
 		Result result;
 		Hashtable<DecodeHintType, Object> hints = new Hashtable<DecodeHintType, Object>();
