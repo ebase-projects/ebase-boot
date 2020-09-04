@@ -60,7 +60,7 @@
         <knife4j-spring-ui>2.0.4</knife4j-spring-ui>
 
         <!--oss-->
-        <minio.version>7.1.0</minio.version>
+        <minio.version>6.0.13</minio.version>
         <qiniu-sdk.version>7.2.29</qiniu-sdk.version>
 
         <!--others-->

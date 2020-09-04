@@ -1,9 +1,10 @@
 oss:
   minio:
     enabled: true
-    endpoint: http://localhost:9000
+    endpoint: http://192.168.1.156:9000
     accessKey: admin
-    secretKey: admin123
+    secretKey: admin123456
+
 #  aliyun:
 #    enabled: true
 #  qiniu:
