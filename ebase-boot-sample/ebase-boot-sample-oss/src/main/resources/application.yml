@@ -1,7 +1,7 @@
 oss:
   minio:
     enabled: true
-    endpoint: http://192.168.1.162:9000
+    endpoint: http://39.106.141.187:9000
     accessKey: admin
     secretKey: admin123456
 
