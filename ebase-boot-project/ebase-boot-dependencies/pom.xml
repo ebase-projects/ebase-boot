@@ -6,7 +6,7 @@
         <artifactId>ebase-boot</artifactId>
         <groupId>me.dwliu.ebase</groupId>
         <version>${revision}</version>
-        <relativePath>../..</relativePath>
+        <relativePath>../../pom.xml</relativePath>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
@@ -22,12 +22,12 @@
         <main.basedir>${basedir}/../..</main.basedir>
 
         <!--spring-->
-        <spring.boot.version>2.2.8.RELEASE</spring.boot.version>
+        <spring.boot.version>2.2.9.RELEASE</spring.boot.version>
         <spring.cloud.version>Hoxton.SR5</spring.cloud.version>
         <security.oauth2.version>2.5.0.RELEASE</security.oauth2.version>
         <spring.security.jwt.version>1.1.1.RELEASE</spring.security.jwt.version>
         <!--spring.security.oauth2.autoconfigure 同 spring boot-->
-        <spring.security.oauth2.autoconfigure.version>2.2.8.RELEASE</spring.security.oauth2.autoconfigure.version>
+        <spring.security.oauth2.autoconfigure.version>2.2.9.RELEASE</spring.security.oauth2.autoconfigure.version>
 
         <!--alibaba https://github.com/alibaba/spring-cloud-alibaba/releases -->
         <spring.cloud.alibaba.version>2.2.1.RELEASE</spring.cloud.alibaba.version>
@@ -44,7 +44,7 @@
         <commons.io.version>2.7</commons.io.version>
 
         <!--DB-->
-        <mybatis.plus.boot.starter.version>3.3.2</mybatis.plus.boot.starter.version>
+        <mybatis.plus.boot.starter.version>3.4.0</mybatis.plus.boot.starter.version>
         <druid.version>1.1.23</druid.version>
         <mysql.version>5.1.49</mysql.version>
         <oracle.version>11.2.0.3</oracle.version>
@@ -60,7 +60,7 @@
         <knife4j-spring-ui>2.0.4</knife4j-spring-ui>
 
         <!--oss-->
-        <minio.version>7.1.0</minio.version>
+        <minio.version>6.0.13</minio.version>
         <qiniu-sdk.version>7.2.29</qiniu-sdk.version>
 
         <!--others-->
@@ -69,6 +69,8 @@
         <quartz.version>2.3.2</quartz.version>
         <jpush-client.version>3.3.11</jpush-client.version>
         <zip4j.version>2.6.1</zip4j.version>
+        <oshi.version>5.2.4</oshi.version>
+        <zxing.version>3.4.0</zxing.version>
 
 
         <!--Plugin Versions-->
@@ -333,19 +335,18 @@
                 <artifactId>fastjson</artifactId>
                 <version>${fastjson.version}</version>
             </dependency>
-
-
             <!-- 二维码 -->
             <dependency>
                 <groupId>com.google.zxing</groupId>
                 <artifactId>core</artifactId>
-                <version>3.3.3</version>
+                <version>${zxing.version}</version>
             </dependency>
             <dependency>
-                <groupId>net.glxn</groupId>
-                <artifactId>qrgen</artifactId>
-                <version>1.4</version>
+                <groupId>com.google.zxing</groupId>
+                <artifactId>javase</artifactId>
+                <version>${zxing.version}</version>
             </dependency>
+
             <!-- 压缩 -->
             <dependency>
                 <groupId>net.lingala.zip4j</groupId>
@@ -475,6 +476,14 @@
                 <groupId>com.aliyun.oss</groupId>
                 <artifactId>aliyun-sdk-oss</artifactId>
                 <version>${alibaba.oss.version}</version>
+            </dependency>
+
+            <!-- https://mvnrepository.com/artifact/com.github.oshi/oshi-core -->
+            <!--查看系统硬件运行情况-->
+            <dependency>
+                <groupId>com.github.oshi</groupId>
+                <artifactId>oshi-core</artifactId>
+                <version>${oshi.version}</version>
             </dependency>
 
 

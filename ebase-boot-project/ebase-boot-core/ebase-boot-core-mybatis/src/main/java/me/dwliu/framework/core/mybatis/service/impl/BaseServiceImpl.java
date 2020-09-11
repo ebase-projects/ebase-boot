@@ -2,13 +2,13 @@ package me.dwliu.framework.core.mybatis.service.impl;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
-import com.baomidou.mybatisplus.core.toolkit.StringUtils;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import me.dwliu.framework.common.model.PageData;
 import me.dwliu.framework.core.mybatis.dao.BaseDAO;
 import me.dwliu.framework.core.mybatis.page.QueryPageUtil;
 import me.dwliu.framework.core.mybatis.service.BaseService;
 import me.dwliu.framework.core.tool.util.ConvertUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.List;

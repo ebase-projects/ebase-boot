@@ -1,9 +1,11 @@
 oss:
   minio:
     enabled: true
-    endpoint: http://localhost:9000
+    endpoint: http://39.106.141.187:9000
     accessKey: admin
-    secretKey: admin123
+    secretKey: admin123456
+
+
 #  aliyun:
 #    enabled: true
 #  qiniu:
@@ -12,5 +14,13 @@ oss:
 #    accessKey: XXX
 #    secretKey: XXX
 #    zone: z0
+server:
+  port: 18080
+  tomcat:
+    max-swallow-size: -1
 
-
+spring:
+  servlet:
+    multipart:
+      max-file-size: 200MB
+      max-request-size: 200MB

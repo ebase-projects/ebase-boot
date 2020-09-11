@@ -31,7 +31,7 @@ public class ValidateCodeBeanConfig {
 
 	private final SecurityProperties securityProperties;
 	// private final ValidateCodeProcessorHolder validateCodeProcessorHolder;
-	private final AuthenticationFailureHandler authenticationFailureHandler;
+	// private final AuthenticationFailureHandler authenticationFailureHandler;
 
 	/**
 	 * 默认的图形验证码生成实现类
@@ -60,7 +60,8 @@ public class ValidateCodeBeanConfig {
 	}
 
 	@Bean
-	public ValidateCodeFilter validateCodeFilter(ValidateCodeProcessorHolder validateCodeProcessorHolder) {
+	public ValidateCodeFilter validateCodeFilter(ValidateCodeProcessorHolder validateCodeProcessorHolder,
+	                                             AuthenticationFailureHandler authenticationFailureHandler) {
 		ValidateCodeFilter validateCodeFilter = new ValidateCodeFilter();
 		validateCodeFilter.setAuthenticationFailureHandler(authenticationFailureHandler);
 		validateCodeFilter.setValidateCodeProcessorHolder(validateCodeProcessorHolder);

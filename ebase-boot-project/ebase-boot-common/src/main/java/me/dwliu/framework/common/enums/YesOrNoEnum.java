@@ -9,12 +9,15 @@ import lombok.Getter;
  * @date 2019-12-20 20:03
  **/
 @Getter
-public enum YesOrNoEnum {
-	YES(1),
-	NO(0);
-	private Integer value;
+public enum YesOrNoEnum implements BaseEnum {
+	YES(1, "是"),
+	NO(0, "否");
 
-	YesOrNoEnum(Integer value) {
+	private Integer value;
+	private String desc;
+
+	YesOrNoEnum(Integer value, String desc) {
 		this.value = value;
 	}
+
 }
