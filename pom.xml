@@ -105,14 +105,14 @@
     <!--    </repositories>-->
     <distributionManagement>
         <repository>
-            <id>weds-release</id>
-            <name>weds-release</name>
-            <url>http://10.0.0.82:8081/repository/weds-release/</url>
+            <id>linewell-sd-releases</id>
+            <name>releases</name>
+            <url>http://101.200.134.49:8081/repository/maven-releases/</url>
         </repository>
         <snapshotRepository>
-            <id>weds-snapshots</id>
-            <name>weds-snapshots</name>
-            <url>http://10.0.0.82:8081/repository/weds-snapshots/</url>
+            <id>linewell-sd-snapshots</id>
+            <name>snapshots</name>
+            <url>http://101.200.134.49:8081/repository/maven-snapshots/</url>
         </snapshotRepository>
     </distributionManagement>
 
