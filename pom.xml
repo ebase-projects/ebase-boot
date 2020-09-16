@@ -30,8 +30,17 @@
 
     <modules>
         <module>ebase-boot-project</module>
-        <module>ebase-boot-sample</module>
     </modules>
+
+    <profiles>
+        <profile>
+            <id>install</id>
+            <modules>
+                <module>ebase-boot-sample</module>
+            </modules>
+
+        </profile>
+    </profiles>
 
 
     <properties>
