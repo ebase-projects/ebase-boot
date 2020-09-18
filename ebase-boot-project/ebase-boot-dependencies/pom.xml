@@ -22,21 +22,22 @@
         <main.basedir>${basedir}/../..</main.basedir>
 
         <!--spring-->
-        <spring.boot.version>2.2.9.RELEASE</spring.boot.version>
-        <spring.cloud.version>Hoxton.SR5</spring.cloud.version>
+        <spring.boot.version>2.3.4.RELEASE</spring.boot.version>
+        <spring.cloud.version>Hoxton.SR8</spring.cloud.version>
         <security.oauth2.version>2.5.0.RELEASE</security.oauth2.version>
         <spring.security.jwt.version>1.1.1.RELEASE</spring.security.jwt.version>
         <!--spring.security.oauth2.autoconfigure 同 spring boot-->
-        <spring.security.oauth2.autoconfigure.version>2.2.9.RELEASE</spring.security.oauth2.autoconfigure.version>
+        <spring.security.oauth2.autoconfigure.version>2.3.3.RELEASE</spring.security.oauth2.autoconfigure.version>
 
         <!--alibaba https://github.com/alibaba/spring-cloud-alibaba/releases -->
-        <spring.cloud.alibaba.version>2.2.1.RELEASE</spring.cloud.alibaba.version>
+        <spring.cloud.alibaba.version>2.2.2.RELEASE</spring.cloud.alibaba.version>
         <alibaba.oss.version>3.10.2</alibaba.oss.version>
         <aliyun.sdk.core.version>4.5.3</aliyun.sdk.core.version>
         <aliyun.sdk.dysmsapi.version>1.1.0</aliyun.sdk.dysmsapi.version>
         <aliyun-java-sdk-dm.version>3.3.1</aliyun-java-sdk-dm.version>
         <fastjson.version>1.2.72</fastjson.version>
 
+        <joda-time.version>2.10.6</joda-time.version>
 
         <!--apache-->
 
@@ -486,6 +487,11 @@
                 <version>${oshi.version}</version>
             </dependency>
 
+            <dependency>
+                <groupId>joda-time</groupId>
+                <artifactId>joda-time</artifactId>
+                <version>${joda-time.version}</version>
+            </dependency>
 
         </dependencies>
     </dependencyManagement>
