@@ -7,7 +7,7 @@
     <groupId>me.dwliu.ebase</groupId>
     <artifactId>ebase-boot</artifactId>
     <packaging>pom</packaging>
-    <version>${revision}</version>
+    <version>1.0.1-SNAPSHOT</version>
     <name>${project.artifactId}</name>
 
     <description>
