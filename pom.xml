@@ -19,7 +19,7 @@
     <scm>
         <url>https://gitee.com/ebase-projects/ebase-boot</url>
         <connection>scm:git:ssh://git@gitee.com:ebase-projects/ebase-boot.git</connection>
-        <developerConnection>scm:git:ssh://git@gitee.com:ebase-projects/ebase-boot.git</developerConnection>
+        <developerConnection>scm:git:git@gitee.com:ebase-projects/ebase-boot.git</developerConnection>
         <tag>HEAD</tag>
     </scm>
 
