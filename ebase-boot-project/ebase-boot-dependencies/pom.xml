@@ -25,10 +25,11 @@
         <security.oauth2.version>2.5.0.RELEASE</security.oauth2.version>
         <spring.security.jwt.version>1.1.1.RELEASE</spring.security.jwt.version>
         <!--spring.security.oauth2.autoconfigure 同 spring boot-->
+        <!--https://github.com/spring-projects/spring-security-oauth2-boot/releases/tag/2.3.4.RELEASE-->
         <spring.security.oauth2.autoconfigure.version>2.3.4.RELEASE</spring.security.oauth2.autoconfigure.version>
 
         <!--alibaba https://github.com/alibaba/spring-cloud-alibaba/releases -->
-        <spring.cloud.alibaba.version>2.2.2.RELEASE</spring.cloud.alibaba.version>
+        <spring.cloud.alibaba.version>2.2.3.RELEASE</spring.cloud.alibaba.version>
         <alibaba.oss.version>3.10.2</alibaba.oss.version>
         <aliyun.sdk.core.version>4.5.3</aliyun.sdk.core.version>
         <aliyun.sdk.dysmsapi.version>1.1.0</aliyun.sdk.dysmsapi.version>
