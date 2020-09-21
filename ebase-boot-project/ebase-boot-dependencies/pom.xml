@@ -25,7 +25,7 @@
         <security.oauth2.version>2.5.0.RELEASE</security.oauth2.version>
         <spring.security.jwt.version>1.1.1.RELEASE</spring.security.jwt.version>
         <!--spring.security.oauth2.autoconfigure 同 spring boot-->
-        <spring.security.oauth2.autoconfigure.version>2.3.3.RELEASE</spring.security.oauth2.autoconfigure.version>
+        <spring.security.oauth2.autoconfigure.version>2.3.4.RELEASE</spring.security.oauth2.autoconfigure.version>
 
         <!--alibaba https://github.com/alibaba/spring-cloud-alibaba/releases -->
         <spring.cloud.alibaba.version>2.2.2.RELEASE</spring.cloud.alibaba.version>
