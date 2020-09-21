@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
         <artifactId>ebase-boot</artifactId>
         <groupId>me.dwliu.ebase</groupId>
-        <version>1.0.2-SNAPSHOT</version>
+        <version>1.0.2</version>
         <relativePath>../../pom.xml</relativePath>
     </parent>
     <modelVersion>4.0.0</modelVersion>
@@ -107,50 +106,50 @@
             <dependency>
                 <groupId>me.dwliu.ebase</groupId>
                 <artifactId>ebase-boot-common</artifactId>
-                <version>1.0.2-SNAPSHOT</version>
+                <version>1.0.2</version>
             </dependency>
 
             <!-- Ebase Boot Core-->
             <dependency>
                 <groupId>me.dwliu.ebase</groupId>
                 <artifactId>ebase-boot-core-tool</artifactId>
-                <version>1.0.2-SNAPSHOT</version>
+                <version>1.0.2</version>
             </dependency>
 
             <dependency>
                 <groupId>me.dwliu.ebase</groupId>
                 <artifactId>ebase-boot-core-mybatis</artifactId>
-                <version>1.0.2-SNAPSHOT</version>
+                <version>1.0.2</version>
             </dependency>
 
             <dependency>
                 <groupId>me.dwliu.ebase</groupId>
                 <artifactId>ebase-boot-core-datascope</artifactId>
-                <version>1.0.2-SNAPSHOT</version>
+                <version>1.0.2</version>
             </dependency>
 
             <dependency>
                 <groupId>me.dwliu.ebase</groupId>
                 <artifactId>ebase-boot-core-log</artifactId>
-                <version>1.0.2-SNAPSHOT</version>
+                <version>1.0.2</version>
             </dependency>
 
             <dependency>
                 <groupId>me.dwliu.ebase</groupId>
                 <artifactId>ebase-boot-core-oss</artifactId>
-                <version>1.0.2-SNAPSHOT</version>
+                <version>1.0.2</version>
             </dependency>
 
             <dependency>
                 <groupId>me.dwliu.ebase</groupId>
                 <artifactId>ebase-boot-core-redis</artifactId>
-                <version>1.0.2-SNAPSHOT</version>
+                <version>1.0.2</version>
             </dependency>
 
             <dependency>
                 <groupId>me.dwliu.ebase</groupId>
                 <artifactId>ebase-boot-core-security</artifactId>
-                <version>1.0.2-SNAPSHOT</version>
+                <version>1.0.2</version>
             </dependency>
 
 
@@ -158,50 +157,50 @@
             <dependency>
                 <groupId>me.dwliu.ebase</groupId>
                 <artifactId>ebase-boot-plugin</artifactId>
-                <version>1.0.2-SNAPSHOT</version>
+                <version>1.0.2</version>
             </dependency>
 
             <dependency>
                 <groupId>me.dwliu.ebase</groupId>
                 <artifactId>ebase-boot-plugin-datascope</artifactId>
-                <version>1.0.2-SNAPSHOT</version>
+                <version>1.0.2</version>
             </dependency>
 
             <dependency>
                 <groupId>me.dwliu.ebase</groupId>
                 <artifactId>ebase-boot-plugin-log</artifactId>
-                <version>1.0.2-SNAPSHOT</version>
+                <version>1.0.2</version>
             </dependency>
 
             <dependency>
                 <groupId>me.dwliu.ebase</groupId>
                 <artifactId>ebase-boot-plugin-oss</artifactId>
-                <version>1.0.2-SNAPSHOT</version>
+                <version>1.0.2</version>
             </dependency>
 
             <dependency>
                 <groupId>me.dwliu.ebase</groupId>
                 <artifactId>ebase-boot-plugin-redis</artifactId>
-                <version>1.0.2-SNAPSHOT</version>
+                <version>1.0.2</version>
             </dependency>
 
             <dependency>
                 <groupId>me.dwliu.ebase</groupId>
                 <artifactId>ebase-boot-plugin-security</artifactId>
-                <version>1.0.2-SNAPSHOT</version>
+                <version>1.0.2</version>
             </dependency>
 
             <!-- Ebase Boot Starter-->
             <dependency>
                 <groupId>me.dwliu.ebase</groupId>
                 <artifactId>ebase-boot-starter</artifactId>
-                <version>1.0.2-SNAPSHOT</version>
+                <version>1.0.2</version>
             </dependency>
 
             <dependency>
                 <groupId>me.dwliu.ebase</groupId>
                 <artifactId>ebase-boot-starter-mybatis</artifactId>
-                <version>1.0.2-SNAPSHOT</version>
+                <version>1.0.2</version>
             </dependency>
 
             <!--            <dependency>-->
@@ -213,37 +212,37 @@
             <dependency>
                 <groupId>me.dwliu.ebase</groupId>
                 <artifactId>ebase-boot-starter-datascope</artifactId>
-                <version>1.0.2-SNAPSHOT</version>
+                <version>1.0.2</version>
             </dependency>
 
             <dependency>
                 <groupId>me.dwliu.ebase</groupId>
                 <artifactId>ebase-boot-starter-log</artifactId>
-                <version>1.0.2-SNAPSHOT</version>
+                <version>1.0.2</version>
             </dependency>
 
             <dependency>
                 <groupId>me.dwliu.ebase</groupId>
                 <artifactId>ebase-boot-starter-oss</artifactId>
-                <version>1.0.2-SNAPSHOT</version>
+                <version>1.0.2</version>
             </dependency>
 
             <dependency>
                 <groupId>me.dwliu.ebase</groupId>
                 <artifactId>ebase-boot-starter-redis</artifactId>
-                <version>1.0.2-SNAPSHOT</version>
+                <version>1.0.2</version>
             </dependency>
 
             <dependency>
                 <groupId>me.dwliu.ebase</groupId>
                 <artifactId>ebase-boot-starter-security</artifactId>
-                <version>1.0.2-SNAPSHOT</version>
+                <version>1.0.2</version>
             </dependency>
 
             <dependency>
                 <groupId>me.dwliu.ebase</groupId>
                 <artifactId>ebase-boot-starter-swagger</artifactId>
-                <version>1.0.2-SNAPSHOT</version>
+                <version>1.0.2</version>
             </dependency>
 
             <!-- Third Party -->
