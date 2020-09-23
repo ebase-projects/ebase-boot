@@ -128,7 +128,7 @@ public class MinioOssTemplate implements OssWithBucketTemplate {
 		FileInfo fileInfo = new FileInfo();
 		fileInfo.setFileName(fileName);
 		fileInfo.setOriginalName(fileName);
-		fileInfo.setFileUrl(fileUrl(fileName));
+		fileInfo.setFileUrl(filePath(fileName));
 		//fileInfo.setFileSize();
 		fileInfo.setUploadDate(new Date());
 
