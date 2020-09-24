@@ -1,5 +1,6 @@
 package me.dwliu.framework.core.mybatis.dto;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 
@@ -37,12 +38,14 @@ public abstract class BaseDTO implements Serializable {
     @ApiModelProperty(value = "创建人")
 	private String createBy;
 
+	@JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
 	@ApiModelProperty(value = "创建时间")
 	private Date createTime;
 
 	@ApiModelProperty(value = "更新人")
 	private String updateBy;
 
+	@JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
 	@ApiModelProperty(value = "更新时间")
 	private Date updateTime;
 
