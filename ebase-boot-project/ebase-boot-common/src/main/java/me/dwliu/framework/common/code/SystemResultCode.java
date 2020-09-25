@@ -81,6 +81,10 @@ public enum SystemResultCode implements IResultCode {
 	 * 请求被拒绝
 	 */
 	REQ_REJECT(SystemResultCode.REQ_REJECT_CODE, "请求被拒绝"),
+	/**
+	 * token 失效不合法
+	 */
+	INVALID_ACCESS_TOKEN(SystemResultCode.INVALID_ACCESS_TOKEN_CODE, "token 失效不合法"),
 
 	//-----------------------------通用数据层--------------------------------//
 	/**
@@ -121,6 +125,7 @@ public enum SystemResultCode implements IResultCode {
 	public static final int MEDIA_TYPE_NOT_SUPPORTED_CODE = 100007;
 	public static final int MEDIA_TYPE_NOT_ACCEPT_CODE = 100008;
 	public static final int REQ_REJECT_CODE = 100009;
+	public static final int INVALID_ACCESS_TOKEN_CODE = 100010;
 
 	//-----------------------------通用数据层--------------------------------//
 	/**
@@ -130,6 +135,7 @@ public enum SystemResultCode implements IResultCode {
 	public static final int DATA_ADD_FAILED_CODE = 100101;
 	public static final int DATA_UPDATE_FAILED_CODE = 100102;
 	public static final int DATA_DELETE_FAILED_CODE = 100103;
+
 
 	/**
 	 * 消息码

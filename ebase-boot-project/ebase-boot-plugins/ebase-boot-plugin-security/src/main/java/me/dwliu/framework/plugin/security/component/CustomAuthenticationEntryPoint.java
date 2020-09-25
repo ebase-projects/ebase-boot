@@ -26,22 +26,22 @@ import java.io.PrintWriter;
 @Component
 @AllArgsConstructor
 public class CustomAuthenticationEntryPoint implements AuthenticationEntryPoint {
-    private final ObjectMapper objectMapper;
+	private final ObjectMapper objectMapper;
 
-    @Override
-    @SneakyThrows
-    public void commence(HttpServletRequest request, HttpServletResponse response,
-                         AuthenticationException authException) {
-        response.setCharacterEncoding("UTF-8");
-        response.setContentType(MediaType.APPLICATION_JSON_UTF8_VALUE);
-        Result<String> result = new Result<>();
-        result.setCode(SystemResultCode.FAILURE_CODE);
-        if (authException != null) {
-            result.setMsg(authException.getMessage());
-            result.setData(authException.getMessage());
-        }
-        response.setStatus(HttpStatus.HTTP_UNAUTHORIZED);
-        PrintWriter printWriter = response.getWriter();
-        printWriter.append(objectMapper.writeValueAsString(result));
-    }
+	@Override
+	@SneakyThrows
+	public void commence(HttpServletRequest request, HttpServletResponse response,
+	                     AuthenticationException authException) {
+		response.setCharacterEncoding("UTF-8");
+		response.setContentType(MediaType.APPLICATION_JSON_UTF8_VALUE);
+		Result<String> result = new Result<>();
+		result.setCode(SystemResultCode.INVALID_ACCESS_TOKEN_CODE);
+		if (authException != null) {
+			result.setMsg(authException.getMessage());
+			result.setData(authException.getMessage());
+		}
+		response.setStatus(HttpStatus.HTTP_UNAUTHORIZED);
+		PrintWriter printWriter = response.getWriter();
+		printWriter.append(objectMapper.writeValueAsString(result));
+	}
 }
