@@ -35,7 +35,26 @@ public class CustomWebResponseExceptionTranslator implements WebResponseExceptio
 
 		Exception exception = (AuthenticationException) throwableAnalyzer.getFirstThrowableOfType(AuthenticationException.class, causeChain);
 		if (exception != null) {
-			return handleOAuth2Exception(new CustomOAuth2Exception(e.getMessage(), e));
+			//return handleOAuth2Exception(new CustomOAuth2Exception(e.getMessage(), e));
+
+			OAuth2Exception ex = new CustomOAuth2Exception(e.getMessage(), e);
+			int status = ex.getHttpErrorCode();
+			HttpHeaders headers = new HttpHeaders();
+			headers.set(HttpHeaders.CACHE_CONTROL, "no-store");
+			headers.set(HttpHeaders.PRAGMA, "no-cache");
+			if (status == HttpStatus.UNAUTHORIZED.value() || (e instanceof InsufficientScopeException)) {
+				headers.set(HttpHeaders.WWW_AUTHENTICATE, String.format("%s %s", OAuth2AccessToken.BEARER_TYPE, ex.getSummary()));
+			}
+
+			if (e instanceof ClientAuthenticationException) {
+				return new ResponseEntity<>(ex, headers, HttpStatus.valueOf(status));
+			}
+
+			Result<String> result = Result.fail(SystemResultCode.INVALID_ACCESS_TOKEN, ex.getMessage());
+
+			return new ResponseEntity(result, headers, HttpStatus.valueOf(status));
+
+
 		}
 
 		exception = (AccessDeniedException) throwableAnalyzer.getFirstThrowableOfType(AccessDeniedException.class, causeChain);

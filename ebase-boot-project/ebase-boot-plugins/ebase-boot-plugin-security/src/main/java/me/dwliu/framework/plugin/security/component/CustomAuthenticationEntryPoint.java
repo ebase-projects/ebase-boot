@@ -35,7 +35,7 @@ public class CustomAuthenticationEntryPoint implements AuthenticationEntryPoint 
 		response.setCharacterEncoding("UTF-8");
 		response.setContentType(MediaType.APPLICATION_JSON_UTF8_VALUE);
 		Result<String> result = new Result<>();
-		result.setCode(SystemResultCode.INVALID_ACCESS_TOKEN_CODE);
+		result.setCode(SystemResultCode.FAILURE_CODE);
 		if (authException != null) {
 			result.setMsg(authException.getMessage());
 			result.setData(authException.getMessage());
