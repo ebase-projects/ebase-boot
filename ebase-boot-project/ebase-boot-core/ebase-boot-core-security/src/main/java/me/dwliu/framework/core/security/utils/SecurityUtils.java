@@ -44,7 +44,7 @@ public class SecurityUtils {
 			UserInfoDetails userInfoDetails = new UserInfoDetails((String) principal);
 			return userInfoDetails;
 		}
-		return new UserInfoDetails("");
+		return null;
 	}
 
 	/**
