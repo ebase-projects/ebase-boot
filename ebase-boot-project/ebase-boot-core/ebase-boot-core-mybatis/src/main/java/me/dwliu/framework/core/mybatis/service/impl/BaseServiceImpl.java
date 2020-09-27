@@ -1,6 +1,6 @@
 package me.dwliu.framework.core.mybatis.service.impl;
 
-import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.baomidou.mybatisplus.core.conditions.Wrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import me.dwliu.framework.common.model.PageData;
@@ -35,7 +35,7 @@ public abstract class BaseServiceImpl<M extends BaseDAO<T>, T, D> extends Servic
 	 * @param params
 	 * @return
 	 */
-	public abstract QueryWrapper<T> getWrapper(Map<String, Object> params);
+	public abstract Wrapper<T> getWrapper(Map<String, Object> params);
 
 	/**
 	 * 分页查询
