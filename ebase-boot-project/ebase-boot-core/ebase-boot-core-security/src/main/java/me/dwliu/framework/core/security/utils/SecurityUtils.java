@@ -34,6 +34,9 @@ public class SecurityUtils {
 	 * @return UserInfoDetails
 	 */
 	public UserInfoDetails getUser(Authentication authentication) {
+		if (authentication == null) {
+			return null;
+		}
 		Object principal = authentication.getPrincipal();
 		if (principal instanceof UserInfoDetails) {
 			return (UserInfoDetails) principal;
