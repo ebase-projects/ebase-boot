@@ -45,7 +45,7 @@ public class LogRedisProducer implements LogProducer {
 	@Override
 	@Async("taskAsyncExecutor")
 	public void saveLog(AbstractLogOperationDTO dto) {
-		log.debug("通过Redis发送异步数据");
+		log.trace("通过Redis发送异步数据");
 		if (dto == null) {
 			return;
 		}

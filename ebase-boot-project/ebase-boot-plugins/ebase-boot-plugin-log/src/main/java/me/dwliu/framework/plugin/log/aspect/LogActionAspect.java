@@ -42,7 +42,7 @@ public class LogActionAspect {
 
 	@Around("logPointCut()")
 	public Object around(ProceedingJoinPoint point) throws Throwable {
-		log.debug("操作日志，异步入库开始");
+		log.trace("操作日志，异步入库开始");
 		Object result = null;
 		//获取开始时间毫秒数
 		long startTime = System.currentTimeMillis();
