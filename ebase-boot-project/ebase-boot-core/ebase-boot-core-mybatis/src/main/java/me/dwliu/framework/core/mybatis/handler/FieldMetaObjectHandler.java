@@ -2,6 +2,8 @@ package me.dwliu.framework.core.mybatis.handler;
 
 import com.baomidou.mybatisplus.core.handlers.MetaObjectHandler;
 import me.dwliu.framework.common.enums.YesOrNoEnum;
+import me.dwliu.framework.core.security.entity.UserInfoDetails;
+import me.dwliu.framework.core.security.utils.SecurityUtils;
 import org.apache.ibatis.reflection.MetaObject;
 
 import java.util.Date;
@@ -25,34 +27,34 @@ public class FieldMetaObjectHandler implements MetaObjectHandler {
 
 	@Override
 	public void insertFill(MetaObject metaObject) {
-		//UserDetail user = SecurityUser.getUser();
+		UserInfoDetails user = SecurityUtils.getUser();
+		if (user != null) {
+			//创建者
+			strictInsertFill(metaObject, CREATE_BY, String.class, user.getUserId());
+			//创建者所属部门
+			//strictInsertFill(metaObject, DEPT_ID, Long.class, user.getDeptId());
+			//更新者
+			strictInsertFill(metaObject, UPDATE_BY, String.class, user.getUserId());
+		}
 
-		//创建者
-		//strictInsertFill(metaObject, CREATE_USER, Long.class, user.getId());
-		//创建者所属部门
-		//strictInsertFill(metaObject, DEPT_ID, Long.class, user.getDeptId());
-		//更新者
-		//strictInsertFill(metaObject, UPDATE_BY, Long.class, user.getId());
 
-		Date date = new Date();
+		Date date = new Date(System.currentTimeMillis());
 		//创建时间
 		strictInsertFill(metaObject, CREATE_TIME, Date.class, date);
-//		setInsertFieldValByName(CREATE_TIME, date, metaObject);
 		//更新时间
 		strictInsertFill(metaObject, UPDATE_TIME, Date.class, date);
-//		setInsertFieldValByName(UPDATE_TIME, date, metaObject);
 		//是否删除 默认为0 不删除
 		strictInsertFill(metaObject, DEL_FLAG, Integer.class, YesOrNoEnum.NO.getValue());
-//		setInsertFieldValByName(del_flag, YesOrNoEnum.NO.getValue(), metaObject);
 	}
 
 	@Override
 	public void updateFill(MetaObject metaObject) {
-		//更新者
-		//setUpdateFieldValByName(UPDATER, SecurityUser.getUserId(), metaObject);
-		//strictInsertFill(metaObject, UPDATE_BY, Long.class, SecurityUser.getUserId());
+		UserInfoDetails user = SecurityUtils.getUser();
+		if (user != null) {
+			//更新者
+			strictInsertFill(metaObject, UPDATE_BY, String.class, user.getUserId());
+		}
 		//更新时间
-//		setUpdateFieldValByName(UPDATE_TIME, new Date(), metaObject);
 		strictUpdateFill(metaObject, UPDATE_TIME, Date.class, new Date());
 	}
 }
