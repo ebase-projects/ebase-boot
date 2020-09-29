@@ -1,9 +1,11 @@
 package me.dwliu.framework.core.mongodb.dto;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 import me.dwliu.framework.common.validator.group.CreateGroup;
 import me.dwliu.framework.common.validator.group.UpdateGroup;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Null;
@@ -38,21 +40,25 @@ public abstract class BaseDTO implements Serializable {
 //    @ApiModelProperty(value = "创建部门")
 //    private Long createDept;
 
-	@ApiModelProperty(value = "创建人")
+	@ApiModelProperty(value = "创建人", hidden = true)
 	private String createBy;
 
-	@ApiModelProperty(value = "创建时间")
+	@DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+	@JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+	@ApiModelProperty(value = "创建时间", hidden = true)
 	private Date createTime;
 
-	@ApiModelProperty(value = "更新人")
+	@ApiModelProperty(value = "更新人", hidden = true)
 	private String updateBy;
 
-	@ApiModelProperty(value = "更新时间")
+	@DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+	@JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+	@ApiModelProperty(value = "更新时间", hidden = true)
 	private Date updateTime;
 
-	@ApiModelProperty(value = "是否已删除")
+	@ApiModelProperty(value = "是否已删除", hidden = true)
 	private Integer delFlag;
 
-	@ApiModelProperty(value = "乐观锁")
+	@ApiModelProperty(value = "乐观锁", hidden = true)
 	private Integer revision;
 }
