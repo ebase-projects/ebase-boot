@@ -3,6 +3,7 @@ package me.dwliu.framework.core.mybatis.dto;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import java.io.Serializable;
 import java.util.Date;
@@ -35,23 +36,25 @@ public abstract class BaseDTO implements Serializable {
 //    @ApiModelProperty(value = "创建部门")
 //    private Long createDept;
 
-    @ApiModelProperty(value = "创建人")
+	@ApiModelProperty(value = "创建人", hidden = true)
 	private String createBy;
 
+	@DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
 	@JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
-	@ApiModelProperty(value = "创建时间")
+	@ApiModelProperty(value = "创建时间", hidden = true)
 	private Date createTime;
 
-	@ApiModelProperty(value = "更新人")
+	@ApiModelProperty(value = "更新人", hidden = true)
 	private String updateBy;
 
+	@DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
 	@JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
-	@ApiModelProperty(value = "更新时间")
+	@ApiModelProperty(value = "更新时间", hidden = true)
 	private Date updateTime;
 
-	@ApiModelProperty(value = "是否已删除")
+	@ApiModelProperty(value = "是否已删除", hidden = true)
 	private Integer delFlag;
 
-    @ApiModelProperty(value = "乐观锁")
-    private Integer revision;
+	@ApiModelProperty(value = "乐观锁", hidden = true)
+	private Integer revision;
 }
