@@ -84,6 +84,16 @@ public abstract class BaseServiceImpl<M extends BaseDAO<T>, T, D> extends Servic
 		return new QueryPageUtil<T>().getPage(params, defaultOrderField, isAsc);
 	}
 
+
+	/**
+	 * 获取分页对象
+	 *
+	 * @param params 分页查询参数
+	 */
+	protected IPage<T> getPage(Map<String, Object> params) {
+		return new QueryPageUtil<T>().getPage(params, null, null);
+	}
+
 	/**
 	 * 组装分页数据
 	 *

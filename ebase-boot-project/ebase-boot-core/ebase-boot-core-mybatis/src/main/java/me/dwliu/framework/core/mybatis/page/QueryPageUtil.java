@@ -28,7 +28,7 @@ public class QueryPageUtil<T> {
 	 * @param defaultOrderField 默认排序字段
 	 * @param isAsc             排序方式
 	 */
-	public IPage<T> getPage(Map<String, Object> params, String defaultOrderField, boolean isAsc) {
+	public IPage<T> getPage(Map<String, Object> params, String defaultOrderField, Boolean isAsc) {
 		//分页参数
 		long curPage = 1;
 		long limit = 10;
