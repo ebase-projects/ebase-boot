@@ -96,7 +96,17 @@ public class ValidateCodeFilter extends OncePerRequestFilter {
 	                                HttpServletResponse httpServletResponse,
 	                                FilterChain filterChain) throws ServletException, IOException {
 
-		log.info("=========== ValidateCodeFilter start : {} ===========", httpServletRequest.getRequestURI());
+		String requestURI = httpServletRequest.getRequestURI();
+		log.info("=========== ValidateCodeFilter start : {} ===========", requestURI);
+		//忽略 refresh_token 模式
+		if (requestURI.contains("/oauth/token")) {
+			String grantType = httpServletRequest.getParameter("grant_type");
+			if (StringUtils.equals(grantType, "refresh_token")) {
+				filterChain.doFilter(httpServletRequest, httpServletResponse);
+				return;
+			}
+		}
+
 
 		ValidateCodeTypeEnum validateCodeType = getValidateCodeType(httpServletRequest);
 		if (null != validateCodeType) {
