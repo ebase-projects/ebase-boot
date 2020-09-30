@@ -40,7 +40,7 @@ public class FileInfo {
     /**
      * 文件上传时间
      */
-    @JsonFormat(pattern = "yyyy-MM-dd HH:mm", timezone = "GMT+8")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
     private Date uploadDate;
     /**
      * 文件contentType
