@@ -1,5 +1,6 @@
 package me.dwliu.framework.core.oss.model;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Data;
 
 import java.util.Date;
@@ -39,6 +40,7 @@ public class FileInfo {
     /**
      * 文件上传时间
      */
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm", timezone = "GMT+8")
     private Date uploadDate;
     /**
      * 文件contentType
