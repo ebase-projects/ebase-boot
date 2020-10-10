@@ -2,7 +2,6 @@ package me.dwliu.framework.plugin.oss.minio;
 
 import io.minio.MinioClient;
 import io.minio.ObjectStat;
-import lombok.AllArgsConstructor;
 import lombok.SneakyThrows;
 import me.dwliu.framework.core.oss.model.FileInfo;
 import me.dwliu.framework.core.oss.rule.OssRule;
@@ -20,20 +19,29 @@ import java.util.List;
  * @author liudw
  * @date 2019-11-05 20:30
  **/
-@AllArgsConstructor
+// @AllArgsConstructor
 public class MinioOssTemplate implements OssWithBucketTemplate {
 
-	private final String endpoint;
-	private final String bucketName;
-	private final MinioClient minioClient;
-	private final OssRule ossRule;
+	private String endpoint;
+	private String bucketName;
+	private MinioClient minioClient;
+	private OssRule ossRule;
+
+	public MinioOssTemplate(String endpoint, String bucketName, MinioClient minioClient, OssRule ossRule) {
+		this.endpoint = endpoint;
+		this.bucketName = bucketName;
+		this.minioClient = minioClient;
+		this.ossRule = ossRule;
+	}
 
 	@Override
 	@SneakyThrows
 	public void makeBucket(String bucketName) {
+		this.bucketName = bucketName;
 		if (!bucketExists(getBucketName(bucketName))) {
 			minioClient.makeBucket(getBucketName(bucketName));
 			minioClient.setBucketPolicy(getBucketName(bucketName), getPolicyType(getBucketName(bucketName), PolicyTypeEnum.READ));
+
 		}
 	}
 
@@ -129,7 +137,7 @@ public class MinioOssTemplate implements OssWithBucketTemplate {
 		fileInfo.setFileName(fileName);
 		fileInfo.setOriginalName(fileName);
 		fileInfo.setFileUrl(filePath(fileName));
-		//fileInfo.setFileSize();
+		fileInfo.setFileSize((long) stream.available());
 		fileInfo.setUploadDate(new Date());
 
 		return fileInfo;
