@@ -1,6 +1,5 @@
 package me.dwliu.framework.core.security.crypto;
 
-import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
 /**
@@ -9,7 +8,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
  * @author liudw
  * @date 2020/7/6 17:25
  **/
-@Slf4j
+//@Slf4j
 public class PasswordEncoderTest {
 	public static void main(String[] args) {
 
