@@ -41,11 +41,11 @@ public class CustomPasswordEncoderFactories {
 		encoders.put("ldap", new org.springframework.security.crypto.password.LdapShaPasswordEncoder());
 		encoders.put("MD4", new org.springframework.security.crypto.password.Md4PasswordEncoder());
 		// 不加 salt,为了解决历史遗漏项目仅使用md5 场景
-		encoders.put("md5", new me.dwliu.framework.core.security.crypto.Md5PasswordEncoder());
+		encoders.put("md5", new Md5PasswordEncoder());
 		encoders.put("MD5", new org.springframework.security.crypto.password.MessageDigestPasswordEncoder("MD5"));
 		// encoders.put("noop", org.springframework.security.crypto.password.NoOpPasswordEncoder.getInstance());
 		// 仅仅是copy
-		encoders.put("noop", me.dwliu.framework.core.security.crypto.NoOpPasswordEncoder.getInstance());
+		encoders.put("noop", NoOpPasswordEncoder.getInstance());
 		encoders.put("pbkdf2", new Pbkdf2PasswordEncoder());
 		encoders.put("scrypt", new SCryptPasswordEncoder());
 		encoders.put("SHA-1", new org.springframework.security.crypto.password.MessageDigestPasswordEncoder("SHA-1"));

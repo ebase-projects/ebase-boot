@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
         <artifactId>ebase-boot-parent</artifactId>
         <groupId>me.dwliu.ebase</groupId>
@@ -48,25 +49,10 @@
             <optional>true</optional>
         </dependency>
 
-<!--        <dependency>-->
-<!--            <groupId>cn.afterturn</groupId>-->
-<!--            <artifactId>easypoi-base</artifactId>-->
-<!--            <scope>provided</scope>-->
-<!--            <optional>true</optional>-->
-<!--        </dependency>-->
-
-<!--        <dependency>-->
-<!--            <groupId>cn.afterturn</groupId>-->
-<!--            <artifactId>easypoi-web</artifactId>-->
-<!--            <scope>provided</scope>-->
-<!--            <optional>true</optional>-->
-<!--        </dependency>-->
-<!--        <dependency>-->
-<!--            <groupId>cn.afterturn</groupId>-->
-<!--            <artifactId>easypoi-annotation</artifactId>-->
-<!--            <scope>provided</scope>-->
-<!--            <optional>true</optional>-->
-<!--        </dependency>-->
+        <dependency>
+            <groupId>com.fasterxml.jackson.datatype</groupId>
+            <artifactId>jackson-datatype-jsr310</artifactId>
+        </dependency>
 
 
     </dependencies>

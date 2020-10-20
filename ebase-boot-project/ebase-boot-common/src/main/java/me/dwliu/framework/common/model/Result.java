@@ -2,6 +2,8 @@ package me.dwliu.framework.common.model;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.datatype.jsr310.ser.LocalDateTimeSerializer;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Getter;
@@ -12,7 +14,7 @@ import me.dwliu.framework.common.code.IResultCode;
 import me.dwliu.framework.common.code.SystemResultCode;
 
 import java.io.Serializable;
-import java.util.Date;
+import java.time.LocalDateTime;
 import java.util.Optional;
 
 /**
@@ -42,9 +44,10 @@ public class Result<T> implements Serializable {
 	/**
 	 * 时间戳
 	 */
+	@JsonSerialize(using = LocalDateTimeSerializer.class)
 	@JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
 	@ApiModelProperty(value = "时间戳")
-	private Date timestamp;
+	private LocalDateTime timestamp;
 
 	/**
 	 * 数据载体
@@ -68,7 +71,7 @@ public class Result<T> implements Serializable {
 	public Result(IResultCode resultCode, String msg, T data) {
 		this.code = resultCode.getCode();
 		this.msg = msg;
-		this.timestamp = new Date(System.currentTimeMillis());
+		this.timestamp = LocalDateTime.now();
 		this.data = data;
 	}
 

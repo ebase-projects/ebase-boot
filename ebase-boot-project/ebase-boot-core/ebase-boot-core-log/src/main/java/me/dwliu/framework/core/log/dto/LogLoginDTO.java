@@ -1,11 +1,13 @@
 package me.dwliu.framework.core.log.dto;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.datatype.jsr310.ser.LocalDateTimeSerializer;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import org.springframework.format.annotation.DateTimeFormat;
 
-import java.util.Date;
+import java.time.LocalDateTime;
 
 /**
  * 登陆日志模块
@@ -37,8 +39,9 @@ public class LogLoginDTO extends AbstractLogOperationDTO {
 	 * 更新时间
 	 */
 	@DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+	@JsonSerialize(using = LocalDateTimeSerializer.class)
 	@JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
-	private Date updateTime;
+	private LocalDateTime updateTime;
 
 	/**
 	 * 租户编号

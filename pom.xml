@@ -39,7 +39,7 @@
 
     <profiles>
         <profile>
-            <id>install</id>
+            <id>sample</id>
             <modules>
                 <module>ebase-boot-sample</module>
             </modules>

@@ -6,7 +6,7 @@ import me.dwliu.framework.core.security.entity.UserInfoDetails;
 import me.dwliu.framework.core.security.utils.SecurityUtils;
 import org.apache.ibatis.reflection.MetaObject;
 
-import java.util.Date;
+import java.time.LocalDateTime;
 
 
 /**
@@ -43,14 +43,14 @@ public class FieldMetaObjectHandler implements MetaObjectHandler {
             }
         }
 
-        Date date = new Date(System.currentTimeMillis());
+        LocalDateTime date = LocalDateTime.now();
         //创建时间
         if (metaObject.hasSetter(CREATE_TIME)) {
-            this.strictInsertFill(metaObject, CREATE_TIME, Date.class, date);
+            this.strictInsertFill(metaObject, CREATE_TIME, LocalDateTime.class, date);
         }
         //更新时间
         if (metaObject.hasSetter(UPDATE_TIME)) {
-            this.strictInsertFill(metaObject, UPDATE_TIME, Date.class, date);
+            this.strictInsertFill(metaObject, UPDATE_TIME, LocalDateTime.class, date);
         }
         //是否删除 默认为0 不删除
         if (metaObject.hasSetter(DEL_FLAG)) {
@@ -79,9 +79,9 @@ public class FieldMetaObjectHandler implements MetaObjectHandler {
         if (metaObject.hasSetter(UPDATE_TIME)) {
             if (null != getFieldValByName(UPDATE_TIME, metaObject)) {
                 //bugfix 由于更新字段有值，更新时间不生效
-                this.setFieldValByName(UPDATE_TIME, new Date(), metaObject);
+                this.setFieldValByName(UPDATE_TIME, LocalDateTime.now(), metaObject);
             } else {
-                this.strictUpdateFill(metaObject, UPDATE_TIME, Date.class, new Date());
+                this.strictUpdateFill(metaObject, UPDATE_TIME, LocalDateTime.class, LocalDateTime.now());
             }
         }
 

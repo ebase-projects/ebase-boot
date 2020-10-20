@@ -1,12 +1,14 @@
 package me.dwliu.framework.core.mybatis.dto;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.datatype.jsr310.ser.LocalDateTimeSerializer;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import java.io.Serializable;
-import java.util.Date;
+import java.time.LocalDateTime;
 
 /**
  * @author liudw
@@ -40,17 +42,19 @@ public abstract class BaseDTO implements Serializable {
 	private String createBy;
 
 	@DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+	@JsonSerialize(using = LocalDateTimeSerializer.class)
 	@JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
 	@ApiModelProperty(value = "创建时间", hidden = true)
-	private Date createTime;
+	private LocalDateTime createTime;
 
 	@ApiModelProperty(value = "更新人", hidden = true)
 	private String updateBy;
 
 	@DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+	@JsonSerialize(using = LocalDateTimeSerializer.class)
 	@JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
 	@ApiModelProperty(value = "更新时间", hidden = true)
-	private Date updateTime;
+	private LocalDateTime updateTime;
 
 	@ApiModelProperty(value = "是否已删除", hidden = true)
 	private Integer delFlag;

@@ -5,10 +5,13 @@ import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableLogic;
 import com.baomidou.mybatisplus.annotation.Version;
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.datatype.jsr310.ser.LocalDateTimeSerializer;
 import lombok.Data;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import java.io.Serializable;
+import java.time.LocalDateTime;
 import java.util.Date;
 
 /**
@@ -49,9 +52,10 @@ public abstract class BaseDO implements Serializable {
 	 * 创建时间
 	 */
 	@DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+	@JsonSerialize(using = LocalDateTimeSerializer.class)
 	@JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
 	@TableField(fill = FieldFill.INSERT)
-	private Date createTime;
+	private LocalDateTime createTime;
 
 	/**
 	 * 更新人
@@ -63,9 +67,10 @@ public abstract class BaseDO implements Serializable {
 	 * 更新时间
 	 */
 	@DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+	@JsonSerialize(using = LocalDateTimeSerializer.class)
 	@JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
 	@TableField(fill = FieldFill.INSERT_UPDATE)
-	private Date updateTime;
+	private LocalDateTime updateTime;
 
 	/**
 	 * 逻辑删除状态[0:未删除,1:删除]

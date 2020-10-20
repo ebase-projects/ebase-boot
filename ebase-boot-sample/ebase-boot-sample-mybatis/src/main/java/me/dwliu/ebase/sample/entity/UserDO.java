@@ -5,6 +5,8 @@ import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+import me.dwliu.framework.core.mybatis.dto.BaseDTO;
+import me.dwliu.framework.core.mybatis.entity.BaseDO;
 import me.dwliu.framework.core.mybatis.entity.BaseTenantDO;
 
 import java.util.ArrayList;
@@ -19,7 +21,7 @@ import java.util.List;
 @Data
 @EqualsAndHashCode(callSuper = true)
 @TableName("sys_user")
-public class UserDO extends BaseTenantDO {
+public class UserDO extends BaseDO {
 	@TableId
 	private Long id;
 

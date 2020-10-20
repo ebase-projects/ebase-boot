@@ -1,8 +1,6 @@
 package me.dwliu.framework.core.security.entity;
 
-import lombok.Data;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.User;
 
