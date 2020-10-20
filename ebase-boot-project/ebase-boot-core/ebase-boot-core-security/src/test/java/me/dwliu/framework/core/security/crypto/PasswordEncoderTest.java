@@ -17,21 +17,21 @@ public class PasswordEncoderTest {
 		PasswordEncoder passwordEncoder = CustomPasswordEncoderFactories.createDelegatingPasswordEncoder();
 
 		String bcryptEncode = passwordEncoder.encode(originStr);
-		log.info("bcrypt encode: {}", bcryptEncode);
-		log.info("bcrypt matches: {}", passwordEncoder.matches(originStr, bcryptEncode));
+		// log.info("bcrypt encode: {}", bcryptEncode);
+		// log.info("bcrypt matches: {}", passwordEncoder.matches(originStr, bcryptEncode));
 
 
 		// 自定义Md5
 		Md5PasswordEncoder md5PasswordEncoder = new Md5PasswordEncoder();
 		String md5Encode = "{md5}" + md5PasswordEncoder.encode(originStr);
-		log.info("md5 encode: {}", md5Encode);
-		log.info("md5 matches: {}", passwordEncoder.matches(originStr, md5Encode));
+		// log.info("md5 encode: {}", md5Encode);
+		// log.info("md5 matches: {}", passwordEncoder.matches(originStr, md5Encode));
 
 		// 没有密码
 		PasswordEncoder noOpPasswordInstance = NoOpPasswordEncoder.getInstance();
 		String noopEncode = "{noop}" + noOpPasswordInstance.encode(originStr);
-		log.info("noop encode: {}", noopEncode);
-		log.info("noop matches: {}", passwordEncoder.matches(originStr, noopEncode));
+		// log.info("noop encode: {}", noopEncode);
+		// log.info("noop matches: {}", passwordEncoder.matches(originStr, noopEncode));
 
 
 	}
