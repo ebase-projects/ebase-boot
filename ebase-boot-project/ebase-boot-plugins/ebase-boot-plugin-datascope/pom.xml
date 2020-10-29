@@ -28,12 +28,21 @@
         </dependency>
 
         <dependency>
+            <groupId>me.dwliu.ebase</groupId>
+            <artifactId>ebase-boot-core-security</artifactId>
+        </dependency>
+
+        <dependency>
             <groupId>com.baomidou</groupId>
             <artifactId>mybatis-plus-boot-starter</artifactId>
         </dependency>
         <dependency>
             <groupId>me.dwliu.ebase</groupId>
             <artifactId>ebase-boot-core-mybatis</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.aspectj</groupId>
+            <artifactId>aspectjweaver</artifactId>
         </dependency>
 
     </dependencies>

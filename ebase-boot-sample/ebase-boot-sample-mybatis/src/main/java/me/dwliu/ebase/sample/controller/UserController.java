@@ -13,6 +13,7 @@ import me.dwliu.framework.common.model.Result;
 import me.dwliu.framework.common.validator.ValidatorUtils;
 import me.dwliu.framework.common.validator.group.CreateGroup;
 import me.dwliu.framework.common.validator.group.UpdateGroup;
+import me.dwliu.framework.core.datascope.annotation.DataScopeFilter;
 import me.dwliu.framework.core.mybatis.constant.Constant;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -46,7 +47,8 @@ public class UserController {
 		@ApiImplicitParam(name = "username", value = "用户名", paramType = "query", dataType = "string")
 	})
 	public Result<PageData<UserDTO>> page(@ApiIgnore @RequestParam Map<String, Object> params) {
-		PageData<UserDTO> page = userService.listEntityByPage(params);
+		// PageData<UserDTO> page = userService.listUserByPage(params);
+		PageData<UserDTO> page = userService.listUserDTOByPage(params);
 
 		return Result.success(page);
 	}

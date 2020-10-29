@@ -10,4 +10,7 @@ import java.util.Map;
 public interface UserService extends BaseService<UserDO, UserDTO> {
 	PageData<UserDTO> listPage4Vo(Map<String, Object> params);
 
+    PageData<UserDTO> listUserByPage(Map<String, Object> params);
+
+    PageData<UserDTO> listUserDTOByPage(Map<String, Object> params);
 }

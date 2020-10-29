@@ -6,6 +6,8 @@ import com.baomidou.mybatisplus.extension.plugins.PaginationInterceptor;
 import me.dwliu.framework.core.mybatis.handler.FieldMetaObjectHandler;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.core.Ordered;
+import org.springframework.core.annotation.Order;
 
 /**
  * mybatis-plus配置
@@ -20,6 +22,7 @@ public class CustomMybatisPlusConfig {
      * 配置分页
      */
     @Bean
+    @Order(value = Ordered.HIGHEST_PRECEDENCE)
     public PaginationInterceptor paginationInterceptor() {
         return new PaginationInterceptor();
     }

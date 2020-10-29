@@ -28,6 +28,12 @@
             <artifactId>ebase-boot-starter-mybatis</artifactId>
         </dependency>
 
+
+        <dependency>
+            <groupId>me.dwliu.ebase</groupId>
+            <artifactId>ebase-boot-starter-datascope</artifactId>
+        </dependency>
+
         <!--        <dependency>-->
         <!--            <groupId>me.dwliu.ebase</groupId>-->
         <!--            <artifactId>ebase-core-swagger</artifactId>-->

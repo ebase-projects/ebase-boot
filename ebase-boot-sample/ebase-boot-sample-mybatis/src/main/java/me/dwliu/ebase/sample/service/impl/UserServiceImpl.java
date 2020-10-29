@@ -8,8 +8,11 @@ import me.dwliu.ebase.sample.entity.UserDO;
 import me.dwliu.ebase.sample.service.UserService;
 import me.dwliu.ebase.sample.vo.UserVO;
 import me.dwliu.framework.common.model.PageData;
+import me.dwliu.framework.core.datascope.annotation.DataScopeFilter;
 import me.dwliu.framework.core.mybatis.page.QueryPageUtil;
 import me.dwliu.framework.core.mybatis.service.impl.BaseServiceImpl;
+import me.dwliu.framework.core.tool.convert.ConvertUtil;
+import me.dwliu.framework.core.tool.util.ConvertUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Service;
 
@@ -18,29 +21,46 @@ import java.util.Map;
 
 @Service
 public class UserServiceImpl extends BaseServiceImpl<UserDAO, UserDO, UserDTO> implements UserService {
-	@Override
-	public QueryWrapper<UserDO> getWrapper(Map<String, Object> params) {
+    @Override
+    public QueryWrapper<UserDO> getWrapper(Map<String, Object> params) {
 
-		String id = (String) params.get("id");
-		String username = (String) params.get("username");
+        String id = (String) params.get("id");
+        String username = (String) params.get("username");
 
-		QueryWrapper<UserDO> wrapper = new QueryWrapper<>();
-		wrapper.eq(StringUtils.isNotBlank(id), "id", id);
-		wrapper.like(StringUtils.isNotBlank(username), "username", username);
+        QueryWrapper<UserDO> wrapper = new QueryWrapper<>();
+        wrapper.eq(StringUtils.isNotBlank(id), "id", id);
+        wrapper.like(StringUtils.isNotBlank(username), "username", username);
 
+        return wrapper;
+    }
 
-		return wrapper;
-	}
+    @Override
+    public PageData<UserDTO> listPage4Vo(Map<String, Object> params) {
+        IPage<UserVO> page = new QueryPageUtil<UserVO>().getPage(params, "id", true);
+        List<UserVO> userVOS = this.baseDAO.listPage4Vo(params);
 
-	@Override
-	public PageData<UserDTO> listPage4Vo(Map<String, Object> params) {
-		IPage<UserVO> page = new QueryPageUtil<UserVO>().getPage(params, "id", true);
-		List<UserVO> userVOS = this.baseDAO.listPage4Vo(params);
+        PageData<UserDTO> pageData = getPageData(userVOS, page.getTotal(), UserDTO.class);
 
-		PageData<UserDTO> pageData = getPageData(userVOS, page.getTotal(), UserDTO.class);
+        return pageData;
+    }
 
-		return pageData;
-	}
+    @Override
+    // @DataScopeFilter
+    public PageData<UserDTO> listUserByPage(Map<String, Object> params) {
+        return this.listEntityByPage(params);
+
+    }
+
+    @Override
+    public PageData<UserDTO> listUserDTOByPage(Map<String, Object> params) {
+
+        IPage<UserVO> page = new QueryPageUtil<UserVO>().getPage(params, "id", true);
+        List<UserDO> list = this.baseDAO.getList(params);
+
+        PageData<UserDTO> pageData = getPageData(list, page.getTotal(), UserDTO.class);
+
+        return pageData;
+    }
 
 
 //    @Override

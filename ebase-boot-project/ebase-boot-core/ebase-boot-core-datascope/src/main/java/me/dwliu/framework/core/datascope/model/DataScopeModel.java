@@ -2,7 +2,7 @@ package me.dwliu.framework.core.datascope.model;
 
 import lombok.Data;
 import me.dwliu.framework.core.datascope.constant.DataScopeConstant;
-import me.dwliu.framework.core.datascope.enums.DataScopeEnum;
+import me.dwliu.framework.core.datascope.enums.DataScopeViewEnum;
 
 import java.io.Serializable;
 
@@ -12,30 +12,27 @@ import java.io.Serializable;
  * @author liudw
  * @date 2020-01-01 22:42
  **/
-@Data
 public class DataScopeModel implements Serializable {
 
-	private static final long serialVersionUID = 1L;
+    private static final long serialVersionUID = 1L;
 
-	/**
-	 * 资源编号
-	 */
-	private String resourceCode;
-	/**
-	 * 数据权限字段
-	 */
-	private String scopeColumn = DataScopeConstant.DEFAULT_COLUMN;
-	/**
-	 * 数据权限规则
-	 */
-	private Integer scopeType = DataScopeEnum.ALL.getValue();
-	/**
-	 * 可见字段
-	 */
-	private String scopeField;
-	/**
-	 * 数据权限规则值
-	 */
-	private String scopeValue;
+    private String sqlFilter;
+
+    public DataScopeModel(String sqlFilter) {
+        this.sqlFilter = sqlFilter;
+    }
+
+    public String getSqlFilter() {
+        return sqlFilter;
+    }
+
+    public void setSqlFilter(String sqlFilter) {
+        this.sqlFilter = sqlFilter;
+    }
+
+    @Override
+    public String toString() {
+        return this.sqlFilter;
+    }
 
 }
