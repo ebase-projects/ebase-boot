@@ -3,9 +3,9 @@ spring:
     druid:
       #MySQL
       driver-class-name: com.mysql.jdbc.Driver
-      url: jdbc:mysql://localhost:3307/demo?allowMultiQueries=true&useUnicode=true&characterEncoding=UTF-8&useSSL=false
-      username: root
-      password: root
+      url: jdbc:mysql://127.0.0.1:3307/demo?allowMultiQueries=true&useUnicode=true&characterEncoding=UTF-8&useSSL=false
+      username: test
+      password: test1234
       initial-size: 10
       max-active: 100
       min-idle: 10
@@ -32,3 +32,11 @@ spring:
         wall:
           config:
             multi-statement-allow: true
+
+logging:
+  level:
+    org.springframework.jdbc.core.JdbcTemplate: DEBUG
+
+ebase:
+  data-scope:
+    dataScopeLevel: OWN
