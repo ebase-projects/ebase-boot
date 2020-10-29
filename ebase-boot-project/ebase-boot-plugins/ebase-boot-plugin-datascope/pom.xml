@@ -39,10 +39,6 @@
         </dependency>
 
         <dependency>
-            <groupId>com.baomidou</groupId>
-            <artifactId>mybatis-plus-boot-starter</artifactId>
-        </dependency>
-        <dependency>
             <groupId>me.dwliu.ebase</groupId>
             <artifactId>ebase-boot-core-mybatis</artifactId>
         </dependency>

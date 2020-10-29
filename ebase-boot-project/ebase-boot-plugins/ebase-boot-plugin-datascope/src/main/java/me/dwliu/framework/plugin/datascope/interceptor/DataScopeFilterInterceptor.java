@@ -28,7 +28,6 @@ import org.apache.ibatis.reflection.SystemMetaObject;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
-import org.springframework.security.core.authority.SimpleGrantedAuthority;
 
 import java.lang.reflect.Method;
 import java.sql.Connection;
@@ -62,32 +61,19 @@ public class DataScopeFilterInterceptor extends AbstractSqlParserHandler impleme
             return invocation.proceed();
         }
 
-        // 针对定义了rowBounds，做为mapper接口方法的参数
-        BoundSql boundSql = (BoundSql) metaObject.getValue("delegate.boundSql");
-        String originalSql = boundSql.getSql();
-        Object paramObj = boundSql.getParameterObject();
 
         UserInfoDetails user = SecurityUtils.getUser();
         if (user == null) {
             return invocation.proceed();
         }
 
-        // Set<SimpleGrantedAuthority> authorities = new HashSet<>();
-        // authorities.add(new SimpleGrantedAuthority("permission"));
-        //
-        // UserInfoDetails user = new UserInfoDetails("1318427505782218753", "", "", "1", "", "1271993695863926785,", "", "", "11", "111", 0, true, true, true, true, authorities);
-        //
-
         //如果是超级管理员，则不进行数据过滤
         if (user.getSuperAdmin().intValue() == 1) {
             return invocation.proceed();
         }
 
+        //根据条件生成sql 文件
         String sqlFilter = getSqlFilter(user, mappedStatement);
-
-
-        // 判断参数里是否有DataScope对象
-
 
         // 不用数据过滤
         if (StringUtils.isBlank(sqlFilter)) {
@@ -95,6 +81,11 @@ public class DataScopeFilterInterceptor extends AbstractSqlParserHandler impleme
         }
 
         DataScopeModel scope = new DataScopeModel(sqlFilter);
+
+        // 针对定义了rowBounds，做为mapper接口方法的参数
+        BoundSql boundSql = (BoundSql) metaObject.getValue("delegate.boundSql");
+        String originalSql = boundSql.getSql();
+        // Object paramObj = boundSql.getParameterObject();
 
         // 拼接新SQL
         originalSql = getSelect(originalSql, scope);
@@ -104,6 +95,13 @@ public class DataScopeFilterInterceptor extends AbstractSqlParserHandler impleme
         return invocation.proceed();
     }
 
+    /**
+     * 拼接新SQL
+     *
+     * @param originalSql 原始SQL
+     * @param scope
+     * @return
+     */
     private String getSelect(String originalSql, DataScopeModel scope) {
         try {
             Select select = (Select) CCJSqlParserUtil.parse(originalSql);
@@ -278,7 +276,6 @@ public class DataScopeFilterInterceptor extends AbstractSqlParserHandler impleme
 
             }
         }
-
 
         return sqlFilter.toString();
     }
