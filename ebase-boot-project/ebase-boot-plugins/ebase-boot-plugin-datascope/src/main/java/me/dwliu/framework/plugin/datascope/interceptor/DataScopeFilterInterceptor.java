@@ -3,6 +3,7 @@ package me.dwliu.framework.plugin.datascope.interceptor;
 import cn.hutool.core.collection.CollUtil;
 import com.baomidou.mybatisplus.core.toolkit.PluginUtils;
 import com.baomidou.mybatisplus.extension.handlers.AbstractSqlParserHandler;
+import lombok.extern.slf4j.Slf4j;
 import me.dwliu.framework.core.datascope.annotation.DataScopeFilter;
 import me.dwliu.framework.core.datascope.constant.DataScopeConstant;
 import me.dwliu.framework.core.datascope.enums.DataScopeViewEnum;
@@ -40,6 +41,7 @@ import java.util.stream.Collectors;
  * @author liudw
  * @date 2020/10/27 17:27
  **/
+@Slf4j
 @Intercepts({@Signature(type = StatementHandler.class, method = "prepare", args = {Connection.class, Integer.class})})
 public class DataScopeFilterInterceptor extends AbstractSqlParserHandler implements Interceptor {
 
@@ -74,6 +76,7 @@ public class DataScopeFilterInterceptor extends AbstractSqlParserHandler impleme
 
         //根据条件生成sql 文件
         String sqlFilter = getSqlFilter(user, mappedStatement);
+        log.debug("根据条件生成sql:{}", sqlFilter);
 
         // 不用数据过滤
         if (StringUtils.isBlank(sqlFilter)) {
@@ -89,6 +92,7 @@ public class DataScopeFilterInterceptor extends AbstractSqlParserHandler impleme
 
         // 拼接新SQL
         originalSql = getSelect(originalSql, scope);
+        log.debug("拼接新SQL:{}", originalSql);
 
         // 重写SQL
         metaObject.setValue("delegate.boundSql.sql", originalSql);
