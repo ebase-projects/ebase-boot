@@ -25,12 +25,10 @@ import org.apache.ibatis.mapping.SqlCommandType;
 import org.apache.ibatis.plugin.*;
 import org.apache.ibatis.reflection.MetaObject;
 import org.apache.ibatis.reflection.SystemMetaObject;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
-import org.springframework.stereotype.Component;
 
 import java.lang.reflect.Method;
 import java.sql.Connection;
@@ -44,11 +42,11 @@ import java.util.stream.Collectors;
  * @date 2020/10/27 17:27
  **/
 @Intercepts({@Signature(type = StatementHandler.class, method = "prepare", args = {Connection.class, Integer.class})})
-@Component
 public class DataScopeFilterInterceptor extends AbstractSqlParserHandler implements Interceptor {
 
-    @Autowired
     private JdbcTemplate jdbcTemplate;
+
+    private String dataScopeLevel;
 
     @Override
     public Object intercept(Invocation invocation) throws Throwable {
@@ -158,22 +156,11 @@ public class DataScopeFilterInterceptor extends AbstractSqlParserHandler impleme
 
         }
 
+        // 根据角色信息查询拥有的数据权限列表
         List<RoleDataScopeModel> roleDataScopeModels = getDataScopeByRoleId(roleIdSet);
-        // 根据角色信息 查询拥有的数据权限列表
-
-        //TODO 在这里可以设置优先级
-        if (roleDataScopeModels == null || roleDataScopeModels.size() == 0) {
-            //默认全部
-            return "";
-        }
-
-        //根据type 分组
-        Map<Integer, List<RoleDataScopeModel>> roleDataScopeModelsByMap = roleDataScopeModels
-                .stream()
-                .sorted(Comparator.comparing(RoleDataScopeModel::getScopeType))
-                .collect(Collectors.groupingBy(RoleDataScopeModel::getScopeType));
 
 
+        //查询DataScopeFilter注释
         Class<?> classType = Class.forName(mappedStatement.getId().substring(0, mappedStatement.getId().lastIndexOf(".")));
         String mName = mappedStatement.getId().substring(mappedStatement.getId().lastIndexOf(".") + 1, mappedStatement.getId().length());
         for (Method method : classType.getDeclaredMethods()) {
@@ -185,6 +172,26 @@ public class DataScopeFilterInterceptor extends AbstractSqlParserHandler impleme
                     tableAlias += ".";
                 }
 
+                //设置优先级
+                if (roleDataScopeModels == null || roleDataScopeModels.size() == 0) {
+                    if (getDataScopeLevel().equalsIgnoreCase("ALL")) {
+                        //默认全部
+                        return "";
+                    } else {
+                        sqlFilter.append(" (");
+                        sqlFilter.append(tableAlias).append(dataFilter.userId()).append("=").append(user.getUserId());
+                        sqlFilter.append(")");
+                        return sqlFilter.toString();
+                    }
+                }
+
+                //根据type 分组
+                Map<Integer, List<RoleDataScopeModel>> roleDataScopeModelsByMap = roleDataScopeModels
+                        .stream()
+                        .sorted(Comparator.comparing(RoleDataScopeModel::getScopeType))
+                        .collect(Collectors.groupingBy(RoleDataScopeModel::getScopeType));
+
+
                 if (roleDataScopeModelsByMap.containsKey(DataScopeViewEnum.ALL.getValue())) {
                     //全部
                     return "";
@@ -195,7 +202,6 @@ public class DataScopeFilterInterceptor extends AbstractSqlParserHandler impleme
 
                 //是否包含自己
                 boolean isContainOwn = false;
-
 
                 if (roleDataScopeModelsByMap.containsKey(DataScopeViewEnum.CUSTOM.getValue())) {
                     //自定义
@@ -220,7 +226,6 @@ public class DataScopeFilterInterceptor extends AbstractSqlParserHandler impleme
 
                 if (roleDataScopeModelsByMap.containsKey(DataScopeViewEnum.DEPT.getValue())) {
                     //部门
-
                     String deptIdStr = SecurityUtils.getUser().getDeptId();
                     if (!StringUtils.isBlank(deptIdStr)) {
                         long deptId = Long.parseLong(deptIdStr);
@@ -313,4 +318,15 @@ public class DataScopeFilterInterceptor extends AbstractSqlParserHandler impleme
     }
 
 
+    public void setJdbcTemplate(JdbcTemplate jdbcTemplate) {
+        this.jdbcTemplate = jdbcTemplate;
+    }
+
+    public String getDataScopeLevel() {
+        return dataScopeLevel;
+    }
+
+    public void setDataScopeLevel(String dataScopeLevel) {
+        this.dataScopeLevel = dataScopeLevel;
+    }
 }
