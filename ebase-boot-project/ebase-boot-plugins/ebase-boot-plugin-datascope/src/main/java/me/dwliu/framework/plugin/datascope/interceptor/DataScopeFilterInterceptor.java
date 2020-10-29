@@ -67,12 +67,16 @@ public class DataScopeFilterInterceptor extends AbstractSqlParserHandler impleme
         String originalSql = boundSql.getSql();
         Object paramObj = boundSql.getParameterObject();
 
+        UserInfoDetails user = SecurityUtils.getUser();
+        if (user == null) {
+            return invocation.proceed();
+        }
 
-        Set<SimpleGrantedAuthority> authorities = new HashSet<>();
-        authorities.add(new SimpleGrantedAuthority("permission"));
-
-        UserInfoDetails user = new UserInfoDetails("1318427505782218753", "", "", "1", "", "1271993695863926785,", "", "", "11", "111", 0, true, true, true, true, authorities);
-
+        // Set<SimpleGrantedAuthority> authorities = new HashSet<>();
+        // authorities.add(new SimpleGrantedAuthority("permission"));
+        //
+        // UserInfoDetails user = new UserInfoDetails("1318427505782218753", "", "", "1", "", "1271993695863926785,", "", "", "11", "111", 0, true, true, true, true, authorities);
+        //
 
         //如果是超级管理员，则不进行数据过滤
         if (user.getSuperAdmin().intValue() == 1) {
