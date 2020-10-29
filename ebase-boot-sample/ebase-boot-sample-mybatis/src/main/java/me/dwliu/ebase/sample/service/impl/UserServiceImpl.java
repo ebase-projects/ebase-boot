@@ -54,7 +54,7 @@ public class UserServiceImpl extends BaseServiceImpl<UserDAO, UserDO, UserDTO> i
     @Override
     public PageData<UserDTO> listUserDTOByPage(Map<String, Object> params) {
 
-        IPage<UserVO> page = new QueryPageUtil<UserVO>().getPage(params, "id", true);
+        IPage<UserDO> page = new QueryPageUtil<UserDO>().getPage(params, "id", true);
         List<UserDO> list = this.baseDAO.getList(params);
 
         PageData<UserDTO> pageData = getPageData(list, page.getTotal(), UserDTO.class);

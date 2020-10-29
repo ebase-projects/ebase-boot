@@ -1,7 +1,7 @@
 package me.dwliu.framework.starter.datascope.autoconfigure;
 
 import lombok.AllArgsConstructor;
-import me.dwliu.framework.plugin.datascope.aspect.DataScopeFilterAspect;
+// import me.dwliu.framework.plugin.datascope.aspect.DataScopeFilterAspect;
 import me.dwliu.framework.plugin.datascope.interceptor.DataScopeFilterInterceptor;
 import me.dwliu.framework.starter.datascope.properties.DataScopeProperties;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
@@ -42,13 +42,13 @@ public class DataScopeConfiguration {
 //	}
 
 
-    /**
-     * 配切面
-     */
-    @Bean
-    public DataScopeFilterAspect dataFilterAspect() {
-        return new DataScopeFilterAspect();
-    }
+    // /**
+    //  * 配切面
+    //  */
+    // @Bean
+    // public DataScopeFilterAspect dataFilterAspect() {
+    //     return new DataScopeFilterAspect();
+    // }
 
     /**
      * 配置数据权限

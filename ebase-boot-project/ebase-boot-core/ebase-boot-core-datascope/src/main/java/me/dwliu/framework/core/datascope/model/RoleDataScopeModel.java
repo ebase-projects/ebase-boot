@@ -9,15 +9,19 @@ import lombok.Data;
  * @date 2020/10/27 14:41
  **/
 @Data
-public class SysRoleDataScopeDTO {
+public class RoleDataScopeModel {
 
     /**
      * 角色ID
      */
     private Long roleId;
     /**
+     * 范围类型
+     */
+    private Integer scopeType;
+    /**
      * 部门ID
      */
-    private Long deptId;
+    private String deptIds;
 
 }

@@ -24,11 +24,9 @@
         <result property="revision" column="revision"/>
     </resultMap>
     <select id="getList" resultType="me.dwliu.ebase.sample.entity.UserDO">
-        select * from user u
+        select * from sys_user u
         where 1=1
-        <if test="account != null and account.trim() != ''">
-            and u.account like #{account}
-        </if>
+
     </select>
     <select id="listPage4Vo" resultType="me.dwliu.ebase.sample.vo.UserVO">
         select * from sys_user ;
