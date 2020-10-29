@@ -185,7 +185,7 @@ public class DataScopeFilterInterceptor extends AbstractSqlParserHandler impleme
                         return "";
                     } else {
                         sqlFilter.append(" (");
-                        sqlFilter.append(tableAlias).append(dataFilter.userId()).append("=").append(user.getUserId());
+                        sqlFilter.append(tableAlias).append(dataFilter.createBy()).append("=").append(user.getUserId());
                         sqlFilter.append(")");
                         return sqlFilter.toString();
                     }
@@ -255,7 +255,7 @@ public class DataScopeFilterInterceptor extends AbstractSqlParserHandler impleme
 
                 //部门ID列表
                 if (CollUtil.isNotEmpty(customDeptId)) {
-                    sqlFilter.append(tableAlias).append(dataFilter.deptId());
+                    sqlFilter.append(tableAlias).append(dataFilter.createDept());
 
                     sqlFilter.append(" in(").append(StringUtils.join(customDeptId, ",")).append(")");
                 }
@@ -264,12 +264,12 @@ public class DataScopeFilterInterceptor extends AbstractSqlParserHandler impleme
                 if (CollUtil.isNotEmpty(customDeptId)) {
                     if (isContainOwn) {
                         sqlFilter.append(" or ");
-                        sqlFilter.append(tableAlias).append(dataFilter.userId()).append("=").append(user.getUserId());
+                        sqlFilter.append(tableAlias).append(dataFilter.createBy()).append("=").append(user.getUserId());
 
                     }
                 } else {
                     if (isContainOwn) {
-                        sqlFilter.append(tableAlias).append(dataFilter.userId()).append("=").append(user.getUserId());
+                        sqlFilter.append(tableAlias).append(dataFilter.createBy()).append("=").append(user.getUserId());
 
                     }
                 }

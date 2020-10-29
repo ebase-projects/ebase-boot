@@ -13,20 +13,20 @@ import java.lang.annotation.*;
 @Documented
 public @interface DataScopeFilter {
 
-	/**
-	 * 表的别名
-	 */
-	String tableAlias() default "";
+    /**
+     * 表的别名
+     */
+    String tableAlias() default "";
 
-	/**
-	 * 用户ID
-	 */
-	String userId() default "create_by";
+    /**
+     * 用户ID
+     */
+    String createBy() default "create_by";
 
-	/**
-	 * 部门ID
-	 */
-	String deptId() default "dept_id";
+    /**
+     * 部门ID
+     */
+    String createDept() default "create_dept";
 
 }
 
