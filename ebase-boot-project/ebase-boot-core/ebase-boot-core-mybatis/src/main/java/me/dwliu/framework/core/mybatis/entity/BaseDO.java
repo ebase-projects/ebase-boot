@@ -43,6 +43,7 @@ public abstract class BaseDO implements Serializable {
      */
     // @JsonSerialize(using = ToStringSerializer.class)
     @ApiModelProperty(value = "创建部门")
+    @TableField(fill = FieldFill.INSERT)
     private Long createDept;
     /**
      * 创建人
