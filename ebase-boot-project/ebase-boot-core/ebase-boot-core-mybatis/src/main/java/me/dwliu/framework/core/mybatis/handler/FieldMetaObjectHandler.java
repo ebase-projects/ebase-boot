@@ -4,6 +4,7 @@ import com.baomidou.mybatisplus.core.handlers.MetaObjectHandler;
 import me.dwliu.framework.common.enums.YesOrNoEnum;
 import me.dwliu.framework.core.security.entity.UserInfoDetails;
 import me.dwliu.framework.core.security.utils.SecurityUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.apache.ibatis.reflection.MetaObject;
 
 import java.time.LocalDateTime;
@@ -31,15 +32,22 @@ public class FieldMetaObjectHandler implements MetaObjectHandler {
         if (user != null) {
             //创建者
             if (metaObject.hasSetter(CREATE_BY)) {
-                this.strictInsertFill(metaObject, CREATE_BY, Long.class, Long.parseLong(user.getUserId()));
+                if (StringUtils.isNotBlank(user.getUserId())) {
+                    this.strictInsertFill(metaObject, CREATE_BY, Long.class, Long.parseLong(user.getUserId()));
+                }
+
             }
             //创建者所属部门
             if (metaObject.hasSetter(CREATE_DEPT)) {
-                this.strictInsertFill(metaObject, CREATE_DEPT, Long.class, Long.parseLong(user.getDeptId()));
+                if (StringUtils.isNotBlank(user.getDeptId())) {
+                    this.strictInsertFill(metaObject, CREATE_DEPT, Long.class, Long.parseLong(user.getDeptId()));
+                }
             }
             //更新者
             if (metaObject.hasSetter(UPDATE_BY)) {
-                this.strictInsertFill(metaObject, UPDATE_BY, Long.class, Long.parseLong(user.getUserId()));
+                if (StringUtils.isNotBlank(user.getUserId())) {
+                    this.strictInsertFill(metaObject, UPDATE_BY, Long.class, Long.parseLong(user.getUserId()));
+                }
             }
         }
 
@@ -66,9 +74,13 @@ public class FieldMetaObjectHandler implements MetaObjectHandler {
             if (metaObject.hasSetter(UPDATE_BY)) {
                 if (null != getFieldValByName(UPDATE_BY, metaObject)) {
                     //bugfix 由于更新字段有值，更新时间不生效
-                    this.setFieldValByName(UPDATE_BY, Long.parseLong(user.getUserId()), metaObject);
+                    if (StringUtils.isNotBlank(user.getUserId())) {
+                        this.setFieldValByName(UPDATE_BY, Long.parseLong(user.getUserId()), metaObject);
+                    }
                 } else {
-                    this.strictInsertFill(metaObject, UPDATE_BY, Long.class, Long.parseLong(user.getUserId()));
+                    if (StringUtils.isNotBlank(user.getUserId())) {
+                        this.strictInsertFill(metaObject, UPDATE_BY, Long.class, Long.parseLong(user.getUserId()));
+                    }
                 }
             }
 
