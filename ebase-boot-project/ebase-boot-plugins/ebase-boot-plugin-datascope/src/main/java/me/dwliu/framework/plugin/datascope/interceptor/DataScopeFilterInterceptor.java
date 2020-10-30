@@ -212,17 +212,22 @@ public class DataScopeFilterInterceptor extends AbstractSqlParserHandler impleme
                 if (roleDataScopeModelsByMap.containsKey(DataScopeViewEnum.CUSTOM.getValue())) {
                     //自定义
                     List<RoleDataScopeModel> tmp = roleDataScopeModelsByMap.get(DataScopeViewEnum.CUSTOM.getValue());
-                    RoleDataScopeModel roleDataScopeModel = tmp.get(0);
-                    if (roleDataScopeModel != null) {
-                        String deptIdStrs = roleDataScopeModel.getDeptIds();
-                        if (StringUtils.isNotBlank(deptIdStrs)) {
-                            String[] split = StringUtils.substring(deptIdStrs, 1, deptIdStrs.length() - 1).split(",");
+                    if (tmp != null && tmp.size() > 0) {
+                        for (RoleDataScopeModel roleDataScopeModel : tmp) {
+                            if (roleDataScopeModel != null) {
+                                String deptIdStrs = roleDataScopeModel.getDeptIds();
+                                if (StringUtils.isNotBlank(deptIdStrs)) {
+                                    String[] split = StringUtils.substring(deptIdStrs, 1, deptIdStrs.length() - 1).split(",");
 
-                            List<String> deptIdStrList = Arrays.asList(split);
+                                    List<String> deptIdStrList = Arrays.asList(split);
 
-                            customDeptId = deptIdStrList.stream().map(x -> (Long.parseLong(StringUtils.trim(x)))).collect(Collectors.toSet());
+                                    customDeptId = deptIdStrList.stream().map(x -> (Long.parseLong(StringUtils.trim(x)))).collect(Collectors.toSet());
+                                }
+                            }
                         }
                     }
+
+
                 }
 
                 if (roleDataScopeModelsByMap.containsKey(DataScopeViewEnum.OWN.getValue())) {
