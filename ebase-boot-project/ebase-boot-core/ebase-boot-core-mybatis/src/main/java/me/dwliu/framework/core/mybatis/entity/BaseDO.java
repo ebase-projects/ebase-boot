@@ -38,12 +38,12 @@ public abstract class BaseDO implements Serializable {
     // @ApiModelProperty(value = "租户编号")
     // private String tenantId;
 
-    // /**
-    //  * 创建部门
-    //  */
+    /**
+     * 创建部门
+     */
     // @JsonSerialize(using = ToStringSerializer.class)
-    // @ApiModelProperty(value = "创建部门")
-    // private Long createDept;
+    @ApiModelProperty(value = "创建部门")
+    private Long createDept;
     /**
      * 创建人
      */

@@ -33,12 +33,12 @@ public abstract class BaseDTO implements Serializable {
     // @ApiModelProperty(value = "业务状态")
     // private Integer status;
     //
-    // /**
-    //  * 创建部门
-    //  */
+    /**
+     * 创建部门
+     */
     // @JsonSerialize(using = ToStringSerializer.class)
-    // @ApiModelProperty(value = "创建部门")
-    // private Long createDept;
+    @ApiModelProperty(value = "创建部门")
+    private Long createDept;
 
     @ApiModelProperty(value = "创建人", hidden = true)
     private Long createBy;
