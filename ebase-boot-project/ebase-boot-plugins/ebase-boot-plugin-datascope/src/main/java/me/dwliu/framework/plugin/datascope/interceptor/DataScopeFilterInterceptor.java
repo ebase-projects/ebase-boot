@@ -221,7 +221,8 @@ public class DataScopeFilterInterceptor extends AbstractSqlParserHandler impleme
 
                                     List<String> deptIdStrList = Arrays.asList(split);
 
-                                    customDeptId = deptIdStrList.stream().map(x -> (Long.parseLong(StringUtils.trim(x)))).collect(Collectors.toSet());
+                                    Set<Long> customDeptIdTmp = deptIdStrList.stream().map(x -> (Long.parseLong(StringUtils.trim(x)))).collect(Collectors.toSet());
+                                    customDeptId.addAll(customDeptIdTmp);
                                 }
                             }
                         }
@@ -319,10 +320,10 @@ public class DataScopeFilterInterceptor extends AbstractSqlParserHandler impleme
      * @return
      */
     private List<Long> getSubDeptBydeptId(Long deptId) {
-        List<Map> list = jdbcTemplate.queryForList(DataScopeConstant.SQL_SYS_DEPT, new Object[]{deptId}, Map.class);
+        List<Long> list = jdbcTemplate.queryForList(DataScopeConstant.SQL_SYS_DEPT, new Object[]{deptId}, Long.class);
         List<Long> deptIds = new ArrayList<>();
-        for (Map row : list) {
-            deptIds.add((Long) row.get("id"));
+        for (Long id : list) {
+            deptIds.add(id);
         }
         return deptIds;
     }
