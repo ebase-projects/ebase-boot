@@ -320,7 +320,7 @@ public class DataScopeFilterInterceptor extends AbstractSqlParserHandler impleme
      * @return
      */
     private List<Long> getSubDeptBydeptId(Long deptId) {
-        List<Long> list = jdbcTemplate.queryForList(DataScopeConstant.SQL_SYS_DEPT, new Object[]{deptId}, Long.class);
+        List<Long> list = jdbcTemplate.queryForList(DataScopeConstant.SQL_SYS_DEPT, new String[]{"%" + deptId + "%"}, Long.class);
         List<Long> deptIds = new ArrayList<>();
         for (Long id : list) {
             deptIds.add(id);

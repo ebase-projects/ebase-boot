@@ -14,7 +14,7 @@ public interface DataScopeConstant {
     String SQL_FILTER = "sqlFilter";
 
     String SQL_ROLE_DATA_SCOPE = "select role_id ,scope_type ,dept_ids from sys_role_data_scope where role_id in (:roleIds)";
-    String SQL_SYS_DEPT = "select * from  sys_dept where pids like '%/?%' and status =1 and del_flag =0";
+    String SQL_SYS_DEPT = "select id from sys_dept where pids like ? and status =1 and del_flag =0";
 
     static String dataByMapper(int size) {
         return "select role_id ,scope_type ,dept_ids from sys_role_data_scope where role_id in (" + buildHolder(size) + ")";
