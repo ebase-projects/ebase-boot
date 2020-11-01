@@ -8,7 +8,6 @@ import me.dwliu.ebase.sample.entity.UserDO;
 import me.dwliu.ebase.sample.service.UserService;
 import me.dwliu.ebase.sample.vo.UserVO;
 import me.dwliu.framework.common.model.PageData;
-import me.dwliu.framework.core.datascope.annotation.DataScopeFilter;
 import me.dwliu.framework.core.mybatis.page.QueryPageUtil;
 import me.dwliu.framework.core.mybatis.service.impl.BaseServiceImpl;
 import me.dwliu.framework.core.tool.convert.ConvertUtil;
