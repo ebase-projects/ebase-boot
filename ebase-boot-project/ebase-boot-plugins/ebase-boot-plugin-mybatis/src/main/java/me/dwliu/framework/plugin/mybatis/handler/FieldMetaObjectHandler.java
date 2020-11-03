@@ -1,4 +1,4 @@
-package me.dwliu.framework.core.mybatis.handler;
+package me.dwliu.framework.plugin.mybatis.handler;
 
 import com.baomidou.mybatisplus.core.handlers.MetaObjectHandler;
 import me.dwliu.framework.common.enums.YesOrNoEnum;

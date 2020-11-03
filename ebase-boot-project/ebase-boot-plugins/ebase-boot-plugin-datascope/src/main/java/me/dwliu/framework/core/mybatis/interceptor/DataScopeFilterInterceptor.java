@@ -1,8 +1,8 @@
-package me.dwliu.framework.plugin.datascope.interceptor;
+package me.dwliu.framework.core.mybatis.interceptor;
 
 import cn.hutool.core.collection.CollUtil;
 import com.baomidou.mybatisplus.core.toolkit.PluginUtils;
-import com.baomidou.mybatisplus.extension.handlers.AbstractSqlParserHandler;
+import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
 import me.dwliu.framework.core.datascope.annotation.DataScopeFilter;
 import me.dwliu.framework.core.datascope.constant.DataScopeConstant;
@@ -19,19 +19,16 @@ import net.sf.jsqlparser.parser.CCJSqlParserUtil;
 import net.sf.jsqlparser.statement.select.PlainSelect;
 import net.sf.jsqlparser.statement.select.Select;
 import org.apache.commons.lang3.StringUtils;
-import org.apache.ibatis.executor.statement.StatementHandler;
+import org.apache.ibatis.executor.Executor;
 import org.apache.ibatis.mapping.BoundSql;
 import org.apache.ibatis.mapping.MappedStatement;
-import org.apache.ibatis.mapping.SqlCommandType;
-import org.apache.ibatis.plugin.*;
-import org.apache.ibatis.reflection.MetaObject;
-import org.apache.ibatis.reflection.SystemMetaObject;
+import org.apache.ibatis.session.ResultHandler;
+import org.apache.ibatis.session.RowBounds;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 
 import java.lang.reflect.Method;
-import java.sql.Connection;
 import java.util.*;
 import java.util.stream.Collectors;
 
@@ -42,36 +39,35 @@ import java.util.stream.Collectors;
  * @date 2020/10/27 17:27
  **/
 @Slf4j
-@Intercepts({@Signature(type = StatementHandler.class, method = "prepare", args = {Connection.class, Integer.class})})
-public class DataScopeFilterInterceptor extends AbstractSqlParserHandler implements Interceptor {
+public class DataScopeFilterInterceptor implements QueryInterceptor {
 
     private JdbcTemplate jdbcTemplate;
 
     private String dataScopeLevel;
 
+
+    /**
+     * 拦截处理
+     *
+     * @param executor
+     * @param mappedStatement
+     * @param parameter
+     * @param rowBounds
+     * @param resultHandler
+     * @param boundSql
+     */
     @Override
-    public Object intercept(Invocation invocation) throws Throwable {
-        StatementHandler statementHandler = (StatementHandler) PluginUtils.realTarget(invocation.getTarget());
-        MetaObject metaObject = SystemMetaObject.forObject(statementHandler);
-
-        // SQL解析
-        this.sqlParser(metaObject);
-
-        // 先判断是不是SELECT操作
-        MappedStatement mappedStatement = (MappedStatement) metaObject.getValue("delegate.mappedStatement");
-        if (!SqlCommandType.SELECT.equals(mappedStatement.getSqlCommandType())) {
-            return invocation.proceed();
-        }
-
-
+    @SneakyThrows
+    public void intercept(Executor executor, MappedStatement mappedStatement,
+                          Object parameter, RowBounds rowBounds,
+                          ResultHandler resultHandler, BoundSql boundSql) {
         UserInfoDetails user = SecurityUtils.getUser();
         if (user == null) {
-            return invocation.proceed();
+            return;
         }
-
         //如果是超级管理员，则不进行数据过滤
         if (user.getSuperAdmin().intValue() == 1) {
-            return invocation.proceed();
+            return;
         }
 
         //根据条件生成sql 文件
@@ -80,23 +76,20 @@ public class DataScopeFilterInterceptor extends AbstractSqlParserHandler impleme
 
         // 不用数据过滤
         if (StringUtils.isBlank(sqlFilter)) {
-            return invocation.proceed();
+            return;
         }
 
         DataScopeModel scope = new DataScopeModel(sqlFilter);
 
         // 针对定义了rowBounds，做为mapper接口方法的参数
-        BoundSql boundSql = (BoundSql) metaObject.getValue("delegate.boundSql");
         String originalSql = boundSql.getSql();
-        // Object paramObj = boundSql.getParameterObject();
 
         // 拼接新SQL
         originalSql = getSelect(originalSql, scope);
         log.debug("拼接新SQL:{}", originalSql);
 
-        // 重写SQL
-        metaObject.setValue("delegate.boundSql.sql", originalSql);
-        return invocation.proceed();
+        PluginUtils.MPBoundSql mpBs = PluginUtils.mpBoundSql(boundSql);
+        mpBs.sql(originalSql);
     }
 
     /**
@@ -123,19 +116,6 @@ public class DataScopeFilterInterceptor extends AbstractSqlParserHandler impleme
         } catch (JSQLParserException e) {
             return originalSql;
         }
-    }
-
-    @Override
-    public Object plugin(Object target) {
-        if (target instanceof StatementHandler) {
-            return Plugin.wrap(target, this);
-        }
-        return target;
-    }
-
-    @Override
-    public void setProperties(Properties properties) {
-
     }
 
 
@@ -339,5 +319,11 @@ public class DataScopeFilterInterceptor extends AbstractSqlParserHandler impleme
 
     public void setDataScopeLevel(String dataScopeLevel) {
         this.dataScopeLevel = dataScopeLevel;
+    }
+
+
+    @Override
+    public int getOrder() {
+        return -1;
     }
 }
