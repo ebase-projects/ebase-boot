@@ -1,6 +1,6 @@
 package me.dwliu.ebase.sample;
 
-import me.dwliu.framework.core.mybatis.handler.DefaultGlobalExceptionHandler;
+import me.dwliu.framework.plugin.mybatis.handler.DefaultGlobalExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
 @RestControllerAdvice

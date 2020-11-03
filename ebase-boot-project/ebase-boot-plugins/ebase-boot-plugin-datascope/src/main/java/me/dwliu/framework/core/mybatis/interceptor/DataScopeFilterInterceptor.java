@@ -1,8 +1,7 @@
-package me.dwliu.framework.plugin.datascope.interceptor;
+package me.dwliu.framework.core.mybatis.interceptor;
 
 import cn.hutool.core.collection.CollUtil;
 import com.baomidou.mybatisplus.core.toolkit.PluginUtils;
-import com.baomidou.mybatisplus.extension.plugins.inner.InnerInterceptor;
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
 import me.dwliu.framework.core.datascope.annotation.DataScopeFilter;
@@ -23,18 +22,13 @@ import org.apache.commons.lang3.StringUtils;
 import org.apache.ibatis.executor.Executor;
 import org.apache.ibatis.mapping.BoundSql;
 import org.apache.ibatis.mapping.MappedStatement;
-import org.apache.ibatis.mapping.SqlCommandType;
-import org.apache.ibatis.reflection.MetaObject;
-import org.apache.ibatis.reflection.SystemMetaObject;
 import org.apache.ibatis.session.ResultHandler;
 import org.apache.ibatis.session.RowBounds;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
-import org.springframework.security.core.authority.SimpleGrantedAuthority;
 
 import java.lang.reflect.Method;
-import java.sql.SQLException;
 import java.util.*;
 import java.util.stream.Collectors;
 
@@ -45,27 +39,32 @@ import java.util.stream.Collectors;
  * @date 2020/10/27 17:27
  **/
 @Slf4j
-public class DataScopeFilterInterceptor implements InnerInterceptor {
+public class DataScopeFilterInterceptor implements QueryInterceptor {
 
     private JdbcTemplate jdbcTemplate;
 
     private String dataScopeLevel;
 
-    @SneakyThrows
+
+    /**
+     * 拦截处理
+     *
+     * @param executor
+     * @param mappedStatement
+     * @param parameter
+     * @param rowBounds
+     * @param resultHandler
+     * @param boundSql
+     */
     @Override
-    public void beforeQuery(Executor executor, MappedStatement mappedStatement, Object parameter, RowBounds rowBounds, ResultHandler resultHandler, BoundSql boundSql) throws SQLException {
-
-        // UserInfoDetails user = SecurityUtils.getUser();
-        // if (user == null) {
-        //     return;
-        // }
-
-        Set<SimpleGrantedAuthority> authorities = new HashSet<>();
-        authorities.add(new SimpleGrantedAuthority("permission"));
-
-        UserInfoDetails user = new UserInfoDetails("1318427505782218753", "", "", "1", "", "1271993695863926785,", "", "", "11", "111", 0, true, true, true, true, authorities);
-
-
+    @SneakyThrows
+    public void intercept(Executor executor, MappedStatement mappedStatement,
+                          Object parameter, RowBounds rowBounds,
+                          ResultHandler resultHandler, BoundSql boundSql) {
+        UserInfoDetails user = SecurityUtils.getUser();
+        if (user == null) {
+            return;
+        }
         //如果是超级管理员，则不进行数据过滤
         if (user.getSuperAdmin().intValue() == 1) {
             return;
@@ -320,5 +319,11 @@ public class DataScopeFilterInterceptor implements InnerInterceptor {
 
     public void setDataScopeLevel(String dataScopeLevel) {
         this.dataScopeLevel = dataScopeLevel;
+    }
+
+
+    @Override
+    public int getOrder() {
+        return -1;
     }
 }

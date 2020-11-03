@@ -1,12 +1,17 @@
 package me.dwliu.framework.starter.mybatis.autoconfigure;
 
+import cn.hutool.core.util.ObjectUtil;
 import com.baomidou.mybatisplus.autoconfigure.ConfigurationCustomizer;
 import com.baomidou.mybatisplus.core.handlers.MetaObjectHandler;
 import com.baomidou.mybatisplus.extension.plugins.MybatisPlusInterceptor;
-import com.baomidou.mybatisplus.extension.plugins.inner.PaginationInnerInterceptor;
-import me.dwliu.framework.core.mybatis.handler.FieldMetaObjectHandler;
+import me.dwliu.framework.core.mybatis.interceptor.QueryInterceptor;
+import me.dwliu.framework.plugin.mybatis.handler.FieldMetaObjectHandler;
+import me.dwliu.framework.plugin.mybatis.plugin.CustomPaginationInterceptor;
+import org.springframework.beans.factory.ObjectProvider;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.core.annotation.AnnotationAwareOrderComparator;
+
 
 /**
  * mybatis-plus配置
@@ -21,12 +26,22 @@ public class CustomMybatisPlusConfig {
      * 新MybatisPlus插件配置
      */
     @Bean
-    public MybatisPlusInterceptor mybatisPlusInterceptor() {
+    public MybatisPlusInterceptor mybatisPlusInterceptor(ObjectProvider<QueryInterceptor[]> queryInterceptors) {
         MybatisPlusInterceptor interceptor = new MybatisPlusInterceptor();
 
+        // 配置分页拦截器
+        CustomPaginationInterceptor paginationInterceptor = new CustomPaginationInterceptor();
+        // 配置自定义查询拦截器
+        QueryInterceptor[] queryInterceptorArray = queryInterceptors.getIfAvailable();
+        if (ObjectUtil.isNotEmpty(queryInterceptorArray)) {
+            AnnotationAwareOrderComparator.sort(queryInterceptorArray);
+            paginationInterceptor.setQueryInterceptors(queryInterceptorArray);
+        }
+
         //新分页
-        interceptor.addInnerInterceptor(new PaginationInnerInterceptor());
+        interceptor.addInnerInterceptor(paginationInterceptor);
         return interceptor;
+
     }
 
     /**
