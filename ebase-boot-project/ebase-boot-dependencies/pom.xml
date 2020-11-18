@@ -21,11 +21,11 @@
         <main.basedir>${basedir}/../..</main.basedir>
 
         <!--spring-->
-        <spring.boot.version>2.2.10.RELEASE</spring.boot.version>
+        <spring.boot.version>2.3.6.RELEASE</spring.boot.version>
         <spring.cloud.version>Hoxton.SR8</spring.cloud.version>
         <!--spring.security.oauth2.autoconfigure 同 spring boot-->
-        <!--https://github.com/spring-projects/spring-security-oauth2-boot/releases/tag/2.3.4.RELEASE-->
-        <spring.security.oauth2.autoconfigure.version>2.2.10.RELEASE</spring.security.oauth2.autoconfigure.version>
+        <!--https://github.com/spring-projects/spring-security-oauth2-boot/releases/tag/2.3.6.RELEASE -->
+        <spring.security.oauth2.autoconfigure.version>2.3.6.RELEASE</spring.security.oauth2.autoconfigure.version>
 
         <!--alibaba https://github.com/alibaba/spring-cloud-alibaba/releases -->
         <spring.cloud.alibaba.version>2.2.3.RELEASE</spring.cloud.alibaba.version>
@@ -43,13 +43,13 @@
         <commons.io.version>2.7</commons.io.version>
 
         <!--DB-->
-        <mybatis.plus.boot.starter.version>3.4.0</mybatis.plus.boot.starter.version>
+        <mybatis.plus.boot.starter.version>3.4.1</mybatis.plus.boot.starter.version>
         <druid.version>1.2.3</druid.version>
         <mysql.version>5.1.49</mysql.version>
         <oracle.version>11.2.0.3</oracle.version>
 
         <!--tool-->
-        <hutool.version>5.3.8</hutool.version>
+        <hutool.version>5.5.1</hutool.version>
         <guava.version>20.0</guava.version>
         <easypoi.version>4.2.0</easypoi.version>
 

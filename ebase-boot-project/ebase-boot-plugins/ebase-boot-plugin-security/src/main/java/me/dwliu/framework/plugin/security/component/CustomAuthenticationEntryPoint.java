@@ -7,7 +7,6 @@ import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
 import me.dwliu.framework.common.code.SystemResultCode;
 import me.dwliu.framework.common.model.Result;
-import org.springframework.http.MediaType;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.web.AuthenticationEntryPoint;
 import org.springframework.stereotype.Component;
@@ -33,7 +32,8 @@ public class CustomAuthenticationEntryPoint implements AuthenticationEntryPoint 
 	public void commence(HttpServletRequest request, HttpServletResponse response,
 	                     AuthenticationException authException) {
 		response.setCharacterEncoding("UTF-8");
-		response.setContentType(MediaType.APPLICATION_JSON_UTF8_VALUE);
+		// response.setContentType(MediaType.APPLICATION_JSON_UTF8_VALUE);
+		response.setContentType("application/json;charset=UTF-8");
 		Result<String> result = new Result<>();
 		result.setCode(SystemResultCode.FAILURE_CODE);
 		if (authException != null) {

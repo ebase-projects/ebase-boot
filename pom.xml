@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>me.dwliu.ebase</groupId>
@@ -36,16 +37,6 @@
     <modules>
         <module>ebase-boot-project</module>
     </modules>
-
-    <profiles>
-        <profile>
-            <id>sample</id>
-            <modules>
-                <module>ebase-boot-sample</module>
-            </modules>
-
-        </profile>
-    </profiles>
 
 
     <properties>
@@ -145,5 +136,47 @@
             <url>http://101.200.134.49:8081/repository/maven-snapshots/</url>
         </snapshotRepository>
     </distributionManagement>
+
+
+    <profiles>
+        <profile>
+            <id>sample</id>
+            <modules>
+                <module>ebase-boot-sample</module>
+            </modules>
+        </profile>
+
+        <profile>
+            <id>nexus-linewell-sd</id>
+            <distributionManagement>
+                <repository>
+                    <id>linewell-sd-releases</id>
+                    <name>releases</name>
+                    <url>http://101.200.134.49:8081/repository/maven-releases/</url>
+                </repository>
+                <snapshotRepository>
+                    <id>linewell-sd-snapshots</id>
+                    <name>snapshots</name>
+                    <url>http://101.200.134.49:8081/repository/maven-snapshots/</url>
+                </snapshotRepository>
+            </distributionManagement>
+        </profile>
+
+        <profile>
+            <id>nexus-home</id>
+            <distributionManagement>
+                <repository>
+                    <id>home-releases</id>
+                    <name>releases</name>
+                    <url>http://nexus.r.dwliu.me/repository/maven-releases/</url>
+                </repository>
+                <snapshotRepository>
+                    <id>home-snapshots</id>
+                    <name>snapshots</name>
+                    <url>http://nexus.r.dwliu.me/repository/maven-snapshots/</url>
+                </snapshotRepository>
+            </distributionManagement>
+        </profile>
+    </profiles>
 
 </project>
