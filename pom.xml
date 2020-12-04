@@ -126,12 +126,12 @@
     <!--    </repositories>-->
     <distributionManagement>
         <repository>
-            <id>linewell-sd-releases</id>
+            <id>company-releases</id>
             <name>releases</name>
             <url>http://101.200.134.49:8081/repository/maven-releases/</url>
         </repository>
         <snapshotRepository>
-            <id>linewell-sd-snapshots</id>
+            <id>company-snapshots</id>
             <name>snapshots</name>
             <url>http://101.200.134.49:8081/repository/maven-snapshots/</url>
         </snapshotRepository>
@@ -147,15 +147,15 @@
         </profile>
 
         <profile>
-            <id>nexus-linewell-sd</id>
+            <id>nexus-company</id>
             <distributionManagement>
                 <repository>
-                    <id>linewell-sd-releases</id>
+                    <id>company-releases</id>
                     <name>releases</name>
                     <url>http://101.200.134.49:8081/repository/maven-releases/</url>
                 </repository>
                 <snapshotRepository>
-                    <id>linewell-sd-snapshots</id>
+                    <id>company-snapshots</id>
                     <name>snapshots</name>
                     <url>http://101.200.134.49:8081/repository/maven-snapshots/</url>
                 </snapshotRepository>
