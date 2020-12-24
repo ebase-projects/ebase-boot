@@ -128,12 +128,12 @@
         <repository>
             <id>company-releases</id>
             <name>releases</name>
-            <url>http://101.200.134.49:8081/repository/maven-releases/</url>
+            <url>http://nexus.dev.lwsd.cc/repository/maven-releases/</url>
         </repository>
         <snapshotRepository>
             <id>company-snapshots</id>
             <name>snapshots</name>
-            <url>http://101.200.134.49:8081/repository/maven-snapshots/</url>
+            <url>http://nexus.dev.lwsd.cc/repository/maven-snapshots/</url>
         </snapshotRepository>
     </distributionManagement>
 
@@ -152,12 +152,12 @@
                 <repository>
                     <id>company-releases</id>
                     <name>releases</name>
-                    <url>http://101.200.134.49:8081/repository/maven-releases/</url>
+                    <url>http://nexus.dev.lwsd.cc/repository/maven-releases/</url>
                 </repository>
                 <snapshotRepository>
                     <id>company-snapshots</id>
                     <name>snapshots</name>
-                    <url>http://101.200.134.49:8081/repository/maven-snapshots/</url>
+                    <url>http://nexus.dev.lwsd.cc/repository/maven-snapshots/</url>
                 </snapshotRepository>
             </distributionManagement>
         </profile>
