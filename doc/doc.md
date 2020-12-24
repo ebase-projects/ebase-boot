@@ -2,6 +2,8 @@
 ```
 mvn release:prepare -DautoVersionSubmodules=true -Darguments="-DskipTests" -Pnexus-company
 
+mvn release:rollback
+
 mvn release:perform -DuseReleaseProfile=false -Pnexus-company
 ```
 
