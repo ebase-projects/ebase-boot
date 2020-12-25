@@ -5,7 +5,7 @@
     <groupId>me.dwliu.ebase</groupId>
     <artifactId>ebase-boot</artifactId>
     <packaging>pom</packaging>
-    <version>1.0.6</version>
+    <version>1.0.7-SNAPSHOT</version>
     <name>${project.artifactId}</name>
 
     <description>
@@ -18,7 +18,7 @@
         <url>https://gitee.com/ebase-projects/ebase-boot</url>
         <connection>scm:git:ssh://git@gitee.com:ebase-projects/ebase-boot.git</connection>
         <developerConnection>scm:git:git@gitee.com:ebase-projects/ebase-boot.git</developerConnection>
-        <tag>1.0.6.RELEASE</tag>
+        <tag>HEAD</tag>
     </scm>
 
 
