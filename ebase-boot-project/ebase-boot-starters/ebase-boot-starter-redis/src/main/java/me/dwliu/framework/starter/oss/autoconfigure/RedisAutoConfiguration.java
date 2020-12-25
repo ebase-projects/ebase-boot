@@ -1,6 +1,6 @@
 package me.dwliu.framework.starter.oss.autoconfigure;
 
-import me.dwliu.framework.plugin.redis.JsonRedisSerializer;
+import me.dwliu.framework.plugin.redis.serializer.JsonRedisSerializer;
 import me.dwliu.framework.plugin.redis.RedisService;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
