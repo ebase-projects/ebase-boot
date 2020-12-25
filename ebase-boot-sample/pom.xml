@@ -5,7 +5,7 @@
     <parent>
         <artifactId>ebase-boot</artifactId>
         <groupId>me.dwliu.ebase</groupId>
-        <version>1.0.5-SNAPSHOT</version>
+        <version>1.0.6-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
@@ -22,6 +22,7 @@
         <module>ebase-boot-sample-swagger</module>
         <module>ebase-boot-sample-feign</module>
         <module>ebase-boot-sample-mongodb</module>
+        <module>ebase-boot-sample-redis</module>
     </modules>
 
 </project>

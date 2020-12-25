@@ -5,7 +5,7 @@
     <parent>
         <artifactId>ebase-boot-sample</artifactId>
         <groupId>me.dwliu.ebase</groupId>
-        <version>1.0.5-SNAPSHOT</version>
+        <version>1.0.6-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
@@ -108,7 +108,7 @@
             <dependency>
                 <groupId>me.dwliu.ebase</groupId>
                 <artifactId>ebase-boot-dependencies</artifactId>
-                <version>1.0.5-SNAPSHOT</version>
+                <version>1.0.6-SNAPSHOT</version>
                 <scope>import</scope>
                 <type>pom</type>
             </dependency>
