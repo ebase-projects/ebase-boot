@@ -29,7 +29,7 @@ public class MinioOssTemplateTest {
     //    private String bucketName = UUID.randomUUID().toString().replace("-", "");
     private String bucketName = "101065";
 
-    private String fileName = "Lighthouse.jpg";
+    private String fileName = "Koala.jpg";
     //String fileName = "烟台一职数字化智慧校园一卡通项目招标文件定稿.doc";
     private String filePath = "/Users/liudw/Pictures/" + fileName;
 

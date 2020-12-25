@@ -30,13 +30,17 @@ public class FileInfo {
      */
     private String fileExtension;
     /**
-     * 文件大小（KB）
+     * 文件大小（B）
      */
     private Long fileSize;
     /**
      * 文件路径
      */
     private String fileUrl;
+    /**
+     * 文件url地址
+     */
+    private String fileHostUrl;
     /**
      * 文件上传时间
      */
