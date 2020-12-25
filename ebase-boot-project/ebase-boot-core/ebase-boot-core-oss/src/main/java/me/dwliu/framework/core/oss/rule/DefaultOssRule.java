@@ -44,8 +44,12 @@ public class DefaultOssRule implements OssRule {
         //     builder.append(UUID.randomUUID().toString().replace("-", ""));
         //     builder.append("." + split[1]);
         // }
-        else if (format == OssFileNameFormatEnum.DATETIME) {
-            builder.append(LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyyMMddHHmmssSSS")));
+        else if (format == OssFileNameFormatEnum.DATE) {
+            builder.append(LocalDateTime.now().format(DateTimeFormatter.ofPattern(OssFileNameFormatEnum.DATE.getDesc())));
+            builder.append("/");
+            builder.append(originalFileName);
+        } else if (format == OssFileNameFormatEnum.DATETIME) {
+            builder.append(LocalDateTime.now().format(DateTimeFormatter.ofPattern(OssFileNameFormatEnum.DATETIME.getDesc())));
             builder.append("-");
             builder.append(originalFileName);
         } else {

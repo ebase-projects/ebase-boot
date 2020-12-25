@@ -11,7 +11,7 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.UUID;
 
-@Component
+//@Component
 public class CustomOssRule implements OssRule {
     private String prefix;
     @Autowired

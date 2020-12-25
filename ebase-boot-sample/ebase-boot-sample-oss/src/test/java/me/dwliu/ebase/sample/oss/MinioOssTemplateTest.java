@@ -118,7 +118,7 @@ public class MinioOssTemplateTest {
         FileInputStream fileInputStream = new FileInputStream(file);
         String originFileName = this.fileName;
         // String fileName = ossRule.fileName(this.fileName, OssFileNameFormatEnum.DATETIME);
-        String fileName = ossRule.fileName(this.fileName, OssFileNameFormatEnum.UUID);
+        String fileName = ossRule.fileName(this.fileName, OssFileNameFormatEnum.DATE);
 
         FileInfo fileInfo = minioOssTemplate.putFile(bucketName, originFileName, fileName, fileInputStream);
         log.info(fileInfo.toString());

@@ -14,7 +14,7 @@ import java.util.Map;
 public enum OssFileNameFormatEnum {
     NONE("无", 0),
     DATE("yyyy/MM/dd", 1),
-    DATETIME("yyyy/MM/dd/HH/mm/ss", 2),
+    DATETIME("yyyyMMddHHmmssSSS", 2),
     UUID("UUID", 3);
 
     /**
