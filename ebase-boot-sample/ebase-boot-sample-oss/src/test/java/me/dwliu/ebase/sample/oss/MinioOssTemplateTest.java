@@ -116,9 +116,11 @@ public class MinioOssTemplateTest {
 
         File file = new File(filePath);
         FileInputStream fileInputStream = new FileInputStream(file);
+        String originFileName = this.fileName;
+        // String fileName = ossRule.fileName(this.fileName, OssFileNameFormatEnum.DATETIME);
         String fileName = ossRule.fileName(this.fileName, OssFileNameFormatEnum.UUID);
 
-        FileInfo fileInfo = minioOssTemplate.putFile("2019/11/"+fileName, fileInputStream);
+        FileInfo fileInfo = minioOssTemplate.putFile(bucketName, originFileName, fileName, fileInputStream);
         log.info(fileInfo.toString());
     }
 

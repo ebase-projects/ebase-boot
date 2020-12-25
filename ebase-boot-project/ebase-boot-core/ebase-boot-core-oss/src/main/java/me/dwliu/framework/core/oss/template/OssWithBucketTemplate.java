@@ -86,12 +86,24 @@ public interface OssWithBucketTemplate extends OssTemplate {
     /**
      * 上传文件
      *
+     * @param bucketName     存储桶名称
+     * @param originFileName 原始文件名称
+     * @param fileName       文件名称
+     * @param stream         文件流
+     * @return
+     */
+    FileInfo putFile(String bucketName, String originFileName, String fileName, InputStream stream);
+
+    /**
+     * 上传文件
+     *
      * @param bucketName 存储桶名称
      * @param fileName   文件名称
      * @param stream     文件流
      * @return
      */
     FileInfo putFile(String bucketName, String fileName, InputStream stream);
+
 
     /**
      * 上传文件

@@ -6,6 +6,7 @@ import lombok.SneakyThrows;
 import me.dwliu.framework.core.oss.model.FileInfo;
 import me.dwliu.framework.core.oss.rule.OssRule;
 import me.dwliu.framework.core.oss.template.OssWithBucketTemplate;
+import org.apache.commons.io.FilenameUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -132,20 +133,23 @@ public class MinioOssTemplate implements OssWithBucketTemplate {
                 .concat(fileName);
     }
 
+
     @Override
     @SneakyThrows
-    public FileInfo putFile(String bucketName, String fileName, InputStream stream) {
+    public FileInfo putFile(String bucketName, String originFileName, String fileName, InputStream stream) {
         makeBucket(bucketName);
+        if (StringUtils.isBlank(originFileName)) {
+            originFileName = fileName;
+        }
 
         // 提前获取文件大小
         long available = (long) stream.available();
 
-        minioClient.putObject(getBucketName(bucketName), fileName, stream,
-                available, null, null, "application/octet-stream");
+        minioClient.putObject(getBucketName(bucketName), fileName, stream, available, null, null, "application/octet-stream");
 
         FileInfo fileInfo = new FileInfo();
         fileInfo.setFileName(fileName);
-        fileInfo.setOriginalName(fileName);
+        fileInfo.setOriginalName(originFileName);
         if (StringUtils.isBlank(bucketName)) {
             fileInfo.setFileUrl(filePath(fileName));
             fileInfo.setFileHostUrl(fileUrl(fileName));
@@ -155,9 +159,16 @@ public class MinioOssTemplate implements OssWithBucketTemplate {
         }
 
         fileInfo.setFileSize(available);
+        fileInfo.setFileExtension(FilenameUtils.getExtension(fileName));
         fileInfo.setUploadDate(new Date());
 
         return fileInfo;
+    }
+
+    @Override
+    @SneakyThrows
+    public FileInfo putFile(String bucketName, String fileName, InputStream stream) {
+        return putFile(getBucketName(), null, fileName, stream);
     }
 
     @Override

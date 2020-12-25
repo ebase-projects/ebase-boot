@@ -123,6 +123,20 @@ public class QiniuOssTemplate implements OssWithBucketTemplate {
 		return endpoint.concat("/").concat(fileName);
 	}
 
+	/**
+	 * 上传文件
+	 *
+	 * @param bucketName     存储桶名称
+	 * @param originFileName 原始文件名称
+	 * @param fileName       文件名称
+	 * @param stream         文件流
+	 * @return
+	 */
+	@Override
+	public FileInfo putFile(String bucketName, String originFileName, String fileName, InputStream stream) {
+		return null;
+	}
+
 	@Override
 	public String fileUrl(String fileName) {
 		return endpoint.concat("/").concat(fileName);
