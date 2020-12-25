@@ -1,9 +1,12 @@
 ### 项目打包
 ```
+### 预编译
 mvn release:prepare -DautoVersionSubmodules=true -Darguments="-DskipTests" -Pnexus-company
 
+### 回滚
 mvn release:rollback
 
+### 正式发布
 mvn release:perform -DuseReleaseProfile=false -Pnexus-company
 ```
 
