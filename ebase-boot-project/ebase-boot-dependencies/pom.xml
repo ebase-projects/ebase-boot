@@ -41,7 +41,7 @@
         <commons.io.version>2.7</commons.io.version>
 
         <!--DB-->
-        <mybatis.plus.boot.starter.version>3.4.1</mybatis.plus.boot.starter.version>
+        <mybatis.plus.boot.starter.version>3.4.2</mybatis.plus.boot.starter.version>
         <druid.version>1.2.4</druid.version>
         <mysql.version>8.0.22</mysql.version>
         <oracle.version>11.2.0.3</oracle.version>
