@@ -1,12 +1,8 @@
 package me.dwliu.ebase.sample.feign.feign;
 
-import me.dwliu.framework.common.model.Result;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
-import java.util.Map;
 
 @RestController
 @RequestMapping("/")
@@ -25,33 +21,33 @@ public class DemoController {
 //		return list;
 //
 //	}
-	@GetMapping("/test1")
-	public Result<BeVisitorInfoDTO> test1() {
-		Result<BeVisitorInfoDTO> one = feignClientProxy.getOne(1229926019503329282L);
+// 	@GetMapping("/test1")
+// 	public Result<BeVisitorInfoDTO> test1() {
+// 		Result<BeVisitorInfoDTO> one = (Result<me.dwliu.ebase.sample.feign.feign.BeVisitorInfoDTO>) feignClientProxy.getOne(1229926019503329282L);
+//
+// 		return one;
+//
+// 	}
 
-		return one;
-
-	}
-
-	@GetMapping("/test2")
-	public Result<Map<String, Object>> test2() {
-		LoginDTO loginDTO=new LoginDTO();
-		loginDTO.setLogin_name("13166778899");
-		loginDTO.setPwd("C+Q8E8uHuQ3jy5Gw+BKdYA==");
-		Result<Map<String, Object>> login = k12UserFeign.login(loginDTO);
-
-		return login;
-
-	}
-
-	@GetMapping("/test3")
-	public Result<Hello> test3() {
-		Hello p=new Hello();
-		p.setH1("13166778899");
-		p.setH2("C+Q8E8uHuQ3jy5Gw+BKdYA==");
-		Hello hello = helloFeignService.hello(p);
-
-		return Result.success(hello);
-
-	}
+	// @GetMapping("/test2")
+	// public Result<Map<String, Object>> test2() {
+	// 	LoginDTO loginDTO=new LoginDTO();
+	// 	loginDTO.setLogin_name("13166778899");
+	// 	loginDTO.setPwd("C+Q8E8uHuQ3jy5Gw+BKdYA==");
+	// 	Result<Map<String, Object>> login = k12UserFeign.login(loginDTO);
+	//
+	// 	return login;
+	//
+	// }
+	//
+	// @GetMapping("/test3")
+	// public Result<Hello> test3() {
+	// 	Hello p=new Hello();
+	// 	p.setH1("13166778899");
+	// 	p.setH2("C+Q8E8uHuQ3jy5Gw+BKdYA==");
+	// 	Hello hello = helloFeignService.hello(p);
+	//
+	// 	return Result.success(hello);
+	//
+	// }
 }
