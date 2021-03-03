@@ -23,6 +23,7 @@
         <module>ebase-boot-sample-feign</module>
         <module>ebase-boot-sample-mongodb</module>
         <module>ebase-boot-sample-redis</module>
+        <module>ebase-boot-sample-es</module>
     </modules>
 
 </project>
