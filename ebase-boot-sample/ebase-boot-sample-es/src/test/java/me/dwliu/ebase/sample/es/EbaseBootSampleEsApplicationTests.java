@@ -15,6 +15,7 @@ class EbaseBootSampleEsApplicationTests {
     public void Test2() {
         JSONArray result = esService.searchAgg("dg_location_latest", EsUtil.buildGeoHashGridSearch(true, false, false, false));
         System.out.println(result.toJSONString());
+        System.out.println(result.size());
     }
 
 }

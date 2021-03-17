@@ -136,6 +136,7 @@ public class EsService {
     public JSONArray searchAgg(String idxName, SearchSourceBuilder builder) {
         JSONArray result = new JSONArray();
         SearchRequest request = new SearchRequest(idxName);
+	    System.out.println(builder.toString());
         request.source(builder);
         try {
             SearchResponse response = restHighLevelClient.search(request, RequestOptions.DEFAULT);
