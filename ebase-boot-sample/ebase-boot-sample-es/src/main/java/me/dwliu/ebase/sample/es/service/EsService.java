@@ -103,6 +103,7 @@ public class EsService {
     public SearchHit[] searchHits(String idxName, SearchSourceBuilder builder) {
         EsResult esResult = new EsResult();
         SearchRequest request = new SearchRequest(idxName);
+	    System.out.println(builder.toString());
         request.source(builder);
         try {
             SearchResponse response = restHighLevelClient.search(request, RequestOptions.DEFAULT);
