@@ -21,10 +21,10 @@
         <main.basedir>${basedir}/../..</main.basedir>
 
         <!--spring-->
-        <spring.boot.version>2.4.7</spring.boot.version>
+        <spring.boot.version>2.4.8</spring.boot.version>
         <!--spring.security.oauth2.autoconfigure 同 spring boot-->
         <!--https://github.com/spring-projects/spring-security-oauth2-boot/releases/ -->
-        <spring.security.oauth2.autoconfigure.version>2.4.7</spring.security.oauth2.autoconfigure.version>
+        <spring.security.oauth2.autoconfigure.version>2.4.8</spring.security.oauth2.autoconfigure.version>
         <spring.cloud.version>2020.0.2</spring.cloud.version>
 
         <!--alibaba https://github.com/alibaba/spring-cloud-alibaba/releases -->
@@ -43,7 +43,7 @@
 
         <!--DB-->
         <mybatis.plus.boot.starter.version>3.4.3.1</mybatis.plus.boot.starter.version>
-        <druid.version>1.2.5</druid.version>
+        <druid.version>1.2.6</druid.version>
         <mysql.version>8.0.22</mysql.version>
         <oracle.version>11.2.0.3</oracle.version>
 
