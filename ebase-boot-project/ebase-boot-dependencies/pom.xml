@@ -21,7 +21,7 @@
         <main.basedir>${basedir}/../..</main.basedir>
 
         <!--spring-->
-        <spring.boot.version>2.4.10</spring.boot.version>
+        <spring.boot.version>2.4.11</spring.boot.version>
         <!--spring.security.oauth2.autoconfigure 同 spring boot-->
         <!--https://github.com/spring-projects/spring-security-oauth2-boot/releases/ -->
         <spring.security.oauth2.autoconfigure.version>2.4.8</spring.security.oauth2.autoconfigure.version>
