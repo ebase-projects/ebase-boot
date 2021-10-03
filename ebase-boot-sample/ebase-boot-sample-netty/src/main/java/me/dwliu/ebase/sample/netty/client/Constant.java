@@ -15,7 +15,7 @@ public class Constant {
 	/**
 	 * 登陆
 	 */
-	public static final String LOGIN = "i xxxx,xxxxx" + NEWLINE;
+	public static final String LOGIN = "i sdyt,sdyt0116" + NEWLINE;
 	/**
 	 * 退出
 	 */

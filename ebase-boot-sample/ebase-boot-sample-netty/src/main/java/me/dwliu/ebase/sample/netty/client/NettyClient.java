@@ -12,7 +12,7 @@ import java.util.concurrent.TimeUnit;
 @Slf4j
 public class NettyClient {
 
-	private final String host = "ip";
+	private final String host = "ts.ubinavi.com.cn";
 	private final Integer port = 6666;
 
 

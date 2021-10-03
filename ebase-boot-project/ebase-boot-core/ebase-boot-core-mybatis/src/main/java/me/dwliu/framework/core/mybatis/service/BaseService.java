@@ -30,7 +30,7 @@ public interface BaseService<T, D> extends IService<T> {
 	 * @return DO
 	 */
 	default Class<T> currentDOClass() {
-		return (Class<T>) ReflectionKit.getSuperClassGenericType(getClass(), BaseService.class, 1);
+		return (Class<T>) ReflectionKit.getSuperClassGenericType(getClass(), BaseService.class, 0);
 	}
 
 	/**
@@ -39,7 +39,7 @@ public interface BaseService<T, D> extends IService<T> {
 	 * @return DTO
 	 */
 	default Class<D> currentDTOClass() {
-		return (Class<D>) ReflectionKit.getSuperClassGenericType(getClass(), BaseService.class, 2);
+		return (Class<D>) ReflectionKit.getSuperClassGenericType(getClass(), BaseService.class, 1);
 	}
 
 	/**
