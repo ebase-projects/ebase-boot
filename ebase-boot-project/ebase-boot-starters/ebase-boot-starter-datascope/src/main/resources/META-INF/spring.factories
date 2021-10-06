@@ -1,2 +1,0 @@
-org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
-  me.dwliu.framework.starter.datascope.autoconfigure.DataScopeConfiguration

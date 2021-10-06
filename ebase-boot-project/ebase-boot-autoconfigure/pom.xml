@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>ebase-boot-parent</artifactId>
+        <groupId>me.dwliu.ebase</groupId>
+        <version>1.0.7-SNAPSHOT</version>
+        <relativePath>../ebase-boot-parent</relativePath>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>ebase-boot-autoconfigure</artifactId>
+
+    <properties>
+        <main.basedir>${basedir}../../..</main.basedir>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <optional>true</optional>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter</artifactId>
+            <optional>true</optional>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+            <optional>true</optional>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-autoconfigure-processor</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-actuator-autoconfigure</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>me.dwliu.ebase</groupId>
+            <artifactId>ebase-boot-plugin-datascope</artifactId>
+            <optional>true</optional>
+        </dependency>
+
+        <dependency>
+            <groupId>me.dwliu.ebase</groupId>
+            <artifactId>ebase-boot-core-log</artifactId>
+            <optional>true</optional>
+        </dependency>
+
+        <dependency>
+            <groupId>me.dwliu.ebase</groupId>
+            <artifactId>ebase-boot-plugin-log</artifactId>
+            <optional>true</optional>
+        </dependency>
+
+        <dependency>
+            <groupId>me.dwliu.ebase</groupId>
+            <artifactId>ebase-boot-plugin-mybatis</artifactId>
+            <optional>true</optional>
+        </dependency>
+
+        <dependency>
+            <groupId>me.dwliu.ebase</groupId>
+            <artifactId>ebase-boot-core-oss</artifactId>
+            <optional>true</optional>
+        </dependency>
+
+        <dependency>
+            <groupId>me.dwliu.ebase</groupId>
+            <artifactId>ebase-boot-plugin-oss</artifactId>
+            <optional>true</optional>
+        </dependency>
+
+        <dependency>
+            <groupId>me.dwliu.ebase</groupId>
+            <artifactId>ebase-boot-plugin-redis</artifactId>
+            <optional>true</optional>
+        </dependency>
+
+        <dependency>
+            <groupId>me.dwliu.ebase</groupId>
+            <artifactId>ebase-boot-plugin-security</artifactId>
+            <optional>true</optional>
+        </dependency>
+
+        <!-- swagger2 -->
+        <dependency>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-swagger2</artifactId>
+            <exclusions>
+                <exclusion>
+                    <groupId>io.swagger</groupId>
+                    <artifactId>swagger-annotations</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>io.swagger</groupId>
+                    <artifactId>swagger-models</artifactId>
+                </exclusion>
+            </exclusions>
+            <optional>true</optional>
+        </dependency>
+        <dependency>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-bean-validators</artifactId>
+            <optional>true</optional>
+        </dependency>
+        <dependency>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-swagger-ui</artifactId>
+            <optional>true</optional>
+        </dependency>
+
+        <dependency>
+            <groupId>io.swagger</groupId>
+            <artifactId>swagger-annotations</artifactId>
+            <optional>true</optional>
+        </dependency>
+
+        <dependency>
+            <groupId>io.swagger</groupId>
+            <artifactId>swagger-models</artifactId>
+            <optional>true</optional>
+        </dependency>
+
+
+    </dependencies>
+
+
+</project>

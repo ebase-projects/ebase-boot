@@ -1,4 +1,0 @@
-org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
-  me.dwliu.framework.starter.mybatis.autoconfigure.CustomMybatisPlusConfig,\
-  me.dwliu.framework.starter.mybatis.autoconfigure.CustomWebMvcConfig,\
-  me.dwliu.framework.plugin.mybatis.handler.DefaultGlobalExceptionHandler

@@ -1,3 +1,0 @@
-#使用 EnableSwagger2Doc 手动注入，不用自动注入了
-#org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
-#  me.dwliu.framework.core.swagger2.SwaggerAutoConfiguration
