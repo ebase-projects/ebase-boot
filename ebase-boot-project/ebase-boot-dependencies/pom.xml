@@ -24,8 +24,8 @@
         <spring.boot.version>2.4.11</spring.boot.version>
         <!--spring.security.oauth2.autoconfigure 同 spring boot-->
         <!--https://github.com/spring-projects/spring-security-oauth2-boot/releases/ -->
-        <spring.security.oauth2.autoconfigure.version>2.4.8</spring.security.oauth2.autoconfigure.version>
-        <spring.cloud.version>2020.0.2</spring.cloud.version>
+        <spring.security.oauth2.autoconfigure.version>2.4.11</spring.security.oauth2.autoconfigure.version>
+        <spring.cloud.version>2020.0.4</spring.cloud.version>
 
         <!--alibaba https://github.com/alibaba/spring-cloud-alibaba/releases -->
         <spring.cloud.alibaba.version>2021.1</spring.cloud.alibaba.version>
@@ -33,7 +33,7 @@
         <aliyun.sdk.core.version>4.5.3</aliyun.sdk.core.version>
         <aliyun.sdk.dysmsapi.version>1.1.0</aliyun.sdk.dysmsapi.version>
         <aliyun-java-sdk-dm.version>3.3.1</aliyun-java-sdk-dm.version>
-        <fastjson.version>1.2.76</fastjson.version>
+        <fastjson.version>1.2.78</fastjson.version>
 
         <joda-time.version>2.10.6</joda-time.version>
 
@@ -42,13 +42,13 @@
         <commons.io.version>2.7</commons.io.version>
 
         <!--DB-->
-        <mybatis.plus.boot.starter.version>3.4.3.1</mybatis.plus.boot.starter.version>
-        <druid.version>1.2.6</druid.version>
+        <mybatis.plus.boot.starter.version>3.4.3.4</mybatis.plus.boot.starter.version>
+        <druid.version>1.2.8</druid.version>
         <mysql.version>8.0.26</mysql.version>
         <oracle.version>11.2.0.3</oracle.version>
 
         <!--tool-->
-        <hutool.version>5.7.7</hutool.version>
+        <hutool.version>5.7.13</hutool.version>
         <guava.version>30.1.1-jre</guava.version>
         <easypoi.version>4.4.0</easypoi.version>
 
@@ -532,7 +532,7 @@
                     <artifactId>maven-source-plugin</artifactId>
                     <version>${maven-source-plugin.version}</version>
                 </plugin>
-                
+
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-surefire-plugin</artifactId>
