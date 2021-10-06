@@ -2,9 +2,11 @@ package me.dwliu.framework.autoconfigure.log;
 
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.scheduling.annotation.EnableAsync;
 import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
 
@@ -20,6 +22,7 @@ import java.util.concurrent.ThreadPoolExecutor;
  * @date 2019-03-11 13:39
  **/
 @Configuration
+@ConditionalOnClass({RedisTemplate.class})
 @EnableAsync
 @AllArgsConstructor
 @EnableConfigurationProperties({AsyncProperties.class})

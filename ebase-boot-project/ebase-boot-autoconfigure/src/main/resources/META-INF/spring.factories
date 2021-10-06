@@ -11,4 +11,4 @@ org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
   me.dwliu.framework.autoconfigure.oss.AliyunOssAutoConfiguration,\
   me.dwliu.framework.autoconfigure.redis.RedisAutoConfiguration,\
   me.dwliu.framework.autoconfigure.security.SecurityConfig,\
-  me.dwliu.framework.autoconfigure.security.ValidateCodeBeanConfig,\
+  me.dwliu.framework.autoconfigure.security.ValidateCodeBeanConfig

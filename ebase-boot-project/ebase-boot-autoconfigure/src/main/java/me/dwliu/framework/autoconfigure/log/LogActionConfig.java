@@ -7,10 +7,13 @@ import me.dwliu.framework.plugin.log.feign.RemoteSysLogOperationService;
 import me.dwliu.framework.plugin.log.producer.LogRedisProducer;
 import me.dwliu.framework.plugin.redis.RedisService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnWebApplication;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.data.redis.core.RedisTemplate;
+import org.springframework.jdbc.core.JdbcTemplate;
 
 /**
  * 日志自动装载
@@ -19,6 +22,7 @@ import org.springframework.context.annotation.Configuration;
  * @date 2019-03-11 13:22
  **/
 @Configuration
+@ConditionalOnClass({RedisTemplate.class})
 @ComponentScan("me.dwliu.framework.*.log")
 @ConditionalOnWebApplication
 public class LogActionConfig {

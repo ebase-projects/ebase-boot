@@ -2,10 +2,12 @@ package me.dwliu.framework.autoconfigure.oss;
 
 import me.dwliu.framework.core.oss.rule.DefaultOssRule;
 import me.dwliu.framework.core.oss.rule.OssRule;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.data.redis.core.RedisTemplate;
 
 /**
  * 存储自动配置类
@@ -16,6 +18,7 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 @EnableConfigurationProperties(OssConfigProperties.class)
 //@ConditionalOnClass(StorageService.class)
+@ConditionalOnClass({OssRule.class})
 //@ConditionalOnProperty(prefix = OssConfigProperties.OSS_CONFIG_PREFIX, value = "enabled", havingValue = "true")
 public class OssAutoConfiguration {
 
