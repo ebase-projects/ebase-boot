@@ -2,14 +2,13 @@ package me.dwliu.framework.autoconfigure.security;
 
 import lombok.extern.slf4j.Slf4j;
 import me.dwliu.framework.core.security.crypto.CustomPasswordEncoderFactories;
-import me.dwliu.framework.plugin.security.service.CustomUserDetailsService;
-import me.dwliu.framework.plugin.security.service.DefaultUserDetailsServiceImpl;
+import me.dwliu.framework.integration.security.service.CustomUserDetailsService;
+import me.dwliu.framework.integration.security.service.DefaultUserDetailsServiceImpl;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
 /**
@@ -21,7 +20,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 @Configuration
 @ConditionalOnClass({PasswordEncoder.class})
 @Slf4j
-@ComponentScan(value = "me.dwliu.framework.plugin.security")
+@ComponentScan(value = "me.dwliu.framework.integration.security")
 public class SecurityConfig {
 
 	/**

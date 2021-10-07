@@ -6,7 +6,7 @@ import com.aliyun.oss.OSSClientBuilder;
 import com.aliyun.oss.common.auth.CredentialsProvider;
 import com.aliyun.oss.common.auth.DefaultCredentialProvider;
 import me.dwliu.framework.core.oss.rule.OssRule;
-import me.dwliu.framework.plugin.oss.aliyun.AliyunOssTemplate;
+import me.dwliu.framework.integration.oss.aliyun.AliyunOssTemplate;
 import org.springframework.boot.autoconfigure.AutoConfigureAfter;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnBean;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;

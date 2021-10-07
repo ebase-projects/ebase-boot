@@ -26,7 +26,7 @@
 
         <dependency>
             <groupId>me.dwliu.ebase</groupId>
-            <artifactId>ebase-boot-plugin-security</artifactId>
+            <artifactId>ebase-boot-integration-security</artifactId>
         </dependency>
     </dependencies>
 

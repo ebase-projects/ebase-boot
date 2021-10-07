@@ -2,7 +2,7 @@ package me.dwliu.ebase.sample.oss.controller;
 
 import me.dwliu.framework.common.model.Result;
 import me.dwliu.framework.core.oss.model.FileInfo;
-import me.dwliu.framework.plugin.oss.minio.MinioOssTemplate;
+import me.dwliu.framework.integration.oss.minio.MinioOssTemplate;
 import org.apache.commons.io.FilenameUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;

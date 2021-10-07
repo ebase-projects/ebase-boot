@@ -1,7 +1,7 @@
 package me.dwliu.framework.autoconfigure.redis;
 
-import me.dwliu.framework.plugin.redis.RedisService;
-import me.dwliu.framework.plugin.redis.serializer.JsonRedisSerializer;
+import me.dwliu.framework.integration.redis.RedisService;
+import me.dwliu.framework.integration.redis.serializer.JsonRedisSerializer;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

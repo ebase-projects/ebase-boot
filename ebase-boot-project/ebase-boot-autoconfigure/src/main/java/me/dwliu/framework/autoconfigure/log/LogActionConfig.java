@@ -1,11 +1,11 @@
 package me.dwliu.framework.autoconfigure.log;
 
 import me.dwliu.framework.core.log.producer.LogProducer;
-import me.dwliu.framework.plugin.log.aspect.LogActionAspect;
-import me.dwliu.framework.plugin.log.event.LogActionListener;
-import me.dwliu.framework.plugin.log.feign.RemoteSysLogOperationService;
-import me.dwliu.framework.plugin.log.producer.LogRedisProducer;
-import me.dwliu.framework.plugin.redis.RedisService;
+import me.dwliu.framework.integration.log.aspect.LogActionAspect;
+import me.dwliu.framework.integration.log.event.LogActionListener;
+import me.dwliu.framework.integration.log.feign.RemoteSysLogOperationService;
+import me.dwliu.framework.integration.log.producer.LogRedisProducer;
+import me.dwliu.framework.integration.redis.RedisService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnWebApplication;
@@ -13,7 +13,6 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.redis.core.RedisTemplate;
-import org.springframework.jdbc.core.JdbcTemplate;
 
 /**
  * 日志自动装载

@@ -19,7 +19,7 @@
         <module>ebase-boot-parent</module>
         <module>ebase-boot-common</module>
         <module>ebase-boot-core</module>
-        <module>ebase-boot-plugins</module>
+        <module>ebase-boot-integrations</module>
         <module>ebase-boot-autoconfigure</module>
         <module>ebase-boot-starters</module>
     </modules>

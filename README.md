@@ -72,7 +72,7 @@
 ### ebase-boot-starters
 
 该模块下定义了开发过程中具体使用的`Starter`依赖，`Starter`依赖内不包含任何的框架代码，只有一个`pom.xml`
-文件，具体的自动化配置实现以及具体集成第三方的实现分别位于：`ebase-boot-autoconfigure`、`ebase-boot-plugins`模块内。
+文件，具体的自动化配置实现以及具体集成第三方的实现分别位于：`ebase-boot-autoconfigure`、`ebase-boot-integrations`模块内。
 
 使用方式与`spring-boot-starter-xxx`一致，比如：在项目中集成限流组件，我们只需要在`pom.xml`中添加`ebase-boot-starter-rate-limiter`
 依赖即可，版本也无需添加，因为已经通过`ebase-boot-dependencies`模块进行了固化版本依赖。

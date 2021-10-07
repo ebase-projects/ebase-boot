@@ -6,7 +6,7 @@ import com.qiniu.storage.UploadManager;
 import com.qiniu.util.Auth;
 import lombok.AllArgsConstructor;
 import me.dwliu.framework.core.oss.rule.OssRule;
-import me.dwliu.framework.plugin.oss.qiniu.QiniuOssTemplate;
+import me.dwliu.framework.integration.oss.qiniu.QiniuOssTemplate;
 import org.springframework.boot.autoconfigure.AutoConfigureAfter;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnBean;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;

@@ -1,15 +1,15 @@
 package me.dwliu.framework.autoconfigure.security;
 
 import lombok.AllArgsConstructor;
-import me.dwliu.framework.plugin.security.validatecode.DefaultValidateCodeRepository;
-import me.dwliu.framework.plugin.security.validatecode.ValidateCodeGenerator;
-import me.dwliu.framework.plugin.security.validatecode.ValidateCodeProcessorHolder;
-import me.dwliu.framework.plugin.security.validatecode.ValidateCodeRepository;
-import me.dwliu.framework.plugin.security.validatecode.filter.ValidateCodeFilter;
-import me.dwliu.framework.plugin.security.validatecode.image.ImageCodeGenerator;
-import me.dwliu.framework.plugin.security.validatecode.sms.DemoSmsCodeSender;
-import me.dwliu.framework.plugin.security.validatecode.sms.SmsCodeGenerator;
-import me.dwliu.framework.plugin.security.validatecode.sms.SmsCodeSender;
+import me.dwliu.framework.integration.security.validatecode.DefaultValidateCodeRepository;
+import me.dwliu.framework.integration.security.validatecode.ValidateCodeGenerator;
+import me.dwliu.framework.integration.security.validatecode.ValidateCodeProcessorHolder;
+import me.dwliu.framework.integration.security.validatecode.ValidateCodeRepository;
+import me.dwliu.framework.integration.security.validatecode.filter.ValidateCodeFilter;
+import me.dwliu.framework.integration.security.validatecode.image.ImageCodeGenerator;
+import me.dwliu.framework.integration.security.validatecode.sms.DemoSmsCodeSender;
+import me.dwliu.framework.integration.security.validatecode.sms.SmsCodeGenerator;
+import me.dwliu.framework.integration.security.validatecode.sms.SmsCodeSender;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;

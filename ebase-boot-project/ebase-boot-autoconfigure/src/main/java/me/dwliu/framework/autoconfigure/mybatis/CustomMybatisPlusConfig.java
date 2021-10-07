@@ -5,14 +5,13 @@ import com.baomidou.mybatisplus.core.MybatisConfiguration;
 import com.baomidou.mybatisplus.core.handlers.MetaObjectHandler;
 import com.baomidou.mybatisplus.extension.plugins.MybatisPlusInterceptor;
 import me.dwliu.framework.core.mybatis.interceptor.QueryInterceptor;
-import me.dwliu.framework.plugin.mybatis.handler.FieldMetaObjectHandler;
-import me.dwliu.framework.plugin.mybatis.plugin.CustomPaginationInterceptor;
+import me.dwliu.framework.integration.mybatis.handler.FieldMetaObjectHandler;
+import me.dwliu.framework.integration.mybatis.plugin.CustomPaginationInterceptor;
 import org.springframework.beans.factory.ObjectProvider;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.annotation.AnnotationAwareOrderComparator;
-import org.springframework.data.redis.core.RedisTemplate;
 
 
 /**

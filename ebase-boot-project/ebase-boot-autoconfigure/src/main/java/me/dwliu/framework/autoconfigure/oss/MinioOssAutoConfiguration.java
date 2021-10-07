@@ -3,7 +3,7 @@ package me.dwliu.framework.autoconfigure.oss;
 import io.minio.MinioClient;
 import lombok.SneakyThrows;
 import me.dwliu.framework.core.oss.rule.OssRule;
-import me.dwliu.framework.plugin.oss.minio.MinioOssTemplate;
+import me.dwliu.framework.integration.oss.minio.MinioOssTemplate;
 import org.springframework.boot.autoconfigure.AutoConfigureAfter;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnBean;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
