@@ -59,11 +59,16 @@
 ### ebase-boot-autoconfigure
 
 `ebase-boot-autoconfigure`是最为主要的核心模块，内部提供了**全部组件**的`自动化配置类`，这一点完全是利用`SpringBoot`
-所提供的[条件判断注解](https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#boot-features-condition-annotations)，位于`resources/META-INF`目录下还提供了附加的配置参数元数据定义内容文件：`additional-spring-configuration-metadata.json`，项目启用时我们所看到的`banner`输出内容也位于该模块中。
+所提供的[条件判断注解](https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#boot-features-condition-annotations)
+， 位于`resources/META-INF`目录下还提供了附加的配置参数元数据定义内容文件：`additional-spring-configuration-metadata.json`.
 
 ### ebase-boot-dependencies
 
-该模块的功能与`spring-boot-dependencies`一致，都是为了固化项目中所使用的依赖版本号，让我们在构建项目中可以很好地对某一个依赖进行升级，不再担心各个依赖之间版本不兼容的困扰。
+该模块的功能与`spring-boot-dependencies`一致，都是为了固化项目中所使用的依赖版本号， 让我们在构建项目中可以很好地对某一个依赖进行升级，不再担心各个依赖之间版本不兼容的困扰。
+
+### ebase-boot-integrations
+
+该模块会集成一些业务代码，实现业务逻辑
 
 ### ebase-boot-parent
 
