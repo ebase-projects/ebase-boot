@@ -3,6 +3,7 @@ package me.dwliu.framework.core.mybatis.page;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.core.metadata.OrderItem;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import com.google.common.base.CaseFormat;
 import me.dwliu.framework.core.mybatis.constant.Constant;
 import org.apache.commons.lang3.StringUtils;
 
@@ -48,17 +49,20 @@ public class QueryPageUtil<T> {
 
 		//排序字段
 		String orderField = (String) params.get(Constant.ORDER_FIELD);
+
 		String order = (String) params.get(Constant.ORDER);
 
 		//前端字段排序
 		if (StringUtils.isNotEmpty(orderField)) {
+			//转为下划线
+			String orderFieldLowerCamel = CaseFormat.LOWER_CAMEL.to(CaseFormat.LOWER_UNDERSCORE, orderField);
 			if (StringUtils.isNotEmpty(order) && Constant.ASC.equalsIgnoreCase(order)) {
-				page.addOrder(OrderItem.asc(orderField));
+				page.addOrder(OrderItem.asc(orderFieldLowerCamel));
 			} else if (StringUtils.isNotEmpty(order) && Constant.DESC.equalsIgnoreCase(order)) {
-				page.addOrder(OrderItem.desc(orderField));
+				page.addOrder(OrderItem.desc(orderFieldLowerCamel));
 			} else {
 				//默认升序
-				page.addOrder(OrderItem.asc(orderField));
+				page.addOrder(OrderItem.asc(orderFieldLowerCamel));
 			}
 		} else {
 			//没有排序字段，则不排序
