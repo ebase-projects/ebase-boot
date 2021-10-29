@@ -7,7 +7,7 @@ mvn release:prepare -DautoVersionSubmodules=true -Darguments="-DskipTests" -Pnex
 mvn release:rollback
 
 ### 正式发布
-mvn release:perform -DuseReleaseProfile=false -Pnexus-company
+mvn release:perform -DuseReleaseProfile=false -Darguments="-DskipTests" -Pnexus-company
 ```
 
 ### 常见问题
