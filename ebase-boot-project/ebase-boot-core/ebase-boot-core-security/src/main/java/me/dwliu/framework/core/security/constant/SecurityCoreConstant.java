@@ -56,10 +56,12 @@ public interface SecurityCoreConstant {
             "/actuator/**",
             "/doc.html",
             "/swagger-ui.html",
+            "/swagger-ui/**",
             "/v2/api-docs/**",
+            "/v3/api-docs/**",
+	        "/swagger-resources/**",
             "/webjars/**",
             "/service-worker.js",
             "/favicon.ico",
-            "/swagger-resources/**"
     };
 }
