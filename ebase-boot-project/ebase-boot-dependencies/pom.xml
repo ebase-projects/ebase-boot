@@ -20,10 +20,10 @@
         <main.basedir>${basedir}/../..</main.basedir>
 
         <!--spring-->
-        <spring.boot.version>2.6.0</spring.boot.version>
+        <spring.boot.version>2.5.7</spring.boot.version>
         <!--spring.security.oauth2.autoconfigure 同 spring boot-->
         <!--https://github.com/spring-projects/spring-security-oauth2-boot/releases/ -->
-        <spring.security.oauth2.autoconfigure.version>2.6.0</spring.security.oauth2.autoconfigure.version>
+        <spring.security.oauth2.autoconfigure.version>2.5.7</spring.security.oauth2.autoconfigure.version>
         <spring.cloud.version>2020.0.4</spring.cloud.version>
         <!--alibaba https://github.com/alibaba/spring-cloud-alibaba/releases -->
         <spring.cloud.alibaba.version>2021.1</spring.cloud.alibaba.version>
