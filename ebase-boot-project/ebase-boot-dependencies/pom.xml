@@ -43,8 +43,8 @@
         <!--DB-->
         <mybatis.plus.boot.starter.version>3.4.3.4</mybatis.plus.boot.starter.version>
         <druid.version>1.2.8</druid.version>
-        <mysql.version>8.0.26</mysql.version>
-        <oracle.version>11.2.0.3</oracle.version>
+        <mysql.version>8.0.27</mysql.version>
+        <oracle.version>11.2.0.4</oracle.version>
 
         <!--tool-->
         <hutool.version>5.7.16</hutool.version>
@@ -306,11 +306,20 @@
                 <version>${mysql.version}</version>
             </dependency>
             <!-- oracle驱动 -->
+            <!--<dependency>-->
+            <!--    <groupId>com.oracle</groupId>-->
+            <!--    <artifactId>ojdbc6</artifactId>-->
+            <!--    <version>${oracle.version}</version>-->
+            <!--</dependency>-->
+
+            <!-- https://mvnrepository.com/artifact/com.oracle.database.jdbc/ojdbc6 -->
             <dependency>
-                <groupId>com.oracle</groupId>
+                <groupId>com.oracle.database.jdbc</groupId>
                 <artifactId>ojdbc6</artifactId>
                 <version>${oracle.version}</version>
             </dependency>
+
+
             <dependency>
                 <groupId>com.alibaba</groupId>
                 <artifactId>druid-spring-boot-starter</artifactId>
