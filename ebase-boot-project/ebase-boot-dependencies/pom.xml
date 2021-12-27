@@ -20,10 +20,10 @@
         <main.basedir>${basedir}/../..</main.basedir>
 
         <!--spring-->
-        <spring.boot.version>2.5.6</spring.boot.version>
+        <spring.boot.version>2.5.8</spring.boot.version>
         <!--spring.security.oauth2.autoconfigure 同 spring boot-->
         <!--https://github.com/spring-projects/spring-security-oauth2-boot/releases/ -->
-        <spring.security.oauth2.autoconfigure.version>2.5.5</spring.security.oauth2.autoconfigure.version>
+        <spring.security.oauth2.autoconfigure.version>2.5.7</spring.security.oauth2.autoconfigure.version>
         <spring.cloud.version>2020.0.4</spring.cloud.version>
         <!--alibaba https://github.com/alibaba/spring-cloud-alibaba/releases -->
         <spring.cloud.alibaba.version>2021.1</spring.cloud.alibaba.version>
@@ -43,11 +43,11 @@
         <!--DB-->
         <mybatis.plus.boot.starter.version>3.4.3.4</mybatis.plus.boot.starter.version>
         <druid.version>1.2.8</druid.version>
-        <mysql.version>8.0.26</mysql.version>
-        <oracle.version>11.2.0.3</oracle.version>
+        <mysql.version>8.0.27</mysql.version>
+        <oracle.version>11.2.0.4</oracle.version>
 
         <!--tool-->
-        <hutool.version>5.7.13</hutool.version>
+        <hutool.version>5.7.16</hutool.version>
         <guava.version>30.1.1-jre</guava.version>
         <easypoi.version>4.4.0</easypoi.version>
 
@@ -308,11 +308,20 @@
                 <version>${mysql.version}</version>
             </dependency>
             <!-- oracle驱动 -->
+            <!--<dependency>-->
+            <!--    <groupId>com.oracle</groupId>-->
+            <!--    <artifactId>ojdbc6</artifactId>-->
+            <!--    <version>${oracle.version}</version>-->
+            <!--</dependency>-->
+
+            <!-- https://mvnrepository.com/artifact/com.oracle.database.jdbc/ojdbc6 -->
             <dependency>
-                <groupId>com.oracle</groupId>
+                <groupId>com.oracle.database.jdbc</groupId>
                 <artifactId>ojdbc6</artifactId>
                 <version>${oracle.version}</version>
             </dependency>
+
+
             <dependency>
                 <groupId>com.alibaba</groupId>
                 <artifactId>druid-spring-boot-starter</artifactId>

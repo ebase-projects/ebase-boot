@@ -6,6 +6,8 @@ import lombok.extern.slf4j.Slf4j;
 import me.dwliu.framework.core.log.annotation.LogAction;
 import me.dwliu.framework.core.log.dto.LogOperationDTO;
 import me.dwliu.framework.core.log.enums.LogTypeEnum;
+import me.dwliu.framework.core.log.enums.LoginOperationEnum;
+import me.dwliu.framework.core.log.enums.OperationStatusEnum;
 import me.dwliu.framework.core.log.producer.LogProducer;
 import me.dwliu.framework.core.security.entity.UserInfoDetails;
 import me.dwliu.framework.core.security.utils.SecurityUtils;
@@ -55,7 +57,7 @@ public class LogActionAspect {
 			long time = System.currentTimeMillis() - startTime;
 
 			// 记录日志  发布消息日志
-			saveLog(point, time, 0);
+			saveLog(point, time, OperationStatusEnum.SUCCESS.getValue());
 			return result;
 		} catch (Exception e) {
 			//获取执行时间（执行完业务后的时间毫秒数-开始时间）
