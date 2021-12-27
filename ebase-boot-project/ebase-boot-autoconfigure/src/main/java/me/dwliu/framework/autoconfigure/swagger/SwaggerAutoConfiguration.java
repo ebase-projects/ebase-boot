@@ -17,9 +17,9 @@ import org.springframework.context.annotation.Import;
 @Import({SwaggerUiConfiguration.class, SwaggerAuthorizationConfiguration.class, DocketConfiguration.class})
 public class SwaggerAutoConfiguration {
 
-	@Bean
-	public DocketBeanFactoryPostProcessor docketBeanFactoryPostProcessor() {
-		return new DocketBeanFactoryPostProcessor();
-	}
+    @Bean
+    public DocketBeanFactoryPostProcessor docketBeanFactoryPostProcessor() {
+        return new DocketBeanFactoryPostProcessor();
+    }
 
 }
