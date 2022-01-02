@@ -10,7 +10,7 @@
     </parent>
     <groupId>me.dwliu.ebase.sample</groupId>
     <artifactId>ebase-boot-sample-netty</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>${revision}</version>
     <name>ebase-boot-sample-netty</name>
     <description>Demo project for Spring Boot</description>
     <properties>

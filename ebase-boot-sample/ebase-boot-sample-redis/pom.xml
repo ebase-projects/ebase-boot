@@ -5,12 +5,12 @@
     <parent>
         <artifactId>ebase-boot-sample</artifactId>
         <groupId>me.dwliu.ebase</groupId>
-        <version>1.0.8-SNAPSHOT</version>
+        <version>${revision}</version>
     </parent>
 
     <groupId>me.dwliu.ebase.sample</groupId>
     <artifactId>ebase-boot-sample-redis</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>${revision}</version>
     <name>ebase-boot-sample-redis</name>
     <description>Demo project for Spring Boot</description>
 
@@ -61,7 +61,7 @@
             <dependency>
                 <groupId>me.dwliu.ebase</groupId>
                 <artifactId>ebase-boot-dependencies</artifactId>
-                <version>1.0.8-SNAPSHOT</version>
+                <version>${revision}</version>
                 <scope>import</scope>
                 <type>pom</type>
             </dependency>

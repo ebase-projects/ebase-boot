@@ -3,7 +3,7 @@
     <parent>
         <artifactId>ebase-boot</artifactId>
         <groupId>me.dwliu.ebase</groupId>
-        <version>1.0.8-SNAPSHOT</version>
+        <version>${revision}</version>
     </parent>
 
     <modelVersion>4.0.0</modelVersion>
