@@ -16,9 +16,9 @@
     <url>https://gitee.com/ebase/ebase-boot</url>
 
     <scm>
-        <url>https://gitee.com/ebase-projects/ebase-boot</url>
-        <connection>scm:git:ssh://git@gitee.com:ebase-projects/ebase-boot.git</connection>
-        <developerConnection>scm:git:git@gitee.com:ebase-projects/ebase-boot.git</developerConnection>
+        <url>${git.url}</url>
+        <connection>${git.connection}</connection>
+        <developerConnection>${git.developerConnection}</developerConnection>
         <tag>HEAD</tag>
     </scm>
 
@@ -29,6 +29,7 @@
             <name>liudw</name>
             <email>ldw4033@gmail.com</email>
             <roles>
+                <role>Project lead</role>
                 <role>Java Development Engineer</role>
             </roles>
         </developer>
@@ -40,15 +41,16 @@
 
 
     <properties>
-        <!--        <revision>1.0.0.RELEASE</revision>-->
         <revision>1.0.8-SNAPSHOT</revision>
-
         <maven-compiler-plugin.version>3.8.1</maven-compiler-plugin.version>
         <maven.compiler.encoding>UTF-8</maven.compiler.encoding>
-
+        <java.version>1.8</java.version>
+        <git.url>https://gitee.com/ebase-projects/ebase-boot</git.url>
+        <git.connection>scm:git:https://gitee.com/ebase-projects/ebase-boot</git.connection>
+        <git.developerConnection>scm:git:git@gitee.com:ebase-projects/ebase-boot.git</git.developerConnection>
+        <main.basedir>${basedir}</main.basedir>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-        <java.version>1.8</java.version>
     </properties>
 
     <build>
