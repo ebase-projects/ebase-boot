@@ -3,7 +3,7 @@
     <parent>
         <artifactId>ebase-boot-parent</artifactId>
         <groupId>me.dwliu.ebase</groupId>
-        <version>1.0.8-SNAPSHOT</version>
+        <version>${revision}</version>
         <relativePath>../ebase-boot-parent</relativePath>
     </parent>
     <modelVersion>4.0.0</modelVersion>
@@ -11,7 +11,7 @@
     <artifactId>ebase-boot-starters</artifactId>
     <packaging>pom</packaging>
     <name>${project.artifactId}</name>
-    
+
     <modules>
         <module>ebase-boot-starter</module>
         <module>ebase-boot-starter-oss</module>
