@@ -16,7 +16,6 @@
 如果你是使用Maven来构建项目，你需要添加`ebase-boot`的版本依赖到你的pom.xml文件内，如下所示：
 
 ```xml
-
 <dependencyManagement>
     <dependencies>
         <dependency>
@@ -28,6 +27,14 @@
         </dependency>
     </dependencies>
 </dependencyManagement>
+```
+或者
+```xml
+<parent>
+    <groupId>me.dwliu.ebase</groupId>
+    <artifactId>ebase-boot-parent</artifactId>
+    <version>${lastVersion}</version>
+</parent>
 ```
 
 > 注意：**lastVersion**需要替换为最新的`ebase-boot`版本
