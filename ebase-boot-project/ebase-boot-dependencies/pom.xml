@@ -52,9 +52,11 @@
         <easypoi.version>4.4.0</easypoi.version>
 
         <!--swagger2-->
-        <springfox-swagger2.version>2.9.2</springfox-swagger2.version>
+<!--        <springfox-swagger2.version>2.9.2</springfox-swagger2.version>-->
+        <springfox-swagger.version>3.0.0</springfox-swagger.version>
         <io.swagger>1.5.24</io.swagger>
-        <knife4j-spring-ui>2.0.9</knife4j-spring-ui>
+<!--        <knife4j-spring-ui>2.0.9</knife4j-spring-ui>-->
+        <knife4j-spring-ui>3.0.3</knife4j-spring-ui>
 
         <!--oss-->
         <minio.version>6.0.13</minio.version>
@@ -414,20 +416,25 @@
                 <version>${hutool.version}</version>
             </dependency>
             <!-- swagger2 start-->
+<!--            <dependency>-->
+<!--                <groupId>io.springfox</groupId>-->
+<!--                <artifactId>springfox-swagger2</artifactId>-->
+<!--                <version>${springfox-swagger2.version}</version>-->
+<!--                <exclusions>-->
+<!--                    <exclusion>-->
+<!--                        <groupId>io.swagger</groupId>-->
+<!--                        <artifactId>swagger-annotations</artifactId>-->
+<!--                    </exclusion>-->
+<!--                    <exclusion>-->
+<!--                        <groupId>io.swagger</groupId>-->
+<!--                        <artifactId>swagger-models</artifactId>-->
+<!--                    </exclusion>-->
+<!--                </exclusions>-->
+<!--            </dependency>-->
             <dependency>
                 <groupId>io.springfox</groupId>
-                <artifactId>springfox-swagger2</artifactId>
-                <version>${springfox-swagger2.version}</version>
-                <exclusions>
-                    <exclusion>
-                        <groupId>io.swagger</groupId>
-                        <artifactId>swagger-annotations</artifactId>
-                    </exclusion>
-                    <exclusion>
-                        <groupId>io.swagger</groupId>
-                        <artifactId>swagger-models</artifactId>
-                    </exclusion>
-                </exclusions>
+                <artifactId>springfox-boot-starter</artifactId>
+                <version>${springfox-swagger.version}</version>
             </dependency>
 
             <dependency>
@@ -440,21 +447,21 @@
                 <artifactId>swagger-models</artifactId>
                 <version>${io.swagger}</version>
             </dependency>
-            <dependency>
-                <groupId>io.springfox</groupId>
-                <artifactId>springfox-bean-validators</artifactId>
-                <version>${springfox-swagger2.version}</version>
-            </dependency>
+<!--            <dependency>-->
+<!--                <groupId>io.springfox</groupId>-->
+<!--                <artifactId>springfox-bean-validators</artifactId>-->
+<!--                <version>${springfox-swagger2.version}</version>-->
+<!--            </dependency>-->
 
-            <dependency>
-                <groupId>io.springfox</groupId>
-                <artifactId>springfox-swagger-ui</artifactId>
-                <version>${springfox-swagger2.version}</version>
-            </dependency>
+<!--            <dependency>-->
+<!--                <groupId>io.springfox</groupId>-->
+<!--                <artifactId>springfox-swagger-ui</artifactId>-->
+<!--                <version>${springfox-swagger2.version}</version>-->
+<!--            </dependency>-->
 
             <dependency>
                 <groupId>com.github.xiaoymin</groupId>
-                <artifactId>knife4j-spring-ui</artifactId>
+                <artifactId>knife4j-springdoc-ui</artifactId>
                 <version>${knife4j-spring-ui}</version>
             </dependency>
 
