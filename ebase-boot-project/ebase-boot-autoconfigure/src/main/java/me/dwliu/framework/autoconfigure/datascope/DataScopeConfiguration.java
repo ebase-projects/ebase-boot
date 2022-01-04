@@ -20,7 +20,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
  **/
 @Configuration
 @AllArgsConstructor
-@ConditionalOnClass({JdbcTemplate.class})
+@ConditionalOnClass({JdbcTemplate.class, DataScopeFilterInterceptor.class})
 @EnableConfigurationProperties(DataScopeProperties.class)
 @Import(CustomMybatisPlusConfig.class)
 public class DataScopeConfiguration {
