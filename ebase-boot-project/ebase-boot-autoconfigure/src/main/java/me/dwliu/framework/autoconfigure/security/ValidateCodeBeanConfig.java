@@ -10,6 +10,7 @@ import me.dwliu.framework.integration.security.validatecode.image.ImageCodeGener
 import me.dwliu.framework.integration.security.validatecode.sms.DemoSmsCodeSender;
 import me.dwliu.framework.integration.security.validatecode.sms.SmsCodeGenerator;
 import me.dwliu.framework.integration.security.validatecode.sms.SmsCodeSender;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
@@ -24,6 +25,7 @@ import org.springframework.security.web.authentication.AuthenticationFailureHand
  **/
 @Configuration
 @EnableConfigurationProperties(value = SecurityProperties.class)
+@ConditionalOnClass({ValidateCodeGenerator.class})
 @AllArgsConstructor
 public class ValidateCodeBeanConfig {
 
