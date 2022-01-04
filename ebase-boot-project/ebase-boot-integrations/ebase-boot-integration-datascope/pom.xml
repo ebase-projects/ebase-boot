@@ -30,6 +30,7 @@
         <dependency>
             <groupId>me.dwliu.ebase</groupId>
             <artifactId>ebase-boot-core-security</artifactId>
+            <optional>true</optional>
         </dependency>
 
         <dependency>
