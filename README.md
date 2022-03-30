@@ -101,5 +101,5 @@
 
 ## 开源支持
 
-<a href="https://www.jetbrains.com/?from=ebase-projects"><img src="http://blogimage.dwliu.me/image/20200709103201-2ZxFX7.jpg" width="100" heith="100"/></a>
+<a href="https://www.jetbrains.com/?from=ebase-projects"><img src="https://resources.jetbrains.com/storage/products/company/brand/logos/jb_beam.png" width="100" heith="100"/></a>
 
