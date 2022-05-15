@@ -1,7 +1,7 @@
 package me.dwliu.framework.integration.oss.minio;
 
-import io.minio.MinioClient;
-import io.minio.ObjectStat;
+import io.minio.*;
+import io.minio.messages.DeleteObject;
 import lombok.SneakyThrows;
 import me.dwliu.framework.core.oss.model.FileInfo;
 import me.dwliu.framework.core.oss.rule.OssRule;
@@ -11,8 +11,9 @@ import org.apache.commons.lang3.StringUtils;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.InputStream;
-import java.util.Date;
+import java.time.LocalDateTime;
 import java.util.List;
+import java.util.stream.Stream;
 
 /**
  * minio 存储
@@ -40,8 +41,15 @@ public class MinioOssTemplate implements OssWithBucketTemplate {
 	public void makeBucket(String bucketName) {
 		this.bucketName = bucketName;
 		if (!bucketExists(getBucketName(bucketName))) {
-			minioClient.makeBucket(getBucketName(bucketName));
-			minioClient.setBucketPolicy(getBucketName(bucketName), getPolicyType(getBucketName(bucketName), PolicyTypeEnum.READ));
+			//minioClient.makeBucket(getBucketName(bucketName));
+			//minioClient.setBucketPolicy(getBucketName(bucketName), getPolicyType(getBucketName(bucketName), PolicyTypeEnum.READ));
+			minioClient.makeBucket(MakeBucketArgs.builder()
+				.bucket(getBucketName(bucketName))
+				.build());
+			minioClient.setBucketPolicy(SetBucketPolicyArgs.builder()
+				.bucket(getBucketName(bucketName))
+				.config(getPolicyType(getBucketName(bucketName), PolicyTypeEnum.READ))
+				.build());
 
 		}
 	}
@@ -49,14 +57,17 @@ public class MinioOssTemplate implements OssWithBucketTemplate {
 	@Override
 	@SneakyThrows
 	public void removeBucket(String bucketName) {
-		minioClient.removeBucket(getBucketName(bucketName));
+		minioClient.removeBucket(RemoveBucketArgs.builder()
+			.bucket(getBucketName(bucketName))
+			.build());
 
 	}
 
 	@Override
 	@SneakyThrows
 	public boolean bucketExists(String bucketName) {
-		return minioClient.bucketExists(getBucketName(bucketName));
+		BucketExistsArgs build = BucketExistsArgs.builder().bucket(getBucketName(bucketName)).build();
+		return minioClient.bucketExists(build);
 	}
 
 	@Override
@@ -68,18 +79,23 @@ public class MinioOssTemplate implements OssWithBucketTemplate {
 	@Override
 	@SneakyThrows
 	public void copyFile(String bucketName, String fileName, String destBucketName, String destFileName) {
-		minioClient.copyObject(getBucketName(destBucketName), destFileName, null, null,
-			getBucketName(bucketName), fileName, null, null);
+		//minioClient.copyObject(getBucketName(destBucketName), destFileName, null, null, getBucketName(bucketName), fileName, null, null);
+		minioClient.copyObject(CopyObjectArgs.builder()
+			.source(CopySource.builder().bucket(getBucketName(bucketName)).object(fileName).build())
+			.bucket(getBucketName(destBucketName))
+			.object(destFileName)
+			.build());
+
 
 	}
 
 	@Override
 	@SneakyThrows
 	public FileInfo statFile(String bucketName, String fileName) {
-		ObjectStat objectStat = minioClient.statObject(getBucketName(bucketName), fileName);
+		StatObjectResponse objectStat = minioClient.statObject(StatObjectArgs.builder().bucket(getBucketName(bucketName)).object(fileName).build());
 
 		FileInfo fileInfo = new FileInfo();
-		fileInfo.setFileName(StringUtils.isBlank(objectStat.name()) ? fileName : objectStat.name());
+		fileInfo.setFileName(StringUtils.isBlank(objectStat.object()) ? fileName : objectStat.object());
 
 		if (StringUtils.isBlank(bucketName)) {
 			fileInfo.setFileUrl(filePath(fileInfo.getFileName()));
@@ -90,8 +106,8 @@ public class MinioOssTemplate implements OssWithBucketTemplate {
 		}
 
 		fileInfo.setHash(String.valueOf(objectStat.hashCode()));
-		fileInfo.setFileSize(objectStat.length());
-		fileInfo.setUploadDate(objectStat.createdTime());
+		fileInfo.setFileSize(objectStat.size());
+		fileInfo.setUploadDate(objectStat.lastModified().toLocalDateTime());
 		fileInfo.setContentType(objectStat.contentType());
 		return fileInfo;
 	}
@@ -136,7 +152,7 @@ public class MinioOssTemplate implements OssWithBucketTemplate {
 
 	@Override
 	@SneakyThrows
-	public FileInfo putFile(String bucketName, String originFileName, String fileName, InputStream stream) {
+	public FileInfo putFile(String bucketName, String originFileName, String fileName, InputStream stream, String contentType) {
 		makeBucket(bucketName);
 		if (StringUtils.isBlank(originFileName)) {
 			originFileName = fileName;
@@ -145,7 +161,8 @@ public class MinioOssTemplate implements OssWithBucketTemplate {
 		// 提前获取文件大小
 		long available = (long) stream.available();
 
-		minioClient.putObject(getBucketName(bucketName), fileName, stream, available, null, null, "application/octet-stream");
+		//minioClient.putObject(getBucketName(bucketName), fileName, stream, available, null, null, "application/octet-stream");
+		minioClient.putObject(PutObjectArgs.builder().bucket(getBucketName(bucketName)).object(fileName).stream(stream, stream.available(), -1).contentType(contentType).build());
 
 		FileInfo fileInfo = new FileInfo();
 		fileInfo.setFileName(fileName);
@@ -160,9 +177,16 @@ public class MinioOssTemplate implements OssWithBucketTemplate {
 
 		fileInfo.setFileSize(available);
 		fileInfo.setFileExtension(FilenameUtils.getExtension(fileName));
-		fileInfo.setUploadDate(new Date());
+		fileInfo.setUploadDate(LocalDateTime.now());
 
 		return fileInfo;
+	}
+
+
+	@Override
+	@SneakyThrows
+	public FileInfo putFile(String bucketName, String originFileName, String fileName, InputStream stream) {
+		return putFile(getBucketName(), null, fileName, stream, "application/octet-stream");
 	}
 
 	@Override
@@ -198,23 +222,26 @@ public class MinioOssTemplate implements OssWithBucketTemplate {
 	@Override
 	@SneakyThrows
 	public void removeFile(String fileName) {
-		minioClient.removeObject(getBucketName(), fileName);
+		removeFile(getBucketName(), fileName);
 	}
 
 	@Override
 	@SneakyThrows
 	public void removeFile(String bucketName, String fileName) {
-		minioClient.removeObject(getBucketName(bucketName), fileName);
+		//minioClient.removeObject(getBucketName(bucketName), fileName);
+		minioClient.removeObject(RemoveObjectArgs.builder().bucket(getBucketName(bucketName)).object(fileName).build());
 	}
 
 	@Override
 	public void removeFiles(List<String> fileNames) {
-		minioClient.removeObjects(getBucketName(), fileNames);
+		removeFiles(getBucketName(), fileNames);
 	}
 
 	@Override
 	public void removeFiles(String bucketName, List<String> fileNames) {
-		minioClient.removeObjects(getBucketName(bucketName), fileNames);
+		//minioClient.removeObjects(getBucketName(bucketName), fileNames);
+		Stream<DeleteObject> stream = fileNames.stream().map(DeleteObject::new);
+		minioClient.removeObjects(RemoveObjectsArgs.builder().bucket(getBucketName(bucketName)).objects(stream::iterator).build());
 	}
 
 	/**
@@ -336,5 +363,7 @@ public class MinioOssTemplate implements OssWithBucketTemplate {
 		builder.append("}\n");
 		System.out.println(builder.toString());
 		return builder.toString();
-    }
+	}
+
+
 }

@@ -1,11 +1,10 @@
 package me.dwliu.ebase.sample.oss.minio;
 
+import me.dwliu.framework.autoconfigure.oss.OssConfigProperties;
 import me.dwliu.framework.core.oss.enums.OssFileNameFormatEnum;
 import me.dwliu.framework.core.oss.rule.OssRule;
-import me.dwliu.framework.starter.oss.properties.OssConfigProperties;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;

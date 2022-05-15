@@ -34,9 +34,15 @@ public class MinioOssAutoConfiguration {
 	@Bean
 	@SneakyThrows
 	public MinioClient minioClient(OssConfigProperties properties) {
-		return new MinioClient(properties.getMinio().getEndpoint(),
-			properties.getMinio().getAccessKey(),
-			properties.getMinio().getSecretKey());
+		//return new MinioClient(properties.getMinio().getEndpoint(),
+		//	properties.getMinio().getAccessKey(),
+		//	properties.getMinio().getSecretKey());
+
+		MinioClient minioClient = MinioClient.builder()
+			.endpoint(properties.getMinio().getEndpoint())
+			.credentials(properties.getMinio().getAccessKey(), properties.getMinio().getSecretKey())
+			.build();
+		return minioClient;
 	}
 
 	@ConditionalOnBean({MinioClient.class, OssRule.class})

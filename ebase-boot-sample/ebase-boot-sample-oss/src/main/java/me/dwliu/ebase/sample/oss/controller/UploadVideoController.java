@@ -1,10 +1,10 @@
 package me.dwliu.ebase.sample.oss.controller;
 
+import lombok.AllArgsConstructor;
 import me.dwliu.framework.common.model.Result;
 import me.dwliu.framework.core.oss.model.FileInfo;
 import me.dwliu.framework.integration.oss.minio.MinioOssTemplate;
 import org.apache.commons.io.FilenameUtils;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -12,9 +12,10 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
 @RestController
+@AllArgsConstructor
 @RequestMapping("/upload")
 public class UploadVideoController {
-	@Autowired
+
 	private MinioOssTemplate minioOssTemplate;
 
 	@PostMapping("uploadVideo")
@@ -30,4 +31,7 @@ public class UploadVideoController {
 		return Result.success(fileInfo);
 
 	}
+
+
+
 }

@@ -59,8 +59,8 @@
         <knife4j-spring-ui>3.0.3</knife4j-spring-ui>
 
         <!--oss-->
-        <minio.version>6.0.13</minio.version>
-        <qiniu-sdk.version>7.2.29</qiniu-sdk.version>
+        <minio.version>8.3.7</minio.version>
+        <qiniu-sdk.version>7.9.4</qiniu-sdk.version>
 
         <!--others-->
         <fastdfs.version>1.27.2</fastdfs.version>
@@ -72,6 +72,7 @@
         <zxing.version>3.4.1</zxing.version>
 
         <easyexcel.version>3.1.0</easyexcel.version>
+        <okhttp.version>4.9.3</okhttp.version>
 
         <!--Plugin Versions-->
         <build-helper-maven-plugin.version>3.1.0</build-helper-maven-plugin.version>
@@ -481,6 +482,18 @@
                 <groupId>com.github.tobato</groupId>
                 <artifactId>fastdfs-client</artifactId>
                 <version>${fastdfs.version}</version>
+            </dependency>
+
+
+            <dependency>
+                <groupId>com.squareup.okhttp3</groupId>
+                <artifactId>okhttp</artifactId>
+                <version>${okhttp.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.squareup.okhttp3</groupId>
+                <artifactId>logging-interceptor</artifactId>
+                <version>${okhttp.version}</version>
             </dependency>
 
             <!--七牛云依赖-->

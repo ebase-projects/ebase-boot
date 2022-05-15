@@ -5,14 +5,13 @@ import com.aliyun.oss.model.ObjectMetadata;
 import com.aliyun.oss.model.PutObjectResult;
 import lombok.AllArgsConstructor;
 import lombok.SneakyThrows;
-import me.dwliu.framework.core.oss.rule.OssRule;
 import me.dwliu.framework.core.oss.model.FileInfo;
+import me.dwliu.framework.core.oss.rule.OssRule;
 import me.dwliu.framework.core.oss.template.OssWithBucketTemplate;
 import org.springframework.util.StringUtils;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.InputStream;
-import java.util.Date;
 import java.util.List;
 
 /**
@@ -69,7 +68,7 @@ public class AliyunOssTemplate implements OssWithBucketTemplate {
 		fileInfo.setFileUrl(fileUrl(fileInfo.getFileName()));
 		fileInfo.setHash(stat.getContentMD5());
 		fileInfo.setFileSize(stat.getContentLength());
-		fileInfo.setUploadDate(stat.getLastModified());
+		//fileInfo.setUploadDate(stat.getLastModified());
 		fileInfo.setContentType(stat.getContentType());
 		return fileInfo;
 	}
@@ -101,6 +100,11 @@ public class AliyunOssTemplate implements OssWithBucketTemplate {
 
 	@Override
 	public String fileUrl(String bucketName, String fileName) {
+		return null;
+	}
+
+	@Override
+	public FileInfo putFile(String bucketName, String originFileName, String fileName, InputStream stream, String contentType) {
 		return null;
 	}
 
@@ -219,7 +223,7 @@ public class AliyunOssTemplate implements OssWithBucketTemplate {
 		fileInfo.setOriginalName(key);
 		fileInfo.setFileUrl(fileUrl(key));
 		//fileInfo.setFileSize();
-		fileInfo.setUploadDate(new Date());
+		//fileInfo.setUploadDate(new Date());
 		return fileInfo;
 	}
 

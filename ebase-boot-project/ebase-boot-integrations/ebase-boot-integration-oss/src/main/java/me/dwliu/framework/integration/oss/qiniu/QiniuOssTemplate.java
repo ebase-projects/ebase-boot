@@ -98,7 +98,7 @@ public class QiniuOssTemplate implements OssWithBucketTemplate {
 		fileInfo.setFileUrl(fileUrl(fileInfo.getFileName()));
 		fileInfo.setHash(stat.hash);
 		fileInfo.setFileSize(stat.fsize);
-		fileInfo.setUploadDate(new Date(stat.putTime / 10000));
+		//fileInfo.setUploadDate(new Date(stat.putTime / 10000));
 		fileInfo.setContentType(stat.mimeType);
 		return fileInfo;
 	}
@@ -121,6 +121,11 @@ public class QiniuOssTemplate implements OssWithBucketTemplate {
 	@Override
 	public String fileUrl(String bucketName, String fileName) {
 		return endpoint.concat("/").concat(fileName);
+	}
+
+	@Override
+	public FileInfo putFile(String bucketName, String originFileName, String fileName, InputStream stream, String contentType) {
+		return null;
 	}
 
 	/**
@@ -257,7 +262,7 @@ public class QiniuOssTemplate implements OssWithBucketTemplate {
 		fileInfo.setOriginalName(key);
 		fileInfo.setFileUrl(fileUrl(key));
 		//fileInfo.setFileSize();
-		fileInfo.setUploadDate(new Date());
+		//fileInfo.setUploadDate(new Date());
 		return fileInfo;
 	}
 }
