@@ -5,8 +5,7 @@ import me.dwliu.framework.core.oss.enums.OssFileNameFormatEnum;
 import me.dwliu.framework.core.oss.model.FileInfo;
 import me.dwliu.framework.integration.oss.minio.MinioOssTemplate;
 import me.dwliu.framework.core.oss.rule.OssRule;
-import org.junit.Test;
-import org.junit.runner.RunWith;
+import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
@@ -15,7 +14,6 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 
-@RunWith(SpringRunner.class)
 @SpringBootTest
 @Slf4j
 public class MinioOssTemplateTest {
