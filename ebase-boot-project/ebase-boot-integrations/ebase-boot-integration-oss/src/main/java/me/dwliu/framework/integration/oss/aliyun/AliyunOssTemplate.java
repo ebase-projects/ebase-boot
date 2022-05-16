@@ -160,6 +160,11 @@ public class AliyunOssTemplate implements OssWithBucketTemplate {
 		return this.putFile(getBucketName(), fileName, file.getInputStream());
 	}
 
+	@Override
+	public FileInfo putFile(String fileName, MultipartFile file, String contentType) {
+		return null;
+	}
+
 
 	@Override
 	public void removeFile(String bucketName, String fileName) {

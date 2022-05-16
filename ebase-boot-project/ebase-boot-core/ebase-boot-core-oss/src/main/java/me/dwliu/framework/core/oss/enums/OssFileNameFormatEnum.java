@@ -15,7 +15,9 @@ public enum OssFileNameFormatEnum {
     NONE("无", 0),
     DATE("yyyy/MM/dd", 1),
     DATETIME("yyyyMMddHHmmssSSS", 2),
-    UUID("UUID", 3);
+    UUID("UUID", 3),
+
+	DATE_UUID("yyyy/MM/dd-UUID", 4);
 
     /**
      * 描述

@@ -73,6 +73,8 @@ public interface OssTemplate {
 	 */
 	FileInfo putFile(String fileName, MultipartFile file);
 
+	FileInfo putFile(String fileName, MultipartFile file, String contentType);
+
 	/**
 	 * 删除文件
 	 *

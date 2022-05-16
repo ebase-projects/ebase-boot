@@ -5,6 +5,7 @@ import me.dwliu.framework.core.oss.enums.OssFileNameFormatEnum;
 import me.dwliu.framework.core.oss.rule.OssRule;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -35,7 +36,7 @@ public class CustomOssRule implements OssRule {
             String[] split = StringUtils.split(originalFileName, ".");
             builder.append(split[0]);
             builder.append("-");
-            builder.append(LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyyMMddHHmmssSSS")));
+            builder.append(LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-ddHHmmssSSS")));
             builder.append("." + split[1]);
         }else {
             builder.append(originalFileName);

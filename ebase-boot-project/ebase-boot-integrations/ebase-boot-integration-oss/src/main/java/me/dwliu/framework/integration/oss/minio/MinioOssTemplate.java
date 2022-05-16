@@ -227,6 +227,12 @@ public class MinioOssTemplate implements OssWithBucketTemplate {
 
 	@Override
 	@SneakyThrows
+	public FileInfo putFile(String fileName, MultipartFile file, String contentType) {
+		return putFile(getBucketName(), file.getOriginalFilename(), fileName, file.getInputStream(), contentType);
+	}
+
+	@Override
+	@SneakyThrows
 	public void removeFile(String fileName) {
 		removeFile(getBucketName(), fileName);
 	}

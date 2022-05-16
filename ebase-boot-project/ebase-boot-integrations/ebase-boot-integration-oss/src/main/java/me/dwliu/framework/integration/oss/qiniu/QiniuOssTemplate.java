@@ -180,6 +180,11 @@ public class QiniuOssTemplate implements OssWithBucketTemplate {
 		return this.putFile(getBucketName(), file.getOriginalFilename(), file.getInputStream());
 	}
 
+	@Override
+	public FileInfo putFile(String fileName, MultipartFile file, String contentType) {
+		return null;
+	}
+
 
 	@Override
 	@SneakyThrows
