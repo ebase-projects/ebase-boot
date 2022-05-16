@@ -144,6 +144,11 @@ public class AliyunOssTemplate implements OssWithBucketTemplate {
 	}
 
 	@Override
+	public FileInfo putFile(MultipartFile file, String contentType) {
+		return null;
+	}
+
+	@Override
 	@SneakyThrows
 	public FileInfo putFile(MultipartFile file) {
 		return this.putFile(getBucketName(), file.getOriginalFilename(), file.getInputStream());
