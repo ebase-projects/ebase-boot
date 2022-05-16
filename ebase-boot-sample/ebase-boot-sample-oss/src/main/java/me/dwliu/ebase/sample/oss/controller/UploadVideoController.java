@@ -78,6 +78,14 @@ public class UploadVideoController {
 		return Result.success(fileInfo);
 	}
 
+	@GetMapping("statFile")
+	public Result<FileInfo> statFile(@RequestParam(value = "f") String filename) {
+
+		FileInfo fileInfo = minioOssTemplate.statFile(filename);
+
+		return Result.success(fileInfo);
+	}
+
 
 	@GetMapping("rm")
 	public Result<?> rm() throws IOException {
