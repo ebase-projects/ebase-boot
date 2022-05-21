@@ -6,8 +6,7 @@ import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.fasterxml.jackson.datatype.jsr310.deser.LocalDateTimeDeserializer;
 import com.fasterxml.jackson.datatype.jsr310.ser.LocalDateTimeSerializer;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -29,18 +28,18 @@ import java.util.Optional;
 @Setter
 @NoArgsConstructor
 @ToString
-@ApiModel(value = "通用返回实体", description = "通用返回实体")
+@Schema(description = "通用返回实体")
 public class Result<T> implements Serializable {
 	/**
 	 * 状态码
 	 */
-	@ApiModelProperty(value = "状态码")
+	@Schema(description = "状态码")
 	private Integer code;
 
 	/**
 	 * 消息
 	 */
-	@ApiModelProperty(value = "消息")
+	@Schema(description = "消息")
 	private String msg;
 
 	/**
@@ -49,13 +48,13 @@ public class Result<T> implements Serializable {
 	@JsonSerialize(using = LocalDateTimeSerializer.class)
 	@JsonDeserialize(using = LocalDateTimeDeserializer.class)
 	@JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
-	@ApiModelProperty(value = "时间戳")
+	@Schema(description = "时间戳")
 	private LocalDateTime timestamp;
 
 	/**
 	 * 数据载体
 	 */
-	@ApiModelProperty(value = "数据载体")
+	@Schema(description = "数据载体")
 	@JsonInclude()
 	private T data;
 

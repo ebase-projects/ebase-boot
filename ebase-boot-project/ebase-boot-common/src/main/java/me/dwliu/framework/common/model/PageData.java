@@ -1,7 +1,6 @@
 package me.dwliu.framework.common.model;
 
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
 
 import java.io.Serializable;
@@ -14,14 +13,14 @@ import java.util.List;
  * @date 2019-06-22 11:27
  **/
 @Data
-@ApiModel(value = "分页数据")
+@Schema(description = "分页数据")
 public class PageData<T> implements Serializable {
     private static final long serialVersionUID = 1L;
 
-    @ApiModelProperty(value = "总记录数")
+    @Schema(description = "总记录数")
     private long total;
 
-    @ApiModelProperty(value = "列表数据")
+    @Schema(description = "列表数据")
     private List<T> list;
 
     /**

@@ -9,7 +9,7 @@ import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.fasterxml.jackson.datatype.jsr310.deser.LocalDateTimeDeserializer;
 import com.fasterxml.jackson.datatype.jsr310.ser.LocalDateTimeSerializer;
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
 import org.springframework.format.annotation.DateTimeFormat;
 
@@ -35,14 +35,14 @@ public abstract class BaseDO implements Serializable {
     // /**
     //  * 租户编号
     //  */
-    // @ApiModelProperty(value = "租户编号")
+    // @Schema(description = "租户编号")
     // private String tenantId;
 
     /**
      * 创建部门
      */
     // @JsonSerialize(using = ToStringSerializer.class)
-    @ApiModelProperty(value = "创建部门")
+    @Schema(description = "创建部门")
     @TableField(fill = FieldFill.INSERT)
     private Long createDept;
     /**

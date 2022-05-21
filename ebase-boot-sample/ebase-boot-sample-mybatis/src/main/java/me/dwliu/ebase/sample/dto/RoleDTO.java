@@ -1,10 +1,8 @@
 package me.dwliu.ebase.sample.dto;
 
-import io.swagger.annotations.ApiModel;
+import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
 import me.dwliu.framework.core.mybatis.dto.BaseDTO;
-
-import java.io.Serializable;
 
 /**
  * 角色管理
@@ -13,7 +11,7 @@ import java.io.Serializable;
  * @since 1.0.0
  */
 @Data
-@ApiModel(value = "角色管理")
+@Schema(description = "角色管理")
 public class RoleDTO extends BaseDTO {
 
 	private Long id;

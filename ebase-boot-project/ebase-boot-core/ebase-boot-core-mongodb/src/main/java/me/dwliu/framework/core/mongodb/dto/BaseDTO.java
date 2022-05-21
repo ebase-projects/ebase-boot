@@ -5,7 +5,7 @@ import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.fasterxml.jackson.datatype.jsr310.deser.LocalDateTimeDeserializer;
 import com.fasterxml.jackson.datatype.jsr310.ser.LocalDateTimeSerializer;
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
 import me.dwliu.framework.common.validator.group.CreateGroup;
 import me.dwliu.framework.common.validator.group.UpdateGroup;
@@ -26,7 +26,7 @@ public abstract class BaseDTO implements Serializable {
 	/**
 	 * 主键id
 	 */
-	@ApiModelProperty(value = "主键id")
+	@Schema(description = "主键id")
 	@NotNull(message = "主键不能为空", groups = UpdateGroup.class)
 	@Null(message = "主键必须为空", groups = CreateGroup.class)
 	private String id;
@@ -34,39 +34,39 @@ public abstract class BaseDTO implements Serializable {
 	//    /**
 //     * 状态[1:正常]
 //     */
-//    @ApiModelProperty(value = "业务状态")
+//    @Schema(description = "业务状态")
 //    private Integer status;
 
 //    /**
 //     * 创建部门
 //     */
 	//@JsonSerialize(using = ToStringSerializer.class)
-//    @ApiModelProperty(value = "创建部门")
+//    @Schema(description = "创建部门")
 //    private Long createDept;
 
-	@ApiModelProperty(value = "创建人", hidden = true)
+	@Schema(description = "创建人", hidden = true)
 	private String createBy;
 
 	@DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
 	@JsonSerialize(using = LocalDateTimeSerializer.class)
 	@JsonDeserialize(using = LocalDateTimeDeserializer.class)
 	@JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
-	@ApiModelProperty(value = "创建时间", hidden = true)
+	@Schema(description = "创建时间", hidden = true)
 	private LocalDateTime createTime;
 
-	@ApiModelProperty(value = "更新人", hidden = true)
+	@Schema(description = "更新人", hidden = true)
 	private String updateBy;
 
 	@DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
 	@JsonSerialize(using = LocalDateTimeSerializer.class)
 	@JsonDeserialize(using = LocalDateTimeDeserializer.class)
 	@JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
-	@ApiModelProperty(value = "更新时间", hidden = true)
+	@Schema(description = "更新时间", hidden = true)
 	private LocalDateTime updateTime;
 
-	@ApiModelProperty(value = "是否已删除", hidden = true)
+	@Schema(description = "是否已删除", hidden = true)
 	private Integer delFlag;
 
-	@ApiModelProperty(value = "乐观锁", hidden = true)
+	@Schema(description = "乐观锁", hidden = true)
 	private Integer revision;
 }

@@ -14,7 +14,7 @@ import me.dwliu.framework.core.mybatis.entity.BaseDO;
  */
 @EqualsAndHashCode(callSuper = true)
 @Data
-@ApiModel(value = "角色管理")
+@Schema(description = "角色管理")
 public class RoleDO extends BaseDO {
 	@TableId
 	private Long id;

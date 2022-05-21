@@ -1,6 +1,6 @@
 package me.dwliu.framework.core.mybatis.dto;
 
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
@@ -15,7 +15,7 @@ public abstract class BaseTenantDTO extends BaseDTO {
 	/**
 	 * 租户编号
 	 */
-	@ApiModelProperty(value = "租户编号")
+	@Schema(description = "租户编号")
 	private String tenantId;
 
 }

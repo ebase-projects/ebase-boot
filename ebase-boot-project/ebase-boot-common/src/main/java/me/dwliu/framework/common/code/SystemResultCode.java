@@ -1,6 +1,6 @@
 package me.dwliu.framework.common.code;
 
-import io.swagger.annotations.ApiModel;
+import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
@@ -17,8 +17,7 @@ import lombok.Getter;
  **/
 @Getter
 @AllArgsConstructor
-@ApiModel(value = "系统返回码",
-	description = "由6位数字组成，前3位为模块编码，后3位为业务编码," +
+@Schema(description = "系统返回码 由6位数字组成，前3位为模块编码，后3位为业务编码," +
 		"如：100001（100代表系统模块，001代表业务代码")
 public enum SystemResultCode implements IResultCode {
 
