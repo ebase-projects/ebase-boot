@@ -441,7 +441,7 @@
 
             <dependency>
                 <groupId>io.swagger.core.v3</groupId>
-                <artifactId>swagger-core</artifactId>
+                <artifactId>swagger-models</artifactId>
                 <version>${io.swagger}</version>
             </dependency>
             <dependency>
