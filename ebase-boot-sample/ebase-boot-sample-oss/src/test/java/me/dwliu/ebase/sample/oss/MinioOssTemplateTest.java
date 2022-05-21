@@ -3,12 +3,11 @@ package me.dwliu.ebase.sample.oss;
 import lombok.extern.slf4j.Slf4j;
 import me.dwliu.framework.core.oss.enums.OssFileNameFormatEnum;
 import me.dwliu.framework.core.oss.model.FileInfo;
-import me.dwliu.framework.integration.oss.minio.MinioOssTemplate;
 import me.dwliu.framework.core.oss.rule.OssRule;
+import me.dwliu.framework.integration.oss.minio.MinioOssTemplate;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.context.junit4.SpringRunner;
 
 import java.io.File;
 import java.io.FileInputStream;

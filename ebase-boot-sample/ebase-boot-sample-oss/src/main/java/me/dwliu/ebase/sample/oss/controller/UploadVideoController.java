@@ -88,9 +88,9 @@ public class UploadVideoController {
 
 
 	@GetMapping("rm")
-	public Result<?> rm() throws IOException {
+	public Result<?> rm(@RequestParam(value = "f") String filename) {
 		//删除文件
-		minioOssTemplate.removeFile("Desert.jpg");
+		minioOssTemplate.removeFile(filename);
 
 		return Result.success();
 	}

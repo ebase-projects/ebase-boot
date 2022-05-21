@@ -19,7 +19,7 @@ public class TestMinio {
 			.build();
 
 
-		String bucketName = "test";
+		String bucketName = "ceshi";
 		//http://39.106.141.187:9000/test2/2019/11/02/Lighthouse.jpg
 		boolean bucketExists = minioClient.bucketExists(BucketExistsArgs.builder().bucket(bucketName).build());
 
