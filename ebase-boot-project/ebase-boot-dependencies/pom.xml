@@ -52,10 +52,10 @@
         <!--<easypoi.version>4.4.0</easypoi.version>-->
 
         <!--swagger2-->
-        <!--        <springfox-swagger2.version>2.9.2</springfox-swagger2.version>-->
+        <!--<springfox-swagger2.version>2.9.2</springfox-swagger2.version>-->
         <springfox-swagger.version>3.0.0</springfox-swagger.version>
-        <io.swagger>1.5.24</io.swagger>
-        <!--        <knife4j-spring-ui>2.0.9</knife4j-spring-ui>-->
+        <io.swagger>2.2.0</io.swagger>
+        <!--<knife4j-spring-ui>2.0.9</knife4j-spring-ui>-->
         <knife4j-spring-ui>3.0.3</knife4j-spring-ui>
 
         <!--oss-->
@@ -289,7 +289,6 @@
                 <scope>import</scope>
             </dependency>
 
-
             <dependency>
                 <groupId>commons-fileupload</groupId>
                 <artifactId>commons-fileupload</artifactId>
@@ -329,27 +328,27 @@
             </dependency>
 
 
-            <!--            &lt;!&ndash; https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-databind &ndash;&gt;-->
-            <!--            <dependency>-->
-            <!--                <groupId>com.fasterxml.jackson.core</groupId>-->
-            <!--                <artifactId>jackson-databind</artifactId>-->
-            <!--                <version>${jackson.version}</version>-->
-            <!--            </dependency>-->
+            <!--&lt;!&ndash; https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-databind &ndash;&gt;-->
+            <!--<dependency>-->
+            <!--    <groupId>com.fasterxml.jackson.core</groupId>-->
+            <!--    <artifactId>jackson-databind</artifactId>-->
+            <!--    <version>${jackson.version}</version>-->
+            <!--</dependency>-->
 
-            <!--            &lt;!&ndash; https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-annotations &ndash;&gt;-->
-            <!--            <dependency>-->
-            <!--                <groupId>com.fasterxml.jackson.core</groupId>-->
-            <!--                <artifactId>jackson-annotations</artifactId>-->
-            <!--                <version>${jackson.version}</version>-->
-            <!--            </dependency>-->
+            <!--&lt;!&ndash; https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-annotations &ndash;&gt;-->
+            <!--<dependency>-->
+            <!--    <groupId>com.fasterxml.jackson.core</groupId>-->
+            <!--    <artifactId>jackson-annotations</artifactId>-->
+            <!--    <version>${jackson.version}</version>-->
+            <!--</dependency>-->
 
 
-            <!--            &lt;!&ndash; https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-core &ndash;&gt;-->
-            <!--            <dependency>-->
-            <!--                <groupId>com.fasterxml.jackson.core</groupId>-->
-            <!--                <artifactId>jackson-core</artifactId>-->
-            <!--                <version>${jackson.version}</version>-->
-            <!--            </dependency>-->
+            <!--&lt;!&ndash; https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-core &ndash;&gt;-->
+            <!--<dependency>-->
+            <!--    <groupId>com.fasterxml.jackson.core</groupId>-->
+            <!--    <artifactId>jackson-core</artifactId>-->
+            <!--    <version>${jackson.version}</version>-->
+            <!--</dependency>-->
 
             <dependency>
                 <groupId>com.alibaba</groupId>
@@ -419,21 +418,21 @@
                 <version>${hutool.version}</version>
             </dependency>
             <!-- swagger2 start-->
-            <!--            <dependency>-->
-            <!--                <groupId>io.springfox</groupId>-->
-            <!--                <artifactId>springfox-swagger2</artifactId>-->
-            <!--                <version>${springfox-swagger2.version}</version>-->
-            <!--                <exclusions>-->
-            <!--                    <exclusion>-->
-            <!--                        <groupId>io.swagger</groupId>-->
-            <!--                        <artifactId>swagger-annotations</artifactId>-->
-            <!--                    </exclusion>-->
-            <!--                    <exclusion>-->
-            <!--                        <groupId>io.swagger</groupId>-->
-            <!--                        <artifactId>swagger-models</artifactId>-->
-            <!--                    </exclusion>-->
-            <!--                </exclusions>-->
-            <!--            </dependency>-->
+            <!--<dependency>-->
+            <!--    <groupId>io.springfox</groupId>-->
+            <!--    <artifactId>springfox-swagger2</artifactId>-->
+            <!--    <version>${springfox-swagger2.version}</version>-->
+            <!--    <exclusions>-->
+            <!--        <exclusion>-->
+            <!--            <groupId>io.swagger.core.v3</groupId>-->
+            <!--            <artifactId>swagger-annotations</artifactId>-->
+            <!--        </exclusion>-->
+            <!--        <exclusion>-->
+            <!--            <groupId>io.swagger.core.v3</groupId>-->
+            <!--            <artifactId>swagger-models</artifactId>-->
+            <!--        </exclusion>-->
+            <!--    </exclusions>-->
+            <!--</dependency>-->
             <dependency>
                 <groupId>io.springfox</groupId>
                 <artifactId>springfox-boot-starter</artifactId>
@@ -441,13 +440,13 @@
             </dependency>
 
             <dependency>
-                <groupId>io.swagger</groupId>
+                <groupId>io.swagger.core.v3</groupId>
                 <artifactId>swagger-annotations</artifactId>
                 <version>${io.swagger}</version>
             </dependency>
             <dependency>
-                <groupId>io.swagger</groupId>
-                <artifactId>swagger-models</artifactId>
+                <groupId>io.swagger.core.v3</groupId>
+                <artifactId>swagger-annotations</artifactId>
                 <version>${io.swagger}</version>
             </dependency>
             <!--            <dependency>-->
@@ -587,6 +586,4 @@
             </plugins>
         </pluginManagement>
     </build>
-
-
 </project>
