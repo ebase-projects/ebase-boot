@@ -21,6 +21,7 @@
         <main.basedir>${basedir}/../..</main.basedir>
 
         <!--spring-->
+        <!--https://github.com/spring-projects/spring-boot/tags-->
         <spring.boot.version>2.5.14</spring.boot.version>
         <!--spring.security.oauth2.autoconfigure 同 spring boot-->
         <!--https://github.com/spring-projects/spring-security-oauth2-boot/releases/ -->
@@ -33,17 +34,17 @@
         <aliyun.sdk.core.version>4.5.3</aliyun.sdk.core.version>
         <aliyun.sdk.dysmsapi.version>1.1.0</aliyun.sdk.dysmsapi.version>
         <aliyun-java-sdk-dm.version>3.3.1</aliyun-java-sdk-dm.version>
-        <fastjson.version>1.2.78</fastjson.version>
-        <joda-time.version>2.10.6</joda-time.version>
+        <fastjson.version>1.2.83</fastjson.version>
+        <joda-time.version>2.10.14</joda-time.version>
 
         <!--apache-->
         <commons.fileupload.version>1.4</commons.fileupload.version>
-        <commons.io.version>2.7</commons.io.version>
+        <commons.io.version>2.11.0</commons.io.version>
 
         <!--DB-->
         <mybatis.plus.boot.starter.version>3.5.1</mybatis.plus.boot.starter.version>
-        <druid.version>1.2.8</druid.version>
-        <mysql.version>8.0.27</mysql.version>
+        <druid.version>1.2.9</druid.version>
+        <mysql.version>8.0.29</mysql.version>
         <oracle.version>11.2.0.4</oracle.version>
 
         <!--tool-->
@@ -59,7 +60,7 @@
         <knife4j-spring-ui>3.0.3</knife4j-spring-ui>
 
         <!--oss-->
-        <minio.version>8.3.7</minio.version>
+        <minio.version>8.3.9</minio.version>
         <qiniu-sdk.version>7.9.4</qiniu-sdk.version>
 
         <!--others-->
@@ -68,8 +69,8 @@
         <quartz.version>2.3.2</quartz.version>
         <jpush-client.version>3.3.11</jpush-client.version>
         <zip4j.version>2.6.1</zip4j.version>
-        <oshi.version>5.2.4</oshi.version>
-        <zxing.version>3.4.1</zxing.version>
+        <oshi.version>6.1.6</oshi.version>
+        <zxing.version>3.5.0</zxing.version>
 
         <easyexcel.version>3.1.0</easyexcel.version>
         <okhttp.version>4.9.3</okhttp.version>
