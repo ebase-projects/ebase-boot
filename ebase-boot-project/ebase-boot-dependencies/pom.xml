@@ -60,8 +60,8 @@
         <knife4j-spring-ui>3.0.3</knife4j-spring-ui>
 
         <!--oss-->
-        <minio.version>8.3.9</minio.version>
-        <qiniu-sdk.version>7.9.4</qiniu-sdk.version>
+        <minio.version>8.4.6</minio.version>
+        <qiniu-sdk.version>7.9.5</qiniu-sdk.version>
 
         <!--others-->
         <fastdfs.version>1.27.2</fastdfs.version>
