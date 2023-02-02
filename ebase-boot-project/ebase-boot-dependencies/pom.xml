@@ -44,7 +44,7 @@
         <!--DB-->
         <mybatis.plus.boot.starter.version>3.5.1</mybatis.plus.boot.starter.version>
         <druid.version>1.2.15</druid.version>
-        <mysql.version>8.0.29</mysql.version>
+        <mysql.version>8.0.32</mysql.version>
         <oracle.version>11.2.0.4</oracle.version>
 
         <!--tool-->
@@ -72,8 +72,8 @@
         <oshi.version>6.1.6</oshi.version>
         <zxing.version>3.5.0</zxing.version>
 
-        <easyexcel.version>3.1.0</easyexcel.version>
-        <okhttp.version>4.9.3</okhttp.version>
+        <easyexcel.version>3.2.0</easyexcel.version>
+        <okhttp.version>4.10.0</okhttp.version>
 
         <!--Plugin Versions-->
         <build-helper-maven-plugin.version>3.1.0</build-helper-maven-plugin.version>
