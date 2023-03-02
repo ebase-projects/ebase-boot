@@ -43,7 +43,7 @@
 
         <!--DB-->
         <mybatis.plus.boot.starter.version>3.5.1</mybatis.plus.boot.starter.version>
-        <druid.version>1.2.15</druid.version>
+        <druid.version>1.2.16</druid.version>
         <mysql.version>8.0.32</mysql.version>
         <oracle.version>11.2.0.4</oracle.version>
 
