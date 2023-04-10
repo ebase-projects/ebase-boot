@@ -69,7 +69,7 @@
         <quartz.version>2.3.2</quartz.version>
         <jpush-client.version>3.3.11</jpush-client.version>
         <zip4j.version>2.6.1</zip4j.version>
-        <oshi.version>6.1.6</oshi.version>
+        <oshi.version>6.2.2</oshi.version>
         <zxing.version>3.5.0</zxing.version>
 
         <easyexcel.version>3.2.0</easyexcel.version>
