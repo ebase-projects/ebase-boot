@@ -22,14 +22,13 @@
 
         <!--spring-->
         <!--https://github.com/spring-projects/spring-boot/tags-->
-        <spring.boot.version>2.6.8</spring.boot.version>
+        <spring.boot.version>2.5.14</spring.boot.version>
         <!--spring.security.oauth2.autoconfigure 同 spring boot-->
         <!--https://github.com/spring-projects/spring-security-oauth2-boot/releases/ -->
         <spring.security.oauth2.autoconfigure.version>2.2.13.RELEASE</spring.security.oauth2.autoconfigure.version>
-        <!--https://github.com/spring-cloud/spring-cloud-release/tags-->
-        <spring.cloud.version>2021.0.3</spring.cloud.version>
+        <spring.cloud.version>2020.0.5</spring.cloud.version>
         <!--alibaba https://github.com/alibaba/spring-cloud-alibaba/releases -->
-        <spring.cloud.alibaba.version>2021.0.1.0</spring.cloud.alibaba.version>
+        <spring.cloud.alibaba.version>2021.1</spring.cloud.alibaba.version>
 
         <alibaba.oss.version>3.10.2</alibaba.oss.version>
         <aliyun.sdk.core.version>4.5.3</aliyun.sdk.core.version>
@@ -44,12 +43,12 @@
 
         <!--DB-->
         <mybatis.plus.boot.starter.version>3.5.1</mybatis.plus.boot.starter.version>
-        <druid.version>1.2.9</druid.version>
-        <mysql.version>8.0.29</mysql.version>
+        <druid.version>1.2.16</druid.version>
+        <mysql.version>8.0.32</mysql.version>
         <oracle.version>11.2.0.4</oracle.version>
 
         <!--tool-->
-        <hutool.version>5.7.16</hutool.version>
+        <hutool.version>5.7.22</hutool.version>
         <guava.version>30.1.1-jre</guava.version>
         <!--<easypoi.version>4.4.0</easypoi.version>-->
 
@@ -61,8 +60,8 @@
         <knife4j-spring-ui>3.0.3</knife4j-spring-ui>
 
         <!--oss-->
-        <minio.version>8.3.9</minio.version>
-        <qiniu-sdk.version>7.9.4</qiniu-sdk.version>
+        <minio.version>8.4.6</minio.version>
+        <qiniu-sdk.version>7.9.5</qiniu-sdk.version>
 
         <!--others-->
         <fastdfs.version>1.27.2</fastdfs.version>
@@ -70,11 +69,11 @@
         <quartz.version>2.3.2</quartz.version>
         <jpush-client.version>3.3.11</jpush-client.version>
         <zip4j.version>2.6.1</zip4j.version>
-        <oshi.version>6.1.6</oshi.version>
+        <oshi.version>6.2.2</oshi.version>
         <zxing.version>3.5.0</zxing.version>
 
-        <easyexcel.version>3.1.0</easyexcel.version>
-        <okhttp.version>4.9.3</okhttp.version>
+        <easyexcel.version>3.2.0</easyexcel.version>
+        <okhttp.version>4.10.0</okhttp.version>
 
         <!--Plugin Versions-->
         <build-helper-maven-plugin.version>3.1.0</build-helper-maven-plugin.version>
@@ -304,8 +303,8 @@
 
             <!-- mysql驱动 -->
             <dependency>
-                <groupId>mysql</groupId>
-                <artifactId>mysql-connector-java</artifactId>
+                <groupId>com.mysql</groupId>
+                <artifactId>mysql-connector-j</artifactId>
                 <version>${mysql.version}</version>
             </dependency>
             <!-- oracle驱动 -->
