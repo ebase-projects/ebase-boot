@@ -1,12 +1,14 @@
-package me.dwliu.framework.core.mybatis.page;
+package me.dwliu.framework.core.mybatis.query;
 
+import cn.hutool.core.util.StrUtil;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.core.metadata.OrderItem;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
-import com.google.common.base.CaseFormat;
+import me.dwliu.framework.common.model.PageData;
 import me.dwliu.framework.core.mybatis.constant.Constant;
 import org.apache.commons.lang3.StringUtils;
 
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -55,7 +57,8 @@ public class QueryPageUtil<T> {
 		//前端字段排序
 		if (StringUtils.isNotEmpty(orderField)) {
 			//转为下划线
-			String orderFieldLowerCamel = CaseFormat.LOWER_CAMEL.to(CaseFormat.LOWER_UNDERSCORE, orderField);
+//			String orderFieldLowerCamel = CaseFormat.LOWER_CAMEL.to(CaseFormat.LOWER_UNDERSCORE, orderField);
+			String orderFieldLowerCamel = StrUtil.toUnderlineCase(orderField);
 			if (StringUtils.isNotEmpty(order) && Constant.ASC.equalsIgnoreCase(order)) {
 				page.addOrder(OrderItem.asc(orderFieldLowerCamel));
 			} else if (StringUtils.isNotEmpty(order) && Constant.DESC.equalsIgnoreCase(order)) {
@@ -83,5 +86,8 @@ public class QueryPageUtil<T> {
 
 		return page;
 	}
+
+
+
 
 }
