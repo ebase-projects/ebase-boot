@@ -21,21 +21,14 @@
         <main.basedir>${basedir}/../..</main.basedir>
 
         <!--spring-->
-        <!--https://github.com/spring-projects/spring-boot/tags-->
-        <spring.boot.version>2.5.14</spring.boot.version>
-        <!--spring.security.oauth2.autoconfigure 同 spring boot-->
-        <!--https://github.com/spring-projects/spring-security-oauth2-boot/releases/ -->
-        <spring.security.oauth2.autoconfigure.version>2.2.13.RELEASE</spring.security.oauth2.autoconfigure.version>
-        <spring.cloud.version>2020.0.5</spring.cloud.version>
-        <!--alibaba https://github.com/alibaba/spring-cloud-alibaba/releases -->
-        <spring.cloud.alibaba.version>2021.1</spring.cloud.alibaba.version>
+        <!-- https://github.com/spring-projects/spring-boot/tags -->
+        <spring.boot.version>3.0.5</spring.boot.version>
 
         <alibaba.oss.version>3.10.2</alibaba.oss.version>
         <aliyun.sdk.core.version>4.5.3</aliyun.sdk.core.version>
         <aliyun.sdk.dysmsapi.version>1.1.0</aliyun.sdk.dysmsapi.version>
         <aliyun-java-sdk-dm.version>3.3.1</aliyun-java-sdk-dm.version>
         <fastjson.version>1.2.83</fastjson.version>
-        <joda-time.version>2.10.14</joda-time.version>
 
         <!--apache-->
         <commons.fileupload.version>1.4</commons.fileupload.version>
@@ -48,14 +41,14 @@
         <oracle.version>11.2.0.4</oracle.version>
 
         <!--tool-->
-        <hutool.version>5.7.22</hutool.version>
+        <hutool.version>5.8.18</hutool.version>
         <guava.version>30.1.1-jre</guava.version>
         <!--<easypoi.version>4.4.0</easypoi.version>-->
 
         <!--swagger2-->
         <!--<springfox-swagger2.version>2.9.2</springfox-swagger2.version>-->
         <springfox-swagger.version>3.0.0</springfox-swagger.version>
-        <io.swagger>2.2.0</io.swagger>
+        <io.swagger>2.2.8</io.swagger>
         <!--<knife4j-spring-ui>2.0.9</knife4j-spring-ui>-->
         <knife4j-spring-ui>3.0.3</knife4j-spring-ui>
 
@@ -76,27 +69,27 @@
         <okhttp.version>4.10.0</okhttp.version>
 
         <!--Plugin Versions-->
-        <build-helper-maven-plugin.version>3.1.0</build-helper-maven-plugin.version>
-        <exec-maven-plugin.version>1.6.0</exec-maven-plugin.version>
-        <git-commit-id-plugin.version>3.0.1</git-commit-id-plugin.version>
-        <versions-maven-plugin.version>2.7</versions-maven-plugin.version>
-        <xml-maven-plugin.version>1.0.2</xml-maven-plugin.version>
-        <flatten-maven-plugin.version>1.2.5</flatten-maven-plugin.version>
-        <maven-antrun-plugin.version>1.8</maven-antrun-plugin.version>
-        <maven-assembly-plugin.version>3.3.0</maven-assembly-plugin.version>
-        <maven-clean-plugin.version>3.1.0</maven-clean-plugin.version>
+<!--        <build-helper-maven-plugin.version>3.1.0</build-helper-maven-plugin.version>-->
+<!--        <exec-maven-plugin.version>1.6.0</exec-maven-plugin.version>-->
+<!--        <git-commit-id-plugin.version>3.0.1</git-commit-id-plugin.version>-->
+<!--        <versions-maven-plugin.version>2.7</versions-maven-plugin.version>-->
+<!--        <xml-maven-plugin.version>1.0.2</xml-maven-plugin.version>-->
+<!--        <flatten-maven-plugin.version>1.2.5</flatten-maven-plugin.version>-->
+<!--        <maven-antrun-plugin.version>1.8</maven-antrun-plugin.version>-->
+<!--        <maven-assembly-plugin.version>3.3.0</maven-assembly-plugin.version>-->
+<!--        <maven-clean-plugin.version>3.1.0</maven-clean-plugin.version>-->
         <maven-compiler-plugin.version>3.8.1</maven-compiler-plugin.version>
-        <maven-dependency-plugin.version>3.1.2</maven-dependency-plugin.version>
-        <maven-deploy-plugin.version>2.8.2</maven-deploy-plugin.version>
-        <maven-enforcer-plugin.version>3.0.0-M3</maven-enforcer-plugin.version>
-        <maven-failsafe-plugin.version>2.22.2</maven-failsafe-plugin.version>
-        <maven-help-plugin.version>3.2.0</maven-help-plugin.version>
-        <maven-install-plugin.version>2.5.2</maven-install-plugin.version>
-        <maven-invoker-plugin.version>3.2.1</maven-invoker-plugin.version>
+<!--        <maven-dependency-plugin.version>3.1.2</maven-dependency-plugin.version>-->
+<!--        <maven-deploy-plugin.version>2.8.2</maven-deploy-plugin.version>-->
+<!--        <maven-enforcer-plugin.version>3.0.0-M3</maven-enforcer-plugin.version>-->
+<!--        <maven-failsafe-plugin.version>2.22.2</maven-failsafe-plugin.version>-->
+<!--        <maven-help-plugin.version>3.2.0</maven-help-plugin.version>-->
+<!--        <maven-install-plugin.version>2.5.2</maven-install-plugin.version>-->
+<!--        <maven-invoker-plugin.version>3.2.1</maven-invoker-plugin.version>-->
         <maven-jar-plugin.version>3.2.0</maven-jar-plugin.version>
         <maven-javadoc-plugin.version>3.2.0</maven-javadoc-plugin.version>
-        <maven-resources-plugin.version>3.1.0</maven-resources-plugin.version>
-        <maven-shade-plugin.version>3.2.4</maven-shade-plugin.version>
+<!--        <maven-resources-plugin.version>3.1.0</maven-resources-plugin.version>-->
+<!--        <maven-shade-plugin.version>3.2.4</maven-shade-plugin.version>-->
         <maven-source-plugin.version>3.2.1</maven-source-plugin.version>
         <maven-surefire-plugin.version>2.22.2</maven-surefire-plugin.version>
         <maven-war-plugin.version>3.2.3</maven-war-plugin.version>
@@ -110,94 +103,78 @@
                 <artifactId>ebase-boot-common</artifactId>
                 <version>${revision}</version>
             </dependency>
-
             <!-- Ebase Boot Core-->
             <dependency>
                 <groupId>me.dwliu.ebase</groupId>
                 <artifactId>ebase-boot-core-tool</artifactId>
                 <version>${revision}</version>
             </dependency>
-
             <dependency>
                 <groupId>me.dwliu.ebase</groupId>
                 <artifactId>ebase-boot-core-mybatis</artifactId>
                 <version>${revision}</version>
             </dependency>
-
             <dependency>
                 <groupId>me.dwliu.ebase</groupId>
                 <artifactId>ebase-boot-core-datascope</artifactId>
                 <version>${revision}</version>
             </dependency>
-
             <dependency>
                 <groupId>me.dwliu.ebase</groupId>
                 <artifactId>ebase-boot-core-log</artifactId>
                 <version>${revision}</version>
             </dependency>
-
             <dependency>
                 <groupId>me.dwliu.ebase</groupId>
                 <artifactId>ebase-boot-core-oss</artifactId>
                 <version>${revision}</version>
             </dependency>
-
             <dependency>
                 <groupId>me.dwliu.ebase</groupId>
                 <artifactId>ebase-boot-core-redis</artifactId>
                 <version>${revision}</version>
             </dependency>
-
             <dependency>
                 <groupId>me.dwliu.ebase</groupId>
                 <artifactId>ebase-boot-core-security</artifactId>
                 <version>${revision}</version>
             </dependency>
-
-
             <!-- Ebase Boot Plugin-->
             <dependency>
                 <groupId>me.dwliu.ebase</groupId>
                 <artifactId>ebase-boot-integration</artifactId>
                 <version>${revision}</version>
             </dependency>
-
             <dependency>
                 <groupId>me.dwliu.ebase</groupId>
                 <artifactId>ebase-boot-integration-mybatis</artifactId>
                 <version>${revision}</version>
             </dependency>
-
             <dependency>
                 <groupId>me.dwliu.ebase</groupId>
                 <artifactId>ebase-boot-integration-datascope</artifactId>
                 <version>${revision}</version>
             </dependency>
-
             <dependency>
                 <groupId>me.dwliu.ebase</groupId>
                 <artifactId>ebase-boot-integration-log</artifactId>
                 <version>${revision}</version>
             </dependency>
-
             <dependency>
                 <groupId>me.dwliu.ebase</groupId>
                 <artifactId>ebase-boot-integration-oss</artifactId>
                 <version>${revision}</version>
             </dependency>
-
             <dependency>
                 <groupId>me.dwliu.ebase</groupId>
                 <artifactId>ebase-boot-integration-redis</artifactId>
                 <version>${revision}</version>
             </dependency>
-
             <dependency>
                 <groupId>me.dwliu.ebase</groupId>
                 <artifactId>ebase-boot-integration-security</artifactId>
                 <version>${revision}</version>
             </dependency>
-
 
             <dependency>
                 <groupId>me.dwliu.ebase</groupId>
@@ -211,7 +188,6 @@
                 <artifactId>ebase-boot-starter</artifactId>
                 <version>${revision}</version>
             </dependency>
-
             <dependency>
                 <groupId>me.dwliu.ebase</groupId>
                 <artifactId>ebase-boot-starter-mybatis</artifactId>
@@ -229,37 +205,31 @@
                 <artifactId>ebase-boot-starter-datascope</artifactId>
                 <version>${revision}</version>
             </dependency>
-
             <dependency>
                 <groupId>me.dwliu.ebase</groupId>
                 <artifactId>ebase-boot-starter-log</artifactId>
                 <version>${revision}</version>
             </dependency>
-
             <dependency>
                 <groupId>me.dwliu.ebase</groupId>
                 <artifactId>ebase-boot-starter-oss</artifactId>
                 <version>${revision}</version>
             </dependency>
-
             <dependency>
                 <groupId>me.dwliu.ebase</groupId>
                 <artifactId>ebase-boot-starter-redis</artifactId>
                 <version>${revision}</version>
             </dependency>
-
             <dependency>
                 <groupId>me.dwliu.ebase</groupId>
                 <artifactId>ebase-boot-starter-security</artifactId>
                 <version>${revision}</version>
             </dependency>
-
             <dependency>
                 <groupId>me.dwliu.ebase</groupId>
                 <artifactId>ebase-boot-starter-swagger</artifactId>
                 <version>${revision}</version>
             </dependency>
-
             <!-- Third Party -->
 
             <!--SpringBoot Dependencies-->
@@ -272,23 +242,23 @@
             </dependency>
 
             <!--SpringCloud Dependencies-->
-            <dependency>
-                <groupId>org.springframework.cloud</groupId>
-                <artifactId>spring-cloud-dependencies</artifactId>
-                <version>${spring.cloud.version}</version>
-                <type>pom</type>
-                <scope>import</scope>
-            </dependency>
+<!--            <dependency>-->
+<!--                <groupId>org.springframework.cloud</groupId>-->
+<!--                <artifactId>spring-cloud-dependencies</artifactId>-->
+<!--                <version>${spring.cloud.version}</version>-->
+<!--                <type>pom</type>-->
+<!--                <scope>import</scope>-->
+<!--            </dependency>-->
 
             <!--spring cloud alibaba-->
             <!--https://github.com/alibaba/spring-cloud-alibaba/blob/master/README-zh.md-->
-            <dependency>
-                <groupId>com.alibaba.cloud</groupId>
-                <artifactId>spring-cloud-alibaba-dependencies</artifactId>
-                <version>${spring.cloud.alibaba.version}</version>
-                <type>pom</type>
-                <scope>import</scope>
-            </dependency>
+<!--            <dependency>-->
+<!--                <groupId>com.alibaba.cloud</groupId>-->
+<!--                <artifactId>spring-cloud-alibaba-dependencies</artifactId>-->
+<!--                <version>${spring.cloud.alibaba.version}</version>-->
+<!--                <type>pom</type>-->
+<!--                <scope>import</scope>-->
+<!--            </dependency>-->
 
             <dependency>
                 <groupId>commons-fileupload</groupId>
@@ -470,13 +440,6 @@
 
             <!-- swagger2 end-->
 
-            <dependency>
-                <groupId>org.springframework.security.oauth.boot</groupId>
-                <artifactId>spring-security-oauth2-autoconfigure</artifactId>
-                <version>${spring.security.oauth2.autoconfigure.version}</version>
-            </dependency>
-
-
             <!--fastDFS 依赖-->
             <dependency>
                 <groupId>com.github.tobato</groupId>
@@ -523,13 +486,6 @@
                 <artifactId>oshi-core</artifactId>
                 <version>${oshi.version}</version>
             </dependency>
-
-            <dependency>
-                <groupId>joda-time</groupId>
-                <artifactId>joda-time</artifactId>
-                <version>${joda-time.version}</version>
-            </dependency>
-
 
             <dependency>
                 <groupId>com.alibaba</groupId>
