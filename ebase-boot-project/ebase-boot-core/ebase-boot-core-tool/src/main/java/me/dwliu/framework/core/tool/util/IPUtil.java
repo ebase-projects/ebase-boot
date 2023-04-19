@@ -1,6 +1,7 @@
 package me.dwliu.framework.core.tool.util;
 
-import javax.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletRequest;
+
 import java.net.*;
 import java.util.ArrayList;
 import java.util.Enumeration;
@@ -158,7 +159,6 @@ public class IPUtil {
 		}
 		return "";
 	}
-
 
 
 }
