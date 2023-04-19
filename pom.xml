@@ -10,7 +10,7 @@
     <name>${project.artifactId}</name>
 
     <description>
-        ebase-boot 是一款基于SpringBoot 2.x的服务集成基础框架，内部提供了第三方框架的封装集成，让接口开发者可以选择性完成开箱即用。
+        ebase-boot 是一款基于SpringBoot 3.x的服务集成基础框架，内部提供了第三方框架的封装集成，让接口开发者可以选择性完成开箱即用。
     </description>
 
     <url>https://gitee.com/ebase/ebase-boot</url>
@@ -41,10 +41,10 @@
 
 
     <properties>
-        <revision>1.0.10-SNAPSHOT</revision>
+        <revision>2.0.0-SNAPSHOT</revision>
         <maven-compiler-plugin.version>3.8.1</maven-compiler-plugin.version>
         <maven.compiler.encoding>UTF-8</maven.compiler.encoding>
-        <java.version>1.8</java.version>
+        <java.version>17</java.version>
         <git.url>https://gitee.com/ebase-projects/ebase-boot</git.url>
         <git.connection>scm:git:https://gitee.com/ebase-projects/ebase-boot</git.connection>
         <git.developerConnection>scm:git:git@gitee.com:ebase-projects/ebase-boot.git</git.developerConnection>
