@@ -35,7 +35,7 @@
         <commons.io.version>2.11.0</commons.io.version>
 
         <!--DB-->
-        <mybatis.plus.boot.starter.version>3.5.1</mybatis.plus.boot.starter.version>
+        <mybatis.plus.boot.starter.version>3.5.3.1</mybatis.plus.boot.starter.version>
         <druid.version>1.2.16</druid.version>
         <mysql.version>8.0.32</mysql.version>
         <oracle.version>11.2.0.4</oracle.version>
@@ -61,7 +61,7 @@
         <reflections.version>0.9.11</reflections.version>
         <quartz.version>2.3.2</quartz.version>
         <jpush-client.version>3.3.11</jpush-client.version>
-        <zip4j.version>2.6.1</zip4j.version>
+        <zip4j.version>2.11.5</zip4j.version>
         <oshi.version>6.2.2</oshi.version>
         <zxing.version>3.5.0</zxing.version>
 
@@ -344,6 +344,9 @@
                 <artifactId>zip4j</artifactId>
                 <version>${zip4j.version}</version>
             </dependency>
+
+
+
 
             <dependency>
                 <groupId>com.google.guava</groupId>
