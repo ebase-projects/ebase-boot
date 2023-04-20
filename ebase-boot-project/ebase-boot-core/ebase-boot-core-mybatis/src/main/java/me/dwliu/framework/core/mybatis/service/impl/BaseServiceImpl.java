@@ -7,6 +7,7 @@ import me.dwliu.framework.common.model.PageData;
 import me.dwliu.framework.core.mybatis.dao.BaseDAO;
 import me.dwliu.framework.core.mybatis.query.QueryPageUtil;
 import me.dwliu.framework.core.mybatis.service.BaseService;
+import me.dwliu.framework.core.tool.util.ConvertUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.List;
@@ -98,5 +99,30 @@ public abstract class BaseServiceImpl<M extends BaseDAO<T>, T> extends ServiceIm
 	 */
 	protected <T> PageData<T> getPageData(IPage page) {
 		return getPageData(page.getRecords(), page.getTotal());
+	}
+
+
+	/**
+	 * 组装分页数据
+	 *
+	 * @param list   查询数据集合
+	 * @param total  总条数
+	 * @param target 目标实体对象
+	 * @return PageData
+	 */
+	protected <T> PageData<T> getPageData(List<?> list, long total, Class<T> target) {
+		List<T> targetList = ConvertUtils.sourceToTarget(list, target);
+		return new PageData<>(targetList, total);
+	}
+
+	/**
+	 * 组装分页数据
+	 *
+	 * @param page
+	 * @param target
+	 * @return PageData
+	 */
+	protected <T> PageData<T> getPageData(IPage page, Class<T> target) {
+		return getPageData(page.getRecords(), page.getTotal(), target);
 	}
 }

@@ -3,19 +3,21 @@ package me.dwliu.ebase.sample.service.impl;
 import lombok.extern.slf4j.Slf4j;
 import me.dwliu.ebase.sample.dto.RoleDTO;
 import me.dwliu.ebase.sample.dto.UserDTO;
+import me.dwliu.ebase.sample.entity.RoleDO;
+import me.dwliu.ebase.sample.entity.UserDO;
+import me.dwliu.ebase.sample.service.UserDOService;
 import me.dwliu.ebase.sample.service.UserService;
 import me.dwliu.framework.common.model.PageData;
 import me.dwliu.framework.core.mybatis.constant.Constant;
+import me.dwliu.framework.core.mybatis.query.QueryParamsUtil;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
+import org.springframework.transaction.annotation.Transactional;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
@@ -24,6 +26,9 @@ public class UserServiceImplTest {
 
 	@Autowired
 	private UserService userService;
+
+	@Autowired
+	private UserDOService userDOService;
 
 	@Test
 	public void insert() {
@@ -47,7 +52,42 @@ public class UserServiceImplTest {
 		userDTO.setRoleList(roleDTOs);
 
 
-		boolean b = userService.insertEntity(userDTO);
+		boolean b = userService.insertDTO(userDTO);
+	}
+
+	@Test
+//	@Transactional
+	public void insertDO() {
+		UserDO userDO = new UserDO();
+//		userDO.setId(1l);
+		userDO.setUsername("asdf1");
+		userDO.setPassword(UUID.randomUUID().toString().replace("-", ""));
+		userDO.setRealName("真实姓名");
+		userDO.setAvatar("头像");
+		userDO.setGender(1);
+		userDO.setEmail("ldw4033@163.com");
+		userDO.setMobile("18105351756");
+		userDO.setDeptId(11l);
+		userDO.setSuperAdmin(1);
+		userDO.setStatus(1);
+		userDO.setDeptName("1");
+
+//		userDO.setCreateDept();
+//		userDO.setCreateBy();
+//		userDO.setCreateTime();
+//		userDO.setUpdateBy();
+//		userDO.setUpdateTime();
+//		userDO.setDelFlag();
+//		userDO.setRevision();
+
+//		boolean save = userDOService.save(userDO);
+
+		boolean save1 = userService.save(userDO);
+
+
+		System.out.println(save1);
+
+
 	}
 
 
@@ -73,7 +113,26 @@ public class UserServiceImplTest {
 
 		}
 
-		List<UserDTO> userDTOS = userService.insertBachEntityReturnId(userDTOList, 4);
+		List<UserDTO> userDTOS = userService.insertBachDTOReturnId(userDTOList, 4);
+		System.out.println(userDTOS);
+
+	}
+
+
+	@Test
+	public void insertDOBach() {
+		List<UserDO> userDOList = new ArrayList<>();
+
+		for (int i = 0; i < 5; i++) {
+			UserDO userDO = new UserDO();
+			userDO.setUsername("atest11" + i);
+			userDO.setEmail("ldw4033@163.com");
+			userDOList.add(userDO);
+
+		}
+
+		userDOService.saveBatch(userDOList, 4);
+		System.out.println(userDOList);
 	}
 
 //    @Test
@@ -99,7 +158,7 @@ public class UserServiceImplTest {
 		userDTO.setRealName("updatewwwwwName");
 		userDTO.setEmail("ldw4033@qq.com");
 
-		userService.updateEntity(userDTO);
+		userService.updateDTO(userDTO);
 	}
 
 	@Test
@@ -110,7 +169,7 @@ public class UserServiceImplTest {
 		userDTO.setRealName("updatewwwwwName");
 		userDTO.setEmail("ldw4033@qq.com");
 
-		userService.deleteEntity(userDTO.getId());
+		userService.removeById(userDTO.getId());
 	}
 
 	@Test
@@ -122,7 +181,7 @@ public class UserServiceImplTest {
 //        userDTO.setEmail("ldw4033@qq.com");
 
 
-		UserDTO entity = userService.getEntity(1164761415639158785L);
+		UserDTO entity = userService.getDTO(1164761415639158785L);
 		System.out.println(entity);
 	}
 
@@ -150,7 +209,7 @@ public class UserServiceImplTest {
 			1164788767198887938L,
 			1164788767215665154L,
 			1164788767232442369L};
-		userService.deleteBachEntity(ids);
+		userService.removeBatchByIds(Arrays.asList(ids));
 //        log.info("删除成功：{}", b);
 
 	}
@@ -167,11 +226,33 @@ public class UserServiceImplTest {
 
 		params.put(Constant.ORDER, Constant.ASC);
 		params.put(Constant.ORDER_FIELD, "id");
-
 //        params.put("account", "updateName");
+		params.put("username", "atest");
+
+		params.put("beginTime","2023-03-01");
+		params.put("endTime","2023-03-31");
+
+		PageData<UserDTO> page = userService.listDTOByPage(params);
+		log.info(page.toString());
+	}
 
 
-		PageData<UserDTO> page = userService.listEntityByPage(params);
+
+	@Test
+	public void page2() {
+		Map<String, Object> params = new HashMap<>();
+		params.put(Constant.PAGE, "1");
+		params.put(Constant.LIMIT, "10");
+		params.put(Constant.ORDER, Constant.ASC);
+		params.put(Constant.ORDER_FIELD, "createTime");
+		params.put("username", "atest");
+		params.put("beginTime","2023-03-01");
+		params.put("endTime","2023-03-31");
+
+		QueryParamsUtil.paramsToBeginAndEndDate(params);
+		QueryParamsUtil.paramsToLike(params,"username");
+
+		PageData<UserDTO> page = userDOService.page(params);
 		log.info(page.toString());
 	}
 }

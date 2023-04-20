@@ -64,29 +64,4 @@ public abstract class Base4DTOServiceImpl<M extends BaseDAO<T>, T, D> extends Ba
 	}
 
 
-	/**
-	 * 组装分页数据
-	 *
-	 * @param list   查询数据集合
-	 * @param total  总条数
-	 * @param target 目标实体对象
-	 * @return PageData
-	 */
-	protected <T> PageData<T> getPageData(List<?> list, long total, Class<T> target) {
-		List<T> targetList = ConvertUtils.sourceToTarget(list, target);
-		return new PageData<>(targetList, total);
-	}
-
-	/**
-	 * 组装分页数据
-	 *
-	 * @param page
-	 * @param target
-	 * @return PageData
-	 */
-	protected <T> PageData<T> getPageData(IPage page, Class<T> target) {
-		return getPageData(page.getRecords(), page.getTotal(), target);
-	}
-
-
 }

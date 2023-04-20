@@ -25,9 +25,9 @@ public abstract class BaseDO implements Serializable {
 	/**
 	 * 主键id 主键交由子类实现
 	 */
-	@TableId(value = "id", type = IdType.ASSIGN_ID)
-//     @TableId
-	private Serializable id;
+//	@TableId(value = "id", type = IdType.ASSIGN_ID)
+//  @TableId
+//	private Serializable id;
 	//
 	// /**
 	//  * 租户编号
@@ -41,12 +41,12 @@ public abstract class BaseDO implements Serializable {
 	// @JsonSerialize(using = ToStringSerializer.class)
 	@Schema(description = "创建部门")
 	@TableField(fill = FieldFill.INSERT)
-	private Serializable createDept;
+	private Long createDept;
 	/**
 	 * 创建人
 	 */
 	@TableField(fill = FieldFill.INSERT)
-	private Serializable createBy;
+	private Long createBy;
 
 	/**
 	 * 创建时间
@@ -62,7 +62,7 @@ public abstract class BaseDO implements Serializable {
 	 * 更新人
 	 */
 	@TableField(fill = FieldFill.INSERT_UPDATE)
-	private Serializable updateBy;
+	private Long updateBy;
 
 	/**
 	 * 更新时间

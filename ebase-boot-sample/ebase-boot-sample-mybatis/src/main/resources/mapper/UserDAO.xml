@@ -24,14 +24,33 @@
         <result property="revision" column="revision"/>
     </resultMap>
     <select id="getList" resultType="me.dwliu.ebase.sample.entity.UserDO">
-        select * from sys_user u
-        where 1=1
+        select *
+        from sys_user u
+        where 1 = 1
 
     </select>
     <select id="listPage4Vo" resultType="me.dwliu.ebase.sample.vo.UserVO">
-        select * from sys_user ;
+        select *
+        from sys_user
     </select>
 
+
+    <select id="getUserDTOList" resultType="me.dwliu.ebase.sample.dto.UserDTO">
+        select t1.*
+        from sys_user t1
+        <where>
+            <if test="username != null and username.trim() != ''">
+                and t1.username like #{username}
+            </if>
+            <if test="mobile != null and mobile.trim() != ''">
+                and t1.mobile like #{mobile}
+            </if>
+            <if test="beginTime != null  and endTime != null ">
+                and t1.create_time between #{beginTime} and #{endTime}
+            </if>
+        </where>
+
+    </select>
 
 
 </mapper>

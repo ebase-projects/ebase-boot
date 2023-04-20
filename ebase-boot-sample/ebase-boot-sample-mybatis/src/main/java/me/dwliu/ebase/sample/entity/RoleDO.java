@@ -1,7 +1,7 @@
 package me.dwliu.ebase.sample.entity;
 
 import com.baomidou.mybatisplus.annotation.TableId;
-import io.swagger.annotations.ApiModel;
+import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import me.dwliu.framework.core.mybatis.entity.BaseDO;

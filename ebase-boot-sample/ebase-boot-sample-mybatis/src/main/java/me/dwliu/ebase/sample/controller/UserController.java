@@ -1,9 +1,6 @@
 package me.dwliu.ebase.sample.controller;
 
-import io.swagger.annotations.Api;
-import io.swagger.annotations.ApiImplicitParam;
-import io.swagger.annotations.ApiImplicitParams;
-import io.swagger.annotations.ApiOperation;
+import jakarta.validation.groups.Default;
 import me.dwliu.ebase.sample.dto.UserDTO;
 import me.dwliu.ebase.sample.service.UserService;
 import me.dwliu.framework.common.code.SystemResultCode;
@@ -17,9 +14,8 @@ import me.dwliu.framework.core.mybatis.constant.Constant;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-import springfox.documentation.annotations.ApiIgnore;
 
-import javax.validation.groups.Default;
+import java.util.Arrays;
 import java.util.Map;
 
 /**
@@ -30,22 +26,22 @@ import java.util.Map;
  **/
 @RestController
 @RequestMapping("user")
-@Api(tags = "用户管理")
+//@Api(tags = "用户管理")
 public class UserController {
 
 	@Autowired
 	private UserService userService;
 
 	@GetMapping("page")
-	@ApiOperation("分页")
-	@ApiImplicitParams({
-		@ApiImplicitParam(name = Constant.PAGE, value = "当前页码，从1开始", paramType = "query", required = true, dataType = "int", example = "1"),
-		@ApiImplicitParam(name = Constant.LIMIT, value = "每页显示记录数", paramType = "query", required = true, dataType = "int", example = "10"),
-		@ApiImplicitParam(name = Constant.ORDER_FIELD, value = "排序字段", paramType = "query", dataType = "string"),
-		@ApiImplicitParam(name = Constant.ORDER, value = "排序方式，可选值(asc、desc)", paramType = "query", dataType = "string"),
-		@ApiImplicitParam(name = "username", value = "用户名", paramType = "query", dataType = "string")
-	})
-	public Result<PageData<UserDTO>> page(@ApiIgnore @RequestParam Map<String, Object> params) {
+//	@ApiOperation("分页")
+//	@ApiImplicitParams({
+//		@ApiImplicitParam(name = Constant.PAGE, value = "当前页码，从1开始", paramType = "query", required = true, dataType = "int", example = "1"),
+//		@ApiImplicitParam(name = Constant.LIMIT, value = "每页显示记录数", paramType = "query", required = true, dataType = "int", example = "10"),
+//		@ApiImplicitParam(name = Constant.ORDER_FIELD, value = "排序字段", paramType = "query", dataType = "string"),
+//		@ApiImplicitParam(name = Constant.ORDER, value = "排序方式，可选值(asc、desc)", paramType = "query", dataType = "string"),
+//		@ApiImplicitParam(name = "username", value = "用户名", paramType = "query", dataType = "string")
+//	})
+	public Result<PageData<UserDTO>> page(@RequestParam Map<String, Object> params) {
 		// PageData<UserDTO> page = userService.listUserByPage(params);
 		PageData<UserDTO> page = userService.listUserDTOByPage(params);
 
@@ -53,15 +49,15 @@ public class UserController {
 	}
 
 	@GetMapping("page4vo")
-	@ApiOperation("分页2")
-	@ApiImplicitParams({
-		@ApiImplicitParam(name = Constant.PAGE, value = "当前页码，从1开始", paramType = "query", required = true, dataType = "int", example = "1"),
-		@ApiImplicitParam(name = Constant.LIMIT, value = "每页显示记录数", paramType = "query", required = true, dataType = "int", example = "10"),
-		@ApiImplicitParam(name = Constant.ORDER_FIELD, value = "排序字段", paramType = "query", dataType = "string"),
-		@ApiImplicitParam(name = Constant.ORDER, value = "排序方式，可选值(asc、desc)", paramType = "query", dataType = "string"),
-		@ApiImplicitParam(name = "username", value = "用户名", paramType = "query", dataType = "string")
-	})
-	public Result<PageData<UserDTO>> page4vo(@ApiIgnore @RequestParam Map<String, Object> params) {
+//	@ApiOperation("分页2")
+//	@ApiImplicitParams({
+//		@ApiImplicitParam(name = Constant.PAGE, value = "当前页码，从1开始", paramType = "query", required = true, dataType = "int", example = "1"),
+//		@ApiImplicitParam(name = Constant.LIMIT, value = "每页显示记录数", paramType = "query", required = true, dataType = "int", example = "10"),
+//		@ApiImplicitParam(name = Constant.ORDER_FIELD, value = "排序字段", paramType = "query", dataType = "string"),
+//		@ApiImplicitParam(name = Constant.ORDER, value = "排序方式，可选值(asc、desc)", paramType = "query", dataType = "string"),
+//		@ApiImplicitParam(name = "username", value = "用户名", paramType = "query", dataType = "string")
+//	})
+	public Result<PageData<UserDTO>> page4vo(@RequestParam Map<String, Object> params) {
 		PageData<UserDTO> page = userService.listPage4Vo(params);
 
 		return Result.success(page);
@@ -69,42 +65,42 @@ public class UserController {
 
 
 	@GetMapping("{id}")
-	@ApiOperation("信息")
+//	@ApiOperation("信息")
 	public Result<UserDTO> get(@PathVariable("id") Long id) {
-		UserDTO data = userService.getEntity(id);
+		UserDTO data = userService.getDTO(id);
 
 		return Result.success(data);
 	}
 
 	@PostMapping
-	@ApiOperation("保存")
+//	@ApiOperation("保存")
 	public Result save(@RequestBody UserDTO dto) {
 		//效验数据
 		ValidatorUtils.validateEntity(dto, CreateGroup.class, Default.class);
 
-		userService.insertEntity(dto);
+		userService.insertDTO(dto);
 
 		return Result.success();
 	}
 
 	@PutMapping
-	@ApiOperation("修改")
+//	@ApiOperation("修改")
 	public Result update(@RequestBody UserDTO dto) {
 		//效验数据
 		ValidatorUtils.validateEntity(dto, UpdateGroup.class, Default.class);
 
-		userService.updateEntity(dto);
+		userService.updateDTO(dto);
 
 		return Result.success();
 	}
 
 	@DeleteMapping
-	@ApiOperation("删除")
+//	@ApiOperation("删除")
 	public Result delete(@RequestBody Long[] ids) {
 		//效验数据
 		//AssertUtils.isArrayEmpty(ids, "id");
 
-		userService.deleteBachEntity(ids);
+		userService.removeBatchByIds(Arrays.asList(ids));
 
 		return Result.success();
 	}
@@ -118,7 +114,7 @@ public class UserController {
 //	}
 
 	@GetMapping("test")
-	@ApiOperation("test")
+//	@ApiOperation("test")
 	public Result test(String str) {
 		//效验数据
 		//AssertUtils.isArrayEmpty(ids, "id");

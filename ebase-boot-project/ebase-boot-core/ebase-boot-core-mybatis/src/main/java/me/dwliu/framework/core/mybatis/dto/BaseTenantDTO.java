@@ -19,6 +19,6 @@ public abstract class BaseTenantDTO extends BaseDTO {
 	 * 租户编号
 	 */
 	@Schema(description = "租户编号")
-	private Serializable tenantId;
+	private Long tenantId;
 
 }

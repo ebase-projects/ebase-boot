@@ -20,13 +20,13 @@ spring:
       max-file-size: 100MB
       max-request-size: 100MB
       enabled: true
-  security:
-    oauth2:
-      client:
-        registration:
-          github:
-            client-id: eb7b2ce065e17db46e06
-            client-secret: d3ac0aaaa03ccbcd6d5d191a5a471c315c1e9364
+#  security:
+#    oauth2:
+#      client:
+#        registration:
+#          github:
+#            client-id: eb7b2ce065e17db46e06
+#            client-secret: d3ac0aaaa03ccbcd6d5d191a5a471c315c1e9364
 
 #mybatis
 mybatis-plus:
@@ -37,7 +37,7 @@ mybatis-plus:
     #数据库相关配置
     db-config:
       #主键类型  AUTO:"数据库ID自增", INPUT:"用户输入ID", ID_WORKER:"全局唯一ID (数字类型唯一ID)", UUID:"全局唯一ID UUID";
-      id-type: ID_WORKER
+      id-type: ASSIGN_ID
       #字段策略 IGNORED:"忽略判断",NOT_NULL:"非 NULL 判断"),NOT_EMPTY:"非空判断"
       field-strategy: NOT_NULL
       #驼峰下划线转换
@@ -52,19 +52,19 @@ mybatis-plus:
     call-setters-on-nulls: true
     jdbc-type-for-null: 'null'
 
-ebase:
-  swagger2:
-    docket:
-      aaa:
-        title: 测试
-        termsOfServiceUrl: http://blog.dwliu.me
-        base-package: me.dwliu.ebase.sample.controller
-        contact:
-          name: liudw
-          url: http://blog.dwliu.me/
-          email: liudw@qq.com
-        description: Starter for swagger 2.x
-        version: 1.0.0.RELEASE
+#ebase:
+#  swagger2:
+#    docket:
+#      aaa:
+#        title: 测试
+#        termsOfServiceUrl: http://blog.dwliu.me
+#        base-package: me.dwliu.ebase.sample.controller
+#        contact:
+#          name: liudw
+#          url: http://blog.dwliu.me/
+#          email: liudw@qq.com
+#        description: Starter for swagger 2.x
+#        version: 1.0.0.RELEASE
 #      bbb:
 #        base-package: me.dwliu.ebase.demo.test.controller
 #        title: 测试一下 bbb

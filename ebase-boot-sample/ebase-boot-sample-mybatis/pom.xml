@@ -29,10 +29,10 @@
         </dependency>
 
 
-        <dependency>
-            <groupId>me.dwliu.ebase</groupId>
-            <artifactId>ebase-boot-starter-datascope</artifactId>
-        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>me.dwliu.ebase</groupId>-->
+<!--            <artifactId>ebase-boot-starter-datascope</artifactId>-->
+<!--        </dependency>-->
 
         <!--        <dependency>-->
         <!--            <groupId>me.dwliu.ebase</groupId>-->
@@ -49,9 +49,15 @@
             <artifactId>druid-spring-boot-starter</artifactId>
         </dependency>
 
+
         <dependency>
-            <groupId>mysql</groupId>
-            <artifactId>mysql-connector-java</artifactId>
+            <groupId>com.mysql</groupId>
+            <artifactId>mysql-connector-j</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-jdbc</artifactId>
         </dependency>
 
         <dependency>
@@ -69,10 +75,10 @@
             <artifactId>hutool-all</artifactId>
         </dependency>
 
-        <dependency>
-            <groupId>me.dwliu.ebase</groupId>
-            <artifactId>ebase-boot-starter-swagger</artifactId>
-        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>me.dwliu.ebase</groupId>-->
+<!--            <artifactId>ebase-boot-starter-swagger</artifactId>-->
+<!--        </dependency>-->
 
         <!--https://gitee.com/xiaoym/knife4j/releases-->
         <!--<dependency>-->

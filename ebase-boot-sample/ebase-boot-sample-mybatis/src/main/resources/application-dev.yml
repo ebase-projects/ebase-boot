@@ -1,42 +1,30 @@
 spring:
-  datasource:
-    druid:
-      #MySQL
-      driver-class-name: com.mysql.jdbc.Driver
-      url: jdbc:mysql://39.106.141.187:3307/demo?allowMultiQueries=true&useUnicode=true&characterEncoding=UTF-8&useSSL=false
-      username: test
-      password: test1234
-      initial-size: 10
-      max-active: 100
-      min-idle: 10
-      max-wait: 6000
-      pool-prepared-statements: true
-      max-pool-prepared-statement-per-connection-size: 20
-      time-between-eviction-runs-millis: 60000
-      min-evictable-idle-time-millis: 300000
-      #Oracle需要打开注释
-      #validation-query: SELECT 1 FROM DUAL
-      test-while-idle: true
-      test-on-borrow: false
-      test-on-return: false
-      stat-view-servlet:
-        enabled: true
-        url-pattern: /druid/*
-        #login-username: admin
-        #login-password: admin
-      filter:
-        stat:
-          log-slow-sql: true
-          slow-sql-millis: 1000
-          merge-sql: false
-        wall:
-          config:
-            multi-statement-allow: true
+    datasource:
+        #MySQL
+        driver-class-name: com.mysql.cj.jdbc.Driver
+        url: jdbc:mysql://XXXX:3307/demo?allowMultiQueries=true&useUnicode=true&characterEncoding=UTF-8&useSSL=false
+        username: test
+        password: test1234
+        auto-commit: true
+        default-auto-commit: true
+        initial-size: 5
+        max-idle: 10
+        max-wait: 10000
+        maximum-pool-size: 100
+        min-idle: 5
+        minEvictableIdleTimeMillis: 300000
+        test-on-borrow: false
+        test-while-idle: true
+        time-between-eviction-runs-millis: 18800
+        validation-query: SELECT 1
 
 logging:
-  level:
-    org.springframework.jdbc.core.JdbcTemplate: DEBUG
+    level:
+        org.springframework.jdbc.core.JdbcTemplate: DEBUG
 
 ebase:
-  data-scope:
-    dataScopeLevel: OWN
+    data-scope:
+        dataScopeLevel: OWN
+
+
+

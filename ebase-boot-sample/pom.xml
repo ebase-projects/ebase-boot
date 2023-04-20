@@ -13,17 +13,17 @@
     <packaging>pom</packaging>
 
     <properties>
-        <spring.boot.version>2.1.11.RELEASE</spring.boot.version>
+        <spring.boot.version>3.0.5</spring.boot.version>
     </properties>
 
     <modules>
-        <module>ebase-boot-sample-oss</module>
+        <!--        <module>ebase-boot-sample-oss</module>-->
         <module>ebase-boot-sample-mybatis</module>
-        <module>ebase-boot-sample-swagger</module>
-        <module>ebase-boot-sample-feign</module>
-        <module>ebase-boot-sample-mongodb</module>
-        <module>ebase-boot-sample-redis</module>
-        <module>ebase-boot-sample-es</module>
+        <!--        <module>ebase-boot-sample-swagger</module>-->
+        <!--        <module>ebase-boot-sample-feign</module>-->
+        <!--        <module>ebase-boot-sample-mongodb</module>-->
+        <!--        <module>ebase-boot-sample-redis</module>-->
+        <!--        <module>ebase-boot-sample-es</module>-->
     </modules>
 
 </project>

@@ -26,10 +26,10 @@ public abstract class BaseDTO implements Serializable {
 	/**
 	 * 主键id
 	 */
-	@Schema(description = "主键id")
-	@NotNull(message = "主键不能为空", groups = UpdateGroup.class)
-	@Null(message = "主键必须为空", groups = CreateGroup.class)
-	private Serializable id;
+//	@Schema(description = "主键id")
+//	@NotNull(message = "主键不能为空", groups = UpdateGroup.class)
+//	@Null(message = "主键必须为空", groups = CreateGroup.class)
+//	private Serializable id;
 
 	// /**
 	//  * 状态[1:正常]
@@ -42,10 +42,10 @@ public abstract class BaseDTO implements Serializable {
 	 */
 	// @JsonSerialize(using = ToStringSerializer.class)
 	@Schema(description = "创建部门")
-	private Serializable createDept;
+	private Long createDept;
 
 	@Schema(description = "创建人", hidden = true)
-	private Serializable createBy;
+	private Long createBy;
 
 	@DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
 	@JsonSerialize(using = LocalDateTimeSerializer.class)
@@ -55,7 +55,7 @@ public abstract class BaseDTO implements Serializable {
 	private LocalDateTime createTime;
 
 	@Schema(description = "更新人", hidden = true)
-	private Serializable updateBy;
+	private Long updateBy;
 
 	@DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
 	@JsonSerialize(using = LocalDateTimeSerializer.class)
