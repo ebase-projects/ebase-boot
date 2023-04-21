@@ -1,14 +1,9 @@
 package me.dwliu.framework.autoconfigure.mybatis;
 
-import com.alibaba.fastjson.serializer.SerializeConfig;
-import com.alibaba.fastjson.serializer.SerializerFeature;
-import com.alibaba.fastjson.support.config.FastJsonConfig;
-import com.alibaba.fastjson.support.spring.FastJsonHttpMessageConverter;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.module.SimpleModule;
-import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.converter.ByteArrayHttpMessageConverter;
@@ -19,8 +14,6 @@ import org.springframework.http.converter.json.MappingJackson2HttpMessageConvert
 import org.springframework.http.converter.support.AllEncompassingFormHttpMessageConverter;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
-import java.math.BigInteger;
-import java.nio.charset.Charset;
 import java.text.SimpleDateFormat;
 import java.util.List;
 import java.util.TimeZone;
@@ -32,7 +25,6 @@ import java.util.TimeZone;
  * @date 2019-08-22 14:33
  **/
 @Configuration
-@ConditionalOnClass({FastJsonHttpMessageConverter.class})
 public class CustomWebMvcConfig implements WebMvcConfigurer {
 
 
@@ -82,38 +74,4 @@ public class CustomWebMvcConfig implements WebMvcConfigurer {
 	}
 
 
-	/**
-	 * fastjson的配置
-	 * https://www.jianshu.com/p/02e8db6b6b23
-	 */
-	//@Bean
-	public FastJsonHttpMessageConverter fastJsonHttpMessageConverter() {
-
-		FastJsonHttpMessageConverter converter = new FastJsonHttpMessageConverter();
-
-		FastJsonConfig fastJsonConfig = new FastJsonConfig();
-		fastJsonConfig.setSerializerFeatures(
-			SerializerFeature.PrettyFormat,
-			SerializerFeature.WriteMapNullValue,
-			SerializerFeature.WriteEnumUsingToString,
-			SerializerFeature.WriteNullStringAsEmpty
-		);
-		fastJsonConfig.setDateFormat("yyyy-MM-dd HH:mm:ss");
-		fastJsonConfig.setCharset(Charset.forName("utf-8"));
-
-		//解决Long转json精度丢失的问题
-		SerializeConfig serializeConfig = SerializeConfig.globalInstance;
-		serializeConfig.put(BigInteger.class, com.alibaba.fastjson.serializer.ToStringSerializer.instance);
-		serializeConfig.put(Long.class, com.alibaba.fastjson.serializer.ToStringSerializer.instance);
-		serializeConfig.put(Long.TYPE, com.alibaba.fastjson.serializer.ToStringSerializer.instance);
-
-		//驼峰转下划线
-		//https://github.com/alibaba/fastjson/wiki/PropertyNamingStrategy_cn
-		//serializeConfig.setPropertyNamingStrategy(com.alibaba.fastjson.PropertyNamingStrategy.SnakeCase);
-
-		fastJsonConfig.setSerializeConfig(serializeConfig);
-
-		converter.setFastJsonConfig(fastJsonConfig);
-		return converter;
-	}
 }

@@ -28,7 +28,6 @@
         <aliyun.sdk.core.version>4.5.3</aliyun.sdk.core.version>
         <aliyun.sdk.dysmsapi.version>1.1.0</aliyun.sdk.dysmsapi.version>
         <aliyun-java-sdk-dm.version>3.3.1</aliyun-java-sdk-dm.version>
-        <fastjson.version>1.2.83</fastjson.version>
 
         <!--apache-->
         <commons.fileupload.version>1.4</commons.fileupload.version>
@@ -315,11 +314,7 @@
             <!--    <version>${jackson.version}</version>-->
             <!--</dependency>-->
 
-            <dependency>
-                <groupId>com.alibaba</groupId>
-                <artifactId>fastjson</artifactId>
-                <version>${fastjson.version}</version>
-            </dependency>
+
             <!-- 二维码 -->
             <dependency>
                 <groupId>com.google.zxing</groupId>
