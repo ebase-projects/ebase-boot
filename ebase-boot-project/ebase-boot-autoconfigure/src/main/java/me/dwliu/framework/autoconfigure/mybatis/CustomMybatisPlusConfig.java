@@ -4,11 +4,13 @@ import cn.hutool.core.util.ObjectUtil;
 import com.baomidou.mybatisplus.core.MybatisConfiguration;
 import com.baomidou.mybatisplus.core.handlers.MetaObjectHandler;
 import com.baomidou.mybatisplus.extension.plugins.MybatisPlusInterceptor;
+import lombok.extern.slf4j.Slf4j;
 import me.dwliu.framework.core.mybatis.interceptor.QueryInterceptor;
-import me.dwliu.framework.integration.mybatis.handler.FieldMetaObjectHandler;
+import me.dwliu.framework.integration.mybatis.handler.DefaultFieldMetaObjectHandler;
 import me.dwliu.framework.integration.mybatis.plugin.CustomPaginationInterceptor;
 import org.springframework.beans.factory.ObjectProvider;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.annotation.AnnotationAwareOrderComparator;
@@ -20,6 +22,7 @@ import org.springframework.core.annotation.AnnotationAwareOrderComparator;
  * @author liudw
  * @date 2019-04-12 18:05
  **/
+@Slf4j
 @Configuration
 @ConditionalOnClass({MybatisConfiguration.class})
 public class CustomMybatisPlusConfig {
@@ -29,6 +32,7 @@ public class CustomMybatisPlusConfig {
 	 */
 	@Bean
 	public MybatisPlusInterceptor mybatisPlusInterceptor(ObjectProvider<QueryInterceptor[]> queryInterceptors) {
+		log.debug("===新MybatisPlus插件配置 ===");
 		MybatisPlusInterceptor interceptor = new MybatisPlusInterceptor();
 
 		// 配置分页拦截器
@@ -65,8 +69,10 @@ public class CustomMybatisPlusConfig {
 	 * @return
 	 */
 	@Bean
+	@ConditionalOnMissingBean({MetaObjectHandler.class})
 	public MetaObjectHandler fieldMetaObjectHandler() {
-		return new FieldMetaObjectHandler();
+		log.debug("===MysbatisPlus 公共字段自动填充值 生成默认的 MetaObjectHandler 实现===");
+		return new DefaultFieldMetaObjectHandler();
 	}
 
 

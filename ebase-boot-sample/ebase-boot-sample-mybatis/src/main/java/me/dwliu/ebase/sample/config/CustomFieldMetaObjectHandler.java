@@ -1,4 +1,4 @@
-package me.dwliu.framework.integration.mybatis.handler;
+package me.dwliu.ebase.sample.config;
 
 import com.baomidou.mybatisplus.core.handlers.MetaObjectHandler;
 import me.dwliu.framework.common.enums.YesOrNoEnum;
@@ -7,6 +7,7 @@ import me.dwliu.framework.core.security.entity.UserInfoDetails;
 import me.dwliu.framework.core.security.utils.SecurityUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.ibatis.reflection.MetaObject;
+import org.springframework.stereotype.Component;
 
 import java.time.LocalDateTime;
 
@@ -18,7 +19,7 @@ import java.time.LocalDateTime;
  * @date 2019-07-02 22:20
  **/
 //@Component
-public class FieldMetaObjectHandler implements MetaObjectHandler {
+public class CustomFieldMetaObjectHandler implements MetaObjectHandler {
 	private final static String CREATE_TIME = "createTime";
 	private final static String UPDATE_TIME = "updateTime";
 
@@ -29,28 +30,28 @@ public class FieldMetaObjectHandler implements MetaObjectHandler {
 
 	@Override
 	public void insertFill(MetaObject metaObject) {
-		UserInfoDetails user = SecurityUtils.getUser();
-		if (user != null) {
-			//创建者
-			if (metaObject.hasSetter(CREATE_BY)) {
-				if (StringUtils.isNotBlank(user.getUserId())) {
-					this.strictInsertFill(metaObject, CREATE_BY, Long.class, Long.parseLong(user.getUserId()));
-				}
 
-			}
-			//创建者所属部门
-			if (metaObject.hasSetter(CREATE_DEPT)) {
-				if (StringUtils.isNotBlank(user.getDeptId())) {
-					this.strictInsertFill(metaObject, CREATE_DEPT, Long.class, Long.parseLong(user.getDeptId()));
-				}
-			}
-			//更新者
-			if (metaObject.hasSetter(UPDATE_BY)) {
-				if (StringUtils.isNotBlank(user.getUserId())) {
-					this.strictInsertFill(metaObject, UPDATE_BY, Long.class, Long.parseLong(user.getUserId()));
-				}
-			}
+		//创建者
+		if (metaObject.hasSetter(CREATE_BY)) {
+			this.strictInsertFill(metaObject, CREATE_BY, Long.class, Long.parseLong("1111111"));
+
+
 		}
+		//创建者所属部门
+		if (metaObject.hasSetter(CREATE_DEPT)) {
+
+			this.strictInsertFill(metaObject, CREATE_DEPT, Long.class, Long.parseLong("1111111"));
+
+		}
+
+
+		//更新者
+//		if (metaObject.hasSetter(UPDATE_BY)) {
+//			if (StringUtils.isNotBlank(user.getUserId())) {
+//				this.strictInsertFill(metaObject, UPDATE_BY, Long.class, Long.parseLong(user.getUserId()));
+//			}
+//		}
+
 
 		LocalDateTime date = LocalDateTime.now();
 		//创建时间
@@ -98,5 +99,5 @@ public class FieldMetaObjectHandler implements MetaObjectHandler {
 			}
 		}
 
-    }
+	}
 }
