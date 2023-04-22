@@ -2,8 +2,6 @@ package me.dwliu.framework.common.enums;
 
 import lombok.Getter;
 
-import java.util.Objects;
-
 /**
  * Yes Or No 枚举定义
  *
@@ -24,13 +22,13 @@ public enum YesOrNoEnum implements BaseEnum {
 	}
 
 
-	public static void main(String[] args) {
-		System.out.println(BaseEnum.getEnum(YesOrNoEnum.class, 10).toString());
-		System.out.println(BaseEnum.getJsonStr(YesOrNoEnum.class));
-		System.out.println(BaseEnum.toList(YesOrNoEnum.class));
-		System.out.println(BaseEnum.toList4Enum(YesOrNoEnum.class));
-		System.out.println(BaseEnum.toMap(YesOrNoEnum.class));
-
-	}
+//	public static void main(String[] args) {
+//		System.out.println(BaseEnum.getEnum(YesOrNoEnum.class, 10).toString());
+//		System.out.println(BaseEnum.getJsonStr(YesOrNoEnum.class));
+//		System.out.println(BaseEnum.toList(YesOrNoEnum.class));
+//		System.out.println(BaseEnum.toList4Enum(YesOrNoEnum.class));
+//		System.out.println(BaseEnum.toMap(YesOrNoEnum.class));
+//
+//	}
 
 }
