@@ -27,12 +27,10 @@
             <groupId>me.dwliu.ebase</groupId>
             <artifactId>ebase-boot-starter-mybatis</artifactId>
         </dependency>
-
-
-<!--        <dependency>-->
-<!--            <groupId>me.dwliu.ebase</groupId>-->
-<!--            <artifactId>ebase-boot-starter-datascope</artifactId>-->
-<!--        </dependency>-->
+        <dependency>
+            <groupId>me.dwliu.ebase</groupId>
+            <artifactId>ebase-boot-starter-datascope</artifactId>
+        </dependency>
 
         <!--        <dependency>-->
         <!--            <groupId>me.dwliu.ebase</groupId>-->
@@ -44,10 +42,10 @@
             <artifactId>mybatis-plus-boot-starter</artifactId>
         </dependency>
 
-        <dependency>
-            <groupId>com.alibaba</groupId>
-            <artifactId>druid-spring-boot-starter</artifactId>
-        </dependency>
+        <!--        <dependency>-->
+        <!--            <groupId>com.alibaba</groupId>-->
+        <!--            <artifactId>druid-spring-boot-starter</artifactId>-->
+        <!--        </dependency>-->
 
 
         <dependency>
@@ -75,10 +73,10 @@
             <artifactId>hutool-all</artifactId>
         </dependency>
 
-<!--        <dependency>-->
-<!--            <groupId>me.dwliu.ebase</groupId>-->
-<!--            <artifactId>ebase-boot-starter-swagger</artifactId>-->
-<!--        </dependency>-->
+        <!--        <dependency>-->
+        <!--            <groupId>me.dwliu.ebase</groupId>-->
+        <!--            <artifactId>ebase-boot-starter-swagger</artifactId>-->
+        <!--        </dependency>-->
 
         <!--https://gitee.com/xiaoym/knife4j/releases-->
         <!--<dependency>-->

@@ -1,9 +1,5 @@
 package me.dwliu.framework.core.datascope.model;
 
-import lombok.Data;
-import me.dwliu.framework.core.datascope.constant.DataScopeConstant;
-import me.dwliu.framework.core.datascope.enums.DataScopeViewEnum;
-
 import java.io.Serializable;
 
 /**

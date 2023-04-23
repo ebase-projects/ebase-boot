@@ -28,11 +28,11 @@
             <optional>true</optional>
         </dependency>
 
-        <!--        <dependency>-->
-        <!--            <groupId>me.dwliu.ebase</groupId>-->
-        <!--            <artifactId>ebase-boot-integration-datascope</artifactId>-->
-        <!--            <optional>true</optional>-->
-        <!--        </dependency>-->
+        <dependency>
+            <groupId>me.dwliu.ebase</groupId>
+            <artifactId>ebase-boot-integration-datascope</artifactId>
+            <optional>true</optional>
+        </dependency>
 
         <!--        <dependency>-->
         <!--            <groupId>me.dwliu.ebase</groupId>-->
@@ -43,13 +43,6 @@
         <!--        <dependency>-->
         <!--            <groupId>me.dwliu.ebase</groupId>-->
         <!--            <artifactId>ebase-boot-integration-log</artifactId>-->
-        <!--            <optional>true</optional>-->
-        <!--        </dependency>-->
-
-
-        <!--        <dependency>-->
-        <!--            <groupId>me.dwliu.ebase</groupId>-->
-        <!--            <artifactId>ebase-boot-core-oss</artifactId>-->
         <!--            <optional>true</optional>-->
         <!--        </dependency>-->
 
@@ -68,20 +61,6 @@
         <!--        <dependency>-->
         <!--            <groupId>me.dwliu.ebase</groupId>-->
         <!--            <artifactId>ebase-boot-integration-security</artifactId>-->
-        <!--            <optional>true</optional>-->
-        <!--        </dependency>-->
-
-        <!--        <dependency>-->
-        <!--            <groupId>io.springfox</groupId>-->
-        <!--            <artifactId>springfox-boot-starter</artifactId>-->
-        <!--            <version>${springfox-swagger.version}</version>-->
-        <!--            <optional>true</optional>-->
-        <!--        </dependency>-->
-
-        <!--        <dependency>-->
-        <!--            <groupId>com.github.xiaoymin</groupId>-->
-        <!--            <artifactId>knife4j-springdoc-ui</artifactId>-->
-        <!--            <version>${knife4j-spring-ui}</version>-->
         <!--            <optional>true</optional>-->
         <!--        </dependency>-->
 

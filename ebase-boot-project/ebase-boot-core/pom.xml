@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
         <artifactId>ebase-boot-parent</artifactId>
         <groupId>me.dwliu.ebase</groupId>
@@ -20,12 +21,14 @@
     <modules>
         <module>ebase-boot-core-tool</module>
         <module>ebase-boot-core-security</module>
-<!--        <module>ebase-boot-core-oss</module>-->
-<!--        <module>ebase-boot-core-log</module>-->
-<!--        <module>ebase-boot-core-redis</module>-->
-<!--        <module>ebase-boot-core-datascope</module>-->
-<!--        <module>ebase-boot-core-mongodb</module>-->
         <module>ebase-boot-core-mybatis</module>
+        <module>ebase-boot-core-datascope</module>
+        <!--        <module>ebase-boot-core-oss</module>-->
+        <!--        <module>ebase-boot-core-log</module>-->
+        <!--        <module>ebase-boot-core-redis</module>-->
+
+        <!--        <module>ebase-boot-core-mongodb</module>-->
+
     </modules>
 
 

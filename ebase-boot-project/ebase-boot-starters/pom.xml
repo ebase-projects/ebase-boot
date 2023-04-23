@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
         <artifactId>ebase-boot-parent</artifactId>
         <groupId>me.dwliu.ebase</groupId>
@@ -14,13 +15,15 @@
 
     <modules>
         <module>ebase-boot-starter</module>
-<!--        <module>ebase-boot-starter-oss</module>-->
-<!--        <module>ebase-boot-starter-redis</module>-->
         <module>ebase-boot-starter-mybatis</module>
-<!--        <module>ebase-boot-starter-swagger</module>-->
-<!--        <module>ebase-boot-starter-log</module>-->
-<!--        <module>ebase-boot-starter-security</module>-->
-<!--        <module>ebase-boot-starter-datascope</module>-->
+        <module>ebase-boot-starter-datascope</module>
+        <!--        <module>ebase-boot-starter-oss</module>-->
+        <!--        <module>ebase-boot-starter-redis</module>-->
+
+        <!--        <module>ebase-boot-starter-swagger</module>-->
+        <!--        <module>ebase-boot-starter-log</module>-->
+        <!--        <module>ebase-boot-starter-security</module>-->
+
     </modules>
 
 

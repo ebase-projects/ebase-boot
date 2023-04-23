@@ -33,12 +33,10 @@ public interface DataScopeConstant {
             for (int i = 0; i < size; i++) {
                 builder.append("?,");
             }
-
             //去除最后的 ，
             return StringUtils.substringBeforeLast(builder.toString(), ",");
 
         }
-
         return builder.toString();
 
     }
