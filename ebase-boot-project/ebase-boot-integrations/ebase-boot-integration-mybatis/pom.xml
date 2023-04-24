@@ -19,6 +19,11 @@
 
     <dependencies>
         <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
             <groupId>me.dwliu.ebase</groupId>
             <artifactId>ebase-boot-integration</artifactId>
         </dependency>
