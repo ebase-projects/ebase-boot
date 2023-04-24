@@ -23,9 +23,10 @@
         <module>ebase-boot-core-security</module>
         <module>ebase-boot-core-mybatis</module>
         <module>ebase-boot-core-datascope</module>
+        <module>ebase-boot-core-redis</module>
+        <module>ebase-boot-core-log</module>
         <!--        <module>ebase-boot-core-oss</module>-->
-        <!--        <module>ebase-boot-core-log</module>-->
-        <!--        <module>ebase-boot-core-redis</module>-->
+
 
         <!--        <module>ebase-boot-core-mongodb</module>-->
 

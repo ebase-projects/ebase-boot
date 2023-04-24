@@ -1,8 +1,7 @@
 package me.dwliu.framework.core.tool.util;
 
+import lombok.extern.slf4j.Slf4j;
 import me.dwliu.framework.core.tool.bean.BeanMapper;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.BeanUtils;
 
 import java.util.ArrayList;
@@ -14,8 +13,8 @@ import java.util.List;
  *
  * @author eric
  */
+@Slf4j
 public class ConvertUtils {
-	private static Logger logger = LoggerFactory.getLogger(ConvertUtils.class);
 
 	/**
 	 * 单个实体复制 不支持List T->D
@@ -64,7 +63,7 @@ public class ConvertUtils {
 
 				BeanUtils.copyProperties(source, targetObject);
 			} catch (Exception e) {
-				logger.error("convert error ", e);
+				log.error("convert error ", e);
 			}
 
 		}
@@ -129,7 +128,7 @@ public class ConvertUtils {
 					targetList.add(targetObject);
 				}
 			} catch (Exception e) {
-				logger.error("convert error ", e);
+				log.error("convert error ", e);
 			}
 		}
 

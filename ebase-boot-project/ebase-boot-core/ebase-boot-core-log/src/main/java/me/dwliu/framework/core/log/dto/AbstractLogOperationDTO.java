@@ -19,7 +19,7 @@ import java.util.Date;
  * @date 2020/7/5 11:43
  **/
 @Data
-public abstract class AbstractLogOperationDTO implements Serializable {
+public abstract class AbstractLogOperationDTO implements OperationDTO {
 	/**
 	 * 用户操作类型
 	 */

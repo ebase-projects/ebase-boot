@@ -2,13 +2,13 @@ me.dwliu.framework.autoconfigure.mybatis.CustomMybatisPlusConfig
 me.dwliu.framework.autoconfigure.mybatis.CustomWebMvcConfig
 me.dwliu.framework.autoconfigure.mybatis.GlobalExceptionHandlerConfig
 me.dwliu.framework.autoconfigure.datascope.DataScopeConfiguration
-#me.dwliu.framework.autoconfigure.log.LogActionConfig
-#me.dwliu.framework.autoconfigure.log.ExecutorConfig
+me.dwliu.framework.autoconfigure.log.LogActionAutoConfiguration
+me.dwliu.framework.autoconfigure.log.ExecutorConfig
+me.dwliu.framework.autoconfigure.redis.CustomRedisAutoConfiguration
 #me.dwliu.framework.autoconfigure.oss.OssAutoConfiguration
 #me.dwliu.framework.autoconfigure.oss.MinioOssAutoConfiguration
 #me.dwliu.framework.autoconfigure.oss.QiniuOssAutoConfiguration
 #me.dwliu.framework.autoconfigure.oss.AliyunOssAutoConfiguration
-#me.dwliu.framework. autoconfigure.redis.RedisAutoConfiguration
 #me.dwliu.framework.autoconfigure.security.SecurityConfig
 #me.dwliu.framework.autoconfigure.security.ValidateCodeBeanConfig
 #me.dwliu.framework.autoconfigure.swagger.SwaggerAutoConfiguration

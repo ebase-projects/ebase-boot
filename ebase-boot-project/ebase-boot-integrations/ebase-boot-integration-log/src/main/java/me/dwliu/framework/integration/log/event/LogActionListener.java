@@ -2,10 +2,8 @@ package me.dwliu.framework.integration.log.event;
 
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import me.dwliu.framework.common.model.Result;
 import me.dwliu.framework.core.log.dto.LogOperationDTO;
-import me.dwliu.framework.core.security.constant.SecurityCoreConstant;
-import me.dwliu.framework.integration.log.feign.RemoteSysLogOperationService;
+import me.dwliu.framework.core.log.producer.LogProducer;
 import org.springframework.context.event.EventListener;
 import org.springframework.scheduling.annotation.Async;
 
@@ -22,9 +20,7 @@ import java.util.Map;
 @AllArgsConstructor
 //@EnableAsync
 public class LogActionListener {
-
-	private RemoteSysLogOperationService remoteSysLogOperationService;
-
+	private final LogProducer logProducer;
 
 	@Async("taskAsyncExecutor")
 	@EventListener(LogActionEvent.class)
@@ -35,13 +31,14 @@ public class LogActionListener {
 
 		//logAction.get("logAction");
 
-
-		LogOperationDTO sysLogOperationDTO = (LogOperationDTO) logAction.get("logAction");
+		LogOperationDTO dto = (LogOperationDTO) logAction.get("logAction");
 
 		log.info("{}", logAction);
 
-		Result<Boolean> result = remoteSysLogOperationService.save(sysLogOperationDTO, SecurityCoreConstant.FROM_IN);
-		log.info("result:「{}」", result);
+		// 保存到DB
+		logProducer.saveLog(dto);
+
+
 
 	}
 }

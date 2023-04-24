@@ -1,4 +1,4 @@
-package me.dwliu.framework.integration.redis;
+package me.dwliu.framework.core.redis;
 
 import org.springframework.data.redis.core.HashOperations;
 import org.springframework.data.redis.core.RedisTemplate;
@@ -124,7 +124,6 @@ public class RedisService {
 
 	public void leftPush(String key, Object value, long expire) {
 		redisTemplate.opsForList().leftPush(key, value);
-
 		if (expire != NOT_EXPIRE) {
 			expire(key, expire);
 		}

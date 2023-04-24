@@ -19,9 +19,7 @@ public class LogActionPublisher {
 		log.info("操作日志信息事件发布");
 
 		Map<String, Object> event = new HashMap<>();
-
 		event.put("logAction", logAction);
-
 		SpringContextUtil.publishEvent(new LogActionEvent(event));
 
 	}

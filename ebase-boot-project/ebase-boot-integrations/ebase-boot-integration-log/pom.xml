@@ -19,13 +19,13 @@
 
     <dependencies>
         <dependency>
-            <groupId>me.dwliu.ebase</groupId>
-            <artifactId>ebase-boot-integration</artifactId>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <scope>provided</scope>
         </dependency>
-
         <dependency>
             <groupId>me.dwliu.ebase</groupId>
-            <artifactId>ebase-boot-core-log</artifactId>
+            <artifactId>ebase-boot-integration</artifactId>
         </dependency>
 
         <dependency>
@@ -35,58 +35,28 @@
 
         <dependency>
             <groupId>me.dwliu.ebase</groupId>
-            <artifactId>ebase-boot-core-security</artifactId>
+            <artifactId>ebase-boot-core-redis</artifactId>
         </dependency>
 
         <dependency>
             <groupId>me.dwliu.ebase</groupId>
-            <artifactId>ebase-boot-integration-redis</artifactId>
+            <artifactId>ebase-boot-core-log</artifactId>
         </dependency>
 
         <dependency>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok</artifactId>
+            <groupId>me.dwliu.ebase</groupId>
+            <artifactId>ebase-boot-core-security</artifactId>
         </dependency>
-
-
-        <!--        <dependency>-->
-        <!--            <groupId>me.dwliu.ebase</groupId>-->
-        <!--            <artifactId>ebase-boot-core-base</artifactId>-->
-        <!--        </dependency>-->
         <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-aop</artifactId>
-            <scope>provided</scope>
+            <groupId>org.aspectj</groupId>
+            <artifactId>aspectjweaver</artifactId>
+            <optional>true</optional>
         </dependency>
-
         <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
-            <scope>provided</scope>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-web</artifactId>
+            <optional>true</optional>
         </dependency>
-
-        <!--        <dependency>-->
-        <!--            <groupId>org.springframework.boot</groupId>-->
-        <!--            <artifactId>spring-boot-starter-data-redis</artifactId>-->
-        <!--            <scope>provided</scope>-->
-        <!--        </dependency>-->
-
-
-        <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-openfeign</artifactId>
-        </dependency>
-
-        <!--        &lt;!&ndash;Mybatis&ndash;&gt;-->
-        <!--        <dependency>-->
-        <!--            <groupId>com.baomidou</groupId>-->
-        <!--            <artifactId>mybatis-plus-boot-starter</artifactId>-->
-        <!--            <scope>provided</scope>-->
-        <!--        </dependency>-->
-        <!--        <dependency>-->
-        <!--            <groupId>com.fasterxml.jackson.core</groupId>-->
-        <!--            <artifactId>jackson-annotations</artifactId>-->
-        <!--        </dependency>-->
 
 
     </dependencies>

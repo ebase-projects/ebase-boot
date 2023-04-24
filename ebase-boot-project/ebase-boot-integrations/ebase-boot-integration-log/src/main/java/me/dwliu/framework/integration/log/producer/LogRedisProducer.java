@@ -2,9 +2,9 @@ package me.dwliu.framework.integration.log.producer;
 
 import lombok.extern.slf4j.Slf4j;
 import me.dwliu.framework.core.log.constant.LogConstant;
-import me.dwliu.framework.core.log.dto.AbstractLogOperationDTO;
+import me.dwliu.framework.core.log.dto.OperationDTO;
 import me.dwliu.framework.core.log.producer.LogProducer;
-import me.dwliu.framework.integration.redis.RedisService;
+import me.dwliu.framework.core.redis.RedisService;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.scheduling.annotation.EnableAsync;
 
@@ -19,18 +19,7 @@ import org.springframework.scheduling.annotation.EnableAsync;
 @Slf4j
 @EnableAsync
 public class LogRedisProducer implements LogProducer {
-
-
-	// private final RedisTemplate redisTemplate;
 	private final RedisService redisService;
-
-	// ThreadFactory namedThreadFactory = new ThreadFactoryBuilder().setNameFormat("log-producer-pool-%d").build();
-	// ExecutorService pool = new ThreadPoolExecutor(5, 200, 0L, TimeUnit.MILLISECONDS,
-	// 	new LinkedBlockingQueue<>(1024), namedThreadFactory, new ThreadPoolExecutor.AbortPolicy());
-
-	// public LogRedisProducer(RedisTemplate redisTemplate) {
-	// 	this.redisTemplate = redisTemplate;
-	// }
 
 	public LogRedisProducer(RedisService redisService) {
 		this.redisService = redisService;
@@ -43,7 +32,7 @@ public class LogRedisProducer implements LogProducer {
 	 */
 	@Override
 	@Async("taskAsyncExecutor")
-	public void saveLog(AbstractLogOperationDTO dto) {
+	public void saveLog(OperationDTO dto) {
 		log.trace("通过Redis发送异步数据");
 		if (dto == null) {
 			return;
@@ -58,4 +47,5 @@ public class LogRedisProducer implements LogProducer {
 
 
 	}
+
 }

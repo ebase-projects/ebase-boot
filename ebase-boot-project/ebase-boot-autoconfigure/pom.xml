@@ -13,6 +13,11 @@
 
     <dependencies>
         <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-autoconfigure-processor</artifactId>
         </dependency>
@@ -33,18 +38,20 @@
             <artifactId>ebase-boot-integration-datascope</artifactId>
             <optional>true</optional>
         </dependency>
+        <!--redis-->
+        <dependency>
+            <groupId>me.dwliu.ebase</groupId>
+            <artifactId>ebase-boot-integration-redis</artifactId>
+            <optional>true</optional>
+        </dependency>
 
-        <!--        <dependency>-->
-        <!--            <groupId>me.dwliu.ebase</groupId>-->
-        <!--            <artifactId>ebase-boot-core-log</artifactId>-->
-        <!--            <optional>true</optional>-->
-        <!--        </dependency>-->
 
-        <!--        <dependency>-->
-        <!--            <groupId>me.dwliu.ebase</groupId>-->
-        <!--            <artifactId>ebase-boot-integration-log</artifactId>-->
-        <!--            <optional>true</optional>-->
-        <!--        </dependency>-->
+        <dependency>
+            <groupId>me.dwliu.ebase</groupId>
+            <artifactId>ebase-boot-integration-log</artifactId>
+            <optional>true</optional>
+        </dependency>
+
 
         <!--        <dependency>-->
         <!--            <groupId>me.dwliu.ebase</groupId>-->
@@ -52,11 +59,6 @@
         <!--            <optional>true</optional>-->
         <!--        </dependency>-->
 
-        <!--        <dependency>-->
-        <!--            <groupId>me.dwliu.ebase</groupId>-->
-        <!--            <artifactId>ebase-boot-integration-redis</artifactId>-->
-        <!--            <optional>true</optional>-->
-        <!--        </dependency>-->
 
         <!--        <dependency>-->
         <!--            <groupId>me.dwliu.ebase</groupId>-->
