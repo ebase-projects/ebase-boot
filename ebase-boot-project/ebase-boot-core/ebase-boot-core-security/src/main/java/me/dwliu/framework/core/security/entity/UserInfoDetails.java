@@ -5,6 +5,7 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.User;
 
 import java.util.Collection;
+import java.util.Collections;
 
 /**
  * Spring Security 用户信息拓展
@@ -29,7 +30,7 @@ public class UserInfoDetails extends User {
 	/**
 	 * 账号
 	 */
-	private String username;
+	private final String username;
 	/**
 	 * 部门id
 	 */
@@ -50,23 +51,49 @@ public class UserInfoDetails extends User {
 	 * 头像
 	 */
 	private String avatar;
-
 	/**
 	 * 超级管理员   0：否   1：是
 	 */
 	private Integer superAdmin;
 
+//	public UserInfoDetails(String username) {
+//		super(username, "", Arrays.asList(new SimpleGrantedAuthority("1")));
+//		this.username = username;
+//	}
 
 	public UserInfoDetails(String username) {
-		super(username, "", null);
+		super(username, "", Collections.EMPTY_LIST);
 		this.username = username;
 	}
 
+	public UserInfoDetails(String username, Collection<? extends GrantedAuthority> authorities) {
+		super(username, "", authorities);
+		this.username = username;
+	}
+
+	public UserInfoDetails(String userId, String realName, String deptId, String deptName,
+						   String roleId, String roleName, String avatar,
+						   String username, String password, int superAdmin, boolean enabled, boolean accountNonExpired,
+						   boolean credentialsNonExpired, boolean accountNonLocked,
+						   Collection<? extends GrantedAuthority> authorities) {
+		super(username, password, enabled, accountNonExpired, credentialsNonExpired, accountNonLocked, authorities);
+		this.userId = userId;
+		this.realName = realName;
+		this.username = username;
+		this.deptId = deptId;
+		this.deptName = deptName;
+		this.roleId = roleId;
+		this.roleName = roleName;
+		this.avatar = avatar;
+		this.superAdmin = superAdmin;
+
+	}
+
 	public UserInfoDetails(String userId, String tenantCode, String realName, String deptId,
-	                       String deptName, String roleId, String roleName, String avatar,
-	                       String username, String password, int superAdmin, boolean enabled, boolean accountNonExpired,
-	                       boolean credentialsNonExpired, boolean accountNonLocked,
-	                       Collection<? extends GrantedAuthority> authorities) {
+						   String deptName, String roleId, String roleName, String avatar,
+						   String username, String password, int superAdmin, boolean enabled, boolean accountNonExpired,
+						   boolean credentialsNonExpired, boolean accountNonLocked,
+						   Collection<? extends GrantedAuthority> authorities) {
 		super(username, password, enabled, accountNonExpired, credentialsNonExpired, accountNonLocked, authorities);
 		this.userId = userId;
 		this.tenantCode = tenantCode;

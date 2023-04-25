@@ -2,6 +2,8 @@ package me.dwliu.framework.integration.security.validatecode.image;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.Setter;
 import me.dwliu.framework.integration.security.validatecode.ValidateCode;
 
 import java.awt.image.BufferedImage;
@@ -13,7 +15,8 @@ import java.time.LocalDateTime;
  * @author liudw
  * @date 2019-04-23 14:16
  **/
-@Data
+@Getter
+@Setter
 @EqualsAndHashCode(callSuper = true)
 public class ImageCode extends ValidateCode {
 

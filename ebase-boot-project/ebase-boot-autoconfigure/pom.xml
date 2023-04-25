@@ -21,18 +21,15 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-autoconfigure-processor</artifactId>
         </dependency>
-
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-actuator-autoconfigure</artifactId>
         </dependency>
-
         <dependency>
             <groupId>me.dwliu.ebase</groupId>
             <artifactId>ebase-boot-integration-mybatis</artifactId>
             <optional>true</optional>
         </dependency>
-
         <dependency>
             <groupId>me.dwliu.ebase</groupId>
             <artifactId>ebase-boot-integration-datascope</artifactId>
@@ -44,25 +41,26 @@
             <artifactId>ebase-boot-integration-redis</artifactId>
             <optional>true</optional>
         </dependency>
-
-
         <dependency>
             <groupId>me.dwliu.ebase</groupId>
             <artifactId>ebase-boot-integration-log</artifactId>
             <optional>true</optional>
         </dependency>
+        <dependency>
+            <groupId>me.dwliu.ebase</groupId>
+            <artifactId>ebase-boot-integration-security</artifactId>
+            <optional>true</optional>
+        </dependency>
 
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-webflux</artifactId>
+            <optional>true</optional>
+        </dependency>
 
         <!--        <dependency>-->
         <!--            <groupId>me.dwliu.ebase</groupId>-->
         <!--            <artifactId>ebase-boot-integration-oss</artifactId>-->
-        <!--            <optional>true</optional>-->
-        <!--        </dependency>-->
-
-
-        <!--        <dependency>-->
-        <!--            <groupId>me.dwliu.ebase</groupId>-->
-        <!--            <artifactId>ebase-boot-integration-security</artifactId>-->
         <!--            <optional>true</optional>-->
         <!--        </dependency>-->
 

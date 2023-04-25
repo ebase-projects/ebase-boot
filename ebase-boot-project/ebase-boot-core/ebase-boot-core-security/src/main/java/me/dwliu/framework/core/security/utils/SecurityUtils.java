@@ -41,7 +41,7 @@ public class SecurityUtils {
 		if (principal instanceof UserInfoDetails) {
 			return (UserInfoDetails) principal;
 		} else if (principal instanceof String) {
-			UserInfoDetails userInfoDetails = new UserInfoDetails((String) principal);
+			UserInfoDetails userInfoDetails = new UserInfoDetails((String) principal, authentication.getAuthorities());
 			return userInfoDetails;
 		}
 		return null;
@@ -67,12 +67,10 @@ public class SecurityUtils {
 		Collection<? extends GrantedAuthority> authorities = authentication.getAuthorities();
 
 		List<Integer> roleIds = new ArrayList<>();
-		authorities.stream()
-			.filter(granted -> StrUtil.startWith(granted.getAuthority(), SecurityCoreConstant.ROLE))
-			.forEach(granted -> {
-				String id = StrUtil.removePrefix(granted.getAuthority(), SecurityCoreConstant.ROLE);
-				roleIds.add(Integer.parseInt(id));
-			});
+		authorities.stream().filter(granted -> StrUtil.startWith(granted.getAuthority(), SecurityCoreConstant.ROLE)).forEach(granted -> {
+			String id = StrUtil.removePrefix(granted.getAuthority(), SecurityCoreConstant.ROLE);
+			roleIds.add(Integer.parseInt(id));
+		});
 		return roleIds;
 	}
 

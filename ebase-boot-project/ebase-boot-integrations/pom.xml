@@ -18,10 +18,9 @@
         <module>ebase-boot-integration-datascope</module>
         <module>ebase-boot-integration-redis</module>
         <module>ebase-boot-integration-log</module>
+        <module>ebase-boot-integration-security</module>
         <!--        <module>ebase-boot-integration-oss</module>-->
 
-
-        <!--        <module>ebase-boot-integration-security</module>-->
 
     </modules>
 

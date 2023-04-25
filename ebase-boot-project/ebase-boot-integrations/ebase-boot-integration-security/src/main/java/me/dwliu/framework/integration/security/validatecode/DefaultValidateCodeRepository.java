@@ -1,7 +1,8 @@
 package me.dwliu.framework.integration.security.validatecode;
 
-import com.google.common.cache.Cache;
-import com.google.common.cache.CacheBuilder;
+import cn.hutool.cache.Cache;
+import cn.hutool.cache.CacheUtil;
+
 import lombok.extern.slf4j.Slf4j;
 import me.dwliu.framework.integration.security.validatecode.enums.ValidateCodeTypeEnum;
 import org.apache.commons.lang3.StringUtils;
@@ -20,8 +21,10 @@ public class DefaultValidateCodeRepository implements ValidateCodeRepository {
 	/**
 	 * Local Cache  5分钟过期
 	 */
-	Cache<String, ValidateCode> localCache = CacheBuilder.newBuilder()
-		.maximumSize(1000).expireAfterAccess(5, TimeUnit.MINUTES).build();
+//	Cache<String, ValidateCode> localCache = CacheBuilder.newBuilder()
+//		.maximumSize(1000).expireAfterAccess(5, TimeUnit.MINUTES).build();
+
+	Cache<String, ValidateCode> localCache = CacheUtil.newFIFOCache(5000, 5 * 60 * 1000);
 
 
 	/**
@@ -33,6 +36,7 @@ public class DefaultValidateCodeRepository implements ValidateCodeRepository {
 	 */
 	@Override
 	public void save(ServletWebRequest request, ValidateCode code, ValidateCodeTypeEnum codeType) {
+
 		localCache.put(buildKey(request, codeType), code);
 	}
 
@@ -45,7 +49,7 @@ public class DefaultValidateCodeRepository implements ValidateCodeRepository {
 	 */
 	@Override
 	public ValidateCode get(ServletWebRequest request, ValidateCodeTypeEnum codeType) {
-		return localCache.getIfPresent(buildKey(request, codeType));
+		return localCache.get(buildKey(request, codeType));
 	}
 
 	/**
@@ -54,7 +58,7 @@ public class DefaultValidateCodeRepository implements ValidateCodeRepository {
 	 */
 	@Override
 	public void remove(ServletWebRequest request, ValidateCodeTypeEnum codeType) {
-		localCache.invalidate(buildKey(request, codeType));
+		localCache.remove(buildKey(request, codeType));
 	}
 
 	private String buildKey(ServletWebRequest request, ValidateCodeTypeEnum codeTypeEnum) {

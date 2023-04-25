@@ -4,7 +4,7 @@ import lombok.extern.slf4j.Slf4j;
 import me.dwliu.framework.common.model.Result;
 import me.dwliu.framework.core.security.constant.SecurityCoreConstant;
 import me.dwliu.framework.core.security.entity.UserInfoDetails;
-import me.dwliu.framework.integration.security.feign.UserInfoDetailsFeignClient;
+import me.dwliu.framework.integration.security.feign.UserInfoDetailsWebClient;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -17,8 +17,9 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
  **/
 @Slf4j
 public class DefaultUserDetailsServiceImpl implements CustomUserDetailsService {
+
 	@Autowired(required = false)
-	private UserInfoDetailsFeignClient userInfoDetailsFeignClient;
+	private UserInfoDetailsWebClient userInfoDetailsWebClient;
 
 
 	@Override
@@ -28,7 +29,7 @@ public class DefaultUserDetailsServiceImpl implements CustomUserDetailsService {
 
 	@Override
 	public UserDetails loadUserByMobile(String mobile) throws UsernameNotFoundException {
-		Result<UserInfoDetails> userByMobile = userInfoDetailsFeignClient.getUserByMobile(mobile);
+		Result<UserInfoDetails> userByMobile = userInfoDetailsWebClient.getUserByMobile(mobile);
 		if (userByMobile == null) {
 			throw new UsernameNotFoundException("用户手机号不存在");
 		}
@@ -41,7 +42,7 @@ public class DefaultUserDetailsServiceImpl implements CustomUserDetailsService {
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 
-		Result<UserInfoDetails> userInfoDetailsResult = userInfoDetailsFeignClient.getUserInfo(username, SecurityCoreConstant.FROM_IN);
+		Result<UserInfoDetails> userInfoDetailsResult = userInfoDetailsWebClient.getUserInfo(username, SecurityCoreConstant.FROM_IN);
 		return userInfoDetailsResult.getData();
 	}
 

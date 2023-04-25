@@ -1,11 +1,11 @@
 package me.dwliu.framework.integration.security.validatecode.image;
 
+import jakarta.servlet.http.HttpServletResponse;
 import me.dwliu.framework.integration.security.validatecode.AbstractValidateCodeProcessor;
 import org.springframework.stereotype.Component;
 import org.springframework.web.context.request.ServletWebRequest;
 
 import javax.imageio.ImageIO;
-import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 /**

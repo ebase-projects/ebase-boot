@@ -1,6 +1,5 @@
 package me.dwliu.framework.integration.security.component;
 
-import org.springframework.cloud.client.loadbalancer.LoadBalanced;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Primary;
@@ -19,7 +18,7 @@ import java.io.IOException;
 public class ResourceServerAutoConfiguration {
 	@Bean
 	@Primary
-	@LoadBalanced
+//	@LoadBalanced
 	public RestTemplate lbRestTemplate() {
 		RestTemplate restTemplate = new RestTemplate();
 		restTemplate.setErrorHandler(new DefaultResponseErrorHandler() {

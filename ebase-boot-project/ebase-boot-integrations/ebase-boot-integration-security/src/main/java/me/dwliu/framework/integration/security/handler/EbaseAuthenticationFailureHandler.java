@@ -1,6 +1,9 @@
 package me.dwliu.framework.integration.security.handler;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import jakarta.servlet.ServletException;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -8,9 +11,6 @@ import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.web.authentication.SimpleUrlAuthenticationFailureHandler;
 import org.springframework.stereotype.Component;
 
-import javax.servlet.ServletException;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 /**
@@ -39,7 +39,7 @@ public class EbaseAuthenticationFailureHandler extends SimpleUrlAuthenticationFa
 	 */
 	@Override
 	public void onAuthenticationFailure(HttpServletRequest request, HttpServletResponse response,
-	                                    AuthenticationException exception) throws IOException, ServletException {
+										AuthenticationException exception) throws IOException, ServletException {
 
 		log.info("登陆失败");
 
