@@ -1,5 +1,6 @@
 package me.dwliu.framework.integration.security.service;
 
+import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -22,9 +23,9 @@ import java.util.List;
  * @date 2019-04-29 16:36
  **/
 @Slf4j
+@AllArgsConstructor
 public class DemoUserDetailsService implements CustomUserDetailsService {
-	@Autowired
-	private PasswordEncoder passwordEncoder;
+	private final PasswordEncoder passwordEncoder;
 
 	/**
 	 * Locates the user based on the username. In the actual implementation, the search

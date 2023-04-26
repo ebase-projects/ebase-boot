@@ -21,11 +21,11 @@ import org.springframework.stereotype.Component;
 public class SmsCodeAuthenticationSecurityConfig
 	extends SecurityConfigurerAdapter<DefaultSecurityFilterChain, HttpSecurity> {
 
-	@Autowired
-	private AuthenticationSuccessHandler ebaseAuthenticationSuccessHandler;
+//	@Autowired
+//	private AuthenticationSuccessHandler ebaseAuthenticationSuccessHandler;
 
-	@Autowired
-	private AuthenticationFailureHandler ebaseAuthenticationFailureHandler;
+//	@Autowired
+//	private AuthenticationFailureHandler ebaseAuthenticationFailureHandler;
 
 	@Autowired
 	private CustomUserDetailsService userDetailsService;
@@ -37,8 +37,8 @@ public class SmsCodeAuthenticationSecurityConfig
 	public void configure(HttpSecurity http) throws Exception {
 		SmsCodeAuthenticationFilter smsCodeAuthenticationFilter = new SmsCodeAuthenticationFilter();
 		smsCodeAuthenticationFilter.setAuthenticationManager(http.getSharedObject(AuthenticationManager.class));
-		smsCodeAuthenticationFilter.setAuthenticationSuccessHandler(ebaseAuthenticationSuccessHandler);
-		smsCodeAuthenticationFilter.setAuthenticationFailureHandler(ebaseAuthenticationFailureHandler);
+//		smsCodeAuthenticationFilter.setAuthenticationSuccessHandler(ebaseAuthenticationSuccessHandler);
+//		smsCodeAuthenticationFilter.setAuthenticationFailureHandler(ebaseAuthenticationFailureHandler);
 
 //		String key = UUID.randomUUID().toString();
 //		smsCodeAuthenticationFilter.setRememberMeServices(

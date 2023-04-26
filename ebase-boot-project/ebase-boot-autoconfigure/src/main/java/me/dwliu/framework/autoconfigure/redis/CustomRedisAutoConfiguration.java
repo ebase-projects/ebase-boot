@@ -1,6 +1,7 @@
 package me.dwliu.framework.autoconfigure.redis;
 
-import jakarta.annotation.Resource;
+import lombok.AllArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import me.dwliu.framework.core.redis.RedisService;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
@@ -19,12 +20,14 @@ import org.springframework.data.redis.serializer.StringRedisSerializer;
  **/
 @Configuration
 @ConditionalOnClass({RedisTemplate.class})
+@Slf4j
+@AllArgsConstructor
 public class CustomRedisAutoConfiguration {
-	@Resource
-	private RedisConnectionFactory factory;
+	private final RedisConnectionFactory factory;
 
 	@Bean
 	public RedisTemplate<String, Object> redisTemplate() {
+		log.debug("===配置默认的 RedisTemplate===");
 		RedisTemplate<String, Object> redisTemplate = new RedisTemplate<>();
 		redisTemplate.setKeySerializer(new StringRedisSerializer());
 		redisTemplate.setValueSerializer(new Jackson2JsonRedisSerializer<>(Object.class));
@@ -38,6 +41,7 @@ public class CustomRedisAutoConfiguration {
 	@Bean
 	@ConditionalOnMissingBean(RedisService.class)
 	public RedisService redisService() {
+		log.debug("===配置默认的 RedisService===");
 		RedisService redisService = new RedisService();
 		redisService.setRedisTemplate(redisTemplate());
 		return redisService;
