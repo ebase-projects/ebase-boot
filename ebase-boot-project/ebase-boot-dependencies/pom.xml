@@ -24,48 +24,37 @@
         <!-- https://github.com/spring-projects/spring-boot/tags -->
         <spring.boot.version>3.0.6</spring.boot.version>
 
-        <alibaba.oss.version>3.10.2</alibaba.oss.version>
-        <aliyun.sdk.core.version>4.5.3</aliyun.sdk.core.version>
-        <aliyun.sdk.dysmsapi.version>1.1.0</aliyun.sdk.dysmsapi.version>
-        <aliyun-java-sdk-dm.version>3.3.1</aliyun-java-sdk-dm.version>
-
         <!--apache-->
+        <!--https://mvnrepository.com/-->
         <commons.fileupload.version>1.4</commons.fileupload.version>
         <commons.io.version>2.11.0</commons.io.version>
 
         <!--DB-->
         <mybatis.plus.boot.starter.version>3.5.3.1</mybatis.plus.boot.starter.version>
-        <druid.version>1.2.16</druid.version>
         <mysql.version>8.0.32</mysql.version>
         <oracle.version>11.2.0.4</oracle.version>
 
         <!--tool-->
         <hutool.version>5.8.18</hutool.version>
-        <guava.version>30.1.1-jre</guava.version>
-        <!--<easypoi.version>4.4.0</easypoi.version>-->
+        <zip4j.version>2.11.5</zip4j.version>
+        <oshi.version>6.4.1</oshi.version>
+        <zxing.version>3.5.0</zxing.version>
+        <easyexcel.version>3.2.1</easyexcel.version>
+        <okhttp.version>4.11.0</okhttp.version>
 
-        <!--swagger2-->
-        <!--<springfox-swagger2.version>2.9.2</springfox-swagger2.version>-->
-        <springfox-swagger.version>3.0.0</springfox-swagger.version>
-        <io.swagger>2.2.8</io.swagger>
-        <!--<knife4j-spring-ui>2.0.9</knife4j-spring-ui>-->
-        <knife4j-spring-ui>3.0.3</knife4j-spring-ui>
+        <!--swagger-->
+        <io.swagger.version>2.2.8</io.swagger.version>
+        <knife4j-openapi3.version>4.1.0</knife4j-openapi3.version>
 
         <!--oss-->
-        <minio.version>8.4.6</minio.version>
+        <minio.version>8.5.2</minio.version>
         <qiniu-sdk.version>7.9.5</qiniu-sdk.version>
+        <alibaba.oss.version>3.10.2</alibaba.oss.version>
+        <aliyun.sdk.core.version>4.5.3</aliyun.sdk.core.version>
+        <aliyun.sdk.dysmsapi.version>1.1.0</aliyun.sdk.dysmsapi.version>
+        <aliyun-java-sdk-dm.version>3.3.1</aliyun-java-sdk-dm.version>
 
         <!--others-->
-        <fastdfs.version>1.27.2</fastdfs.version>
-        <reflections.version>0.9.11</reflections.version>
-        <quartz.version>2.3.2</quartz.version>
-        <jpush-client.version>3.3.11</jpush-client.version>
-        <zip4j.version>2.11.5</zip4j.version>
-        <oshi.version>6.2.2</oshi.version>
-        <zxing.version>3.5.0</zxing.version>
-
-        <easyexcel.version>3.2.0</easyexcel.version>
-        <okhttp.version>4.10.0</okhttp.version>
 
         <!--Plugin Versions-->
         <maven-antrun-plugin.version>3.1.0</maven-antrun-plugin.version>
@@ -284,14 +273,6 @@
                 <version>${oracle.version}</version>
             </dependency>
 
-
-            <dependency>
-                <groupId>com.alibaba</groupId>
-                <artifactId>druid-spring-boot-starter</artifactId>
-                <version>${druid.version}</version>
-            </dependency>
-
-
             <!--&lt;!&ndash; https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-databind &ndash;&gt;-->
             <!--<dependency>-->
             <!--    <groupId>com.fasterxml.jackson.core</groupId>-->
@@ -305,7 +286,6 @@
             <!--    <artifactId>jackson-annotations</artifactId>-->
             <!--    <version>${jackson.version}</version>-->
             <!--</dependency>-->
-
 
             <!--&lt;!&ndash; https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-core &ndash;&gt;-->
             <!--<dependency>-->
@@ -335,13 +315,6 @@
             </dependency>
 
 
-            <dependency>
-                <groupId>com.google.guava</groupId>
-                <artifactId>guava</artifactId>
-                <version>${guava.version}</version>
-            </dependency>
-
-
             <!-- mybatis-plus start ↓ -->
             <dependency>
                 <groupId>com.baomidou</groupId>
@@ -356,87 +329,30 @@
             </dependency>
             <!-- mybatis-plus start ↑ -->
 
-            <!-- easypoi start ↓ -->
-            <!--<dependency>-->
-            <!--    <groupId>cn.afterturn</groupId>-->
-            <!--    <artifactId>easypoi-base</artifactId>-->
-            <!--    <version>${easypoi.version}</version>-->
-            <!--</dependency>-->
-            <!--<dependency>-->
-            <!--    <groupId>cn.afterturn</groupId>-->
-            <!--    <artifactId>easypoi-web</artifactId>-->
-            <!--    <version>${easypoi.version}</version>-->
-            <!--</dependency>-->
-            <!--<dependency>-->
-            <!--    <groupId>cn.afterturn</groupId>-->
-            <!--    <artifactId>easypoi-annotation</artifactId>-->
-            <!--    <version>${easypoi.version}</version>-->
-            <!--</dependency>-->
-            <!-- easypoi start ↑ -->
-
             <dependency>
                 <groupId>cn.hutool</groupId>
                 <artifactId>hutool-all</artifactId>
                 <version>${hutool.version}</version>
             </dependency>
+
             <!-- swagger2 start-->
-            <!--<dependency>-->
-            <!--    <groupId>io.springfox</groupId>-->
-            <!--    <artifactId>springfox-swagger2</artifactId>-->
-            <!--    <version>${springfox-swagger2.version}</version>-->
-            <!--    <exclusions>-->
-            <!--        <exclusion>-->
-            <!--            <groupId>io.swagger.core.v3</groupId>-->
-            <!--            <artifactId>swagger-annotations</artifactId>-->
-            <!--        </exclusion>-->
-            <!--        <exclusion>-->
-            <!--            <groupId>io.swagger.core.v3</groupId>-->
-            <!--            <artifactId>swagger-models</artifactId>-->
-            <!--        </exclusion>-->
-            <!--    </exclusions>-->
-            <!--</dependency>-->
-            <dependency>
-                <groupId>io.springfox</groupId>
-                <artifactId>springfox-boot-starter</artifactId>
-                <version>${springfox-swagger.version}</version>
-            </dependency>
 
             <dependency>
                 <groupId>io.swagger.core.v3</groupId>
                 <artifactId>swagger-models</artifactId>
-                <version>${io.swagger}</version>
+                <version>${io.swagger.version}</version>
             </dependency>
             <dependency>
                 <groupId>io.swagger.core.v3</groupId>
                 <artifactId>swagger-annotations</artifactId>
-                <version>${io.swagger}</version>
+                <version>${io.swagger.version}</version>
             </dependency>
-            <!--            <dependency>-->
-            <!--                <groupId>io.springfox</groupId>-->
-            <!--                <artifactId>springfox-bean-validators</artifactId>-->
-            <!--                <version>${springfox-swagger2.version}</version>-->
-            <!--            </dependency>-->
-
-            <!--            <dependency>-->
-            <!--                <groupId>io.springfox</groupId>-->
-            <!--                <artifactId>springfox-swagger-ui</artifactId>-->
-            <!--                <version>${springfox-swagger2.version}</version>-->
-            <!--            </dependency>-->
-
             <dependency>
                 <groupId>com.github.xiaoymin</groupId>
-                <artifactId>knife4j-springdoc-ui</artifactId>
-                <version>${knife4j-spring-ui}</version>
+                <artifactId>knife4j-openapi3-jakarta-spring-boot-starter</artifactId>
+                <version>${knife4j-openapi3.version}</version>
             </dependency>
-
             <!-- swagger2 end-->
-
-            <!--fastDFS 依赖-->
-            <dependency>
-                <groupId>com.github.tobato</groupId>
-                <artifactId>fastdfs-client</artifactId>
-                <version>${fastdfs.version}</version>
-            </dependency>
 
 
             <dependency>
@@ -477,7 +393,6 @@
                 <artifactId>oshi-core</artifactId>
                 <version>${oshi.version}</version>
             </dependency>
-
             <dependency>
                 <groupId>com.alibaba</groupId>
                 <artifactId>easyexcel</artifactId>
