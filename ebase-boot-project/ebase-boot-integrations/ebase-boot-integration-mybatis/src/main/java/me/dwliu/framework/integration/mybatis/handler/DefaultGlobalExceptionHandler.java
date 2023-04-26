@@ -108,7 +108,6 @@ public class DefaultGlobalExceptionHandler {
 	@ExceptionHandler(MissingServletRequestPartException.class)
 	public Result handleMissingServletRequestPartException(Exception e) {
 		log.error("必填参数不能为空", e);
-
 		return Result.fail(String.format("必填参数不能为空: %s", e.getMessage()));
 	}
 
@@ -119,6 +118,7 @@ public class DefaultGlobalExceptionHandler {
 	@ResponseStatus(HttpStatus.BAD_REQUEST)
 	@ExceptionHandler(CustomMethodArgumentNotValidException.class)
 	public Result handleRRException(CustomMethodArgumentNotValidException e) {
+		log.error("参数验证错误:{}", e.getResult().getData());
 		if (e.getResult() != null) {
 			return e.getResult();
 		}
@@ -131,6 +131,7 @@ public class DefaultGlobalExceptionHandler {
 	 */
 	@ExceptionHandler(BusinessException.class)
 	public Result handleBusinessException(BusinessException e) {
+		log.error("自定义异常:{},{}", e.getResult().getMsg(), e.getResult().getData());
 		if (e.getResult() != null) {
 			return e.getResult();
 		}
@@ -139,7 +140,7 @@ public class DefaultGlobalExceptionHandler {
 
 	@ExceptionHandler(NullPointerException.class)
 	public Result handleNullPointerException(NullPointerException e) {
-		log.error(e.getMessage(), e);
+		log.error("空指针异常", e);
 		Result Result = new Result();
 		Result.setMsg("空指针异常，请联系管理员!");
 		Result.setCode(SystemResultCode.FAILURE_CODE);
@@ -149,7 +150,7 @@ public class DefaultGlobalExceptionHandler {
 
 	@ExceptionHandler(Exception.class)
 	public Result handleException(Exception e) {
-		log.error(e.getMessage(), e);
+		log.error("其他异常", e);
 		Result Result = new Result();
 		Result.setMsg("系统未捕获异常，请联系管理员!");
 		Result.setCode(SystemResultCode.FAILURE_CODE);

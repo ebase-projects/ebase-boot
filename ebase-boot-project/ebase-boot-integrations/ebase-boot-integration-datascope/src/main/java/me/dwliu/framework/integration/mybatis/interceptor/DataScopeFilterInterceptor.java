@@ -69,7 +69,7 @@ public class DataScopeFilterInterceptor implements QueryInterceptor {
 			return;
 		}
 		//如果是超级管理员，则不进行数据过滤
-		if (user.getSuperAdmin().intValue() == 1) {
+		if (user.getSuperAdmin() != null && user.getSuperAdmin() == 1) {
 			log.debug("===数据权限：超级管理员「{}」，则不进行数据过滤===", user);
 			return;
 		}
