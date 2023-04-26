@@ -51,6 +51,8 @@
         <main.basedir>${basedir}</main.basedir>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <flatten-maven-plugin.version>1.4.1</flatten-maven-plugin.version>
+        <maven-release-plugin.version>3.0.0</maven-release-plugin.version>
     </properties>
 
     <build>
@@ -58,7 +60,7 @@
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>flatten-maven-plugin</artifactId>
-                <version>1.2.7</version>
+                <version>${flatten-maven-plugin.version}</version>
                 <configuration>
                     <updatePomFile>true</updatePomFile>
                     <flattenMode>resolveCiFriendliesOnly</flattenMode>
@@ -85,7 +87,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-release-plugin</artifactId>
-                <version>2.5.3</version>
+                <version>${maven-release-plugin.version}</version>
                 <configuration>
                     <!--配置tag，用于版本发布，mvn release:prepare,rollback,perform-->
                     <tagBase>https://gitee.com/ebase-projects/ebase-boot/tags</tagBase>
