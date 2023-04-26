@@ -1,7 +1,7 @@
 # ebase-boot 一系列开箱即用的组件
 
-[![](https://img.shields.io/badge/License-Apache%202.0-green.svg)](https://github.com/weibocom/motan/blob/master/LICENSE)
-![](https://img.shields.io/badge/JDK-1.8+-green.svg)
+![](https://img.shields.io/badge/License-Apache%202.0-green.svg)
+![](https://img.shields.io/badge/JDK-17+-green.svg)
 
 ## 什么是 ebase-boot？
 
