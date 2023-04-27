@@ -1,4 +1,4 @@
-package me.dwliu.framework.autoconfigure.datascope;
+package me.dwliu.framework.autoconfigure.mybatis.datascope;
 
 import lombok.Data;
 import org.springframework.boot.context.properties.ConfigurationProperties;

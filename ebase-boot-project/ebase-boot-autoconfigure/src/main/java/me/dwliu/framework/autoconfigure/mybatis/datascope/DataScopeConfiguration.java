@@ -1,4 +1,4 @@
-package me.dwliu.framework.autoconfigure.datascope;
+package me.dwliu.framework.autoconfigure.mybatis.datascope;
 
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
