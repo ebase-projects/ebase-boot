@@ -30,11 +30,6 @@
             <artifactId>ebase-boot-integration-mybatis</artifactId>
             <optional>true</optional>
         </dependency>
-        <dependency>
-            <groupId>me.dwliu.ebase</groupId>
-            <artifactId>ebase-boot-integration-datascope</artifactId>
-            <optional>true</optional>
-        </dependency>
         <!--redis-->
         <dependency>
             <groupId>me.dwliu.ebase</groupId>
@@ -63,7 +58,6 @@
         <!--            <artifactId>ebase-boot-integration-oss</artifactId>-->
         <!--            <optional>true</optional>-->
         <!--        </dependency>-->
-
 
     </dependencies>
 

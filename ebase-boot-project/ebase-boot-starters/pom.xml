@@ -16,7 +16,6 @@
     <modules>
         <module>ebase-boot-starter</module>
         <module>ebase-boot-starter-mybatis</module>
-        <module>ebase-boot-starter-datascope</module>
         <module>ebase-boot-starter-redis</module>
         <module>ebase-boot-starter-log</module>
         <module>ebase-boot-starter-security</module>

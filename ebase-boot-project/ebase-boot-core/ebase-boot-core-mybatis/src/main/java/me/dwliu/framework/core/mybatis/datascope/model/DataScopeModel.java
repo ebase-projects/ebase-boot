@@ -1,4 +1,4 @@
-package me.dwliu.framework.core.datascope.model;
+package me.dwliu.framework.core.mybatis.datascope.model;
 
 import java.io.Serializable;
 

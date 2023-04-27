@@ -3,7 +3,7 @@ package me.dwliu.framework.autoconfigure.datascope;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import me.dwliu.framework.autoconfigure.mybatis.CustomMybatisPlusConfig;
-import me.dwliu.framework.core.datascope.annotation.DataScopeFilter;
+import me.dwliu.framework.core.mybatis.datascope.annotation.DataScopeFilter;
 import me.dwliu.framework.integration.mybatis.interceptor.DataScopeFilterInterceptor;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;

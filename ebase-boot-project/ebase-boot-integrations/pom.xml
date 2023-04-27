@@ -15,7 +15,6 @@
     <modules>
         <module>ebase-boot-integration</module>
         <module>ebase-boot-integration-mybatis</module>
-        <module>ebase-boot-integration-datascope</module>
         <module>ebase-boot-integration-redis</module>
         <module>ebase-boot-integration-log</module>
         <module>ebase-boot-integration-security</module>

@@ -1,4 +1,4 @@
-package me.dwliu.framework.core.datascope.exception;
+package me.dwliu.framework.core.mybatis.datascope.exception;
 
 import me.dwliu.framework.common.code.IResultCode;
 import me.dwliu.framework.common.exception.BusinessException;

@@ -1,4 +1,4 @@
-package me.dwliu.framework.core.datascope.constant;
+package me.dwliu.framework.core.mybatis.datascope.constant;
 
 import org.apache.commons.lang3.StringUtils;
 

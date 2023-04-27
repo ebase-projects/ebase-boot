@@ -1,4 +1,4 @@
-package me.dwliu.framework.core.datascope.annotation;
+package me.dwliu.framework.core.mybatis.datascope.annotation;
 
 import java.lang.annotation.*;
 

@@ -4,11 +4,11 @@ import cn.hutool.core.collection.CollUtil;
 import com.baomidou.mybatisplus.core.toolkit.PluginUtils;
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
-import me.dwliu.framework.core.datascope.annotation.DataScopeFilter;
-import me.dwliu.framework.core.datascope.constant.DataScopeConstant;
-import me.dwliu.framework.core.datascope.enums.DataScopeViewEnum;
-import me.dwliu.framework.core.datascope.model.DataScopeModel;
-import me.dwliu.framework.core.datascope.model.RoleDataScopeModel;
+import me.dwliu.framework.core.mybatis.datascope.annotation.DataScopeFilter;
+import me.dwliu.framework.core.mybatis.datascope.constant.DataScopeConstant;
+import me.dwliu.framework.core.mybatis.datascope.enums.DataScopeViewEnum;
+import me.dwliu.framework.core.mybatis.datascope.model.DataScopeModel;
+import me.dwliu.framework.core.mybatis.datascope.model.RoleDataScopeModel;
 import me.dwliu.framework.core.mybatis.interceptor.QueryInterceptor;
 import me.dwliu.framework.core.security.entity.UserInfoDetails;
 import me.dwliu.framework.core.security.utils.SecurityUtils;
@@ -61,6 +61,21 @@ public class DataScopeFilterInterceptor implements QueryInterceptor {
 	@SneakyThrows
 	public void intercept(Executor executor, MappedStatement mappedStatement, Object parameter, RowBounds rowBounds,
 						  ResultHandler resultHandler, BoundSql boundSql) {
+		boolean flag = false;
+		//查询DataScopeFilter注释
+		Class<?> classType = Class.forName(mappedStatement.getId().substring(0, mappedStatement.getId().lastIndexOf(".")));
+		for (Method method : classType.getDeclaredMethods()) {
+			if (!method.isAnnotationPresent(DataScopeFilter.class)) {
+				flag = true;
+				break;
+			}
+		}
+		if (flag) {
+			return;
+		}
+		log.debug("===数据过滤拦截器开始运行===");
+
+
 		UserInfoDetails user = SecurityUtils.getUser();
 		log.debug("===数据权限：获取当前用户：「{}」===", user);
 		if (user == null) {
@@ -74,7 +89,7 @@ public class DataScopeFilterInterceptor implements QueryInterceptor {
 		}
 
 		//根据条件生成sql 文件
-		String sqlFilter = getSqlFilter(user, mappedStatement);
+		String sqlFilter = getSqlFilter(classType, user, mappedStatement);
 		log.debug("===数据权限：根据条件生成sql:{}===", sqlFilter);
 
 		// 不用数据过滤
@@ -126,7 +141,7 @@ public class DataScopeFilterInterceptor implements QueryInterceptor {
 	/**
 	 * 获取数据过滤的SQL
 	 */
-	private String getSqlFilter(UserInfoDetails user, MappedStatement mappedStatement) throws Exception {
+	private String getSqlFilter(Class<?> classType, UserInfoDetails user, MappedStatement mappedStatement) throws Exception {
 		StringBuilder sqlFilter = new StringBuilder();
 
 
@@ -151,7 +166,7 @@ public class DataScopeFilterInterceptor implements QueryInterceptor {
 
 
 		//查询DataScopeFilter注释
-		Class<?> classType = Class.forName(mappedStatement.getId().substring(0, mappedStatement.getId().lastIndexOf(".")));
+//		Class<?> classType = Class.forName(mappedStatement.getId().substring(0, mappedStatement.getId().lastIndexOf(".")));
 		String mName = mappedStatement.getId().substring(mappedStatement.getId().lastIndexOf(".") + 1, mappedStatement.getId().length());
 		for (Method method : classType.getDeclaredMethods()) {
 			if (method.isAnnotationPresent(DataScopeFilter.class) && mName.equals(method.getName())) {

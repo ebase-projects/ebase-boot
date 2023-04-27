@@ -1,4 +1,4 @@
-package me.dwliu.framework.core.datascope.enums;
+package me.dwliu.framework.core.mybatis.datascope.enums;
 
 import me.dwliu.framework.common.enums.BaseEnum;
 
