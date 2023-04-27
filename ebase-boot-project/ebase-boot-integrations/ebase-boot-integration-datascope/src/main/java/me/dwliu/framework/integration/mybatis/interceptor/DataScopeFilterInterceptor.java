@@ -59,8 +59,7 @@ public class DataScopeFilterInterceptor implements QueryInterceptor {
 	 */
 	@Override
 	@SneakyThrows
-	public void intercept(Executor executor, MappedStatement mappedStatement,
-						  Object parameter, RowBounds rowBounds,
+	public void intercept(Executor executor, MappedStatement mappedStatement, Object parameter, RowBounds rowBounds,
 						  ResultHandler resultHandler, BoundSql boundSql) {
 		UserInfoDetails user = SecurityUtils.getUser();
 		log.debug("===数据权限：获取当前用户：「{}」===", user);

@@ -25,14 +25,11 @@ public class CustomPaginationInterceptor extends PaginationInnerInterceptor {
 
 	@SneakyThrows
 	@Override
-	public boolean willDoQuery(Executor executor, MappedStatement ms,
-	                           Object parameter, RowBounds rowBounds,
-	                           ResultHandler resultHandler, BoundSql boundSql) {
-		QueryInterceptorExecutor.exec(queryInterceptors, executor, ms,
-			parameter, rowBounds, resultHandler, boundSql);
+	public boolean willDoQuery(Executor executor, MappedStatement ms, Object parameter, RowBounds rowBounds,
+							   ResultHandler resultHandler, BoundSql boundSql) {
+		QueryInterceptorExecutor.exec(queryInterceptors, executor, ms, parameter, rowBounds, resultHandler, boundSql);
 
-		return super.willDoQuery(executor, ms, parameter,
-			rowBounds, resultHandler, boundSql);
+		return super.willDoQuery(executor, ms, parameter, rowBounds, resultHandler, boundSql);
 	}
 
 }
