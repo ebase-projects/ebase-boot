@@ -1,11 +1,15 @@
 package me.dwliu.framework.integration.security.mobile;
 
 import lombok.RequiredArgsConstructor;
+import me.dwliu.framework.integration.security.handler.CustomJsonAuthenticationFailureHandler;
+import me.dwliu.framework.integration.security.handler.CustomJsonAuthenticationSuccessHandler;
 import me.dwliu.framework.integration.security.service.CustomUserDetailsService;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.SecurityConfigurerAdapter;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.web.DefaultSecurityFilterChain;
+import org.springframework.security.web.authentication.AuthenticationFailureHandler;
+import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 import org.springframework.stereotype.Component;
 
@@ -20,13 +24,8 @@ import org.springframework.stereotype.Component;
 public class SmsCodeAuthenticationConfigurer
 	extends SecurityConfigurerAdapter<DefaultSecurityFilterChain, HttpSecurity> {
 
-
-//	@Autowired
-//	private AuthenticationSuccessHandler ebaseAuthenticationSuccessHandler;
-
-//	@Autowired
-//	private AuthenticationFailureHandler ebaseAuthenticationFailureHandler;
-
+//	private AuthenticationSuccessHandler customJsonAuthenticationSuccessHandler;
+//	private AuthenticationFailureHandler customJsonAuthenticationFailureHandler;
 	private final CustomUserDetailsService userDetailsService;
 
 //	@Autowired
@@ -38,8 +37,8 @@ public class SmsCodeAuthenticationConfigurer
 		SmsCodeAuthenticationFilter filter = new SmsCodeAuthenticationFilter();
 		filter.setAuthenticationManager(authenticationManager);
 
-//		filter.setAuthenticationSuccessHandler(ebaseAuthenticationSuccessHandler);
-//		filter.setAuthenticationFailureHandler(ebaseAuthenticationFailureHandler);
+		filter.setAuthenticationSuccessHandler(new CustomJsonAuthenticationSuccessHandler());
+		filter.setAuthenticationFailureHandler(new CustomJsonAuthenticationFailureHandler());
 
 		SmsCodeAuthenticationProvider smsCodeAuthenticationProvider = new SmsCodeAuthenticationProvider();
 		smsCodeAuthenticationProvider.setUserDetailsService(userDetailsService);
