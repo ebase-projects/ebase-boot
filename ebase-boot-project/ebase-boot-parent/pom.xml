@@ -32,7 +32,6 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-jar-plugin</artifactId>
-
                 <configuration>
                     <archive>
                         <manifestEntries>
@@ -60,7 +59,7 @@
                         <goals>
                             <goal>jar</goal>
                         </goals>
-<!--                        <phase>package</phase>-->
+                        <phase>package</phase>
                     </execution>
                 </executions>
             </plugin>
@@ -68,14 +67,14 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-source-plugin</artifactId>
-                <executions>
-                    <execution>
-                        <id>attach-sources</id>
-                        <goals>
-                            <goal>jar-no-fork</goal>
-                        </goals>
-                    </execution>
-                </executions>
+<!--                <executions>-->
+<!--                    <execution>-->
+<!--                        <id>attach-sources</id>-->
+<!--                        <goals>-->
+<!--                            <goal>jar-no-fork</goal>-->
+<!--                        </goals>-->
+<!--                    </execution>-->
+<!--                </executions>-->
             </plugin>
         </plugins>
     </build>

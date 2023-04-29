@@ -1,7 +1,7 @@
 package me.dwliu.framework.integration.security.validatecode;
 
 import jakarta.servlet.Filter;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.security.config.annotation.SecurityConfigurerAdapter;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.web.DefaultSecurityFilterChain;
@@ -15,12 +15,12 @@ import org.springframework.stereotype.Component;
  * @author liudw
  * @date 2019-04-24 17:04
  **/
-@Component("validateCodeSecurityConfig")
-public class ValidateCodeSecurityConfig
+@Component("validateCodeSecurityConfigurer")
+@RequiredArgsConstructor
+public class ValidateCodeSecurityConfigurer
 	extends SecurityConfigurerAdapter<DefaultSecurityFilterChain, HttpSecurity> {
 
-	@Autowired
-	private Filter validateCodeFilter;
+	private final Filter validateCodeFilter;
 
 	/**
 	 * 将验证码拦截器添加到 {@code AbstractPreAuthenticatedProcessingFilter} 之前

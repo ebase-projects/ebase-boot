@@ -1,7 +1,7 @@
 package me.dwliu.framework.integration.security.mobile;
 
+import lombok.RequiredArgsConstructor;
 import me.dwliu.framework.integration.security.service.CustomUserDetailsService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.SecurityConfigurerAdapter;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -16,8 +16,10 @@ import org.springframework.stereotype.Component;
  * @date 2019-04-28 15:59
  **/
 @Component
+@RequiredArgsConstructor
 public class SmsCodeAuthenticationConfigurer
 	extends SecurityConfigurerAdapter<DefaultSecurityFilterChain, HttpSecurity> {
+
 
 //	@Autowired
 //	private AuthenticationSuccessHandler ebaseAuthenticationSuccessHandler;
@@ -25,8 +27,7 @@ public class SmsCodeAuthenticationConfigurer
 //	@Autowired
 //	private AuthenticationFailureHandler ebaseAuthenticationFailureHandler;
 
-	@Autowired
-	private CustomUserDetailsService userDetailsService;
+	private final CustomUserDetailsService userDetailsService;
 
 //	@Autowired
 //	private PersistentTokenRepository persistentTokenRepository;
