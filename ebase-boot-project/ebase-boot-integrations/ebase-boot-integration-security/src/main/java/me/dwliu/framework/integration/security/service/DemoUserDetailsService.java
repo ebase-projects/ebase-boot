@@ -41,7 +41,7 @@ public class DemoUserDetailsService implements CustomUserDetailsService {
 	 */
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-		log.warn("演示用的加载用户信息服务，必须实现 UserDetailsService 重写 loadUserByUsername 方法");
+		log.warn("===演示用的加载用户信息服务，必须实现 UserDetailsService 重写 loadUserByUsername 方法===");
 		//TODO
 		//throw new UsernameNotFoundException(username);
 
@@ -58,6 +58,11 @@ public class DemoUserDetailsService implements CustomUserDetailsService {
 
 	@Override
 	public UserDetails loadUserByMobile(String username) throws UsernameNotFoundException {
-		return null;
+		log.warn("===演示用的加载用户信息服务，必须实现 UserDetailsService 重写 loadUserByMobile 方法===");
+
+		List<SimpleGrantedAuthority> rols = new ArrayList<>();
+		rols.add(new SimpleGrantedAuthority("admin"));
+
+		return new User(username, passwordEncoder.encode("123456"), true, true, true, true, rols);
 	}
 }
