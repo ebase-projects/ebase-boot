@@ -6,8 +6,6 @@ import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.SecurityConfigurerAdapter;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.web.DefaultSecurityFilterChain;
-import org.springframework.security.web.authentication.AuthenticationFailureHandler;
-import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 import org.springframework.stereotype.Component;
 
@@ -18,7 +16,7 @@ import org.springframework.stereotype.Component;
  * @date 2019-04-28 15:59
  **/
 @Component
-public class SmsCodeAuthenticationSecurityConfig
+public class SmsCodeAuthenticationConfigurer
 	extends SecurityConfigurerAdapter<DefaultSecurityFilterChain, HttpSecurity> {
 
 //	@Autowired
@@ -35,25 +33,24 @@ public class SmsCodeAuthenticationSecurityConfig
 
 	@Override
 	public void configure(HttpSecurity http) throws Exception {
-		SmsCodeAuthenticationFilter smsCodeAuthenticationFilter = new SmsCodeAuthenticationFilter();
-		smsCodeAuthenticationFilter.setAuthenticationManager(http.getSharedObject(AuthenticationManager.class));
-//		smsCodeAuthenticationFilter.setAuthenticationSuccessHandler(ebaseAuthenticationSuccessHandler);
-//		smsCodeAuthenticationFilter.setAuthenticationFailureHandler(ebaseAuthenticationFailureHandler);
+		AuthenticationManager authenticationManager = http.getSharedObject(AuthenticationManager.class);
+		SmsCodeAuthenticationFilter filter = new SmsCodeAuthenticationFilter();
+		filter.setAuthenticationManager(authenticationManager);
 
-//		String key = UUID.randomUUID().toString();
-//		smsCodeAuthenticationFilter.setRememberMeServices(
-//			new PersistentTokenBasedRememberMeServices(key, userDetailsService, persistentTokenRepository));
-//
+//		filter.setAuthenticationSuccessHandler(ebaseAuthenticationSuccessHandler);
+//		filter.setAuthenticationFailureHandler(ebaseAuthenticationFailureHandler);
 
 		SmsCodeAuthenticationProvider smsCodeAuthenticationProvider = new SmsCodeAuthenticationProvider();
 		smsCodeAuthenticationProvider.setUserDetailsService(userDetailsService);
+		http.authenticationProvider(smsCodeAuthenticationProvider);
+
+//		String key = UUID.randomUUID().toString();
+//		filter.setRememberMeServices(
+//			new PersistentTokenBasedRememberMeServices(key, userDetailsService, persistentTokenRepository));
+//
 
 		//自定义的filter放到UsernamePasswordAuthenticationFilter之后执行
-		http.authenticationProvider(smsCodeAuthenticationProvider)
-			.addFilterAfter(smsCodeAuthenticationFilter, UsernamePasswordAuthenticationFilter.class);
-
-//		http.authenticationProvider(smsCodeAuthenticationProvider)
-//			.addFilterAfter(smsCodeAuthenticationFilter, LogoutFilter.class);
+		http.addFilterBefore(filter, UsernamePasswordAuthenticationFilter.class);
 
 	}
 }
