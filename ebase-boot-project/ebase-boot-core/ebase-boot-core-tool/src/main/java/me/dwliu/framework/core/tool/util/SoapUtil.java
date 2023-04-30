@@ -12,9 +12,6 @@ import java.util.Map;
 
 /**
  * SOAP 工具类。
- * <pre>
- * 描述：TODO
- * </pre>
  */
 public class SoapUtil {
 
