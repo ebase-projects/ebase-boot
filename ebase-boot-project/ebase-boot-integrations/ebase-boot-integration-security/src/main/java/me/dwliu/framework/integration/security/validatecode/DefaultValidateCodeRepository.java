@@ -4,8 +4,12 @@ import cn.hutool.cache.Cache;
 import cn.hutool.cache.CacheUtil;
 
 import lombok.extern.slf4j.Slf4j;
+import me.dwliu.framework.core.security.constant.ValidateCodeConstants;
 import me.dwliu.framework.integration.security.validatecode.enums.ValidateCodeTypeEnum;
+import me.dwliu.framework.integration.security.validatecode.sms.SmsCode;
 import org.apache.commons.lang3.StringUtils;
+import org.springframework.web.bind.ServletRequestBindingException;
+import org.springframework.web.bind.ServletRequestUtils;
 import org.springframework.web.context.request.ServletWebRequest;
 
 import java.util.concurrent.TimeUnit;
@@ -36,8 +40,28 @@ public class DefaultValidateCodeRepository implements ValidateCodeRepository {
 	 */
 	@Override
 	public void save(ServletWebRequest request, ValidateCode code, ValidateCodeTypeEnum codeType) {
+		// 短信要加入手机号
+		SmsCode smsCode = null;
+		if (codeType == ValidateCodeTypeEnum.SMS) {
+			String mobileParameter;
+			try {
+				mobileParameter = ServletRequestUtils.getStringParameter(request.getRequest(),
+					ValidateCodeConstants.DEFAULT_PARAMETER_NAME_MOBILE);
+			} catch (ServletRequestBindingException e) {
+				throw new ValidateCodeException("获取手机号为空");
+			}
 
-		localCache.put(buildKey(request, codeType), code);
+			if (StringUtils.isBlank(mobileParameter)) {
+				throw new ValidateCodeException("手机号为空");
+			}
+
+
+			smsCode = new SmsCode(mobileParameter, code.getCode(), code.getExpireTime());
+
+
+		}
+
+		localCache.put(buildKey(request, codeType), smsCode);
 	}
 
 	/**

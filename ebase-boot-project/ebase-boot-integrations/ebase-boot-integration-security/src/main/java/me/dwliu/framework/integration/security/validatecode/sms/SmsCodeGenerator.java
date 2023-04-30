@@ -14,24 +14,24 @@ import org.springframework.web.context.request.ServletWebRequest;
 //@Component("smsValidateCodeGenerator")
 public class SmsCodeGenerator implements ValidateCodeGenerator {
 
-    private final int smsLength;
-    private final int smsExpireIn;
+	private final int smsLength;
+	private final int smsExpireIn;
 
-    public SmsCodeGenerator(int smsLength, int smsExpireIn) {
-        this.smsLength = smsLength;
-        this.smsExpireIn = smsExpireIn;
-    }
+	public SmsCodeGenerator(int smsLength, int smsExpireIn) {
+		this.smsLength = smsLength;
+		this.smsExpireIn = smsExpireIn;
+	}
 
-    /**
-     * 生成验证码
-     *
-     * @param request spring 封装的request
-     * @return 验证码封装类
-     */
-    @Override
-    public ValidateCode generate(ServletWebRequest request) {
+	/**
+	 * 生成验证码
+	 *
+	 * @param request spring 封装的request
+	 * @return 验证码封装类
+	 */
+	@Override
+	public ValidateCode generate(ServletWebRequest request) {
 
-        String code = RandomStringUtils.randomNumeric(smsLength);
-        return new SmsCode(code, smsExpireIn);
+		String code = RandomStringUtils.randomNumeric(smsLength);
+		return new SmsCode(null, code, smsExpireIn);
 	}
 }

@@ -1,7 +1,9 @@
 package me.dwliu.framework.integration.security.validatecode;
 
 import lombok.extern.slf4j.Slf4j;
+import me.dwliu.framework.core.security.constant.ValidateCodeConstants;
 import me.dwliu.framework.integration.security.validatecode.enums.ValidateCodeTypeEnum;
+import me.dwliu.framework.integration.security.validatecode.sms.SmsCode;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.ServletRequestBindingException;
@@ -74,6 +76,7 @@ public abstract class AbstractValidateCodeProcessor<C extends ValidateCode> impl
 				validateCodeType.getParamNameOnValidate());
 		} catch (ServletRequestBindingException e) {
 			log.error("获取参数异常", e.fillInStackTrace());
+			throw new ValidateCodeException(String.format("%s 获取参数异常", validateCodeType));
 		}
 
 		if (StringUtils.isBlank(codeInRequest)) {
@@ -101,6 +104,22 @@ public abstract class AbstractValidateCodeProcessor<C extends ValidateCode> impl
 
 
 		} else {
+			//短信验证码也要验证手机号是不是系统发送的和登陆的手机号是一致的
+			if (validateCodeType == ValidateCodeTypeEnum.SMS) {
+				SmsCode sc = (SmsCode) codeInRepository;
+				String mobileParameter;
+				try {
+					mobileParameter = ServletRequestUtils.getStringParameter(request.getRequest(),
+						ValidateCodeConstants.DEFAULT_PARAMETER_NAME_MOBILE);
+				} catch (ServletRequestBindingException e) {
+					log.error("获取参数异常", e.fillInStackTrace());
+					throw new ValidateCodeException(String.format("参数【%s】 获取参数异常", ValidateCodeConstants.DEFAULT_PARAMETER_NAME_MOBILE));
+				}
+				if (!StringUtils.equals(sc.getPhone(), mobileParameter)) {
+					throw new ValidateCodeException(String.format("发送短信手机号【%s】与登陆手机号【%s】不一致", sc.getPhone(), mobileParameter));
+				}
+
+			}
 			validateCodeRepository.remove(request, validateCodeType);
 		}
 
@@ -158,7 +177,7 @@ public abstract class AbstractValidateCodeProcessor<C extends ValidateCode> impl
 	 * @param validateCode 验证码
 	 */
 	private void save(ServletWebRequest request, C validateCode) {
-		ValidateCode code = new ValidateCode(validateCode.getCode(), validateCode.getExpireTime());
+		ValidateCode code = new DefaultValidateCode(validateCode.getCode(), validateCode.getExpireTime());
 		validateCodeRepository.save(request, code, getValidateCodeType());
 	}
 

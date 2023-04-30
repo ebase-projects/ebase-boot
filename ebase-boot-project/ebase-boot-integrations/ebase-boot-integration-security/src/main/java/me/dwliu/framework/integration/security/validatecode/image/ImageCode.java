@@ -1,10 +1,9 @@
 package me.dwliu.framework.integration.security.validatecode.image;
 
-import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
-import me.dwliu.framework.integration.security.validatecode.ValidateCode;
+import me.dwliu.framework.integration.security.validatecode.DefaultValidateCode;
 
 import java.awt.image.BufferedImage;
 import java.time.LocalDateTime;
@@ -18,7 +17,7 @@ import java.time.LocalDateTime;
 @Getter
 @Setter
 @EqualsAndHashCode(callSuper = true)
-public class ImageCode extends ValidateCode {
+public class ImageCode extends DefaultValidateCode {
 
 	/**
 	 * 验证码图片
