@@ -57,11 +57,13 @@ public class DefaultValidateCodeRepository implements ValidateCodeRepository {
 
 
 			smsCode = new SmsCode(mobileParameter, code.getCode(), code.getExpireTime());
+			localCache.put(buildKey(request, codeType), smsCode);
 
-
+		} else {
+			localCache.put(buildKey(request, codeType), code);
 		}
 
-		localCache.put(buildKey(request, codeType), smsCode);
+
 	}
 
 	/**

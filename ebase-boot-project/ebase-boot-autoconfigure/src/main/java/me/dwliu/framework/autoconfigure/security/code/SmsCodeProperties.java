@@ -24,5 +24,10 @@ public class SmsCodeProperties {
 	 */
 	private String url;
 
+	/**
+	 * 要拦截的urls 数组
+	 */
+	private String[] validateUrls;
+
 
 }

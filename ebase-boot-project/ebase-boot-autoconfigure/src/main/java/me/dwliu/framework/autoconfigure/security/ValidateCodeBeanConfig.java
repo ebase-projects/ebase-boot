@@ -59,6 +59,9 @@ public class ValidateCodeBeanConfig {
 		validateCodeFilter.setImageUrl(securityProperties.getCode().getImage().getUrl());
 		validateCodeFilter.setSmsUrl(securityProperties.getCode().getSms().getUrl());
 
+		validateCodeFilter.setImageUrls(securityProperties.getCode().getImage().getValidateUrls());
+		validateCodeFilter.setSmsUrls(securityProperties.getCode().getSms().getValidateUrls());
+
 		return validateCodeFilter;
 		// securityProperties.getCode().getImage().getUrl(),
 		// 	securityProperties.getCode().getSms().getUrl(),

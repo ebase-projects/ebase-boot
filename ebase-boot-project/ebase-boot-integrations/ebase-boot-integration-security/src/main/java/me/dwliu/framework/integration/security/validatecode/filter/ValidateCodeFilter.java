@@ -36,6 +36,9 @@ public class ValidateCodeFilter extends OncePerRequestFilter {
 	private String imageUrl;
 	private String smsUrl;
 
+	private String[] imageUrls;
+	private String[] smsUrls;
+
 	//@Autowired
 	private ValidateCodeProcessorHolder validateCodeProcessorHolder;
 	/**
@@ -68,9 +71,11 @@ public class ValidateCodeFilter extends OncePerRequestFilter {
 
 		// 将图片验证码配置文件 url 属性加入到map
 		addUrlToMap(imageUrl, ValidateCodeTypeEnum.IMAGE);
+		addUrlsToMap(imageUrls, ValidateCodeTypeEnum.IMAGE);
 
 		// 将短信验证码配置文件 url 属性加入到map
 		addUrlToMap(smsUrl, ValidateCodeTypeEnum.SMS);
+		addUrlsToMap(smsUrls, ValidateCodeTypeEnum.SMS);
 
 
 	}
@@ -85,6 +90,16 @@ public class ValidateCodeFilter extends OncePerRequestFilter {
 		if (StringUtils.isNotBlank(urlsStr)) {
 			//将以逗号分隔的url字符串拆分成url 集合
 			String[] urls = StringUtils.splitByWholeSeparatorPreserveAllTokens(urlsStr, ",");
+			for (String url : urls) {
+				urlMap.put(url, codeTypeEnum);
+			}
+		}
+	}
+
+	private void addUrlsToMap(String[] urls, ValidateCodeTypeEnum codeTypeEnum) {
+		if (urls != null && urls.length > 0) {
+			//将以逗号分隔的url字符串拆分成url 集合
+
 			for (String url : urls) {
 				urlMap.put(url, codeTypeEnum);
 			}
