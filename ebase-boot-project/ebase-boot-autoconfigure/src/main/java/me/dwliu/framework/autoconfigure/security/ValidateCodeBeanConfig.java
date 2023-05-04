@@ -1,6 +1,5 @@
 package me.dwliu.framework.autoconfigure.security;
 
-import lombok.AllArgsConstructor;
 import me.dwliu.framework.integration.security.validatecode.DefaultValidateCodeRepository;
 import me.dwliu.framework.integration.security.validatecode.ValidateCodeGenerator;
 import me.dwliu.framework.integration.security.validatecode.ValidateCodeProcessorHolder;
@@ -15,7 +14,6 @@ import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.security.web.authentication.AuthenticationFailureHandler;
 
 /**
  * 验证码相关的扩展点配置。
@@ -26,12 +24,7 @@ import org.springframework.security.web.authentication.AuthenticationFailureHand
 @Configuration
 @EnableConfigurationProperties(value = SecurityProperties.class)
 @ConditionalOnClass({ValidateCodeGenerator.class})
-@AllArgsConstructor
 public class ValidateCodeBeanConfig {
-
-	private final SecurityProperties securityProperties;
-	// private final ValidateCodeProcessorHolder validateCodeProcessorHolder;
-	// private final AuthenticationFailureHandler authenticationFailureHandler;
 
 	/**
 	 * 默认的图形验证码生成实现类
@@ -40,7 +33,7 @@ public class ValidateCodeBeanConfig {
 	 */
 	@Bean(value = "imageValidateCodeGenerator")
 	@ConditionalOnMissingBean(name = "imageValidateCodeGenerator")
-	public ValidateCodeGenerator validateCodeGenerator() {
+	public ValidateCodeGenerator validateCodeGenerator(SecurityProperties securityProperties) {
 		return new ImageCodeGenerator(
 			securityProperties.getCode().getImage().getWidth(),
 			securityProperties.getCode().getImage().getHeight(),
@@ -55,15 +48,13 @@ public class ValidateCodeBeanConfig {
 	 * @return
 	 */
 	@Bean(value = "smsValidateCodeGenerator")
-	public SmsCodeGenerator smsCodeGenerator() {
+	public SmsCodeGenerator smsCodeGenerator(SecurityProperties securityProperties) {
 		return new SmsCodeGenerator(securityProperties.getCode().getSms().getLength(), securityProperties.getCode().getSms().getExpireIn());
 	}
 
 	@Bean
-	public ValidateCodeFilter validateCodeFilter(ValidateCodeProcessorHolder validateCodeProcessorHolder,
-	                                             AuthenticationFailureHandler authenticationFailureHandler) {
+	public ValidateCodeFilter validateCodeFilter(SecurityProperties securityProperties, ValidateCodeProcessorHolder validateCodeProcessorHolder) {
 		ValidateCodeFilter validateCodeFilter = new ValidateCodeFilter();
-		validateCodeFilter.setAuthenticationFailureHandler(authenticationFailureHandler);
 		validateCodeFilter.setValidateCodeProcessorHolder(validateCodeProcessorHolder);
 		validateCodeFilter.setImageUrl(securityProperties.getCode().getImage().getUrl());
 		validateCodeFilter.setSmsUrl(securityProperties.getCode().getSms().getUrl());

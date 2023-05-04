@@ -10,10 +10,6 @@ import lombok.Data;
  **/
 @Data
 public class OAuth2Properties {
-	/**
-	 * 使用jwt 时为token签名的密钥
-	 */
-	private String JwtSigningKey = "ebase";
 
 	/**
 	 * 客户端配置

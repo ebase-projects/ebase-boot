@@ -1,8 +1,12 @@
 package me.dwliu.framework.autoconfigure.security;
 
+import io.jsonwebtoken.Jwts;
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import me.dwliu.framework.autoconfigure.security.jwt.JwtConfigProperties;
 import me.dwliu.framework.core.security.crypto.CustomPasswordEncoderFactories;
 import me.dwliu.framework.integration.security.feign.UserInfoDetailsWebClient;
+import me.dwliu.framework.integration.security.jwt.JwtTokenUtils;
 import me.dwliu.framework.integration.security.service.CustomUserDetailsService;
 import me.dwliu.framework.integration.security.service.DefaultUserDetailsServiceImpl;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;
@@ -68,6 +72,18 @@ public class SecurityConfig {
 			.builder(WebClientAdapter.forClient(employeeWebClient()))
 			.build();
 		return httpServiceProxyFactory.createClient(UserInfoDetailsWebClient.class);
+	}
+
+
+	@Bean
+	@ConditionalOnClass(Jwts.class)
+	public JwtTokenUtils jwtTokenUtils(SecurityProperties securityProperties) {
+		JwtConfigProperties jwt = securityProperties.getJwt();
+		return new JwtTokenUtils(jwt.getSecret(),
+			jwt.getExpiration(),
+			jwt.getTokenHeaderKey(),
+			jwt.getTokenParamsKey(),
+			jwt.getTokenPrefix());
 	}
 
 

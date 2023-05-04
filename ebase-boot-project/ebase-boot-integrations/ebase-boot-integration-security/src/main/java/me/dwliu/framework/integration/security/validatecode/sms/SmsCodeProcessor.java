@@ -1,12 +1,11 @@
 package me.dwliu.framework.integration.security.validatecode.sms;
 
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import me.dwliu.framework.core.security.constant.ValidateCodeConstants;
 import me.dwliu.framework.integration.security.validatecode.AbstractValidateCodeProcessor;
 import me.dwliu.framework.integration.security.validatecode.ValidateCodeException;
 import org.apache.commons.lang3.StringUtils;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.web.authentication.AuthenticationFailureHandler;
 import org.springframework.stereotype.Component;
 import org.springframework.web.bind.ServletRequestBindingException;
 import org.springframework.web.bind.ServletRequestUtils;
@@ -14,14 +13,11 @@ import org.springframework.web.context.request.ServletWebRequest;
 
 @Slf4j
 @Component(value = "smsValidateCodeProcessor")
+@RequiredArgsConstructor
 public class SmsCodeProcessor extends AbstractValidateCodeProcessor<SmsCode> {
-	@Autowired
-	private SmsCodeSender smsCodeSender;
-	/**
-	 * 验证码校验失败处理器
-	 */
-	@Autowired
-	private AuthenticationFailureHandler authenticationFailureHandler;
+
+	private final SmsCodeSender smsCodeSender;
+
 
 	/**
 	 * 发送验证码

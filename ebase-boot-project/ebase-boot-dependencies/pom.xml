@@ -41,6 +41,7 @@
         <zxing.version>3.5.0</zxing.version>
         <easyexcel.version>3.2.1</easyexcel.version>
         <okhttp.version>4.11.0</okhttp.version>
+        <jjwt.version>0.11.5</jjwt.version>
 
         <!--swagger-->
         <io.swagger.version>2.2.8</io.swagger.version>
@@ -279,6 +280,22 @@
             <!--    <artifactId>jackson-core</artifactId>-->
             <!--    <version>${jackson.version}</version>-->
             <!--</dependency>-->
+
+            <dependency>
+                <groupId>io.jsonwebtoken</groupId>
+                <artifactId>jjwt-api</artifactId>
+                <version>${jjwt.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.jsonwebtoken</groupId>
+                <artifactId>jjwt-impl</artifactId>
+                <version>${jjwt.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.jsonwebtoken</groupId>
+                <artifactId>jjwt-jackson</artifactId> <!-- or jjwt-gson if Gson is preferred -->
+                <version>${jjwt.version}</version>
+            </dependency>
 
 
             <!-- 二维码 -->

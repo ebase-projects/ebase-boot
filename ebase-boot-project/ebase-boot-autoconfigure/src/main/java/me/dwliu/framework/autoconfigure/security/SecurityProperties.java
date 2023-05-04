@@ -2,6 +2,7 @@ package me.dwliu.framework.autoconfigure.security;
 
 import lombok.Data;
 import me.dwliu.framework.autoconfigure.security.code.ValidateCodeProperties;
+import me.dwliu.framework.autoconfigure.security.jwt.JwtConfigProperties;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 
 /**
@@ -25,5 +26,16 @@ public class SecurityProperties {
 	 * OAuth2认证服务器配置
 	 */
 	private OAuth2Properties oauth2 = new OAuth2Properties();
+
+	/**
+	 * jwt 配置文件
+	 */
+	private JwtConfigProperties jwt = new JwtConfigProperties();
+
+
+	/**
+	 * 不需要认证的接口 以 ，分割
+	 */
+	private String ignoreUrls;
 
 }

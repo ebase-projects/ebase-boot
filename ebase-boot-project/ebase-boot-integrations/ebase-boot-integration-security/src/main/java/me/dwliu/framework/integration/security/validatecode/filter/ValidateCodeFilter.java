@@ -7,6 +7,7 @@ import jakarta.servlet.http.HttpServletResponse;
 import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
 import me.dwliu.framework.core.security.constant.ValidateCodeConstants;
+import me.dwliu.framework.integration.security.handler.CustomJsonAuthenticationFailureHandler;
 import me.dwliu.framework.integration.security.validatecode.ValidateCodeException;
 import me.dwliu.framework.integration.security.validatecode.ValidateCodeProcessor;
 import me.dwliu.framework.integration.security.validatecode.ValidateCodeProcessorHolder;
@@ -41,7 +42,7 @@ public class ValidateCodeFilter extends OncePerRequestFilter {
 	 * 验证码校验失败处理器
 	 */
 	//@Autowired
-	private AuthenticationFailureHandler authenticationFailureHandler;
+	private AuthenticationFailureHandler authenticationFailureHandler = new CustomJsonAuthenticationFailureHandler();
 	/**
 	 * 存放所有需要校验验证码的url
 	 */
