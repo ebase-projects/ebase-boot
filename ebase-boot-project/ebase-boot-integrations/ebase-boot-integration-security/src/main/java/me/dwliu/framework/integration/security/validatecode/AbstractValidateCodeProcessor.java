@@ -10,6 +10,7 @@ import org.springframework.web.bind.ServletRequestBindingException;
 import org.springframework.web.bind.ServletRequestUtils;
 import org.springframework.web.context.request.ServletWebRequest;
 
+import java.io.IOException;
 import java.util.Map;
 
 /**
@@ -75,14 +76,23 @@ public abstract class AbstractValidateCodeProcessor<C extends ValidateCode> impl
 			codeInRequest = ServletRequestUtils.getStringParameter(request.getRequest(),
 				validateCodeType.getParamNameOnValidate());
 		} catch (ServletRequestBindingException e) {
-			log.error("获取参数异常", e.fillInStackTrace());
+			log.error("获取参数异常:{}", e.getMessage(), e.fillInStackTrace());
 			throw new ValidateCodeException(String.format("%s 获取参数异常", validateCodeType));
+		}
+
+		if (StringUtils.isBlank(codeInRequest)) {
+			try {
+				Map<String, String> bodyByJson = me.dwliu.framework.integration.security.validatecode.ServletRequestUtils.getBodyByJson(request.getRequest());
+				codeInRequest = bodyByJson.get(validateCodeType.getParamNameOnValidate());
+			} catch (IOException e) {
+				log.error("获取参数异常:{}", e.getMessage(), e.fillInStackTrace());
+				throw new ValidateCodeException(String.format("%s 获取参数异常", validateCodeType));
+			}
 		}
 
 		if (StringUtils.isBlank(codeInRequest)) {
 			throw new ValidateCodeException(String.format("%s 验证码的值为空", validateCodeType));
 		}
-
 
 		if (null == codeInRepository) {
 			throw new ValidateCodeException(String.format("%s 验证码不存在", validateCodeType));

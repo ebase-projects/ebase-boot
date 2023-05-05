@@ -65,9 +65,9 @@ public class ValidateCodeFilter extends OncePerRequestFilter {
 	public void afterPropertiesSet() throws ServletException {
 		super.afterPropertiesSet();
 
-		//TODO 加入用户名密码登陆和短信登陆链接
+		//加入用户名密码登陆和短信登陆链接
 		urlMap.put(ValidateCodeConstants.DEFAULT_SIGN_IN_PROCESSING_URL_MOBILE, ValidateCodeTypeEnum.SMS);
-		urlMap.put("/oauth/token", ValidateCodeTypeEnum.IMAGE);
+//		urlMap.put("/oauth/token", ValidateCodeTypeEnum.IMAGE);
 
 		// 将图片验证码配置文件 url 属性加入到map
 		addUrlToMap(imageUrl, ValidateCodeTypeEnum.IMAGE);
