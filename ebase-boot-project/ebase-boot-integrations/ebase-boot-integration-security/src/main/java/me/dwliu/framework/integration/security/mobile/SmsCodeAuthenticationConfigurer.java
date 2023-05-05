@@ -1,6 +1,7 @@
 package me.dwliu.framework.integration.security.mobile;
 
 import lombok.RequiredArgsConstructor;
+import me.dwliu.framework.core.security.cache.CacheService;
 import me.dwliu.framework.integration.security.handler.CustomJsonAuthenticationFailureHandler;
 import me.dwliu.framework.integration.security.handler.CustomJsonAuthenticationSuccessHandler;
 import me.dwliu.framework.integration.security.jwt.JwtTokenUtils;
@@ -9,8 +10,6 @@ import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.SecurityConfigurerAdapter;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.web.DefaultSecurityFilterChain;
-import org.springframework.security.web.authentication.AuthenticationFailureHandler;
-import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 import org.springframework.stereotype.Component;
 
@@ -25,10 +24,9 @@ import org.springframework.stereotype.Component;
 public class SmsCodeAuthenticationConfigurer
 	extends SecurityConfigurerAdapter<DefaultSecurityFilterChain, HttpSecurity> {
 
-//	private AuthenticationSuccessHandler customJsonAuthenticationSuccessHandler;
-//	private AuthenticationFailureHandler customJsonAuthenticationFailureHandler;
 	private final CustomUserDetailsService userDetailsService;
 	private final JwtTokenUtils jwtTokenUtils;
+	private final CacheService cacheService;
 
 //	@Autowired
 //	private PersistentTokenRepository persistentTokenRepository;
@@ -39,7 +37,7 @@ public class SmsCodeAuthenticationConfigurer
 		SmsCodeAuthenticationFilter filter = new SmsCodeAuthenticationFilter();
 		filter.setAuthenticationManager(authenticationManager);
 
-		filter.setAuthenticationSuccessHandler(new CustomJsonAuthenticationSuccessHandler(jwtTokenUtils));
+		filter.setAuthenticationSuccessHandler(new CustomJsonAuthenticationSuccessHandler(jwtTokenUtils, cacheService));
 		filter.setAuthenticationFailureHandler(new CustomJsonAuthenticationFailureHandler());
 
 		SmsCodeAuthenticationProvider smsCodeAuthenticationProvider = new SmsCodeAuthenticationProvider();
