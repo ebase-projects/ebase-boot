@@ -20,11 +20,11 @@ public class ImageCodeProperties extends SmsCodeProperties {
 	}
 
 	/**
-	 * 验证码长度
+	 * 验证码宽度
 	 */
 	private int width = 90;
 	/**
-	 * 验证码宽度
+	 * 验证码高度
 	 */
 	private int height = 20;
 

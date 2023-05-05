@@ -1,0 +1,141 @@
+{
+  "groups": [
+    {
+      "name": "ebase.security",
+      "type": "me.dwliu.framework.autoconfigure.security.SecurityProperties",
+      "sourceType": "me.dwliu.framework.autoconfigure.security.SecurityProperties"
+    },
+    {
+      "name": "ebase.security.code",
+      "type": "me.dwliu.framework.autoconfigure.security.code.ValidateCodeProperties",
+      "sourceType": "me.dwliu.framework.autoconfigure.security.code.ValidateCodeProperties"
+    },
+    {
+      "name": "ebase.security.jwt",
+      "type": "me.dwliu.framework.autoconfigure.security.jwt.JwtConfigProperties",
+      "sourceType": "me.dwliu.framework.autoconfigure.security.jwt.JwtConfigProperties"
+    }
+  ],
+  "properties": [
+    {
+      "name": "ebase.security.ignoreUrls",
+      "type": "java.util.List<java.lang.String>",
+      "description": "不需要认证的接口数组."
+    },
+    {
+      "name": "ebase.security.code",
+      "type": "me.dwliu.framework.autoconfigure.security.code.ValidateCodeProperties",
+      "description": "验证码."
+    },
+    {
+      "name": "ebase.security.sms",
+      "type": "me.dwliu.framework.autoconfigure.security.code.SmsCodeProperties",
+      "description": "短信验证码."
+    },
+    {
+      "name": "ebase.security.code.sms.length",
+      "type": "java.lang.Integer",
+      "description": "短信验证码长度.",
+      "defaultValue": 6
+    },
+    {
+      "name": "ebase.security.code.sms.expire-in",
+      "type": "java.lang.Integer",
+      "description": "短信过期时间.",
+      "defaultValue": 60
+    },
+    {
+      "name": "ebase.security.code.sms.url",
+      "type": "java.lang.String",
+      "description": "短信要拦截的url,多个用逗号(,)隔开.",
+      "deprecation": {
+        "reason": "不建议使用,用validate-urls代替.",
+        "level": "warning"
+      }
+    },
+    {
+      "name": "ebase.security.code.sms.validate-urls",
+      "type": "java.util.List<java.lang.String>",
+      "description": "短信要拦截的url,多个用逗号(,)隔开."
+    },
+
+    {
+      "name": "ebase.security.image",
+      "type": "me.dwliu.framework.autoconfigure.security.code.ImageCodeProperties",
+      "description": "图形验证码."
+    },
+    {
+      "name": "ebase.security.code.image.length",
+      "type": "java.lang.Integer",
+      "description": "图形验证码长度.",
+      "defaultValue": 4
+    },
+    {
+      "name": "ebase.security.code.image.expire-in",
+      "type": "java.lang.Integer",
+      "description": "图形验证码过期时间.",
+      "defaultValue": 60
+    },
+    {
+      "name": "ebase.security.code.image.width",
+      "type": "java.lang.Integer",
+      "description": "图形验证码宽度.",
+      "defaultValue": 90
+    },
+    {
+      "name": "ebase.security.code.image.height",
+      "type": "java.lang.Integer",
+      "description": "图形验证码高度.",
+      "defaultValue": 20
+    },
+    {
+      "name": "ebase.security.code.image.url",
+      "type": "java.lang.String",
+      "description": "图形验证码要拦截的url,多个用逗号(,)隔开.",
+      "deprecation": {
+        "reason": "不建议使用，用validate-urls代替.",
+        "level": "warning"
+      }
+    },
+    {
+      "name": "ebase.security.code.image.validate-urls",
+      "type": "java.util.List<java.lang.String>",
+      "description": "图形验证码要拦截的url,多个用逗号(,)隔开."
+    },
+
+    {
+      "name": "ebase.security.jwt",
+      "type": "me.dwliu.framework.autoconfigure.security.jwt.JwtConfigProperties",
+      "description": "jwt."
+    },
+    {
+      "name": "ebase.security.jwt.secret",
+      "type": "java.lang.String",
+      "description": "jwt密钥KEY."
+    },
+    {
+      "name": "ebase.security.jwt.token-header-key",
+      "type": "java.lang.String",
+      "description": "jwt TokenKey.",
+      "defaultValue": "Authorization"
+    },
+    {
+      "name": "ebase.security.jwt.token-params-key",
+      "type": "java.lang.String",
+      "description": "jwt 请求参数的 key.",
+      "defaultValue": "token"
+    },
+    {
+      "name": "ebase.security.jwt.token-prefix",
+      "type": "java.lang.String",
+      "description": "jwt Token前缀字符.",
+      "defaultValue": "Bearer"
+    },
+    {
+      "name": "ebase.security.jwt.expiration",
+      "type": "java.lang.Integer",
+      "description": "过期时间（毫秒）.",
+      "defaultValue": 86400000
+    }
+  ]
+}

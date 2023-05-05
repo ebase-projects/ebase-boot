@@ -34,7 +34,7 @@ public class SecurityProperties {
 
 
 	/**
-	 * 不需要认证的接口 以 ，分割
+	 * 不需要认证的接口
 	 */
 	private String[] ignoreUrls;
 
