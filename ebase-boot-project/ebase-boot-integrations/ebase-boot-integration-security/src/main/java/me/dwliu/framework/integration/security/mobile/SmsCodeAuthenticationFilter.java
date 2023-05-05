@@ -2,7 +2,10 @@ package me.dwliu.framework.integration.security.mobile;
 
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import lombok.extern.slf4j.Slf4j;
 import me.dwliu.framework.core.security.constant.ValidateCodeConstants;
+import me.dwliu.framework.integration.security.exception.CustomSecurityException;
+import me.dwliu.framework.integration.security.validatecode.ValidateCodeException;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.security.authentication.AuthenticationServiceException;
 import org.springframework.security.core.Authentication;
@@ -10,6 +13,9 @@ import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 import org.springframework.util.Assert;
+
+import java.io.IOException;
+import java.util.Map;
 
 
 /**
@@ -23,6 +29,7 @@ import org.springframework.util.Assert;
  * @author liudw
  * @date 2019-04-28 14:27
  **/
+@Slf4j
 public class SmsCodeAuthenticationFilter extends AbstractAuthenticationProcessingFilter {
 
 	public static final String SPRING_SECURITY_FORM_MOBILE_KEY = ValidateCodeConstants.DEFAULT_PARAMETER_NAME_MOBILE;
@@ -61,11 +68,25 @@ public class SmsCodeAuthenticationFilter extends AbstractAuthenticationProcessin
 	}
 
 	protected String obtainMobile(HttpServletRequest request) {
-		return request.getParameter(mobileParameter);
+		String mobile = request.getParameter(mobileParameter);
+
+		if (StringUtils.isBlank(mobile)) {
+			try {
+				Map<String, String> bodyByJson =
+					me.dwliu.framework.integration.security.validatecode.ServletRequestUtils
+						.getBodyByJson(request);
+				mobile = bodyByJson.get(mobileParameter);
+			} catch (IOException e) {
+				log.error("获取参数异常:{}", e.getMessage(), e.fillInStackTrace());
+				throw new CustomSecurityException(String.format("获取参数异常"));
+			}
+		}
+
+		return mobile;
 	}
 
 	protected void setDetails(HttpServletRequest request,
-	                          SmsCodeAuthenticationToken authRequest) {
+							  SmsCodeAuthenticationToken authRequest) {
 		authRequest.setDetails(authenticationDetailsSource.buildDetails(request));
 	}
 

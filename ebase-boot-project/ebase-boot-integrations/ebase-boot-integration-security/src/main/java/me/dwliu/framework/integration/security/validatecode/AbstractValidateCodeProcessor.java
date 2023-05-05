@@ -127,6 +127,17 @@ public abstract class AbstractValidateCodeProcessor<C extends ValidateCode> impl
 					log.error("获取参数异常", e.fillInStackTrace());
 					throw new ValidateCodeException(String.format("参数【%s】 获取参数异常", ValidateCodeConstants.DEFAULT_PARAMETER_NAME_MOBILE));
 				}
+				if (StringUtils.isBlank(mobileParameter)) {
+					try {
+						Map<String, String> bodyByJson =
+							me.dwliu.framework.integration.security.validatecode.ServletRequestUtils
+								.getBodyByJson(request.getRequest());
+						mobileParameter = bodyByJson.get(ValidateCodeConstants.DEFAULT_PARAMETER_NAME_MOBILE);
+					} catch (IOException e) {
+						log.error("获取参数异常:{}", e.getMessage(), e.fillInStackTrace());
+						throw new ValidateCodeException(String.format("%s 获取参数异常", validateCodeType));
+					}
+				}
 				if (!StringUtils.equals(sc.getPhone(), mobileParameter)) {
 					throw new ValidateCodeException(String.format("发送短信手机号【%s】与登陆手机号【%s】不一致", sc.getPhone(), mobileParameter));
 				}
