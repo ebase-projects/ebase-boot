@@ -1,1 +1,2 @@
 me.dwliu.framework.core.tool.util.SpringContextUtil
+me.dwliu.framework.core.tool.bean.BodyReaderFilter
