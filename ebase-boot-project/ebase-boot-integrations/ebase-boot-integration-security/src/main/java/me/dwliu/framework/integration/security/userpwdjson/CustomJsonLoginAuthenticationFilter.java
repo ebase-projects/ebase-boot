@@ -1,9 +1,11 @@
 package me.dwliu.framework.integration.security.userpwdjson;
 
+import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import me.dwliu.framework.common.exception.BusinessException;
+import me.dwliu.framework.integration.security.exception.CustomSecurityException;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.AuthenticationServiceException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -39,9 +41,11 @@ public class CustomJsonLoginAuthenticationFilter extends AbstractAuthenticationP
 		}
 		LoginUserDTO user = null;
 		try {
-			user = new ObjectMapper().readValue(request.getInputStream(), LoginUserDTO.class);
+			ObjectMapper objectMapper = new ObjectMapper();
+			objectMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
+			user = objectMapper.readValue(request.getInputStream(), LoginUserDTO.class);
 		} catch (IOException e) {
-			throw new BusinessException(e);
+			throw new CustomSecurityException(e.getMessage());
 		}
 		String username = user.getUsername();
 		username = (username != null) ? username.trim() : "";

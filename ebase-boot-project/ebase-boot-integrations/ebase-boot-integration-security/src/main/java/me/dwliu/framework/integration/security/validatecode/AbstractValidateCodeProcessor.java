@@ -1,5 +1,6 @@
 package me.dwliu.framework.integration.security.validatecode;
 
+import jakarta.servlet.http.HttpServletRequest;
 import lombok.extern.slf4j.Slf4j;
 import me.dwliu.framework.core.security.constant.ValidateCodeConstants;
 import me.dwliu.framework.integration.security.validatecode.enums.ValidateCodeTypeEnum;
@@ -9,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.ServletRequestBindingException;
 import org.springframework.web.bind.ServletRequestUtils;
 import org.springframework.web.context.request.ServletWebRequest;
+import org.springframework.web.util.ContentCachingRequestWrapper;
 
 import java.io.IOException;
 import java.util.Map;

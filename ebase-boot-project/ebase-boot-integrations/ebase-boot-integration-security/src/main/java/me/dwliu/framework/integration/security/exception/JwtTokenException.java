@@ -1,4 +1,4 @@
-package me.dwliu.framework.integration.security.jwt;
+package me.dwliu.framework.integration.security.exception;
 
 import org.springframework.security.core.AuthenticationException;
 
