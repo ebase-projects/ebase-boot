@@ -3,6 +3,8 @@ package me.dwliu.framework.autoconfigure.security;
 import io.jsonwebtoken.Jwts;
 import lombok.extern.slf4j.Slf4j;
 import me.dwliu.framework.autoconfigure.security.jwt.JwtConfigProperties;
+import me.dwliu.framework.core.security.cache.CacheService;
+import me.dwliu.framework.core.security.cache.DefaultCacheService;
 import me.dwliu.framework.core.security.crypto.CustomPasswordEncoderFactories;
 import me.dwliu.framework.integration.security.jwt.JwtTokenUtils;
 import me.dwliu.framework.integration.security.service.CustomUserDetailsService;
@@ -37,6 +39,7 @@ public class SecurityConfig {
 		log.debug("初始化passwordEncoder: PasswordEncoderFactories.createDelegatingPasswordEncoder()");
 		return CustomPasswordEncoderFactories.createDelegatingPasswordEncoder();
 	}
+
 	/**
 	 * 加载默认查询用户信息服务
 	 *
@@ -45,8 +48,15 @@ public class SecurityConfig {
 	@Bean
 	@ConditionalOnMissingBean(CustomUserDetailsService.class)
 	public CustomUserDetailsService customUserDetailsService() {
-		log.debug("使用默认的获取用户信息service: DefaultUserDetailsServiceImpl");
+		log.debug("===使用默认的获取用户信息service: DefaultUserDetailsServiceImpl===");
 		return new DefaultUserDetailsServiceImpl();
+	}
+
+	@Bean
+	@ConditionalOnMissingBean(CacheService.class)
+	public CacheService cacheService() {
+		log.debug("===使用默认的cacheservice缓存security信息===");
+		return new DefaultCacheService();
 	}
 
 	@Bean
