@@ -7,6 +7,8 @@ import jakarta.servlet.http.HttpServletResponse;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import me.dwliu.framework.common.model.Result;
+import me.dwliu.framework.core.security.cache.CacheService;
+import me.dwliu.framework.core.security.constant.SecurityCoreConstant;
 import me.dwliu.framework.core.security.entity.UserInfoDetails;
 import me.dwliu.framework.integration.security.jwt.JwtTokenUtils;
 import org.springframework.http.HttpStatus;
@@ -30,11 +32,12 @@ import java.util.Map;
  * @author liudw
  * @date 2023/4/29 22:06
  **/
-//@Component("customJsonAuthenticationSuccessHandler")
+//@Component
 @Slf4j
 @RequiredArgsConstructor
 public class CustomJsonAuthenticationSuccessHandler implements AuthenticationSuccessHandler {
 	private final JwtTokenUtils jwtTokenUtils;
+	private final CacheService cacheService;
 
 	/**
 	 * 登录成功后直接返回 JSON
@@ -67,8 +70,10 @@ public class CustomJsonAuthenticationSuccessHandler implements AuthenticationSuc
 			jwtTokenUtils.getTokenExpiration(token)
 				.toInstant().atZone(ZoneId.systemDefault()).toLocalDateTime()));
 
-		Result<Map> result = Result.success(model);
+		//加入到缓存中
+		cacheService.save(SecurityCoreConstant.SECURITY_TOKEN_CACHE_KEY + securityUserDetails.getUsername(), token);
 
+		Result<Map> result = Result.success(model);
 		ObjectMapper objectMapper = new ObjectMapper();
 		response.getWriter().write(objectMapper.writeValueAsString(result));
 	}
