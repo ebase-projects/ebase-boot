@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
  * @author liudw
  * @date 2019-05-30 11:43
  **/
-@RestControllerAdvice
+//@RestControllerAdvice
 @Slf4j
 public class SecurityExceptionHandler {
 

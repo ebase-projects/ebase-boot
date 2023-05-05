@@ -26,7 +26,7 @@ import java.io.IOException;
  * @date 2023/4/29 21:58
  **/
 @Slf4j
-//@Component("customJsonAuthenticationFailureHandler")
+//@Component
 public class CustomJsonAuthenticationFailureHandler implements AuthenticationFailureHandler {
 
 

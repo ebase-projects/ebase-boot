@@ -1,4 +1,4 @@
-package me.dwliu.framework.integration.security.component;
+package me.dwliu.framework.integration.security.handler;
 
 import cn.hutool.http.HttpStatus;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -22,7 +22,7 @@ import java.io.PrintWriter;
  * @date 2019-08-16 11:05
  **/
 @Slf4j
-@Component
+//@Component
 public class CustomJsonAuthenticationEntryPoint implements AuthenticationEntryPoint {
 
 	@Override
