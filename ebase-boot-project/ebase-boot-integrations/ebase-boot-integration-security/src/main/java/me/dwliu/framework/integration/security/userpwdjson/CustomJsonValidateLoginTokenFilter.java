@@ -11,15 +11,14 @@ import me.dwliu.framework.core.security.cache.CacheService;
 import me.dwliu.framework.core.security.constant.SecurityCoreConstant;
 import me.dwliu.framework.core.security.dto.UserInfoDTO;
 import me.dwliu.framework.core.security.entity.UserInfoDetails;
-import me.dwliu.framework.core.security.utils.SecurityUtils;
 import me.dwliu.framework.integration.security.jwt.JwtTokenUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
-import org.springframework.security.core.Authentication;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.context.SecurityContext;
 import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.web.authentication.WebAuthenticationDetailsSource;
 import org.springframework.web.filter.OncePerRequestFilter;
 
 import java.io.IOException;
@@ -78,6 +77,7 @@ public class CustomJsonValidateLoginTokenFilter extends OncePerRequestFilter {
 
 						UsernamePasswordAuthenticationToken authentication
 							= new UsernamePasswordAuthenticationToken(userInfoDetails, "[PROTECTED]", grantedAuthoritySet);
+						authentication.setDetails(new WebAuthenticationDetailsSource().buildDetails(request));
 						// SecurityContextHolder 权限验证上下文
 						SecurityContext context = SecurityContextHolder.getContext();
 						// 指示用户已通过身份验证

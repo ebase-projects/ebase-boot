@@ -14,6 +14,7 @@ import org.springframework.security.config.annotation.SecurityConfigurerAdapter;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.web.DefaultSecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
+import org.springframework.security.web.authentication.logout.LogoutFilter;
 import org.springframework.stereotype.Component;
 
 /**
@@ -68,7 +69,7 @@ public class CustomJsonLoginAuthenticationConfigurer
 		http.addFilterBefore(filter, UsernamePasswordAuthenticationFilter.class);
 
 		CustomJsonValidateLoginTokenFilter filter1 = new CustomJsonValidateLoginTokenFilter(jwtTokenUtils, cacheService);
-		http.addFilterBefore(filter1, UsernamePasswordAuthenticationFilter.class);
+		http.addFilterBefore(filter1, LogoutFilter.class);
 
 
 	}

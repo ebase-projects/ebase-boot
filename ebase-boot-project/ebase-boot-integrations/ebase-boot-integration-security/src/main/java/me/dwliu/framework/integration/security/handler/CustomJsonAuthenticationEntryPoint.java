@@ -1,20 +1,16 @@
 package me.dwliu.framework.integration.security.handler;
 
-import cn.hutool.http.HttpStatus;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import lombok.Data;
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
-import me.dwliu.framework.common.code.SystemResultCode;
 import me.dwliu.framework.common.model.Result;
 import me.dwliu.framework.core.security.enums.SecurityResultCode;
+import org.springframework.http.HttpStatus;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.web.AuthenticationEntryPoint;
-import org.springframework.stereotype.Component;
 
-import java.io.PrintWriter;
 import java.time.LocalDateTime;
 
 /**
@@ -43,7 +39,7 @@ public class CustomJsonAuthenticationEntryPoint implements AuthenticationEntryPo
 		result.setTimestamp(LocalDateTime.now());
 		result.setData(authException.getMessage());
 
-		response.setStatus(HttpStatus.HTTP_UNAUTHORIZED);
+		response.setStatus(HttpStatus.UNAUTHORIZED.value());
 		response.getWriter().append(objectMapper.writeValueAsString(result));
 	}
 }
