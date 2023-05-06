@@ -10,9 +10,12 @@ import lombok.RequiredArgsConstructor;
 import me.dwliu.framework.core.security.cache.CacheService;
 import me.dwliu.framework.core.security.constant.SecurityCoreConstant;
 import me.dwliu.framework.core.security.dto.UserInfoDTO;
+import me.dwliu.framework.core.security.entity.UserInfoDetails;
+import me.dwliu.framework.core.security.utils.SecurityUtils;
 import me.dwliu.framework.integration.security.jwt.JwtTokenUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.Authentication;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.context.SecurityContext;
@@ -61,11 +64,19 @@ public class CustomJsonValidateLoginTokenFilter extends OncePerRequestFilter {
 							}
 						}
 
+						UserInfoDetails userInfoDetails = new UserInfoDetails(user.getUserId(), user.getTenantCode(), user.getRealName(), user.getDeptId()
+							, user.getRoleIds(), user.getAvatar(), user.getUsername(), "[PROTECTED]",
+							user.getSuperAdmin(), user.isEnabled(), user.isAccountNonExpired(), user.isCredentialsNonExpired(), user.isAccountNonLocked(),
+							user.getPermissions(), grantedAuthoritySet);
 //					Authentication authentication = jwtTokenUtils.getAuthentication(token, userInfoDetails);
 
 						// TODO 这里可以续签
+
+						//UsernamePasswordAuthenticationToken result = UsernamePasswordAuthenticationToken.authenticated(userInfoDetails,
+						//	"[PROTECTED]", grantedAuthoritySet);
+
 						UsernamePasswordAuthenticationToken authentication
-							= new UsernamePasswordAuthenticationToken(user.getUserId(), user.getPassword(), grantedAuthoritySet);
+							= new UsernamePasswordAuthenticationToken(userInfoDetails, "[PROTECTED]", grantedAuthoritySet);
 						// SecurityContextHolder 权限验证上下文
 						SecurityContext context = SecurityContextHolder.getContext();
 						// 指示用户已通过身份验证
