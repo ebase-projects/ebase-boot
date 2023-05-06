@@ -96,6 +96,7 @@ public class JwtTokenUtils {
 		// 方法一：每次接口请求时，在JwtTokenOncePerRequestFilter会调用本方法，每次读取数据库。也可以考虑增加缓存。
 		//UserDetails userDetails = this.userDetailsService.loadUserByUsername(getUsername(token));
 		// 方法二：token有效期内，根据token解码的信息，重新生成SecurityUserDetails信息
+		//TODO 解析机制改动
 		Claims claims = Jwts.parser().setSigningKey(secretKeyBase64).parseClaimsJws(token).getBody();
 
 		List<Map<String, Object>> roles = claims.get("permissions", List.class);
@@ -107,7 +108,7 @@ public class JwtTokenUtils {
 
 		}
 
-		UserInfoDetails userDetails = new UserInfoDetails(claims.getSubject(), claims.get("nickname", String.class), "", "", "", "", "", claims.getSubject(), "", 1, true, true, true, true, simpleGrantedAuthorities);
+		UserInfoDetails userDetails = new UserInfoDetails(claims.getSubject(), claims.get("nickname", String.class), "", "", null, null, "", claims.getSubject(), "", 1, true, true, true, true, simpleGrantedAuthorities);
 		return new UsernamePasswordAuthenticationToken(userDetails, "", userDetails.getAuthorities());
 	}
 

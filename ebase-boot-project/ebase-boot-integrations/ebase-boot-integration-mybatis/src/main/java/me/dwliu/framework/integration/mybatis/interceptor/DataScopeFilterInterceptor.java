@@ -146,15 +146,14 @@ public class DataScopeFilterInterceptor implements QueryInterceptor {
 
 
 		//组合角色数据
-		String roleIds = user.getRoleId();
+		Set<String> roleIds = user.getRoleIds();
 		Set<Long> roleIdSet = new HashSet<>();
 
-		if (!StringUtils.isBlank(roleIds)) {
-			String[] roleIdStrs = StringUtils.split(roleIds, ",");
-
-			List<String> roleIdStrList = Arrays.asList(roleIdStrs);
-			if (roleIdStrList != null && roleIdStrList.size() != 0) {
-				roleIdStrList.forEach(p -> {
+		if (roleIds != null) {
+//			String[] roleIdStrs = StringUtils.split(roleIds, ",");
+//			List<String> roleIdStrList = Arrays.asList(roleIdStrs);
+			if (roleIds.size() != 0) {
+				roleIds.forEach(p -> {
 					roleIdSet.add(Long.parseLong(p));
 				});
 			}

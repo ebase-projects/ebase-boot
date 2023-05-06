@@ -31,7 +31,7 @@ public class CustomJsonAuthenticationEntryPoint implements AuthenticationEntryPo
 	@SneakyThrows
 	public void commence(HttpServletRequest request, HttpServletResponse response,
 						 AuthenticationException authException) {
-		log.error("没有权限不允许访问:{}", authException.getMessage());
+		log.error("检验token未通过，没有权限不允许访问:{}", authException.getMessage());
 		ObjectMapper objectMapper = new ObjectMapper();
 		response.setCharacterEncoding("UTF-8");
 		// response.setContentType(MediaType.APPLICATION_JSON_UTF8_VALUE);
@@ -39,11 +39,11 @@ public class CustomJsonAuthenticationEntryPoint implements AuthenticationEntryPo
 		Result<String> result = new Result<>();
 
 		result.setCode(SecurityResultCode.FORBIDDEN_CODE);
-		result.setMsg("没有权限不允许访问");
+		result.setMsg("检验token未通过，不允许访问");
 		result.setTimestamp(LocalDateTime.now());
 		result.setData(authException.getMessage());
 
-		response.setStatus(HttpStatus.HTTP_FORBIDDEN);
+		response.setStatus(HttpStatus.HTTP_UNAUTHORIZED);
 		response.getWriter().append(objectMapper.writeValueAsString(result));
 	}
 }

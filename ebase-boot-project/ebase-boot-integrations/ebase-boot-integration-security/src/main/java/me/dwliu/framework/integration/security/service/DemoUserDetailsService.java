@@ -2,7 +2,6 @@ package me.dwliu.framework.integration.security.service;
 
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -46,7 +45,7 @@ public class DemoUserDetailsService implements CustomUserDetailsService {
 		//throw new UsernameNotFoundException(username);
 
 		List<SimpleGrantedAuthority> rols = new ArrayList<>();
-		rols.add(new SimpleGrantedAuthority("admin"));
+		rols.add(new SimpleGrantedAuthority("demo"));
 
 		return new User(username, passwordEncoder.encode("123456"), true, true, true, true, rols);
 	}
@@ -61,7 +60,7 @@ public class DemoUserDetailsService implements CustomUserDetailsService {
 		log.warn("===演示用的加载用户信息服务，必须实现 UserDetailsService 重写 loadUserByMobile 方法===");
 
 		List<SimpleGrantedAuthority> rols = new ArrayList<>();
-		rols.add(new SimpleGrantedAuthority("admin"));
+		rols.add(new SimpleGrantedAuthority("demo"));
 
 		return new User(username, passwordEncoder.encode("123456"), true, true, true, true, rols);
 	}
