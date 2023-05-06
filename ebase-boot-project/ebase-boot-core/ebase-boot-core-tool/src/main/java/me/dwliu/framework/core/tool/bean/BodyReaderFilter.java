@@ -6,7 +6,6 @@ import jakarta.servlet.http.HttpServletRequest;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.core.Ordered;
 import org.springframework.core.annotation.Order;
-import org.springframework.web.util.ContentCachingRequestWrapper;
 
 import java.io.IOException;
 
@@ -24,24 +23,24 @@ public class BodyReaderFilter implements Filter {
 
 	@Override
 	public void init(FilterConfig filterConfig) throws ServletException {
-		log.info("===BodyReaderFilter init===");
+		log.debug("===开启BodyReaderFilter ，阻止getInputStream 只能读取一次的问题===");
+	}
+
+	@Override
+	public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain)
+		throws IOException, ServletException {
+		HttpServletRequest req = (HttpServletRequest) servletRequest;
+		BodyReaderRequestWrapper requestWrapper = new BodyReaderRequestWrapper(req);
+		filterChain.doFilter(requestWrapper, servletResponse);
 	}
 
 //	@Override
 //	public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain)
 //		throws IOException, ServletException {
 //		HttpServletRequest req = (HttpServletRequest) servletRequest;
-//		BodyReaderRequestWrapper requestWrapper = new BodyReaderRequestWrapper(req);
-//		filterChain.doFilter(requestWrapper, servletResponse);
+//		ContentCachingRequestWrapper contentCachingRequestWrapper = new ContentCachingRequestWrapper(req);
+//		filterChain.doFilter(contentCachingRequestWrapper, servletResponse);
 //	}
-
-	@Override
-	public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain)
-		throws IOException, ServletException {
-		HttpServletRequest req = (HttpServletRequest) servletRequest;
-		ContentCachingRequestWrapper contentCachingRequestWrapper = new ContentCachingRequestWrapper(req);
-		filterChain.doFilter(contentCachingRequestWrapper, servletResponse);
-	}
 
 	@Override
 	public void destroy() {
