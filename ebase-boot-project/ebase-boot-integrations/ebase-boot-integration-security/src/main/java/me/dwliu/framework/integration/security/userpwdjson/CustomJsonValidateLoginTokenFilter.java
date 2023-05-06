@@ -64,6 +64,7 @@ public class CustomJsonValidateLoginTokenFilter extends OncePerRequestFilter {
 							}
 						}
 
+						// 必须加入UserInfoDetails，后期SecurityUtils.getUser() 才能获取到完整信息
 						UserInfoDetails userInfoDetails = new UserInfoDetails(user.getUserId(), user.getTenantCode(), user.getRealName(), user.getDeptId()
 							, user.getRoleIds(), user.getAvatar(), user.getUsername(), "[PROTECTED]",
 							user.getSuperAdmin(), user.isEnabled(), user.isAccountNonExpired(), user.isCredentialsNonExpired(), user.isAccountNonLocked(),
