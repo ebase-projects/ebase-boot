@@ -54,9 +54,9 @@ public class SecurityConfig {
 
 	@Bean
 	@ConditionalOnMissingBean(CacheService.class)
-	public CacheService cacheService() {
+	public CacheService cacheService(SecurityProperties securityProperties) {
 		log.debug("===使用默认的cacheservice缓存security信息===");
-		return new DefaultCacheService();
+		return new DefaultCacheService(securityProperties.getJwt().getExpiration());
 	}
 
 	@Bean

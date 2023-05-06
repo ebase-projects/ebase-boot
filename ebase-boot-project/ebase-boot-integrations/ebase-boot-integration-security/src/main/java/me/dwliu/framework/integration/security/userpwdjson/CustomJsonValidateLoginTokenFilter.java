@@ -1,5 +1,7 @@
 package me.dwliu.framework.integration.security.userpwdjson;
 
+import com.fasterxml.jackson.databind.DeserializationFeature;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
@@ -7,14 +9,19 @@ import jakarta.servlet.http.HttpServletResponse;
 import lombok.RequiredArgsConstructor;
 import me.dwliu.framework.core.security.cache.CacheService;
 import me.dwliu.framework.core.security.constant.SecurityCoreConstant;
+import me.dwliu.framework.core.security.dto.UserInfoDTO;
 import me.dwliu.framework.integration.security.jwt.JwtTokenUtils;
 import org.apache.commons.lang3.StringUtils;
-import org.springframework.security.core.Authentication;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.context.SecurityContext;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.filter.OncePerRequestFilter;
 
 import java.io.IOException;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  * 进行token的认证拦截
@@ -39,14 +46,32 @@ public class CustomJsonValidateLoginTokenFilter extends OncePerRequestFilter {
 			String token4Server = (String) cacheService.get(SecurityCoreConstant.SECURITY_TOKEN_CACHE_KEY + username);
 			if (StringUtils.equals(token, token4Server)) {
 				if (jwtTokenUtils.validateToken(token)) {
-					Authentication authentication = jwtTokenUtils.getAuthentication(token);
-					if (authentication != null) {
-//				SecurityContextHolder.getContext().setAuthentication(authentication);
+					String userInfoDetailStr = (String) cacheService.get(SecurityCoreConstant.SECURITY_USERINFO_CACHE_KEY + username);
+
+					if (StringUtils.isNotBlank(userInfoDetailStr)) {
+						ObjectMapper objectMapper = new ObjectMapper();
+						objectMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
+						UserInfoDTO user = objectMapper.readValue(userInfoDetailStr, UserInfoDTO.class);
+
+						Set<String> permissions = user.getPermissions();
+						Set<GrantedAuthority> grantedAuthoritySet = new HashSet<>();
+						if (permissions != null) {
+							for (String p : permissions) {
+								grantedAuthoritySet.add(new SimpleGrantedAuthority(p));
+							}
+						}
+
+//					Authentication authentication = jwtTokenUtils.getAuthentication(token, userInfoDetails);
+
+						// TODO 这里可以续签
+						UsernamePasswordAuthenticationToken authentication
+							= new UsernamePasswordAuthenticationToken(user.getUserId(), user.getPassword(), grantedAuthoritySet);
 						// SecurityContextHolder 权限验证上下文
 						SecurityContext context = SecurityContextHolder.getContext();
 						// 指示用户已通过身份验证
 						context.setAuthentication(authentication);
 					}
+
 				}
 			}
 //				} else {

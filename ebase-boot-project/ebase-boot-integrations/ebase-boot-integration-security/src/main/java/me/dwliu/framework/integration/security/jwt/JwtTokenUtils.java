@@ -50,10 +50,13 @@ public class JwtTokenUtils {
 	 * @return
 	 */
 	public String createToken(UserInfoDetails securityUserDetails) {
-		Claims claims = Jwts.claims().setSubject(securityUserDetails.getUsername());
+		Claims claims = Jwts.claims()
+			.setId(securityUserDetails.getUserId())
+			.setSubject(securityUserDetails.getUsername());
 		// 存储业务用各种数据，保存非涉密信息，比如用户名、昵称、所属企业等
 		claims.put("permissions", securityUserDetails.getAuthorities());
-		claims.put("nickname", securityUserDetails.getRealName());
+		claims.put("username", securityUserDetails.getUsername());
+		claims.put("roleIds", securityUserDetails.getRoleIds());
 		return generateToken(claims);
 	}
 
@@ -92,25 +95,21 @@ public class JwtTokenUtils {
 		return token;
 	}
 
-	public Authentication getAuthentication(String token) {
-		// 方法一：每次接口请求时，在JwtTokenOncePerRequestFilter会调用本方法，每次读取数据库。也可以考虑增加缓存。
-		//UserDetails userDetails = this.userDetailsService.loadUserByUsername(getUsername(token));
-		// 方法二：token有效期内，根据token解码的信息，重新生成SecurityUserDetails信息
-		//TODO 解析机制改动
-		Claims claims = Jwts.parser().setSigningKey(secretKeyBase64).parseClaimsJws(token).getBody();
-
-		List<Map<String, Object>> roles = claims.get("permissions", List.class);
-		List<SimpleGrantedAuthority> simpleGrantedAuthorities = new ArrayList<>();
-		if (roles != null && roles.size() > 0) {
-			for (Map<String, Object> role : roles) {
-				simpleGrantedAuthorities.add(new SimpleGrantedAuthority((String) role.get("authority")));
-			}
-
-		}
-
-		UserInfoDetails userDetails = new UserInfoDetails(claims.getSubject(), claims.get("nickname", String.class), "", "", null, null, "", claims.getSubject(), "", 1, true, true, true, true, simpleGrantedAuthorities);
-		return new UsernamePasswordAuthenticationToken(userDetails, "", userDetails.getAuthorities());
-	}
+//	public Authentication getAuthentication(String token, UserInfoDetails userInfoDetails) {
+//		//token有效期内，根据token解码的信息，重新生成SecurityUserDetails信息
+//		Claims claims = Jwts.parser().setSigningKey(secretKeyBase64).parseClaimsJws(token).getBody();
+//		List<Map<String, Object>> roles = claims.get("permissions", List.class);
+//		List<SimpleGrantedAuthority> simpleGrantedAuthorities = new ArrayList<>();
+//		if (roles != null && roles.size() > 0) {
+//			for (Map<String, Object> role : roles) {
+//				simpleGrantedAuthorities.add(new SimpleGrantedAuthority((String) role.get("authority")));
+//			}
+//
+//		}
+//
+//		UserInfoDetails userDetails = new UserInfoDetails(claims.getSubject(), claims.get("nickname", String.class), "", "", null, null, "", claims.getSubject(), "", 1, true, true, true, true, simpleGrantedAuthorities);
+//		return new UsernamePasswordAuthenticationToken(userDetails, "", userDetails.getAuthorities());
+//	}
 
 	public String getUsername(String token) {
 		return Jwts.parser().setSigningKey(secretKeyBase64).parseClaimsJws(token).getBody().getSubject();

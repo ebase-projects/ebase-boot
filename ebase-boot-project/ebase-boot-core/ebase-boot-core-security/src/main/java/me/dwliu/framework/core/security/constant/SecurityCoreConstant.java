@@ -56,4 +56,5 @@ public interface SecurityCoreConstant {
 	 * 缓存token key
 	 */
 	String SECURITY_TOKEN_CACHE_KEY = "security:token:";
+	String SECURITY_USERINFO_CACHE_KEY = "security:userinfo:";
 }

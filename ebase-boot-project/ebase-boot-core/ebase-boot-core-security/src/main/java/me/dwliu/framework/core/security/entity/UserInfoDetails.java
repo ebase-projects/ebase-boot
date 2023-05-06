@@ -49,6 +49,10 @@ public class UserInfoDetails extends User {
 	 */
 	private Set<String> roleNames;
 	/**
+	 * 权限集合
+	 */
+	private Set<String> permissions;
+	/**
 	 * 头像
 	 */
 	private String avatar;
@@ -57,7 +61,7 @@ public class UserInfoDetails extends User {
 	 */
 	private Integer superAdmin;
 
-//	public UserInfoDetails(String username) {
+	//	public UserInfoDetails(String username) {
 //		super(username, "", Arrays.asList(new SimpleGrantedAuthority("1")));
 //		this.username = username;
 //	}
@@ -97,11 +101,11 @@ public class UserInfoDetails extends User {
 	public UserInfoDetails(String userId, String realName, String deptId,
 						   Set<String> roleIds, String avatar, String username, String password,
 						   int superAdmin, boolean enabled, boolean accountNonExpired, boolean credentialsNonExpired, boolean accountNonLocked,
-						   Collection<? extends GrantedAuthority> authorities) {
+						   Set<String> permissions, Collection<? extends GrantedAuthority> authorities) {
 		this(userId, null, realName, deptId,
 			roleIds, avatar, username, password,
 			superAdmin, enabled, accountNonExpired, credentialsNonExpired, accountNonLocked,
-			authorities);
+			permissions, authorities);
 
 	}
 
@@ -127,11 +131,11 @@ public class UserInfoDetails extends User {
 	public UserInfoDetails(String userId, String realName, String deptId, String deptName,
 						   Set<String> roleIds, Set<String> roleNames, String avatar, String username, String password,
 						   int superAdmin, boolean enabled, boolean accountNonExpired, boolean credentialsNonExpired, boolean accountNonLocked,
-						   Collection<? extends GrantedAuthority> authorities) {
+						   Set<String> permissions, Collection<? extends GrantedAuthority> authorities) {
 		this(userId, null, realName, deptId, deptName,
 			roleIds, roleNames, avatar, username, password,
 			superAdmin, enabled, accountNonExpired, credentialsNonExpired, accountNonLocked,
-			authorities);
+			permissions, authorities);
 
 	}
 
@@ -156,7 +160,7 @@ public class UserInfoDetails extends User {
 	public UserInfoDetails(String userId, String tenantCode, String realName, String deptId,
 						   Set<String> roleIds, String avatar, String username, String password,
 						   int superAdmin, boolean enabled, boolean accountNonExpired, boolean credentialsNonExpired, boolean accountNonLocked,
-						   Collection<? extends GrantedAuthority> authorities) {
+						   Set<String> permissions, Collection<? extends GrantedAuthority> authorities) {
 		super(username, password, enabled, accountNonExpired, credentialsNonExpired, accountNonLocked, authorities);
 		this.userId = userId;
 		this.tenantCode = tenantCode;
@@ -166,6 +170,7 @@ public class UserInfoDetails extends User {
 		this.roleIds = roleIds;
 		this.avatar = avatar;
 		this.superAdmin = superAdmin;
+		this.permissions = permissions;
 	}
 
 	/**
@@ -191,7 +196,7 @@ public class UserInfoDetails extends User {
 	public UserInfoDetails(String userId, String tenantCode, String realName, String deptId, String deptName,
 						   Set<String> roleIds, Set<String> roleNames, String avatar, String username, String password,
 						   int superAdmin, boolean enabled, boolean accountNonExpired, boolean credentialsNonExpired, boolean accountNonLocked,
-						   Collection<? extends GrantedAuthority> authorities) {
+						   Set<String> permissions, Collection<? extends GrantedAuthority> authorities) {
 		super(username, password, enabled, accountNonExpired, credentialsNonExpired, accountNonLocked, authorities);
 		this.userId = userId;
 		this.tenantCode = tenantCode;
@@ -203,6 +208,8 @@ public class UserInfoDetails extends User {
 		this.roleNames = roleNames;
 		this.avatar = avatar;
 		this.superAdmin = superAdmin;
+		this.permissions = permissions;
+
 
 	}
 

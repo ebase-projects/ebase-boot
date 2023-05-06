@@ -62,19 +62,21 @@ public class CustomJsonAuthenticationSuccessHandler implements AuthenticationSuc
 		UserInfoDetails securityUserDetails = getCurrentUserInfo(authentication);
 
 		DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
-
 		String token = jwtTokenUtils.createToken(securityUserDetails);
 		Map<String, Object> model = new HashMap<>();
 		model.put("token", token);
 		model.put("token_expiration", dateTimeFormatter.format(
 			jwtTokenUtils.getTokenExpiration(token)
 				.toInstant().atZone(ZoneId.systemDefault()).toLocalDateTime()));
-
+		ObjectMapper objectMapper = new ObjectMapper();
 		//加入到缓存中
 		cacheService.save(SecurityCoreConstant.SECURITY_TOKEN_CACHE_KEY + securityUserDetails.getUsername(), token);
 
+		String s = objectMapper.writeValueAsString(securityUserDetails);
+		cacheService.save(SecurityCoreConstant.SECURITY_USERINFO_CACHE_KEY + securityUserDetails.getUsername(), s);
+
 		Result<Map> result = Result.success(model);
-		ObjectMapper objectMapper = new ObjectMapper();
+		
 		response.getWriter().write(objectMapper.writeValueAsString(result));
 	}
 
