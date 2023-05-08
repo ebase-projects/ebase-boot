@@ -1,21 +1,22 @@
 package me.dwliu.framework.integration.security.userpwdjson;
 
-import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import me.dwliu.framework.core.security.cache.CacheService;
 import me.dwliu.framework.integration.security.handler.CustomJsonAccessDeniedHandler;
 import me.dwliu.framework.integration.security.handler.CustomJsonAuthenticationEntryPoint;
 import me.dwliu.framework.integration.security.handler.CustomJsonAuthenticationFailureHandler;
 import me.dwliu.framework.integration.security.handler.CustomJsonAuthenticationSuccessHandler;
 import me.dwliu.framework.integration.security.jwt.JwtTokenUtils;
+import me.dwliu.framework.integration.security.mobile.SmsCodeAuthenticationConfigurer;
 import me.dwliu.framework.integration.security.service.CustomUserDetailsService;
+import org.springframework.beans.factory.NoSuchBeanDefinitionException;
+import org.springframework.context.ApplicationContext;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
-import org.springframework.security.config.annotation.SecurityConfigurerAdapter;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
-import org.springframework.security.web.DefaultSecurityFilterChain;
+import org.springframework.security.config.annotation.web.configurers.AbstractHttpConfigurer;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 import org.springframework.security.web.authentication.logout.LogoutFilter;
-import org.springframework.stereotype.Component;
 
 /**
  * 登录过滤器的配置类
@@ -23,15 +24,33 @@ import org.springframework.stereotype.Component;
  * @author liudw
  * @date 2019-04-28 15:59
  **/
-@Component
-@RequiredArgsConstructor
+@Slf4j
 public class CustomJsonLoginAuthenticationConfigurer
-	extends SecurityConfigurerAdapter<DefaultSecurityFilterChain, HttpSecurity> {
+	extends AbstractHttpConfigurer<SmsCodeAuthenticationConfigurer, HttpSecurity> {
 
-	private final CustomUserDetailsService userDetailsService;
-	private final JwtTokenUtils jwtTokenUtils;
-	private final CacheService cacheService;
+	private CustomUserDetailsService userDetailsService;
+	private JwtTokenUtils jwtTokenUtils;
+	private CacheService cacheService;
 //	private final AuthenticationEntryPoint authenticationEntryPoint;
+
+	/**
+	 * JWT 登陆配置入口
+	 *
+	 * @return
+	 */
+	public static CustomJsonLoginAuthenticationConfigurer jwtLogin() {
+		return new CustomJsonLoginAuthenticationConfigurer();
+	}
+
+
+	@Override
+	public void init(HttpSecurity http) throws Exception {
+		log.debug("===init CustomJsonLoginAuthenticationConfigurer===");
+
+		jwtTokenUtils = getSharedOrBean(http, JwtTokenUtils.class);
+		cacheService = getSharedOrBean(http, CacheService.class);
+		userDetailsService = getSharedOrBean(http, CustomUserDetailsService.class);
+	}
 
 	/**
 	 * 将登录接口的过滤器配置到过滤器链中
@@ -44,6 +63,7 @@ public class CustomJsonLoginAuthenticationConfigurer
 	 */
 	@Override
 	public void configure(HttpSecurity http) throws Exception {
+
 		/**
 		 * 替换内置实现类Http403ForbiddenEntryPoint
 		 * ExceptionTranslationFilter throw new AccessDeniedException("Access Denied") 并且为匿名用户
@@ -51,12 +71,12 @@ public class CustomJsonLoginAuthenticationConfigurer
 		http.exceptionHandling().authenticationEntryPoint(new CustomJsonAuthenticationEntryPoint());
 		http.exceptionHandling().accessDeniedHandler(new CustomJsonAccessDeniedHandler());
 
-		CustomJsonLoginAuthenticationFilter filter = new CustomJsonLoginAuthenticationFilter();
+		CustomJsonLoginAuthenticationFilter customJsonLoginAuthenticationFilter = new CustomJsonLoginAuthenticationFilter();
 		AuthenticationManager authenticationManager = http.getSharedObject(AuthenticationManager.class);
-		filter.setAuthenticationManager(authenticationManager);
+		customJsonLoginAuthenticationFilter.setAuthenticationManager(authenticationManager);
 
-		filter.setAuthenticationSuccessHandler(new CustomJsonAuthenticationSuccessHandler(jwtTokenUtils, cacheService));
-		filter.setAuthenticationFailureHandler(new CustomJsonAuthenticationFailureHandler());
+		customJsonLoginAuthenticationFilter.setAuthenticationSuccessHandler(new CustomJsonAuthenticationSuccessHandler(jwtTokenUtils, cacheService));
+		customJsonLoginAuthenticationFilter.setAuthenticationFailureHandler(new CustomJsonAuthenticationFailureHandler());
 
 		//直接使用DaoAuthenticationProvider
 		DaoAuthenticationProvider provider = new DaoAuthenticationProvider();
@@ -66,11 +86,31 @@ public class CustomJsonLoginAuthenticationConfigurer
 
 
 		//自定义的filter放到UsernamePasswordAuthenticationFilter之后执行
-		http.addFilterBefore(filter, UsernamePasswordAuthenticationFilter.class);
+		http.addFilterBefore(customJsonLoginAuthenticationFilter, UsernamePasswordAuthenticationFilter.class);
 
-		CustomJsonValidateLoginTokenFilter filter1 = new CustomJsonValidateLoginTokenFilter(jwtTokenUtils, cacheService);
-		http.addFilterBefore(filter1, LogoutFilter.class);
+		CustomJsonValidateLoginTokenFilter customJsonValidateLoginTokenFilter = new CustomJsonValidateLoginTokenFilter(jwtTokenUtils, cacheService);
+		http.addFilterBefore(customJsonValidateLoginTokenFilter, LogoutFilter.class);
+
+	}
 
 
+	private <C> C getSharedOrBean(HttpSecurity http, Class<C> type) {
+		C shared = http.getSharedObject(type);
+		if (shared != null) {
+			return shared;
+		}
+		return getBeanOrNull(type);
+	}
+
+	private <T> T getBeanOrNull(Class<T> type) {
+		ApplicationContext context = getBuilder().getSharedObject(ApplicationContext.class);
+		if (context == null) {
+			return null;
+		}
+		try {
+			return context.getBean(type);
+		} catch (NoSuchBeanDefinitionException ex) {
+			return null;
+		}
 	}
 }

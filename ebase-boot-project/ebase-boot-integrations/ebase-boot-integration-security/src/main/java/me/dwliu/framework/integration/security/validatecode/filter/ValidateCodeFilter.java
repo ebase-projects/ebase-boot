@@ -4,7 +4,7 @@ import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import lombok.Setter;
+import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
 import me.dwliu.framework.core.security.constant.ValidateCodeConstants;
 import me.dwliu.framework.integration.security.handler.CustomJsonAuthenticationFailureHandler;
@@ -30,7 +30,7 @@ import java.util.Map;
  **/
 //@Component
 @Slf4j
-@Setter
+@Data
 public class ValidateCodeFilter extends OncePerRequestFilter {
 
 	private String imageUrl;
@@ -38,6 +38,9 @@ public class ValidateCodeFilter extends OncePerRequestFilter {
 
 	private String[] imageUrls;
 	private String[] smsUrls;
+
+	private String loginImageUrl;
+	private String loginSmsUrl;
 
 	//@Autowired
 	private ValidateCodeProcessorHolder validateCodeProcessorHolder;
@@ -68,6 +71,8 @@ public class ValidateCodeFilter extends OncePerRequestFilter {
 		//加入用户名密码登陆和短信登陆链接
 		urlMap.put(ValidateCodeConstants.DEFAULT_SIGN_IN_PROCESSING_URL_MOBILE, ValidateCodeTypeEnum.SMS);
 //		urlMap.put("/oauth/token", ValidateCodeTypeEnum.IMAGE);
+		addUrlToMap(loginImageUrl, ValidateCodeTypeEnum.IMAGE);
+		addUrlToMap(loginSmsUrl, ValidateCodeTypeEnum.SMS);
 
 		// 将图片验证码配置文件 url 属性加入到map
 		addUrlToMap(imageUrl, ValidateCodeTypeEnum.IMAGE);
