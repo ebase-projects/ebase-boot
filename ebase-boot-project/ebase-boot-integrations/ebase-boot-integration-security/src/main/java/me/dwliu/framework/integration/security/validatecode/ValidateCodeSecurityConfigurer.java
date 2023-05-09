@@ -22,7 +22,7 @@ import org.springframework.security.web.authentication.preauth.AbstractPreAuthen
 //@RequiredArgsConstructor
 @Data
 public class ValidateCodeSecurityConfigurer
-	extends AbstractHttpConfigurer<SmsCodeAuthenticationConfigurer, HttpSecurity> {
+	extends AbstractHttpConfigurer<ValidateCodeSecurityConfigurer, HttpSecurity> {
 
 	private ValidateCodeFilter validateCodeFilter;
 	//private String loginImageUrl;
@@ -47,15 +47,17 @@ public class ValidateCodeSecurityConfigurer
 	 *
 	 * @return
 	 */
-	public ValidateCodeSecurityConfigurer validateCode() {
-		return new ValidateCodeSecurityConfigurer();
-	}
+	//public ValidateCodeSecurityConfigurer validateCode() {
+	//	return new ValidateCodeSecurityConfigurer();
+	//}
 
 
 	@Override
 	public void init(HttpSecurity http) throws Exception {
 		log.debug("===init ValidateCodeSecurityConfigurer===");
 		validateCodeFilter = getSharedOrBean(http, ValidateCodeFilter.class);
+		//validateCodeFilter.setLoginSmsUrl(this.getLoginSmsUrl());
+		//validateCodeFilter.setLoginImageUrl(this.getLoginImageUrl());
 
 
 	}
@@ -70,9 +72,6 @@ public class ValidateCodeSecurityConfigurer
 	 */
 	@Override
 	public void configure(HttpSecurity http) throws Exception {
-
-		//validateCodeFilter.setLoginSmsUrl(this.getLoginSmsUrl());
-		//validateCodeFilter.setLoginImageUrl(this.getLoginImageUrl());
 		http.addFilterBefore(validateCodeFilter, AbstractPreAuthenticatedProcessingFilter.class);
 	}
 

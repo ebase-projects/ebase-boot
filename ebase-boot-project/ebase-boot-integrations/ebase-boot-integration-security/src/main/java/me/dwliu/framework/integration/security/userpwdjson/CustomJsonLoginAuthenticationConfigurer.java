@@ -26,21 +26,27 @@ import org.springframework.security.web.authentication.logout.LogoutFilter;
  **/
 @Slf4j
 public class CustomJsonLoginAuthenticationConfigurer
-	extends AbstractHttpConfigurer<SmsCodeAuthenticationConfigurer, HttpSecurity> {
+	extends AbstractHttpConfigurer<CustomJsonLoginAuthenticationConfigurer, HttpSecurity> {
 
 	private CustomUserDetailsService userDetailsService;
 	private JwtTokenUtils jwtTokenUtils;
 	private CacheService cacheService;
 //	private final AuthenticationEntryPoint authenticationEntryPoint;
 
+	public CustomJsonLoginAuthenticationConfigurer() {
+	}
+
 	/**
 	 * JWT 登陆配置入口
 	 *
 	 * @return
 	 */
-	public static CustomJsonLoginAuthenticationConfigurer jwtLogin() {
-		return new CustomJsonLoginAuthenticationConfigurer();
-	}
+	//public static CustomJsonLoginAuthenticationConfigurer jwtLogin() {
+	//	return new CustomJsonLoginAuthenticationConfigurer();
+	//}
+
+
+
 
 
 	@Override

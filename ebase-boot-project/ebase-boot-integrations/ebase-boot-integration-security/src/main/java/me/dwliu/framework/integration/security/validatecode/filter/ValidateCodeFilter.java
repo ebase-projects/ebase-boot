@@ -7,6 +7,7 @@ import jakarta.servlet.http.HttpServletResponse;
 import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
 import me.dwliu.framework.core.security.constant.ValidateCodeConstants;
+import me.dwliu.framework.integration.security.validatecode.ValidateUrlsMap;
 import me.dwliu.framework.integration.security.handler.CustomJsonAuthenticationFailureHandler;
 import me.dwliu.framework.integration.security.validatecode.ValidateCodeException;
 import me.dwliu.framework.integration.security.validatecode.ValidateCodeProcessor;
@@ -19,7 +20,6 @@ import org.springframework.web.context.request.ServletWebRequest;
 import org.springframework.web.filter.OncePerRequestFilter;
 
 import java.io.IOException;
-import java.util.HashMap;
 import java.util.Map;
 
 /**
@@ -39,8 +39,8 @@ public class ValidateCodeFilter extends OncePerRequestFilter {
 	private String[] imageUrls;
 	private String[] smsUrls;
 
-	private String loginImageUrl;
-	private String loginSmsUrl;
+	//private String loginImageUrl;
+	//private String loginSmsUrl;
 
 	//@Autowired
 	private ValidateCodeProcessorHolder validateCodeProcessorHolder;
@@ -52,7 +52,7 @@ public class ValidateCodeFilter extends OncePerRequestFilter {
 	/**
 	 * 存放所有需要校验验证码的url
 	 */
-	private Map<String, ValidateCodeTypeEnum> urlMap = new HashMap<>();
+	private Map<String, ValidateCodeTypeEnum> urlMap = ValidateUrlsMap.getValidateUrlsMap().getMap();
 	/**
 	 * 验证请求url与配置的url是否匹配的工具类
 	 */
@@ -71,8 +71,8 @@ public class ValidateCodeFilter extends OncePerRequestFilter {
 		//加入用户名密码登陆和短信登陆链接
 		urlMap.put(ValidateCodeConstants.DEFAULT_SIGN_IN_PROCESSING_URL_MOBILE, ValidateCodeTypeEnum.SMS);
 //		urlMap.put("/oauth/token", ValidateCodeTypeEnum.IMAGE);
-		addUrlToMap(loginImageUrl, ValidateCodeTypeEnum.IMAGE);
-		addUrlToMap(loginSmsUrl, ValidateCodeTypeEnum.SMS);
+//		addUrlToMap(loginImageUrl, ValidateCodeTypeEnum.IMAGE);
+//		addUrlToMap(loginSmsUrl, ValidateCodeTypeEnum.SMS);
 
 		// 将图片验证码配置文件 url 属性加入到map
 		addUrlToMap(imageUrl, ValidateCodeTypeEnum.IMAGE);
@@ -81,7 +81,6 @@ public class ValidateCodeFilter extends OncePerRequestFilter {
 		// 将短信验证码配置文件 url 属性加入到map
 		addUrlToMap(smsUrl, ValidateCodeTypeEnum.SMS);
 		addUrlsToMap(smsUrls, ValidateCodeTypeEnum.SMS);
-
 
 	}
 

@@ -2,10 +2,13 @@ package me.dwliu.framework.integration.security.mobile;
 
 import lombok.extern.slf4j.Slf4j;
 import me.dwliu.framework.core.security.cache.CacheService;
+import me.dwliu.framework.integration.security.validatecode.ValidateUrlsMap;
 import me.dwliu.framework.integration.security.handler.CustomJsonAuthenticationFailureHandler;
 import me.dwliu.framework.integration.security.handler.CustomJsonAuthenticationSuccessHandler;
 import me.dwliu.framework.integration.security.jwt.JwtTokenUtils;
 import me.dwliu.framework.integration.security.service.CustomUserDetailsService;
+import me.dwliu.framework.integration.security.validatecode.enums.ValidateCodeTypeEnum;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.NoSuchBeanDefinitionException;
 import org.springframework.context.ApplicationContext;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -32,6 +35,15 @@ public class SmsCodeAuthenticationConfigurer
 	private JwtTokenUtils jwtTokenUtils;
 	private CacheService cacheService;
 
+	/**
+	 * 短信登录请求路径
+	 */
+	private String loginSmsUrl;
+	/**
+	 * 手机验证码登录设置属性名，默认为"mobile"
+	 */
+	private String mobileParameter;
+
 //	@Autowired
 //	private PersistentTokenRepository persistentTokenRepository;
 
@@ -42,6 +54,18 @@ public class SmsCodeAuthenticationConfigurer
 
 	public SmsCodeAuthenticationConfigurer() {
 	}
+
+
+	public SmsCodeAuthenticationConfigurer loginSmsUrl(String loginSmsUrl) {
+		this.loginSmsUrl = loginSmsUrl;
+		return this;
+	}
+
+	public SmsCodeAuthenticationConfigurer mobileParameter(String mobileParameter) {
+		this.mobileParameter = mobileParameter;
+		return this;
+	}
+
 
 	//public SmsCodeAuthenticationConfigurer authenticationSuccessHandler(AuthenticationSuccessHandler authenticationSuccessHandler) {
 	//	this.authenticationSuccessHandler = authenticationSuccessHandler;
@@ -103,18 +127,6 @@ public class SmsCodeAuthenticationConfigurer
 	@Override
 	public void init(HttpSecurity http) throws Exception {
 		log.debug("===init SmsCodeAuthenticationConfigurer===");
-		//validateInput();
-		//String key = getKey();
-		//RememberMeServices rememberMeServices = getRememberMeServices(http, key);
-		//http.setSharedObject(RememberMeServices.class, rememberMeServices);
-		//LogoutConfigurer<H> logoutConfigurer = http.getConfigurer(LogoutConfigurer.class);
-		//if (logoutConfigurer != null && this.logoutHandler != null) {
-		//	logoutConfigurer.addLogoutHandler(this.logoutHandler);
-		//}
-		//RememberMeAuthenticationProvider authenticationProvider = new RememberMeAuthenticationProvider(key);
-		//authenticationProvider = postProcess(authenticationProvider);
-		//http.authenticationProvider(authenticationProvider);
-		//initDefaultLoginFilter(http);
 
 		jwtTokenUtils = getSharedOrBean(http, JwtTokenUtils.class);
 		cacheService = getSharedOrBean(http, CacheService.class);
@@ -127,14 +139,19 @@ public class SmsCodeAuthenticationConfigurer
 		AuthenticationManager authenticationManager = http.getSharedObject(AuthenticationManager.class);
 		SmsCodeAuthenticationFilter smsCodeAuthenticationFilter = new SmsCodeAuthenticationFilter();
 		smsCodeAuthenticationFilter.setAuthenticationManager(authenticationManager);
+		if (StringUtils.isNotBlank(this.loginSmsUrl)) {
+			smsCodeAuthenticationFilter.setFilterProcessesUrl(this.loginSmsUrl);
+			// 加入到验证码校验拦截器里
+			ValidateUrlsMap.getValidateUrlsMap().put(this.loginSmsUrl, ValidateCodeTypeEnum.SMS);
+		}
+
+		if (StringUtils.isNotBlank(this.mobileParameter)) {
+			smsCodeAuthenticationFilter.setMobileParameter(this.mobileParameter);
+		}
 
 		//if (this.authenticationSuccessHandler != null) {
 		//	smsCodeAuthenticationFilter.setAuthenticationSuccessHandler(this.authenticationSuccessHandler);
 		//}
-
-		//JwtTokenUtils jwtTokenUtils = getSharedOrBean(http, JwtTokenUtils.class);
-		//CacheService cacheService = getSharedOrBean(http, CacheService.class);
-		//CustomUserDetailsService userDetailsService = getSharedOrBean(http, CustomUserDetailsService.class);
 
 		smsCodeAuthenticationFilter.setAuthenticationSuccessHandler(new CustomJsonAuthenticationSuccessHandler(jwtTokenUtils, cacheService));
 		smsCodeAuthenticationFilter.setAuthenticationFailureHandler(new CustomJsonAuthenticationFailureHandler());
@@ -152,12 +169,6 @@ public class SmsCodeAuthenticationConfigurer
 		http.addFilterBefore(smsCodeAuthenticationFilter, UsernamePasswordAuthenticationFilter.class);
 
 	}
-
-
-	public static SmsCodeAuthenticationConfigurer smsLogin() {
-		return new SmsCodeAuthenticationConfigurer();
-	}
-
 
 	private <C> C getSharedOrBean(HttpSecurity http, Class<C> type) {
 		C shared = http.getSharedObject(type);

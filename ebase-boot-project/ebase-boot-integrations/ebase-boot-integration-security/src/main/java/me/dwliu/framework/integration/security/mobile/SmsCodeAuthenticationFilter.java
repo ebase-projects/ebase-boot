@@ -35,12 +35,14 @@ public class SmsCodeAuthenticationFilter extends AbstractAuthenticationProcessin
 	public static final String SPRING_SECURITY_FORM_MOBILE_KEY = ValidateCodeConstants.DEFAULT_PARAMETER_NAME_MOBILE;
 
 	private String mobileParameter = SPRING_SECURITY_FORM_MOBILE_KEY;
+	private String mobilePath = ValidateCodeConstants.DEFAULT_SIGN_IN_PROCESSING_URL_MOBILE;
 
 	private boolean postOnly = true;
 
 
 	public SmsCodeAuthenticationFilter() {
 		super(new AntPathRequestMatcher(ValidateCodeConstants.DEFAULT_SIGN_IN_PROCESSING_URL_MOBILE, "POST"));
+		log.debug("===={}===", this.getMobilePath());
 	}
 
 	@Override
@@ -101,5 +103,14 @@ public class SmsCodeAuthenticationFilter extends AbstractAuthenticationProcessin
 
 	public void setPostOnly(boolean postOnly) {
 		this.postOnly = postOnly;
+	}
+
+	public String getMobilePath() {
+		return mobilePath;
+	}
+
+	public void setMobilePath(String mobilePath) {
+		Assert.hasText(mobileParameter, "手机短信登陆路径不能为空");
+		this.mobilePath = mobilePath;
 	}
 }
