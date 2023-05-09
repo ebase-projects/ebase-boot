@@ -42,7 +42,7 @@ public class SmsCodeAuthenticationConfigurer
 	/**
 	 * 手机验证码登录设置属性名，默认为"mobile"
 	 */
-	private String mobileParameter;
+	//private String mobileParameter;
 
 //	@Autowired
 //	private PersistentTokenRepository persistentTokenRepository;
@@ -55,18 +55,21 @@ public class SmsCodeAuthenticationConfigurer
 	public SmsCodeAuthenticationConfigurer() {
 	}
 
-
+	/**
+	 * 短信登录请求路径
+	 */
 	public SmsCodeAuthenticationConfigurer loginSmsUrl(String loginSmsUrl) {
 		this.loginSmsUrl = loginSmsUrl;
 		return this;
 	}
 
-	public SmsCodeAuthenticationConfigurer mobileParameter(String mobileParameter) {
-		this.mobileParameter = mobileParameter;
-		return this;
-	}
-
-
+	///**
+	// * 手机验证码登录设置属性名，默认为"mobile"
+	// */
+	//public SmsCodeAuthenticationConfigurer mobileParameter(String mobileParameter) {
+	//	this.mobileParameter = mobileParameter;
+	//	return this;
+	//}
 	//public SmsCodeAuthenticationConfigurer authenticationSuccessHandler(AuthenticationSuccessHandler authenticationSuccessHandler) {
 	//	this.authenticationSuccessHandler = authenticationSuccessHandler;
 	//	return this;
@@ -145,9 +148,9 @@ public class SmsCodeAuthenticationConfigurer
 			ValidateUrlsMap.getValidateUrlsMap().put(this.loginSmsUrl, ValidateCodeTypeEnum.SMS);
 		}
 
-		if (StringUtils.isNotBlank(this.mobileParameter)) {
-			smsCodeAuthenticationFilter.setMobileParameter(this.mobileParameter);
-		}
+		//if (StringUtils.isNotBlank(this.mobileParameter)) {
+		//	smsCodeAuthenticationFilter.setMobileParameter(this.mobileParameter);
+		//}
 
 		//if (this.authenticationSuccessHandler != null) {
 		//	smsCodeAuthenticationFilter.setAuthenticationSuccessHandler(this.authenticationSuccessHandler);

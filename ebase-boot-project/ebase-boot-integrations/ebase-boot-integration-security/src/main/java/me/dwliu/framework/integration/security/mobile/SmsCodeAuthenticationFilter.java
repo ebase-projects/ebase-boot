@@ -83,6 +83,10 @@ public class SmsCodeAuthenticationFilter extends AbstractAuthenticationProcessin
 				throw new CustomSecurityException(String.format("获取参数异常"));
 			}
 		}
+		if (StringUtils.isBlank(mobile)) {
+			throw new AuthenticationServiceException(
+				"获取不到【{" + mobileParameter + "}】的值");
+		}
 
 		return mobile;
 	}
