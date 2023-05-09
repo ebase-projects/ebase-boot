@@ -54,9 +54,9 @@ public class JwtTokenUtils {
 			.setId(securityUserDetails.getUserId())
 			.setSubject(securityUserDetails.getUsername());
 		// 存储业务用各种数据，保存非涉密信息，比如用户名、昵称、所属企业等
-		claims.put("permissions", securityUserDetails.getAuthorities());
+		//claims.put("permissions", securityUserDetails.getAuthorities());
 		claims.put("username", securityUserDetails.getUsername());
-		claims.put("roleIds", securityUserDetails.getRoleIds());
+		//claims.put("roleIds", securityUserDetails.getRoleIds());
 		return generateToken(claims);
 	}
 
