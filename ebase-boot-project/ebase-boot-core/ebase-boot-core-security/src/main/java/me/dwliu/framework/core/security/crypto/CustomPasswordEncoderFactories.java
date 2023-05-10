@@ -40,7 +40,7 @@ public class CustomPasswordEncoderFactories {
 	/**
 	 * 创建默认的PasswordEncoder（bcrypt）
 	 *
-	 * @return
+	 * @return the {@link PasswordEncoder} to use
 	 */
 	public static PasswordEncoder createDelegatingPasswordEncoder() {
 //		String encodingId = "bcrypt";
@@ -75,8 +75,8 @@ public class CustomPasswordEncoderFactories {
 	/**
 	 * 创建指定的PasswordEncoder
 	 *
-	 * @param encodingId
-	 * @return
+	 * @param encodingId 编码标识
+	 * @return the {@link PasswordEncoder} to use
 	 */
 	public static PasswordEncoder createDelegatingPasswordEncoder(String encodingId) {
 		Map<String, PasswordEncoder> encoders = getStringPasswordEncoderMap(encodingId);
@@ -91,7 +91,7 @@ public class CustomPasswordEncoderFactories {
 	 * </p>
 	 *
 	 * @param encodingId 编码ID （ldap,MD4,MD5,pbkdf2,scrypt,SHA-1,SHA-256,argon2,md5,noop,SM3,）
-	 * @return
+	 * @return {@link Map}
 	 */
 	private static Map<String, PasswordEncoder> getStringPasswordEncoderMap(String encodingId) {
 		Map<String, PasswordEncoder> encoders = new HashMap<>();
