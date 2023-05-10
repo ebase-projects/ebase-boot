@@ -30,6 +30,8 @@ import java.util.Map;
 /**
  * Used for creating {@link PasswordEncoder} instances
  *
+ * <p>{@link org.springframework.security.crypto.factory.PasswordEncoderFactories}</p>
+ *
  * @author Rob Winch liudw
  * @since 5.0
  */
