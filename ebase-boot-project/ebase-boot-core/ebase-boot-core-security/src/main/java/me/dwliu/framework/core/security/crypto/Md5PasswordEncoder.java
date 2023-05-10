@@ -15,44 +15,44 @@ import java.security.NoSuchAlgorithmException;
 
 public class Md5PasswordEncoder implements PasswordEncoder {
 
-    @Override
-    public String encode(CharSequence rawPassword) {
-        return getMd5(rawPassword.toString());
-    }
+	@Override
+	public String encode(CharSequence rawPassword) {
+		return getMd5(rawPassword.toString());
+	}
 
-    @Override
-    public boolean matches(CharSequence rawPassword, String encodedPassword) {
-        return getMd5(rawPassword.toString()).equals(encodedPassword);
-    }
+	@Override
+	public boolean matches(CharSequence rawPassword, String encodedPassword) {
+		return getMd5(rawPassword.toString()).equals(encodedPassword);
+	}
 
 
-    private static String getMd5(String input) {
-        try {
-            // Static getInstance method is called with hashing SHA
-            MessageDigest md = MessageDigest.getInstance("MD5");
+	private String getMd5(String input) {
+		try {
+			// Static getInstance method is called with hashing SHA
+			MessageDigest md = MessageDigest.getInstance("MD5");
 
-            // digest() method called
-            // to calculate message digest of an input
-            // and return array of byte
-            byte[] messageDigest = md.digest(input.getBytes());
+			// digest() method called
+			// to calculate message digest of an input
+			// and return array of byte
+			byte[] messageDigest = md.digest(input.getBytes());
 
-            // Convert byte array into signum representation
-            BigInteger no = new BigInteger(1, messageDigest);
+			// Convert byte array into signum representation
+			BigInteger no = new BigInteger(1, messageDigest);
 
-            // Convert message digest into hex value
-            String hashtext = no.toString(16);
+			// Convert message digest into hex value
+			String hashtext = no.toString(16);
 
-            while (hashtext.length() < 32) {
-                hashtext = "0" + hashtext;
-            }
+			while (hashtext.length() < 32) {
+				hashtext = "0" + hashtext;
+			}
 
-            return hashtext;
-        }
+			return hashtext;
+		}
 
-        // For specifying wrong message digest algorithms
-        catch (NoSuchAlgorithmException e) {
+		// For specifying wrong message digest algorithms
+		catch (NoSuchAlgorithmException e) {
 
-            return null;
-        }
-    }
+			return null;
+		}
+	}
 }

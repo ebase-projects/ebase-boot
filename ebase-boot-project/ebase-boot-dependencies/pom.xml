@@ -310,6 +310,14 @@
                 <version>${zxing.version}</version>
             </dependency>
 
+            <!-- https://mvnrepository.com/artifact/org.bouncycastle/bcprov-jdk15to18 -->
+            <dependency>
+                <groupId>org.bouncycastle</groupId>
+                <artifactId>bcprov-jdk15to18</artifactId>
+                <version>1.73</version>
+            </dependency>
+
+
             <!-- 压缩 -->
             <dependency>
                 <groupId>net.lingala.zip4j</groupId>
