@@ -46,6 +46,11 @@
                         </manifestEntries>
                     </archive>
                 </configuration>
+                <executions>
+                    <execution>
+                        <id>default-jar</id>
+                    </execution>
+                </executions>
             </plugin>
 
             <plugin>
@@ -58,6 +63,10 @@
                     <docencoding>UTF-8</docencoding>
                     <failOnError>false</failOnError>
                     <doclint>none</doclint>
+                    <linksource>true</linksource>
+                    <author>true</author>
+                    <version>true</version>
+                    <use>true</use>
                 </configuration>
                 <executions>
                     <execution>
@@ -77,8 +86,8 @@
                     <execution>
                         <id>attach-sources</id>
                         <goals>
-                            <goal>jar-no-fork</goal>
-<!--                            <goal>jar</goal>-->
+<!--                            <goal>jar-no-fork</goal>-->
+                            <goal>jar</goal>
                         </goals>
                     </execution>
                 </executions>
