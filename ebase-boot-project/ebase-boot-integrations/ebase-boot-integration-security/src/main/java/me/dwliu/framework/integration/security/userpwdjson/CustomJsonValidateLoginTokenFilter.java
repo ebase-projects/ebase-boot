@@ -47,55 +47,56 @@ public class CustomJsonValidateLoginTokenFilter extends OncePerRequestFilter {
 
 		try {
 			String token = jwtTokenUtils.resolveToken(request);
-			if (StringUtils.isNotBlank(token)) {
-				String username = jwtTokenUtils.getUsername(token);
-				String token4Server = (String) cacheService.get(SecurityCoreConstant.SECURITY_TOKEN_CACHE_KEY + username);
-				if (StringUtils.equals(token, token4Server)) {
-					if (jwtTokenUtils.validateToken(token)) {
-						String userInfoDetailStr = (String) cacheService.get(SecurityCoreConstant.SECURITY_USERINFO_CACHE_KEY + username);
 
-						if (StringUtils.isNotBlank(userInfoDetailStr)) {
-							ObjectMapper objectMapper = new ObjectMapper();
-							objectMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
-							UserInfoDTO user = objectMapper.readValue(userInfoDetailStr, UserInfoDTO.class);
-
-							Set<String> permissions = user.getPermissions();
-							Set<GrantedAuthority> grantedAuthoritySet = new HashSet<>();
-							if (permissions != null) {
-								for (String p : permissions) {
-									grantedAuthoritySet.add(new SimpleGrantedAuthority(p));
-								}
-							}
-
-							// 必须加入UserInfoDetails，后期SecurityUtils.getUser() 才能获取到完整信息
-							UserInfoDetails userInfoDetails = new UserInfoDetails(user.getUserId(), user.getTenantCode(), user.getRealName(), user.getDeptId()
-								, user.getRoleIds(), user.getAvatar(), user.getUsername(), "[PROTECTED]",
-								user.getSuperAdmin(), user.isEnabled(), user.isAccountNonExpired(), user.isCredentialsNonExpired(), user.isAccountNonLocked(),
-								user.getPermissions(), grantedAuthoritySet);
-//					Authentication authentication = jwtTokenUtils.getAuthentication(token, userInfoDetails);
-
-							// TODO 这里可以续签
-
-							//UsernamePasswordAuthenticationToken result = UsernamePasswordAuthenticationToken.authenticated(userInfoDetails,
-							//	"[PROTECTED]", grantedAuthoritySet);
-
-							UsernamePasswordAuthenticationToken authentication
-								= new UsernamePasswordAuthenticationToken(userInfoDetails, "[PROTECTED]", grantedAuthoritySet);
-							authentication.setDetails(new WebAuthenticationDetailsSource().buildDetails(request));
-							// SecurityContextHolder 权限验证上下文
-							SecurityContext context = SecurityContextHolder.getContext();
-							// 指示用户已通过身份验证
-							context.setAuthentication(authentication);
-						}
-
-					}
-				}
-			} else {
+			if (StringUtils.isBlank(token)) {
 				logger.trace("Did not process request since did not find bearer token");
 				// 继续下一个过滤器
 				filterChain.doFilter(request, response);
 				return;
 			}
+			String username = jwtTokenUtils.getUsername(token);
+			String token4Server = (String) cacheService.get(SecurityCoreConstant.SECURITY_TOKEN_CACHE_KEY + username);
+			if (StringUtils.equals(token, token4Server)) {
+				if (jwtTokenUtils.validateToken(token)) {
+					String userInfoDetailStr = (String) cacheService.get(SecurityCoreConstant.SECURITY_USERINFO_CACHE_KEY + username);
+
+					if (StringUtils.isNotBlank(userInfoDetailStr)) {
+						ObjectMapper objectMapper = new ObjectMapper();
+						objectMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
+						UserInfoDTO user = objectMapper.readValue(userInfoDetailStr, UserInfoDTO.class);
+
+						Set<String> permissions = user.getPermissions();
+						Set<GrantedAuthority> grantedAuthoritySet = new HashSet<>();
+						if (permissions != null) {
+							for (String p : permissions) {
+								grantedAuthoritySet.add(new SimpleGrantedAuthority(p));
+							}
+						}
+
+						// 必须加入UserInfoDetails，后期SecurityUtils.getUser() 才能获取到完整信息
+						UserInfoDetails userInfoDetails = new UserInfoDetails(user.getUserId(), user.getTenantCode(), user.getRealName(), user.getDeptId()
+							, user.getRoleIds(), user.getAvatar(), user.getUsername(), "[PROTECTED]",
+							user.getSuperAdmin(), user.isEnabled(), user.isAccountNonExpired(), user.isCredentialsNonExpired(), user.isAccountNonLocked(),
+							user.getPermissions(), grantedAuthoritySet);
+//					Authentication authentication = jwtTokenUtils.getAuthentication(token, userInfoDetails);
+
+						// TODO 这里可以续签
+
+						//UsernamePasswordAuthenticationToken result = UsernamePasswordAuthenticationToken.authenticated(userInfoDetails,
+						//	"[PROTECTED]", grantedAuthoritySet);
+
+						UsernamePasswordAuthenticationToken authentication
+							= new UsernamePasswordAuthenticationToken(userInfoDetails, "[PROTECTED]", grantedAuthoritySet);
+						authentication.setDetails(new WebAuthenticationDetailsSource().buildDetails(request));
+						// SecurityContextHolder 权限验证上下文
+						SecurityContext context = SecurityContextHolder.getContext();
+						// 指示用户已通过身份验证
+						context.setAuthentication(authentication);
+					}
+
+				}
+			}
+
 
 		} catch (AuthenticationException e) {
 			this.authenticationEntryPoint.commence(request, response, e);
