@@ -42,7 +42,7 @@ public class SmsCodeAuthenticationFilter extends AbstractAuthenticationProcessin
 
 	public SmsCodeAuthenticationFilter() {
 		super(new AntPathRequestMatcher(ValidateCodeConstants.DEFAULT_SIGN_IN_PROCESSING_URL_MOBILE, "POST"));
-		log.debug("===={}===", this.getMobilePath());
+		log.trace("===={}===", this.getMobilePath());
 	}
 
 	@Override

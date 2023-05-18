@@ -37,7 +37,7 @@ public class DataScopeConfiguration {
 	@ConditionalOnClass(DataScopeFilter.class)
 	@ConditionalOnMissingBean(DataScopeFilterInterceptor.class)
 	public DataScopeFilterInterceptor dataScopeFilterInterceptor() {
-		log.debug("===配置数据权限 dataScopeFilterInterceptor ===");
+		log.trace("===配置数据权限 dataScopeFilterInterceptor ===");
 		DataScopeFilterInterceptor interceptor = new DataScopeFilterInterceptor();
 		interceptor.setJdbcTemplate(jdbcTemplate);
 		interceptor.setDataScopeLevel(dataScopeProperties.getDataScopeLevel());

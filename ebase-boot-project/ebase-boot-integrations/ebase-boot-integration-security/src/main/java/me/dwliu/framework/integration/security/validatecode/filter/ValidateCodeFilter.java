@@ -117,7 +117,7 @@ public class ValidateCodeFilter extends OncePerRequestFilter {
                                     FilterChain filterChain) throws ServletException, IOException {
 
         String requestURI = httpServletRequest.getRequestURI();
-        log.debug("===验证码校验器 ValidateCodeFilter start : {}===", requestURI);
+        log.trace("===验证码校验器 ValidateCodeFilter start : {}===", requestURI);
         // 忽略 refresh_token 模式
         if (requestURI.contains("/oauth/token")) {
             String grantType = httpServletRequest.getParameter("grant_type");
@@ -130,7 +130,7 @@ public class ValidateCodeFilter extends OncePerRequestFilter {
 
         ValidateCodeTypeEnum validateCodeType = getValidateCodeType(httpServletRequest);
         if (null != validateCodeType) {
-            log.debug("===校验请求({})中的验证码类型是:{}===",
+            log.trace("===校验请求({})中的验证码类型是:{}===",
                     httpServletRequest.getRequestURI(), validateCodeType);
 
             try {

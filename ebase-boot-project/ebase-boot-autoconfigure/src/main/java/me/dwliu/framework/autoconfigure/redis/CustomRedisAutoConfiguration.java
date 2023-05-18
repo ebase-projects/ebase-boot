@@ -27,7 +27,7 @@ public class CustomRedisAutoConfiguration {
 
 	@Bean
 	public RedisTemplate<String, Object> redisTemplate() {
-		log.debug("===配置默认的 RedisTemplate===");
+		log.trace("===配置默认的 RedisTemplate===");
 		RedisTemplate<String, Object> redisTemplate = new RedisTemplate<>();
 		redisTemplate.setKeySerializer(new StringRedisSerializer());
 		redisTemplate.setValueSerializer(new Jackson2JsonRedisSerializer<>(Object.class));
@@ -41,7 +41,7 @@ public class CustomRedisAutoConfiguration {
 	@Bean
 	@ConditionalOnMissingBean(RedisService.class)
 	public RedisService redisService() {
-		log.debug("===配置默认的 RedisService===");
+		log.trace("===配置默认的 RedisService===");
 		RedisService redisService = new RedisService();
 		redisService.setRedisTemplate(redisTemplate());
 		return redisService;

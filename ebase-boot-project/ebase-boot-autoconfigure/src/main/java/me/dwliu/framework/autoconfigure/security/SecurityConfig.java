@@ -36,7 +36,7 @@ public class SecurityConfig {
 	@Bean
 	@ConditionalOnMissingBean(value = PasswordEncoder.class)
 	public PasswordEncoder passwordEncoder() {
-		log.debug("初始化passwordEncoder: PasswordEncoderFactories.createDelegatingPasswordEncoder()");
+		log.trace("初始化passwordEncoder: PasswordEncoderFactories.createDelegatingPasswordEncoder()");
 		return CustomPasswordEncoderFactories.createDelegatingPasswordEncoder();
 	}
 
@@ -48,14 +48,14 @@ public class SecurityConfig {
 	@Bean
 	@ConditionalOnMissingBean(CustomUserDetailsService.class)
 	public CustomUserDetailsService customUserDetailsService() {
-		log.debug("===使用默认的获取用户信息service: DefaultUserDetailsServiceImpl===");
+		log.trace("===使用默认的获取用户信息service: DefaultUserDetailsServiceImpl===");
 		return new DefaultUserDetailsServiceImpl();
 	}
 
 	@Bean
 	@ConditionalOnMissingBean(CacheService.class)
 	public CacheService cacheService(SecurityProperties securityProperties) {
-		log.debug("===使用默认的cacheservice缓存security信息===");
+		log.trace("===使用默认的cacheservice缓存security信息===");
 		return new DefaultCacheService(securityProperties.getJwt().getExpiration());
 	}
 

@@ -179,7 +179,7 @@ public abstract class AbstractValidateCodeProcessor<C extends ValidateCode> impl
 		log.info("获取验证码类型:{}", type);
 
 		String validateCodeGeneratorName = type + ValidateCodeGenerator.class.getSimpleName();
-		log.debug("获取 validateCodeGeneratorName:{}", validateCodeGeneratorName);
+		log.trace("获取 validateCodeGeneratorName:{}", validateCodeGeneratorName);
 
 		ValidateCodeGenerator validateCodeGenerator = validateCodeGenerators.get(validateCodeGeneratorName);
 

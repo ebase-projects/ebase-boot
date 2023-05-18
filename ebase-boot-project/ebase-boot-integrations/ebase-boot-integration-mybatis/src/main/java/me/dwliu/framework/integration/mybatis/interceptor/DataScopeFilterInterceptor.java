@@ -73,28 +73,28 @@ public class DataScopeFilterInterceptor implements QueryInterceptor {
 		if (flag) {
 			return;
 		}
-		log.debug("===数据过滤拦截器开始运行===");
+		log.trace("===数据过滤拦截器开始运行===");
 
 
 		UserInfoDetails user = SecurityUtils.getUser();
-		log.debug("===数据权限：获取当前用户：「{}」===", user);
+		log.trace("===数据权限：获取当前用户：「{}」===", user);
 		if (user == null) {
 			log.warn("===数据权限：获取当前用户为空：「{}」===", user);
 			return;
 		}
 		//如果是超级管理员，则不进行数据过滤
 		if (user.getSuperAdmin() != null && user.getSuperAdmin() == 1) {
-			log.debug("===数据权限：超级管理员「{}」，则不进行数据过滤===", user);
+			log.trace("===数据权限：超级管理员「{}」，则不进行数据过滤===", user);
 			return;
 		}
 
 		//根据条件生成sql 文件
 		String sqlFilter = getSqlFilter(classType, user, mappedStatement);
-		log.debug("===数据权限：根据条件生成sql:{}===", sqlFilter);
+		log.trace("===数据权限：根据条件生成sql:{}===", sqlFilter);
 
 		// 不用数据过滤
 		if (StringUtils.isBlank(sqlFilter)) {
-			log.debug("===数据权限：sqlFilter为空===");
+			log.trace("===数据权限：sqlFilter为空===");
 			return;
 		}
 
@@ -105,7 +105,7 @@ public class DataScopeFilterInterceptor implements QueryInterceptor {
 
 		// 拼接新SQL
 		originalSql = getSelect(originalSql, scope);
-		log.debug("===数据权限：拼接新SQL:{}===", originalSql);
+		log.trace("===数据权限：拼接新SQL:{}===", originalSql);
 
 		PluginUtils.MPBoundSql mpBs = PluginUtils.mpBoundSql(boundSql);
 		mpBs.sql(originalSql);

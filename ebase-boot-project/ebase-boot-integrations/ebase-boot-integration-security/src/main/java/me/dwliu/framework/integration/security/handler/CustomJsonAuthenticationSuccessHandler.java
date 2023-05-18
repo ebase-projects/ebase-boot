@@ -49,7 +49,7 @@ public class CustomJsonAuthenticationSuccessHandler implements AuthenticationSuc
 	@Override
 	public void onAuthenticationSuccess(HttpServletRequest request, HttpServletResponse response,
 										Authentication authentication) throws IOException, ServletException {
-		log.debug("===登录成功后直接返回 JSON===");
+		log.trace("===登录成功后直接返回 JSON===");
 		response.setContentType("application/json;charset=utf-8"); // 返回JSON
 		response.setStatus(HttpStatus.OK.value());  // 状态码 200
 //		Map<String, Object> result = new HashMap<>(); // 返回结果
@@ -76,7 +76,7 @@ public class CustomJsonAuthenticationSuccessHandler implements AuthenticationSuc
 		cacheService.save(SecurityCoreConstant.SECURITY_USERINFO_CACHE_KEY + securityUserDetails.getUsername(), s);
 
 		Result<Map> result = Result.success(model);
-		
+
 		response.getWriter().write(objectMapper.writeValueAsString(result));
 	}
 

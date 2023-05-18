@@ -25,7 +25,7 @@ import java.io.IOException;
 public class CustomJsonAccessDeniedHandler implements AccessDeniedHandler {
 	@Override
 	public void handle(HttpServletRequest request, HttpServletResponse response, AccessDeniedException accessDeniedException) throws IOException, ServletException {
-		log.debug("===登录账号密码错误等===");
+		log.trace("===登录账号密码错误等===");
 		response.setContentType("application/json;charset=utf-8"); // 返回JSON
 		response.setStatus(HttpStatus.FORBIDDEN.value());  // 状态码 401
 		ObjectMapper objectMapper = new ObjectMapper();

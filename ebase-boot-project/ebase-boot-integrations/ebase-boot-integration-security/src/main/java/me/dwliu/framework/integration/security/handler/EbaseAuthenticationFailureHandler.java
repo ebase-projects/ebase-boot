@@ -42,7 +42,7 @@
 //	public void onAuthenticationFailure(HttpServletRequest request, HttpServletResponse response,
 //										AuthenticationException exception) throws IOException, ServletException {
 //
-//		log.debug("登陆失败");
+//		log.trace("登陆失败");
 //		response.setStatus(HttpStatus.INTERNAL_SERVER_ERROR.value());
 //		response.setContentType("application/json;charset=utf-8");
 //		ObjectMapper objectMapper = new ObjectMapper();

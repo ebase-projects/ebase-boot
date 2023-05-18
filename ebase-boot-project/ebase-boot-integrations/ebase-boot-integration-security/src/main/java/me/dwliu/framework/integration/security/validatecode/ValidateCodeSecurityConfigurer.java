@@ -54,7 +54,7 @@ public class ValidateCodeSecurityConfigurer
 
 	@Override
 	public void init(HttpSecurity http) throws Exception {
-		log.debug("===init ValidateCodeSecurityConfigurer===");
+		log.trace("===init ValidateCodeSecurityConfigurer===");
 		validateCodeFilter = getSharedOrBean(http, ValidateCodeFilter.class);
 		//validateCodeFilter.setLoginSmsUrl(this.getLoginSmsUrl());
 		//validateCodeFilter.setLoginImageUrl(this.getLoginImageUrl());

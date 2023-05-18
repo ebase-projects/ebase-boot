@@ -31,7 +31,7 @@
 //        // 1. 获取权限过滤相关信息
 //        DataFilterMetaData dataFilterMetaData = DataFilterThreadLocal.get();
 //        try {
-//            log.debug("开始进行权限过滤,dataFilterMetaData:{} , where: {},mappedStatementId: {}", dataFilterMetaData, where, mappedStatementId);
+//            log.trace("开始进行权限过滤,dataFilterMetaData:{} , where: {},mappedStatementId: {}", dataFilterMetaData, where, mappedStatementId);
 //            if (dataFilterMetaData == null) {
 //                return where;
 //            }

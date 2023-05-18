@@ -65,7 +65,7 @@
 //
 //		clientSecret = "{bcrypt}" + new BCryptPasswordEncoder().encode(clientSecret);
 //
-//		log.debug("Basic Authentication Authorization header found for user '" + clientId + "'");
+//		log.trace("Basic Authentication Authorization header found for user '" + clientId + "'");
 //
 //		ClientDetails clientDetails = clientDetailsService.loadClientByClientId(clientId);
 //

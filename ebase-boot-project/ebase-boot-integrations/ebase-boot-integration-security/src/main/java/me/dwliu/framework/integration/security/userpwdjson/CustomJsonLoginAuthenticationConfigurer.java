@@ -51,7 +51,7 @@ public class CustomJsonLoginAuthenticationConfigurer
 
 	@Override
 	public void init(HttpSecurity http) throws Exception {
-		log.debug("===init CustomJsonLoginAuthenticationConfigurer===");
+		log.trace("===init CustomJsonLoginAuthenticationConfigurer===");
 
 		jwtTokenUtils = getSharedOrBean(http, JwtTokenUtils.class);
 		cacheService = getSharedOrBean(http, CacheService.class);

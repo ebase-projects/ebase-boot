@@ -32,7 +32,7 @@ public class CustomMybatisPlusConfig {
 	 */
 	@Bean
 	public MybatisPlusInterceptor mybatisPlusInterceptor(ObjectProvider<QueryInterceptor[]> queryInterceptors) {
-		log.debug("===新MybatisPlus插件配置 ===");
+		log.trace("===新MybatisPlus插件配置 ===");
 		MybatisPlusInterceptor interceptor = new MybatisPlusInterceptor();
 
 		// 配置分页拦截器
@@ -71,7 +71,7 @@ public class CustomMybatisPlusConfig {
 	@Bean
 	@ConditionalOnMissingBean({MetaObjectHandler.class})
 	public MetaObjectHandler fieldMetaObjectHandler() {
-		log.debug("===MysbatisPlus 公共字段自动填充值 生成默认的 MetaObjectHandler 实现===");
+		log.trace("===MysbatisPlus 公共字段自动填充值 生成默认的 MetaObjectHandler 实现===");
 		return new DefaultFieldMetaObjectHandler();
 	}
 

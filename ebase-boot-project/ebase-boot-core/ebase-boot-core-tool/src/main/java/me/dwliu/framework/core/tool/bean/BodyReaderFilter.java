@@ -23,7 +23,7 @@ public class BodyReaderFilter implements Filter {
 
 	@Override
 	public void init(FilterConfig filterConfig) throws ServletException {
-		log.debug("===开启BodyReaderFilter ，阻止getInputStream 只能读取一次的问题===");
+		log.trace("===开启BodyReaderFilter ，阻止getInputStream 只能读取一次的问题===");
 	}
 
 	@Override

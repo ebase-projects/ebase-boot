@@ -33,7 +33,7 @@ public class CustomJsonAuthenticationFailureHandler implements AuthenticationFai
 	@Override
 	public void onAuthenticationFailure(HttpServletRequest request, HttpServletResponse response,
 										AuthenticationException exception) throws IOException, ServletException {
-		log.debug("===登录账号密码错误等===");
+		log.trace("===登录账号密码错误等===");
 		response.setContentType("application/json;charset=utf-8"); // 返回JSON
 		response.setStatus(HttpStatus.UNAUTHORIZED.value());  // 状态码 401
 		ObjectMapper objectMapper = new ObjectMapper();

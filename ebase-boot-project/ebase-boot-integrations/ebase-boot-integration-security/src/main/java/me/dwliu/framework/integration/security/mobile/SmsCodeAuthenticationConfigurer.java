@@ -129,7 +129,7 @@ public class SmsCodeAuthenticationConfigurer
 
 	@Override
 	public void init(HttpSecurity http) throws Exception {
-		log.debug("===init SmsCodeAuthenticationConfigurer===");
+		log.trace("===init SmsCodeAuthenticationConfigurer===");
 
 		jwtTokenUtils = getSharedOrBean(http, JwtTokenUtils.class);
 		cacheService = getSharedOrBean(http, CacheService.class);
