@@ -7,6 +7,7 @@ import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import me.dwliu.framework.core.security.cache.CacheService;
 import me.dwliu.framework.core.security.constant.SecurityCoreConstant;
 import me.dwliu.framework.core.security.dto.UserInfoDTO;
@@ -35,6 +36,7 @@ import java.util.Set;
  * @author liudw
  * @date 2023/5/3 23:00
  **/
+@Slf4j
 @RequiredArgsConstructor
 public class CustomJsonValidateLoginTokenFilter extends OncePerRequestFilter {
 
@@ -49,7 +51,7 @@ public class CustomJsonValidateLoginTokenFilter extends OncePerRequestFilter {
 			String token = jwtTokenUtils.resolveToken(request);
 
 			if (StringUtils.isBlank(token)) {
-				logger.trace("Did not process request since did not find bearer token");
+				log.trace("Did not process request since did not find bearer token");
 				// 继续下一个过滤器
 				filterChain.doFilter(request, response);
 				return;
