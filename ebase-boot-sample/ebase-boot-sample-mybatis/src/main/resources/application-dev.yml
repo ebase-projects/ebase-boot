@@ -2,7 +2,7 @@ spring:
     datasource:
         #MySQL
         driver-class-name: com.mysql.cj.jdbc.Driver
-        url: jdbc:mysql://XXXX:3307/demo?allowMultiQueries=true&useUnicode=true&characterEncoding=UTF-8&useSSL=false
+        url: jdbc:mysql://bd.dwliu.me:3307/demo?allowMultiQueries=true&useUnicode=true&characterEncoding=UTF-8&useSSL=false
         username: test
         password: test1234
         auto-commit: true
