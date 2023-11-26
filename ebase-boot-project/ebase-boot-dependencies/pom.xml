@@ -22,7 +22,7 @@
 
         <!--spring-->
         <!-- https://github.com/spring-projects/spring-boot/tags -->
-        <spring.boot.version>3.0.6</spring.boot.version>
+        <spring.boot.version>3.0.13</spring.boot.version>
 
         <!--apache-->
         <!--https://mvnrepository.com/-->
