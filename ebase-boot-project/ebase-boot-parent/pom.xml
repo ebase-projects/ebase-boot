@@ -19,14 +19,27 @@
         <ebase.boot.version>${project.version}</ebase.boot.version>
     </properties>
     <build>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-maven-plugin</artifactId>
+                    <version>${spring.boot.version}</version>
+                    <executions>
+                        <execution>
+                            <goals>
+                                <goal>repackage</goal>
+                            </goals>
+                        </execution>
+                    </executions>
+                </plugin>
+            </plugins>
+        </pluginManagement>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
-                <configuration>
-                    <source>${java.version}</source>
-                    <target>${java.version}</target>
-                </configuration>
+
             </plugin>
             <!--Maven Jar Plugin-->
             <plugin>
@@ -59,7 +72,7 @@
                         <goals>
                             <goal>jar</goal>
                         </goals>
-<!--                        <phase>package</phase>-->
+                        <!--                        <phase>package</phase>-->
                     </execution>
                 </executions>
             </plugin>
@@ -71,7 +84,7 @@
                     <execution>
                         <id>attach-sources</id>
                         <goals>
-<!--                            <goal>jar-no-fork</goal>-->
+                            <!--                            <goal>jar-no-fork</goal>-->
                             <goal>jar</goal>
                         </goals>
                     </execution>
