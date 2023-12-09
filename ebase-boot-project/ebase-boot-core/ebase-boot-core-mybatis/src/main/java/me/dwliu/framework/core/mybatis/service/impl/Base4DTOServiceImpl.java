@@ -1,11 +1,8 @@
 package me.dwliu.framework.core.mybatis.service.impl;
 
-import com.baomidou.mybatisplus.core.conditions.Wrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
-import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import me.dwliu.framework.common.model.PageData;
 import me.dwliu.framework.core.mybatis.dao.BaseDAO;
-import me.dwliu.framework.core.mybatis.query.QueryPageUtil;
 import me.dwliu.framework.core.mybatis.service.Base4DTOService;
 import me.dwliu.framework.core.tool.util.ConvertUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,7 +19,8 @@ import java.util.Map;
  * @author liudw
  * @date 2019-12-29 09:18
  **/
-public abstract class Base4DTOServiceImpl<M extends BaseDAO<T>, T, D> extends BaseServiceImpl<M, T> implements Base4DTOService<T, D> {
+public abstract class Base4DTOServiceImpl<M extends BaseDAO<T>, T, D> extends BaseServiceImpl<M, T>
+	implements Base4DTOService<T, D> {
 
 	@Autowired
 	protected M baseDAO;

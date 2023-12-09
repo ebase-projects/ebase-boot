@@ -24,10 +24,8 @@
         <module>ebase-boot-core-mybatis</module>
         <module>ebase-boot-core-redis</module>
         <module>ebase-boot-core-log</module>
-        <!--        <module>ebase-boot-core-oss</module>-->
-
-
-        <!--        <module>ebase-boot-core-mongodb</module>-->
+        <!--<module>ebase-boot-core-oss</module>-->
+        <!--<module>ebase-boot-core-mongodb</module>-->
 
     </modules>
 

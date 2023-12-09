@@ -48,7 +48,7 @@ public class BeanMapper {
 			return null;
 		}
 		try {
-			T target = targetCls.newInstance();
+			T target = targetCls.getDeclaredConstructor().newInstance();
 			copyProperties(source, target, editable, ignoreProperties);
 			return target;
 		} catch (Exception e) {
