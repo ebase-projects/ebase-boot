@@ -80,7 +80,7 @@ public class DefaultFieldMetaObjectHandler implements MetaObjectHandler {
 					}
 				} else {
 					if (StringUtils.isNotBlank(user.getUserId())) {
-						this.strictInsertFill(metaObject, UPDATE_BY, Long.class, Long.parseLong(user.getUserId()));
+						this.strictUpdateFill(metaObject, UPDATE_BY, Long.class, Long.parseLong(user.getUserId()));
 					}
 				}
 			}
