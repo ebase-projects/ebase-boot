@@ -14,6 +14,7 @@ import lombok.ToString;
 import me.dwliu.framework.common.code.IResultCode;
 import me.dwliu.framework.common.code.SystemResultCode;
 
+import java.io.Serial;
 import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.util.Optional;
@@ -30,6 +31,8 @@ import java.util.Optional;
 @ToString
 @Schema(description = "通用返回实体")
 public class Result<T> implements Serializable {
+	@Serial
+	private static final long serialVersionUID = 1L;
 	/**
 	 * 状态码
 	 */
@@ -85,7 +88,7 @@ public class Result<T> implements Serializable {
 	 * @param <T>    泛型标记
 	 * @return 泛型对象
 	 */
-	public static <T> T getData( Result<T> result) {
+	public static <T> T getData(Result<T> result) {
 		return Optional.ofNullable(result)
 			//.filter(r -> r.success)
 			.map(x -> x.getData())
@@ -109,7 +112,7 @@ public class Result<T> implements Serializable {
 	 * @param <T>  泛型标记
 	 * @return Result
 	 */
-	public static <T> Result<T> success( T data) {
+	public static <T> Result<T> success(T data) {
 		return new Result<>(SystemResultCode.SUCCESS, data);
 	}
 
