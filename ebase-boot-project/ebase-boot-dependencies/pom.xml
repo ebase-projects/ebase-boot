@@ -22,7 +22,7 @@
 
         <!--spring-->
         <!-- https://github.com/spring-projects/spring-boot/tags -->
-        <spring.boot.version>3.1.8</spring.boot.version>
+        <spring.boot.version>3.1.9</spring.boot.version>
 
         <!--apache-->
         <!--https://mvnrepository.com/-->
@@ -30,8 +30,8 @@
         <commons.io.version>2.11.0</commons.io.version>
 
         <!--DB-->
-        <mybatis.plus.boot.starter.version>3.5.3.1</mybatis.plus.boot.starter.version>
-        <mysql.version>8.0.32</mysql.version>
+        <mybatis.plus.boot.starter.version>3.5.5</mybatis.plus.boot.starter.version>
+        <mysql.version>8.0.33</mysql.version>
         <oracle.version>11.2.0.4</oracle.version>
 
         <!--tool-->
